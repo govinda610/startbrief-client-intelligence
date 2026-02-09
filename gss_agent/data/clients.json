@@ -1,0 +1,151 @@
+[
+    {
+        "id": "c_amz_001",
+        "name": "Amazon",
+        "industry": "High Tech",
+        "revenue": "$574.8 Billion",
+        "employees": "1,525,000",
+        "region": "Global",
+        "lifecycle_stage": "Renewal",
+        "churn_risk": "Medium",
+        "subscriptions": [
+            "Gartner for Sales Leaders",
+            "Gartner for Tech CEOs"
+        ],
+        "entitlements": [
+            "Gartner Peer Insights",
+            "Analyst Inquiries (Unlimited)",
+            "Sales Score Diagnostic"
+        ],
+        "key_contacts": [
+            {
+                "name": "Andy Jassy",
+                "role": "CEO",
+                "focus": "Efficiency & AI Integration"
+            },
+            {
+                "name": "Sales Ops VP",
+                "role": "VP Sales Operations",
+                "focus": "Quota Attainment"
+            }
+        ],
+        "last_interaction": {
+            "date": "2025-01-15",
+            "type": "Inquiry",
+            "summary": "Asked about 'Generative AI for Sales Enablement' but expressed frustration with generic advice."
+        },
+        "usage_metrics": {
+            "login_frequency_trend": -15,
+            "document_downloads_l90d": 12,
+            "inquiry_utilization": "Low"
+        }
+    },
+    {
+        "id": "c_aka_002",
+        "name": "Akamai Technologies",
+        "industry": "Software & Services",
+        "revenue": "$3.8 Billion",
+        "employees": "9,800",
+        "region": "North America",
+        "lifecycle_stage": "At Risk",
+        "churn_risk": "High",
+        "subscriptions": [
+            "Gartner for Tech CSOs"
+        ],
+        "entitlements": [
+            "Hype Cycle Access",
+            "Executive Networking Events"
+        ],
+        "key_contacts": [
+            {
+                "name": "Tom Leighton",
+                "role": "CEO",
+                "focus": "Security & Edge Computing"
+            },
+            {
+                "name": "CSO",
+                "role": "Chief Sales Officer",
+                "focus": "Market Expansion"
+            }
+        ],
+        "last_interaction": {
+            "date": "2025-02-10",
+            "type": "Renewal Discussion",
+            "summary": "Mentioned budget cuts. Competitor Forrester is offering a lower price point."
+        },
+        "usage_metrics": {
+            "login_frequency_trend": -40,
+            "document_downloads_l90d": 3,
+            "inquiry_utilization": "None"
+        }
+    },
+    {
+        "id": "c_cms_003",
+        "name": "Centers for Medicare & Medicaid Services (CMS)",
+        "industry": "Public Sector / Healthcare",
+        "revenue": "N/A (Budget: $1.4 Trillion)",
+        "employees": "6,400",
+        "region": "USA",
+        "lifecycle_stage": "Onboarding",
+        "churn_risk": "Low",
+        "subscriptions": [
+            "Gartner for CIOs"
+        ],
+        "entitlements": [
+            "IT Score",
+            "Contract Review"
+        ],
+        "key_contacts": [
+            {
+                "name": "CIO",
+                "role": "Chief Information Officer",
+                "focus": "Modernization & Compliance"
+            }
+        ],
+        "last_interaction": {
+            "date": "2025-03-01",
+            "type": "Service Kickoff",
+            "summary": "Excited about digital transformation roadmap."
+        },
+        "usage_metrics": {
+            "login_frequency_trend": 20,
+            "document_downloads_l90d": 45,
+            "inquiry_utilization": "High"
+        }
+    },
+    {
+        "id": "c_gep_004",
+        "name": "GEP Worldwide",
+        "industry": "Supply Chain Software",
+        "revenue": "$1.4 Billion",
+        "employees": "6,000",
+        "region": "Global",
+        "lifecycle_stage": "Growth",
+        "churn_risk": "Low",
+        "subscriptions": [
+            "Gartner for Supply Chain Leaders",
+            "Gartner for Marketing Leaders"
+        ],
+        "entitlements": [
+            "Magic Quadrant Reprint Rights",
+            "Analyst Briefings"
+        ],
+        "key_contacts": [
+            {
+                "name": "CMO",
+                "role": "Chief Marketing Officer",
+                "focus": "Brand Awareness"
+            }
+        ],
+        "last_interaction": {
+            "date": "2025-02-20",
+            "type": "Briefing",
+            "summary": "Briefed analysts on new AI-driven procurement platform."
+        },
+        "usage_metrics": {
+            "login_frequency_trend": 5,
+            "document_downloads_l90d": 80,
+            "inquiry_utilization": "Medium"
+        }
+    }
+]

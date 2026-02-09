@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gartner-bg: #0A192F;
+  --color-gartner-card: #112240;
+  --color-gartner-hover: #233554;
+  --color-gartner-border: #1E3A8A;
+  --color-gartner-cyan: #64FFDA;
+  --color-gartner-blue: #00E0FF;
+  --color-gartner-slate: #8892B0;
+  --color-gartner-light: #E6F1FF;
+
+  --font-sans: Inter, system-ui, sans-serif;
+
+  --shadow-neon: 0 0 10px rgba(100, 255, 218, 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-gartner-bg text-gartner-slate font-sans antialiased overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: rgba(17, 34, 64, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 58, 138, 0.3);
+    box-shadow: var(--shadow-glass);
+    border-radius: 0.75rem;
+  }
+
+  .neon-text {
+    color: var(--color-gartner-cyan);
+    filter: drop-shadow(0 0 2px rgba(100, 255, 218, 0.5));
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar for Traces */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gartner-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gartner-card rounded-full border border-gartner-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gartner-hover;
+}

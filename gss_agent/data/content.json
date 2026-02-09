@@ -1,0 +1,602 @@
+[
+  {
+    "id": "RES-2000",
+    "title": "Top 10 Strategic Technology Trends for 2025: Agentic AI",
+    "abstract": "",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "GenAI",
+      "Data",
+      "Cloud"
+    ],
+    "published_date": "2026-01-06"
+  },
+  {
+    "id": "RES-2001",
+    "title": "Hype Cycle for Revenue and Sales Technology 2024",
+    "abstract": "",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Cloud",
+      "Data",
+      "GenAI"
+    ],
+    "published_date": "2026-01-22"
+  },
+  {
+    "id": "RES-2002",
+    "title": "Quick Answer: How to Use GenAI for Territory Planning",
+    "abstract": "",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "GenAI",
+      "Sales Ops",
+      "Data"
+    ],
+    "published_date": "2026-01-26"
+  },
+  {
+    "id": "RES-2003",
+    "title": "Magic Quadrant for Customer Data Platforms (CDPs) 2024",
+    "abstract": "",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Cloud",
+      "CRM",
+      "Data"
+    ],
+    "published_date": "2026-01-05"
+  },
+  {
+    "id": "RES-2004",
+    "title": "Emotion AI in B2B Sales: The Next Frontier",
+    "abstract": "",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "CRM",
+      "Data",
+      "GenAI"
+    ],
+    "published_date": "2026-01-18"
+  },
+  {
+    "id": "RES-2005",
+    "title": "Top 10 Strategic Technology Trends for 2025: Agentic AI",
+    "abstract": "The 2025 strategic technology trends report underscores the transformative impact of Agentic AI across CRM, cloud, and data ecosystems, positioning autonomous decision\u2011making as a catalyst for scalable innovation. Its insights drive measurable reductions in cloud migration expenditures by optimizing resource allocation and automating workload orchestration.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "CRM",
+      "Cloud",
+      "Data"
+    ],
+    "published_date": "2026-01-12"
+  },
+  {
+    "id": "RES-2006",
+    "title": "Critical Capabilities for Sales Force Automation 2024",
+    "abstract": "",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Sales Ops",
+      "Cloud",
+      "Data"
+    ],
+    "published_date": "2026-01-18"
+  },
+  {
+    "id": "RES-2007",
+    "title": "Top 10 Strategic Technology Trends for 2025: Agentic AI",
+    "abstract": "Gartner\u2019s 2025 strategic technology trend analysis highlights Agentic AI as a catalyst for integrating cloud\u2011based CRM and data ecosystems to deliver hyper\u2011personalized customer experiences. This shift is projected to lift customer retention rates by up to 25\u202f% through context\u2011aware, proactive engagement models.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Cloud",
+      "CRM",
+      "Data"
+    ],
+    "published_date": "2026-01-16"
+  },
+  {
+    "id": "RES-2008",
+    "title": "Quick Answer: How to Use GenAI for Territory Planning",
+    "abstract": "",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Strategy",
+      "Sales Ops",
+      "CRM"
+    ],
+    "published_date": "2026-01-19"
+  },
+  {
+    "id": "RES-2009",
+    "title": "Emotion AI in B2B Sales: The Next Frontier",
+    "abstract": "This report examines the strategic implications of Emotion AI in B",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Strategy",
+      "GenAI",
+      "CRM"
+    ],
+    "published_date": "2026-01-14"
+  },
+  {
+    "id": "RES-2010",
+    "title": "Magic Quadrant for Customer Data Platforms (CDPs) 2024",
+    "abstract": "Language thousand system green beyond. Little economy project. Save lose our general rise. Class meeting relate not happy garden push. Outside relationship prove financial future say character stay.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "GenAI",
+      "Data",
+      "Cloud"
+    ],
+    "published_date": "2026-01-02"
+  },
+  {
+    "id": "RES-2011",
+    "title": "Emotion AI in B2B Sales: The Next Frontier",
+    "abstract": "Mrs if skill occur imagine his. Religious everyone order in article age seem against. See understand child create hard involve. Car group others.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Sales Ops",
+      "Strategy",
+      "GenAI"
+    ],
+    "published_date": "2026-01-09"
+  },
+  {
+    "id": "RES-2012",
+    "title": "Quality-focused asymmetric middleware Report 2025",
+    "abstract": "Determine each main rise. Medical various mind tree message food could door. Now scientist know week building Democrat. Heavy woman each. Suggest choose trip area way price important. Arm question how sit it without fire.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "GenAI",
+      "Sales Ops",
+      "Data"
+    ],
+    "published_date": "2026-01-18"
+  },
+  {
+    "id": "RES-2013",
+    "title": "Automated zero tolerance circuit Report 2025",
+    "abstract": "Determine with every way. Already nearly car east clearly. Sound myself campaign support story old. For reason up morning. Perform brother anything order. Maybe fear third nature.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "CRM",
+      "GenAI",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-07"
+  },
+  {
+    "id": "RES-2014",
+    "title": "Enterprise-wide holistic protocol Report 2025",
+    "abstract": "His order fast age. Similar sport instead action. Impact today point firm nor.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "GenAI",
+      "Strategy",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-16"
+  },
+  {
+    "id": "RES-2015",
+    "title": "Visionary multi-tasking architecture Report 2025",
+    "abstract": "Yet special line hot raise purpose. Until sister school public most. Other run unit chance.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Strategy",
+      "Data",
+      "Cloud"
+    ],
+    "published_date": "2026-01-07"
+  },
+  {
+    "id": "RES-2016",
+    "title": "Object-based analyzing conglomeration Report 2025",
+    "abstract": "Civil want necessary change. Hour already player. Mr card size result. Yet listen fish strong must natural opportunity fast. Some popular these light they.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Data",
+      "GenAI",
+      "CRM"
+    ],
+    "published_date": "2026-01-07"
+  },
+  {
+    "id": "RES-2017",
+    "title": "Decentralized multi-state toolset Report 2025",
+    "abstract": "Save happen white keep out strong last. Test best protect father. Game health record unit its third.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Data",
+      "CRM",
+      "Cloud"
+    ],
+    "published_date": "2026-01-17"
+  },
+  {
+    "id": "RES-2018",
+    "title": "Programmable exuding system engine Report 2025",
+    "abstract": "Cup modern share. Happy picture perform society local act. Early different subject together even.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "CRM",
+      "Strategy",
+      "Cloud"
+    ],
+    "published_date": "2026-01-06"
+  },
+  {
+    "id": "RES-2019",
+    "title": "Object-based bottom-line array Report 2025",
+    "abstract": "Pass single property player. Ready we police important. List child process mention about. Light public some apply ever church.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Sales Ops",
+      "CRM",
+      "Cloud"
+    ],
+    "published_date": "2026-01-14"
+  },
+  {
+    "id": "RES-2020",
+    "title": "Future-proofed contextually-based capacity Report 2025",
+    "abstract": "Skill reflect worry structure difficult read. Challenge name use I. Cultural treat we. Beautiful sport scientist space situation home charge. Recently cultural question view treat campaign tonight help. Laugh certain traditional future radio.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Cloud",
+      "CRM",
+      "GenAI"
+    ],
+    "published_date": "2026-01-15"
+  },
+  {
+    "id": "RES-2021",
+    "title": "Profit-focused secondary circuit Report 2025",
+    "abstract": "Appear tell push west. Form foreign because policy. Evidence impact shake else model check.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "CRM",
+      "Sales Ops",
+      "Cloud"
+    ],
+    "published_date": "2026-01-20"
+  },
+  {
+    "id": "RES-2022",
+    "title": "Innovative multimedia portal Report 2025",
+    "abstract": "Consider their meet significant open pull assume. Capital thing price event well positive American. Get culture really sport spend member.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Data",
+      "CRM",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-05"
+  },
+  {
+    "id": "RES-2023",
+    "title": "Down-sized next generation customer loyalty Report 2025",
+    "abstract": "Attorney there customer bill like. Customer scene four entire. Power sure court stage put process. Green do meeting attack three. Enter fall nearly never answer.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "GenAI",
+      "CRM",
+      "Cloud"
+    ],
+    "published_date": "2026-01-16"
+  },
+  {
+    "id": "RES-2024",
+    "title": "User-friendly logistical Internet solution Report 2025",
+    "abstract": "Act air family enter service speech. Cut decide note cold. Several activity quickly bring. Agreement manage thought key party. Within represent him base direction any structure.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "Cloud",
+      "Strategy",
+      "GenAI"
+    ],
+    "published_date": "2026-01-26"
+  },
+  {
+    "id": "RES-2025",
+    "title": "Fundamental full-range productivity Report 2025",
+    "abstract": "More try central particularly candidate class manager idea. Term debate health tonight. Person employee country blood similar condition do technology. Majority teacher coach short scene authority population. Able change election. Think machine fact whatever fact security why.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Sales Ops",
+      "CRM",
+      "GenAI"
+    ],
+    "published_date": "2026-01-09"
+  },
+  {
+    "id": "RES-2026",
+    "title": "Customer-focused multi-state hub Report 2025",
+    "abstract": "Let east believe eat remember teacher. Management many increase news. Course could under. Important data section. Throw relate know owner bill.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Strategy",
+      "GenAI",
+      "Data"
+    ],
+    "published_date": "2026-01-01"
+  },
+  {
+    "id": "RES-2027",
+    "title": "Self-enabling discrete capability Report 2025",
+    "abstract": "Point south score baby minute and edge figure. The big stay new financial send southern perform. Civil they subject record college husband against stop.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Strategy",
+      "CRM",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-15"
+  },
+  {
+    "id": "RES-2028",
+    "title": "Expanded executive moderator Report 2025",
+    "abstract": "Scene star head television prove could issue. Number experience value listen attention teacher. Impact begin performance.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "Data",
+      "CRM",
+      "Cloud"
+    ],
+    "published_date": "2026-01-06"
+  },
+  {
+    "id": "RES-2029",
+    "title": "Seamless analyzing orchestration Report 2025",
+    "abstract": "Where experience design show by throw worker. State your discuss try help. Financial movement few outside free. Top yard my gun meeting opportunity kind.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "Strategy",
+      "GenAI",
+      "Cloud"
+    ],
+    "published_date": "2026-01-22"
+  },
+  {
+    "id": "RES-2030",
+    "title": "Automated real-time Graphic Interface Report 2025",
+    "abstract": "Yourself such answer poor discover anyone. Research final fall attack. Send give quite lead condition. Good ready clear. Fight mouth huge drive personal son reason.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "Strategy",
+      "GenAI",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-08"
+  },
+  {
+    "id": "RES-2031",
+    "title": "Reverse-engineered stable circuit Report 2025",
+    "abstract": "Me adult television. Explain theory amount mind off hospital everything provide. Nice year strategy miss. Me TV music standard director at.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "CRM",
+      "GenAI",
+      "Cloud"
+    ],
+    "published_date": "2026-01-18"
+  },
+  {
+    "id": "RES-2032",
+    "title": "Fully-configurable hybrid function Report 2025",
+    "abstract": "Eye off individual reality some off other artist. Themselves phone say newspaper. General grow hand notice risk partner loss. Find top accept list information heart site. And know song sit sea indicate prove. Follow anything anything available.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "GenAI",
+      "Data",
+      "CRM"
+    ],
+    "published_date": "2026-01-27"
+  },
+  {
+    "id": "RES-2033",
+    "title": "Multi-channeled holistic firmware Report 2025",
+    "abstract": "Explain nation oil seek there. He myself nation environmental pretty skin. Travel service if character whatever culture. Its more suddenly argue.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "CRM",
+      "Sales Ops",
+      "Strategy"
+    ],
+    "published_date": "2026-01-09"
+  },
+  {
+    "id": "RES-2034",
+    "title": "Ameliorated contextually-based support Report 2025",
+    "abstract": "Standard left care use arm. Everybody mind continue most player. Win design leg everything. Move involve by future. Something base others beat seat skin participant. Maybe simply book science although how class.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Sales Ops",
+      "GenAI",
+      "Cloud"
+    ],
+    "published_date": "2026-01-19"
+  },
+  {
+    "id": "RES-2035",
+    "title": "Optional full-range focus group Report 2025",
+    "abstract": "Traditional general whose join save. Lawyer move serve field plan how. Away step future against feeling lose.",
+    "strategic_value": "Helps in cloud migration cost-saving",
+    "tags": [
+      "Strategy",
+      "Cloud",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-12"
+  },
+  {
+    "id": "RES-2036",
+    "title": "Seamless methodical encoding Report 2025",
+    "abstract": "Same report just more price claim two. Recently while suddenly too movement how every. Car news drop discussion. Gas enjoy and star.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "CRM",
+      "Strategy",
+      "GenAI"
+    ],
+    "published_date": "2026-01-08"
+  },
+  {
+    "id": "RES-2037",
+    "title": "Optimized empowering adapter Report 2025",
+    "abstract": "Writer matter successful world live. Hear especially day even knowledge your she. Event talk forward music enjoy.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Data",
+      "Sales Ops",
+      "Strategy"
+    ],
+    "published_date": "2026-01-27"
+  },
+  {
+    "id": "RES-2038",
+    "title": "Reduced responsive protocol Report 2025",
+    "abstract": "At form they radio quite. Dream nice million present. Student know home huge treat him. Too describe sure available watch feeling hope. Coach move skin certainly region financial even religious. Begin head since adult heavy.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Data",
+      "Sales Ops",
+      "CRM"
+    ],
+    "published_date": "2026-01-09"
+  },
+  {
+    "id": "RES-2039",
+    "title": "Ergonomic client-server focus group Report 2025",
+    "abstract": "Cost heart move road himself particular. Less case professional anyone. Science peace government suffer public thus run note. Just head strategy officer event account. Save policy including attention audience. Ask idea name spend mission able trip.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Cloud",
+      "CRM",
+      "Data"
+    ],
+    "published_date": "2026-01-22"
+  },
+  {
+    "id": "RES-2040",
+    "title": "Up-sized grid-enabled interface Report 2025",
+    "abstract": "Information step officer appear get movie. Increase remember city phone. Place finish fund a health customer. Bar early full. Natural young herself attention get source. Deal worry financial moment customer away right.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Cloud",
+      "Strategy",
+      "GenAI"
+    ],
+    "published_date": "2026-01-14"
+  },
+  {
+    "id": "RES-2041",
+    "title": "Re-contextualized intermediate Graphical User Interface Report 2025",
+    "abstract": "Property action until standard loss or the. Focus view another together can deal audience. Player police whole air. Spend life professor degree arm include mission.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Cloud",
+      "CRM",
+      "Sales Ops"
+    ],
+    "published_date": "2026-01-02"
+  },
+  {
+    "id": "RES-2042",
+    "title": "Vision-oriented multi-state contingency Report 2025",
+    "abstract": "Arm go that wide call newspaper key. Experience official then rise. Authority generation challenge free.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Data",
+      "Sales Ops",
+      "Cloud"
+    ],
+    "published_date": "2026-01-24"
+  },
+  {
+    "id": "RES-2043",
+    "title": "Multi-tiered foreground software Report 2025",
+    "abstract": "Particular skill population evidence later fall truth. Experience statement keep sign all. Special for one choose partner give develop. Against subject imagine stage sure physical local. Indicate friend production method season truth night record. Impact figure summer boy only above significant.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Sales Ops",
+      "Cloud",
+      "CRM"
+    ],
+    "published_date": "2026-01-07"
+  },
+  {
+    "id": "RES-2044",
+    "title": "Horizontal actuating throughput Report 2025",
+    "abstract": "Late evidence worry protect. Police yeah where yes cultural walk. Court nation thousand check movie. Trip watch pass significant.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "Data",
+      "CRM",
+      "Cloud"
+    ],
+    "published_date": "2026-01-27"
+  },
+  {
+    "id": "RES-2045",
+    "title": "Stand-alone user-facing infrastructure Report 2025",
+    "abstract": "Second leave rate ability prove his. No star whom structure painting site. Cold image for often movie those see. Direction job thus million kitchen hold.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Sales Ops",
+      "Cloud",
+      "CRM"
+    ],
+    "published_date": "2026-01-11"
+  },
+  {
+    "id": "RES-2046",
+    "title": "De-engineered coherent software Report 2025",
+    "abstract": "Travel pretty space garden. Anything operation rate campaign game thing. Hour onto name those early hotel.",
+    "strategic_value": "Increases sales productivity by 15%",
+    "tags": [
+      "Sales Ops",
+      "GenAI",
+      "Cloud"
+    ],
+    "published_date": "2026-01-02"
+  },
+  {
+    "id": "RES-2047",
+    "title": "Implemented 4thgeneration synergy Report 2025",
+    "abstract": "Remain score approach price any. Indicate such put rule. Food concern effort almost about enjoy standard. Game summer moment step letter nor. Provide ask computer especially.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Strategy",
+      "GenAI",
+      "Data"
+    ],
+    "published_date": "2026-01-14"
+  },
+  {
+    "id": "RES-2048",
+    "title": "Programmable systemic approach Report 2025",
+    "abstract": "Rate time whatever organization seek answer speak. Few reduce she away issue attack. Themselves material decision professional good write option. Whom history along party media. Campaign education economy act. Information option maintain win rich do method.",
+    "strategic_value": "Improves customer retention via personalization",
+    "tags": [
+      "GenAI",
+      "Cloud",
+      "Data"
+    ],
+    "published_date": "2026-01-12"
+  },
+  {
+    "id": "RES-2049",
+    "title": "Compatible solution-oriented frame Report 2025",
+    "abstract": "Somebody population hotel onto. Into mention thought own where head ball. Mr everyone direction. Improve as follow skin unit. Society entire six. Physical pick reduce arrive strategy.",
+    "strategic_value": "Identifies key AI vendors for 2025",
+    "tags": [
+      "Sales Ops",
+      "GenAI",
+      "Data"
+    ],
+    "published_date": "2026-01-19"
+  }
+]

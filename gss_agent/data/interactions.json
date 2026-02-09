@@ -1,0 +1,1261 @@
+[
+    {
+        "id": "INT-3000",
+        "client_id": "CL-1016",
+        "client_name": "Miller-Jackson",
+        "date": "2026-01-15",
+        "type": "Support Ticket",
+        "summary": "Pass job kid wide against up personal or body he on have bit.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3001",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-17",
+        "type": "Email",
+        "summary": "Poor along or happen exactly visit room here other.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3002",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-11",
+        "type": "Email",
+        "summary": "Music respond production western end surface special think write voice north air air business institution tax television reality generation performance.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3003",
+        "client_id": "CL-1012",
+        "client_name": "Mcdonald-Morris",
+        "date": "2026-01-14",
+        "type": "Meeting Note",
+        "summary": "Key forward public prevent newspaper use center future medical interesting fill discussion theory.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3004",
+        "client_id": "CL-1003",
+        "client_name": "GEP Worldwide",
+        "date": "2026-01-25",
+        "type": "Inquiry Call",
+        "summary": "Drug office investment whole exactly she score rock long suddenly own charge down past member base somebody continue.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend content push for re-engagement",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3005",
+        "client_id": "CL-1016",
+        "client_name": "Miller-Jackson",
+        "date": "2026-01-15",
+        "type": "Meeting Note",
+        "summary": "Condition campaign themselves too increase board any while data guess peace spring action dream trouble expert natural soldier cut none.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3006",
+        "client_id": "CL-1011",
+        "client_name": "Wang LLC",
+        "date": "2026-01-19",
+        "type": "Support Ticket",
+        "summary": "Writer partner money week force big seat fill relationship box unit.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3007",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-10",
+        "type": "Inquiry Call",
+        "summary": "Black describe talk onto out technology career politics environmental fish collection hotel be last identify fast.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3008",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-11",
+        "type": "Email",
+        "summary": "Federal keep impact discuss significant seven point probably under party him rule often thought trial.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3009",
+        "client_id": "CL-1018",
+        "client_name": "Dominguez and Sons",
+        "date": "2026-01-27",
+        "type": "Inquiry Call",
+        "summary": "Even model nice from reflect business walk floor do head why wife person second everything tax.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3010",
+        "client_id": "CL-1013",
+        "client_name": "Moore-Foster",
+        "date": "2026-01-20",
+        "type": "Support Ticket",
+        "summary": "Should economic investment young fire point Mrs job top else task always customer nature.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3011",
+        "client_id": "CL-1004",
+        "client_name": "Akamai Technologies",
+        "date": "2026-01-26",
+        "type": "Inquiry Call",
+        "summary": "Mean raise ten in call attack mission tax time.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3012",
+        "client_id": "CL-1000",
+        "client_name": "Amazon",
+        "date": "2026-01-08",
+        "type": "Meeting Note",
+        "summary": "Item by present story be good these create official girl produce animal eight reflect.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3013",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-20",
+        "type": "Meeting Note",
+        "summary": "Receive drive interesting value explain space concern guy news lay miss well these relationship increase low agent.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3014",
+        "client_id": "CL-1009",
+        "client_name": "Lopez Group",
+        "date": "2026-01-09",
+        "type": "Email",
+        "summary": "Maintain picture mouth official best thing civil enter phone choice gun.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3015",
+        "client_id": "CL-1001",
+        "client_name": "Centers for Medicare & Medicaid Services (CMS)",
+        "date": "2026-01-23",
+        "type": "Email",
+        "summary": "Trip modern thought state purpose manage tend discussion stuff at page process dream yes wonder suddenly I.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3016",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-20",
+        "type": "Meeting Note",
+        "summary": "Turn begin kid someone model determine price cost detail claim determine he everything represent past although always section.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3017",
+        "client_id": "CL-1016",
+        "client_name": "Miller-Jackson",
+        "date": "2026-01-25",
+        "type": "Meeting Note",
+        "summary": "Blue themselves science game radio piece main father power.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3018",
+        "client_id": "CL-1018",
+        "client_name": "Dominguez and Sons",
+        "date": "2026-01-01",
+        "type": "Inquiry Call",
+        "summary": "Then late increase couple response likely night down explain market technology but sing civil citizen.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3019",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-27",
+        "type": "Meeting Note",
+        "summary": "Sign upon others voice attorney approach good board example plan discover.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3020",
+        "client_id": "CL-1019",
+        "client_name": "Evans, Sanders and Luna",
+        "date": "2026-01-15",
+        "type": "Inquiry Call",
+        "summary": "Majority south subject various morning pick skin message human nothing American marriage event also position.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3021",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-08",
+        "type": "Inquiry Call",
+        "summary": "Fast like student result fact material manager such reveal author plant type born agree once each go key choice adult police.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3022",
+        "client_id": "CL-1015",
+        "client_name": "Medina, Buckley and Kent",
+        "date": "2026-01-24",
+        "type": "Support Ticket",
+        "summary": "Available reduce reveal detail particular effect break other weight common travel guy story add few son.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3023",
+        "client_id": "CL-1018",
+        "client_name": "Dominguez and Sons",
+        "date": "2026-01-06",
+        "type": "Email",
+        "summary": "Degree form turn recognize economic across right go sometimes rich finish manage entire focus line executive born technology.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3024",
+        "client_id": "CL-1012",
+        "client_name": "Mcdonald-Morris",
+        "date": "2026-01-23",
+        "type": "Support Ticket",
+        "summary": "Provide director culture fire in whose church him stage bit blood.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3025",
+        "client_id": "CL-1011",
+        "client_name": "Wang LLC",
+        "date": "2026-01-26",
+        "type": "Inquiry Call",
+        "summary": "Professional hand hear best memory interview media understand administration of.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3026",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-23",
+        "type": "Support Ticket",
+        "summary": "Area director small employee heart so try lead look should.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3027",
+        "client_id": "CL-1015",
+        "client_name": "Medina, Buckley and Kent",
+        "date": "2026-01-26",
+        "type": "Support Ticket",
+        "summary": "Car reduce reflect country environment yes plant camera artist.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3028",
+        "client_id": "CL-1006",
+        "client_name": "Tealium",
+        "date": "2026-01-12",
+        "type": "Inquiry Call",
+        "summary": "Show reveal site develop adult commercial degree keep interest seem clearly realize conference strong quality.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3029",
+        "client_id": "CL-1016",
+        "client_name": "Miller-Jackson",
+        "date": "2026-01-06",
+        "type": "Inquiry Call",
+        "summary": "Window thing history establish knowledge front second nor staff prepare do ok.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3030",
+        "client_id": "CL-1015",
+        "client_name": "Medina, Buckley and Kent",
+        "date": "2026-01-15",
+        "type": "Inquiry Call",
+        "summary": "Base politics member allow ago air of career really specific threat nice really a concern bit available Congress.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3031",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-09",
+        "type": "Meeting Note",
+        "summary": "Lot condition hand sea itself write trip various dark seat area town what still thing news civil organization imagine hand.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3032",
+        "client_id": "CL-1003",
+        "client_name": "GEP Worldwide",
+        "date": "2026-01-14",
+        "type": "Meeting Note",
+        "summary": "Military over generation management value across rich cause thank action third ten old concern reduce also the some blue space.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3033",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-04",
+        "type": "Support Ticket",
+        "summary": "People pretty call loss candidate chance street know meet church magazine marriage pass consumer memory study side travel.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3034",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-08",
+        "type": "Inquiry Call",
+        "summary": "Development themselves old improve me like stand these important decade impact too.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3035",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-11",
+        "type": "Email",
+        "summary": "Present right small bed which find herself operation success majority Republican there.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3036",
+        "client_id": "CL-1013",
+        "client_name": "Moore-Foster",
+        "date": "2026-01-24",
+        "type": "Email",
+        "summary": "Degree certain color writer impact pressure program save operation success large matter challenge also try never find son kitchen that.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend content push for re-engagement",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3037",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-15",
+        "type": "Meeting Note",
+        "summary": "Congress career agent player five box wide wonder reflect bed upon remember church.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3038",
+        "client_id": "CL-1012",
+        "client_name": "Mcdonald-Morris",
+        "date": "2026-01-08",
+        "type": "Support Ticket",
+        "summary": "Turn grow same time work property eat but despite nor.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3039",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-15",
+        "type": "Inquiry Call",
+        "summary": "Wife use space smile final owner firm director eye white prepare everything near fact.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3040",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-26",
+        "type": "Inquiry Call",
+        "summary": "Go necessary likely usually take walk raise within kind ever success cultural visit experience room catch old.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3041",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-04",
+        "type": "Inquiry Call",
+        "summary": "Little interesting believe TV group relationship before report son above police.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3042",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-21",
+        "type": "Meeting Note",
+        "summary": "Cup actually public choose recent couple single store responsibility.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3043",
+        "client_id": "CL-1004",
+        "client_name": "Akamai Technologies",
+        "date": "2026-01-07",
+        "type": "Inquiry Call",
+        "summary": "Father matter upon kid career already wall prevent common none product.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3044",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-07",
+        "type": "Email",
+        "summary": "Food billion off compare smile about though alone produce address officer music save age example relationship concern.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3045",
+        "client_id": "CL-1011",
+        "client_name": "Wang LLC",
+        "date": "2026-01-02",
+        "type": "Meeting Note",
+        "summary": "Think stuff no course likely stage summer owner debate process treat order south idea real citizen meet lay forget event.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3046",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-22",
+        "type": "Inquiry Call",
+        "summary": "And enough entire long cause threat could respond tell.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3047",
+        "client_id": "CL-1010",
+        "client_name": "Murray, Jackson and Thompson",
+        "date": "2026-01-20",
+        "type": "Support Ticket",
+        "summary": "Risk rest late lead all value laugh role side situation trip foreign.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3048",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-26",
+        "type": "Inquiry Call",
+        "summary": "Pretty determine leave accept particular you company customer pass I international kitchen reality money eye remain article.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3049",
+        "client_id": "CL-1019",
+        "client_name": "Evans, Sanders and Luna",
+        "date": "2026-01-04",
+        "type": "Inquiry Call",
+        "summary": "Avoid record keep use wear trial test purpose idea.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3050",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-01",
+        "type": "Email",
+        "summary": "Event radio after interview commercial forward fine financial spring charge.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3051",
+        "client_id": "CL-1006",
+        "client_name": "Tealium",
+        "date": "2026-01-08",
+        "type": "Inquiry Call",
+        "summary": "Yard candidate usually speech run voice main property factor game.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3052",
+        "client_id": "CL-1001",
+        "client_name": "Centers for Medicare & Medicaid Services (CMS)",
+        "date": "2026-01-26",
+        "type": "Meeting Note",
+        "summary": "Notice military it film day large one if guess interview.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3053",
+        "client_id": "CL-1015",
+        "client_name": "Medina, Buckley and Kent",
+        "date": "2026-01-12",
+        "type": "Meeting Note",
+        "summary": "Statement line rate together popular billion white one claim impact fish still officer management police concern.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3054",
+        "client_id": "CL-1019",
+        "client_name": "Evans, Sanders and Luna",
+        "date": "2026-01-11",
+        "type": "Email",
+        "summary": "His receive store share common institution behavior plant free decade season federal it research must training believe dinner hospital.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3055",
+        "client_id": "CL-1018",
+        "client_name": "Dominguez and Sons",
+        "date": "2026-01-16",
+        "type": "Support Ticket",
+        "summary": "Dog movie end make Republican wear far back certain road hundred page agreement must.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3056",
+        "client_id": "CL-1000",
+        "client_name": "Amazon",
+        "date": "2026-01-09",
+        "type": "Email",
+        "summary": "Whole these community activity social professor movement write mention eat establish usually recognize.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3057",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-01",
+        "type": "Meeting Note",
+        "summary": "Shoulder mind travel the hold worker special best cup forward media trouble clear drug mention us source.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3058",
+        "client_id": "CL-1010",
+        "client_name": "Murray, Jackson and Thompson",
+        "date": "2026-01-06",
+        "type": "Email",
+        "summary": "Each finish our also information information difference character unit rather south need movie large century Mr.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3059",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-24",
+        "type": "Meeting Note",
+        "summary": "Why father than expect sit begin sea seek light hope decision also official again best.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3060",
+        "client_id": "CL-1009",
+        "client_name": "Lopez Group",
+        "date": "2026-01-11",
+        "type": "Inquiry Call",
+        "summary": "Matter success win easy between front hard official end million choose civil though field financial floor fly success general hear.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3061",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-24",
+        "type": "Inquiry Call",
+        "summary": "Fly trade pattern contain hundred because billion threat step check movie kitchen green once none read continue president unit.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3062",
+        "client_id": "CL-1019",
+        "client_name": "Evans, Sanders and Luna",
+        "date": "2026-01-06",
+        "type": "Meeting Note",
+        "summary": "Hit claim street with form yet cultural be building only visit all suggest decade important ready style employee.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3063",
+        "client_id": "CL-1018",
+        "client_name": "Dominguez and Sons",
+        "date": "2026-01-17",
+        "type": "Email",
+        "summary": "Its surface tell thing four sometimes police expert include firm society in program Mr human.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3064",
+        "client_id": "CL-1007",
+        "client_name": "Databricks",
+        "date": "2026-01-08",
+        "type": "Email",
+        "summary": "Firm term hope successful single similar choice along sea huge young second figure west individual sense.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3065",
+        "client_id": "CL-1000",
+        "client_name": "Amazon",
+        "date": "2026-01-26",
+        "type": "Support Ticket",
+        "summary": "Land week economy open call thousand other individual moment true officer nice much stage tend.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3066",
+        "client_id": "CL-1009",
+        "client_name": "Lopez Group",
+        "date": "2026-01-23",
+        "type": "Support Ticket",
+        "summary": "Edge change politics perform travel economic bad mention with benefit show recently cultural child gun money church tree.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3067",
+        "client_id": "CL-1011",
+        "client_name": "Wang LLC",
+        "date": "2026-01-08",
+        "type": "Meeting Note",
+        "summary": "They natural baby explain policy rule still too mission total all population common particularly lay activity several whom.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend content push for re-engagement",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3068",
+        "client_id": "CL-1003",
+        "client_name": "GEP Worldwide",
+        "date": "2026-01-14",
+        "type": "Meeting Note",
+        "summary": "More lay tax east add several economy treat family bad value bill reduce leg cup third.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3069",
+        "client_id": "CL-1018",
+        "client_name": "Dominguez and Sons",
+        "date": "2026-01-12",
+        "type": "Support Ticket",
+        "summary": "Carry center little trial win home play exist point perhaps contain whatever develop foot police their.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3070",
+        "client_id": "CL-1015",
+        "client_name": "Medina, Buckley and Kent",
+        "date": "2026-01-08",
+        "type": "Support Ticket",
+        "summary": "Technology recently organization term base pretty pay yourself start effort believe idea its part him.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3071",
+        "client_id": "CL-1019",
+        "client_name": "Evans, Sanders and Luna",
+        "date": "2026-01-06",
+        "type": "Meeting Note",
+        "summary": "Network official table reveal drug eat want fact animal soon part two Republican consider agree.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend content push for re-engagement",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3072",
+        "client_id": "CL-1006",
+        "client_name": "Tealium",
+        "date": "2026-01-03",
+        "type": "Support Ticket",
+        "summary": "Special person position exist police somebody happy affect southern pick less be result sure best sure.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3073",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-17",
+        "type": "Support Ticket",
+        "summary": "Role tend happy yard door tend where fall quickly hard.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3074",
+        "client_id": "CL-1016",
+        "client_name": "Miller-Jackson",
+        "date": "2026-01-16",
+        "type": "Meeting Note",
+        "summary": "Minute yard everyone pay culture if from ground must policy reflect article want.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3075",
+        "client_id": "CL-1000",
+        "client_name": "Amazon",
+        "date": "2026-01-09",
+        "type": "Email",
+        "summary": "Usually collection notice final report present there already sell return generation safe me against whatever its every.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3076",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-10",
+        "type": "Support Ticket",
+        "summary": "Chair history season better kitchen analysis yes region attention pull yourself performance religious religious play expert several sign.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3077",
+        "client_id": "CL-1007",
+        "client_name": "Databricks",
+        "date": "2026-01-07",
+        "type": "Meeting Note",
+        "summary": "Knowledge war management century law crime policy cup shoulder industry show onto middle our.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3078",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-13",
+        "type": "Support Ticket",
+        "summary": "Require seek until science here create rest nature ok store state ever crime walk.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3079",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-19",
+        "type": "Support Ticket",
+        "summary": "Attention remain issue then during point could point later benefit seven.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend content push for re-engagement",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3080",
+        "client_id": "CL-1009",
+        "client_name": "Lopez Group",
+        "date": "2026-01-14",
+        "type": "Support Ticket",
+        "summary": "Research teach minute wear today feel election home person factor high month attorney wall.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3081",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-17",
+        "type": "Support Ticket",
+        "summary": "Too support but someone amount everybody myself though space address beat.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3082",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-20",
+        "type": "Support Ticket",
+        "summary": "Out follow tree town ahead operation cup kind score give current outside wide feeling threat until commercial.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3083",
+        "client_id": "CL-1015",
+        "client_name": "Medina, Buckley and Kent",
+        "date": "2026-01-05",
+        "type": "Email",
+        "summary": "Three white scene west cultural box make continue paper process name sound over long.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3084",
+        "client_id": "CL-1006",
+        "client_name": "Tealium",
+        "date": "2026-01-12",
+        "type": "Support Ticket",
+        "summary": "Growth leg environmental each value food find big police along boy conference market hour country.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Recommend training on Sales Score tool"
+        ]
+    },
+    {
+        "id": "INT-3085",
+        "client_id": "CL-1014",
+        "client_name": "Davis LLC",
+        "date": "2026-01-02",
+        "type": "Email",
+        "summary": "Writer such among tough former rate alone tough defense fill read method.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Executive Outreach: Low Feature Utilization",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3086",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-26",
+        "type": "Email",
+        "summary": "Worker dream civil kitchen yes security service able cost story than.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3087",
+        "client_id": "CL-1016",
+        "client_name": "Miller-Jackson",
+        "date": "2026-01-12",
+        "type": "Email",
+        "summary": "All our fact else your really need thank establish southern go note per particularly doctor cell.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3088",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-19",
+        "type": "Inquiry Call",
+        "summary": "Mission public stand food might building yes budget modern form strategy record service difficult watch five middle theory activity.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3089",
+        "client_id": "CL-1004",
+        "client_name": "Akamai Technologies",
+        "date": "2026-01-11",
+        "type": "Inquiry Call",
+        "summary": "Very skin enter system part quite black minute approach onto bad rock meeting government.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3090",
+        "client_id": "CL-1006",
+        "client_name": "Tealium",
+        "date": "2026-01-22",
+        "type": "Email",
+        "summary": "Know every recent like Republican state special each peace computer game article.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3091",
+        "client_id": "CL-1008",
+        "client_name": "Collier, Miller and Glass",
+        "date": "2026-01-08",
+        "type": "Support Ticket",
+        "summary": "Of dream result gun civil full already edge beat book standard respond analysis another try authority heart skill.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3092",
+        "client_id": "CL-1000",
+        "client_name": "Amazon",
+        "date": "2026-01-05",
+        "type": "Meeting Note",
+        "summary": "Deep prevent popular industry nature chair investment beyond quickly develop find old share young ago stand there before hair quickly.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory"
+        ]
+    },
+    {
+        "id": "INT-3093",
+        "client_id": "CL-1011",
+        "client_name": "Wang LLC",
+        "date": "2026-01-11",
+        "type": "Support Ticket",
+        "summary": "Provide yes his could son four near southern billion together follow miss special.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Recommend training on Sales Score tool",
+            "Renewal Prep: Value Realization Review"
+        ]
+    },
+    {
+        "id": "INT-3094",
+        "client_id": "CL-1012",
+        "client_name": "Mcdonald-Morris",
+        "date": "2026-01-21",
+        "type": "Inquiry Call",
+        "summary": "Hospital great election eight president little pay along career performance between friend stand.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Recommend content push for re-engagement"
+        ]
+    },
+    {
+        "id": "INT-3095",
+        "client_id": "CL-1009",
+        "client_name": "Lopez Group",
+        "date": "2026-01-21",
+        "type": "Inquiry Call",
+        "summary": "Image very consumer TV public beyond clear open catch claim clear occur.",
+        "sentiment": "Negative",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3096",
+        "client_id": "CL-1007",
+        "client_name": "Databricks",
+        "date": "2026-01-06",
+        "type": "Support Ticket",
+        "summary": "Suddenly generation might clear world range decision so I.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Renewal Prep: Value Realization Review",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3097",
+        "client_id": "CL-1009",
+        "client_name": "Lopez Group",
+        "date": "2026-01-11",
+        "type": "Support Ticket",
+        "summary": "Ability reflect stuff certain image same challenge though kid TV.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Cross-sell: Upgrade to GSSO Advisory",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    },
+    {
+        "id": "INT-3098",
+        "client_id": "CL-1005",
+        "client_name": "Salesforce",
+        "date": "2026-01-19",
+        "type": "Meeting Note",
+        "summary": "It market today carry authority may despite blood choice case type fast too close several tend.",
+        "sentiment": "Neutral",
+        "actions_identified": [
+            "Recommend content push for re-engagement",
+            "Flag for account manager: Competitor Mention"
+        ]
+    },
+    {
+        "id": "INT-3099",
+        "client_id": "CL-1017",
+        "client_name": "Miller-Blankenship",
+        "date": "2026-01-15",
+        "type": "Meeting Note",
+        "summary": "Space party nature economy want sea democratic against hard certainly phone subject affect administration return per.",
+        "sentiment": "Positive",
+        "actions_identified": [
+            "Flag for account manager: Competitor Mention",
+            "Executive Outreach: Low Feature Utilization"
+        ]
+    }
+]
