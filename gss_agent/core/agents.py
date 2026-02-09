@@ -1,5 +1,5 @@
 from deepagents import create_deep_agent
-from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from gss_agent.core.tools import GSS_TOOLS
 from langgraph.checkpoint.memory import MemorySaver
 import os
@@ -8,16 +8,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-MODEL_NAME = "minimax/minimax-m2.1"
+os.environ["TOKENIZERS_PARALLELISM"] = "false" # Fix for Transformers/PyTorch warning
+ZAI_API_KEY = os.getenv("ZAI_API_KEY")
+ZAI_BASE_URL = "https://api.z.ai/api/anthropic"
+MODEL_NAME = "glm-4.7"
 # Safety Limits
-MAX_TOKENS = 4000
-RECURSION_LIMIT = 50
+MAX_TOKENS = 8000
+RECURSION_LIMIT = 100
+MAX_CRITICISM_ROUNDS = 1
 
-llm = ChatOpenAI(
+llm = ChatAnthropic(
     model=MODEL_NAME,
-    openai_api_key=OPENROUTER_API_KEY,
-    openai_api_base="https://openrouter.ai/api/v1",
+    anthropic_api_key=ZAI_API_KEY,
+    base_url=ZAI_BASE_URL,
     max_tokens=MAX_TOKENS
 )
 
@@ -26,14 +29,15 @@ client_intel_agent = create_deep_agent(
     model=llm,
     name="ClientIntel",
     tools=GSS_TOOLS,
-    system_prompt="""You are a Gartner Client Intelligence Expert.
-Objective: Provide a deep-dive analysis of the client's current status and churn risk.
-Inputs: You have access to client registry and interaction history.
+    system_prompt="""You are the Gartner 'Executive Partner' Intelligence Specialist.
+Objective: Analyze the account health and mission-critical priorities for the client.
 Instructions:
-- Use 'lookup_client_file' to understand the client's industry, revenue, and entitlements (e.g., GSL, GSSO).
-- Use 'search_interaction_history' to find recent high-stakes conversations or negative sentiment.
-- If usage data is present in interactions, use 'analyze_data_python' to calculate growth/drop trends.
-- Output a structured summary: 'Client Context', 'Engagement Health', and 'Identified Risks'."""
+- Use 'lookup_client_file' for core profile data.
+- Use 'get_client_engagement_metrics' to identify software usage trends (e.g., declining logins = churn signal).
+- Use 'lookup_contract_details' to see the financial stake (ARR) and renewal likelihood.
+- Use 'search_interaction_history' to find recent sentiment drivers.
+- Use 'get_associate_performance_context' to see who is handling the account.
+- Output: A quantitative and qualitative health check. Use the term 'NPS Regression' or 'Churn Risk' where appropriate."""
 )
 
 # 2. Content Match Agent
@@ -54,17 +58,14 @@ Instructions:
 critic_agent = create_deep_agent(
     model=llm,
     name="Critic",
-    system_prompt="""You are the Gartner Quality Assurance Critic.
-Objective: Ensure the "Strategic Meeting Brief" is world-class and hallucination-free.
+    system_prompt="""You are the Gartner 'Quality Assurance' Director.
+Objective: Ensure the "Strategic Meeting Brief" is world-class, accurate, and professional.
 Rubric:
-1. RELEVANCE: Does it use the specific client industry and revenue data?
-2. ACCURACY: Are the research titles exact matches to what was retrieved? (Hallucination is a fail).
-3. ACTIONABILITY: Are there at least 3 concrete conversation starters?
-4. TONE: Does it sound like a premium Gartner advisor? (Blue-chip, strategic, concise).
-
-Feedback Loop:
-- If the brief passes all criteria, respond ONLY with "APPROVED".
-- If it fails, provide a bulleted list of fixes for the Supervisor."""
+1. QUANTITATIVE: Does it mention ARR, renewal dates, or metrics from the intelligence report?
+2. QUALITATIVE: Does it cite exact research titles retrieved?
+3. ACTIONABLE: Does it suggest Gartner 'Critical Capabilities' or 'Magic Quadrant' deep-dives?
+4. TONE: Does it sound like high-end professional services?
+Hallucination Policy: Any research title NOT found in the ContentMatch report is a FAIL."""
 )
 
 # 4. Supervisor Agent
@@ -98,13 +99,15 @@ supervisor_agent = create_deep_agent(
     system_prompt="""You are the Lead Strategic Advisor at Gartner. 
 Goal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.
 
-Operational Workflow:
+Instruction:
 1. DATA GATHERING: Delegate to 'ClientIntel' to get the full picture of the account.
 2. RECOMMENDATION: Delegate to 'ContentMatch' to find high-impact research (2024/2025).
 3. SYNTHESIS: Write a professional Markdown brief. Structure: 'Executive Summary', 'Client Health', 'Strategic Recommendations', 'Talking Points'.
 4. VALIDATION: Pass your draft to the 'Critic'. 
-5. ITERATION: If the Critic provides feedback, use your tools again if necessary to fix the issues.
-6. COMPLETION: Once the Critic says "APPROVED", provide the final brief to the user.
+5. ITERATION: If the Critic provides feedback, you have ONLY ONE (1) iteration to fix the issues.
+   - ITERATION 1 (FINAL): Address all critical feedback and polish the brief.
+   - After this single fix, immediately deliver the final Strategic Meeting Brief to the user. DO NOT go back to the Critic a second time.
+6. COMPLETION: Once you have addressed the Critic's first round of feedback (or if they approve immediately), providing the final brief is your final action.
 
 Constraint: Avoid redundancy. If information is already in the 'ClientIntel' report, don't repeat it unless synthesizing value."""
 ).with_config({"recursion_limit": RECURSION_LIMIT})

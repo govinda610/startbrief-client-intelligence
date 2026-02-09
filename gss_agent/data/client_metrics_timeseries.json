@@ -1,0 +1,2627 @@
+[
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 25,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 77,
+      "nps": 9,
+      "csat": 4.935503489500377,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 22,
+      "analyst_inquiry_hours": 7.7
+    }
+  },
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 41,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 52,
+      "nps": 6,
+      "csat": 3.166422141376562,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 5.2
+    }
+  },
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 44,
+      "content_downloads": 19,
+      "inquiry_utilization_pct": 78,
+      "nps": 7,
+      "csat": 3.558766936022872,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 28,
+      "analyst_inquiry_hours": 7.8
+    }
+  },
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 45,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 26,
+      "nps": 9,
+      "csat": 4.072598236765851,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 2.6
+    }
+  },
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 35,
+      "content_downloads": 25,
+      "inquiry_utilization_pct": 29,
+      "nps": 8,
+      "csat": 4.224614126694236,
+      "contract_value_arr": 145000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 33,
+      "analyst_inquiry_hours": 2.9
+    }
+  },
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 25,
+      "inquiry_utilization_pct": 33,
+      "nps": 8,
+      "csat": 4.487731279871685,
+      "contract_value_arr": 145000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 26,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_nexus_innovations_659",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 28,
+      "content_downloads": 26,
+      "inquiry_utilization_pct": 64,
+      "nps": 8,
+      "csat": 3.920319294568807,
+      "contract_value_arr": 145000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 29,
+      "analyst_inquiry_hours": 6.4
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 19,
+      "inquiry_utilization_pct": 33,
+      "nps": 5,
+      "csat": 2.5528517206474706,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 23,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 39,
+      "content_downloads": 20,
+      "inquiry_utilization_pct": 51,
+      "nps": 8,
+      "csat": 3.5448965818763876,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 28,
+      "analyst_inquiry_hours": 5.1
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 28,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 62,
+      "nps": 6,
+      "csat": 3.3522525241741565,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 6,
+      "analyst_inquiry_hours": 6.2
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 35,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 47,
+      "nps": 6,
+      "csat": 2.8240007121973223,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 4.7
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 22,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 53,
+      "nps": 7,
+      "csat": 3.3549874903154255,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 5.3
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 13,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 38,
+      "nps": 9,
+      "csat": 4.791357824863155,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 22,
+      "analyst_inquiry_hours": 3.8
+    }
+  },
+  {
+    "client_id": "c_cedar_health_systems_671",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 57,
+      "nps": 6,
+      "csat": 3.458610068671298,
+      "contract_value_arr": 385000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 5.7
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 41,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 62,
+      "nps": 7,
+      "csat": 3.438968505792786,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 27,
+      "analyst_inquiry_hours": 6.2
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 13,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 44,
+      "nps": 7,
+      "csat": 3.4798119964598,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 8,
+      "analyst_inquiry_hours": 4.4
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 67,
+      "nps": 6,
+      "csat": 2.65662857975639,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 6.7
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 17,
+      "inquiry_utilization_pct": 47,
+      "nps": 7,
+      "csat": 3.1787790096425788,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 27,
+      "analyst_inquiry_hours": 4.7
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 17,
+      "inquiry_utilization_pct": 19,
+      "nps": 9,
+      "csat": 4.347996970145696,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 27,
+      "analyst_inquiry_hours": 1.9
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 25,
+      "nps": 7,
+      "csat": 3.1535024597563943,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 2.5
+    }
+  },
+  {
+    "client_id": "c_pinnacle_capital_group_634",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 61,
+      "nps": 6,
+      "csat": 3.310344024183096,
+      "contract_value_arr": 257000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 6.1
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 64,
+      "nps": 4,
+      "csat": 2.0499332075067436,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 6.4
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 34,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 42,
+      "nps": 6,
+      "csat": 2.9687702300682215,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 4.2
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 13,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 36,
+      "nps": 4,
+      "csat": 2.312359075713191,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 18,
+      "analyst_inquiry_hours": 3.6
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 45,
+      "nps": 4,
+      "csat": 2.2561955180055437,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 4.5
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 16,
+      "nps": 4,
+      "csat": 1.9546332768509962,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 1.6
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 12,
+      "nps": 3,
+      "csat": 1.556673808379493,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 1.2
+    }
+  },
+  {
+    "client_id": "c_metropolitan_transit_authority_541",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 5,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 37,
+      "nps": 5,
+      "csat": 2.3871608854696618,
+      "contract_value_arr": 241000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 3.7
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 58,
+      "nps": 9,
+      "csat": 4.421637668408624,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 5.8
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 38,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 63,
+      "nps": 7,
+      "csat": 3.128679120726719,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 6.3
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 22,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 65,
+      "nps": 5,
+      "csat": 2.882818616297796,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 6,
+      "analyst_inquiry_hours": 6.5
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 16,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 23,
+      "nps": 6,
+      "csat": 3.3798473800247932,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 2.3
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 53,
+      "nps": 7,
+      "csat": 3.757099242279017,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 5.3
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 32,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 67,
+      "nps": 8,
+      "csat": 3.96345465794331,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 6.7
+    }
+  },
+  {
+    "client_id": "c_apex_precision_manufacturing_942",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 39,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 73,
+      "nps": 7,
+      "csat": 3.5723686849614658,
+      "contract_value_arr": 426000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 25,
+      "analyst_inquiry_hours": 7.3
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 40,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 31,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 497000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 3.1
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 16,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 34,
+      "nps": 7,
+      "csat": 3.15419702620977,
+      "contract_value_arr": 497000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 3.4
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 32,
+      "content_downloads": 21,
+      "inquiry_utilization_pct": 39,
+      "nps": 9,
+      "csat": 4.934267723304555,
+      "contract_value_arr": 497000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 29,
+      "analyst_inquiry_hours": 3.9
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 34,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 56,
+      "nps": 8,
+      "csat": 4.432281126876353,
+      "contract_value_arr": 497000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 23,
+      "analyst_inquiry_hours": 5.6
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 29,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 65,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 517000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 6.5
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 24,
+      "inquiry_utilization_pct": 65,
+      "nps": 8,
+      "csat": 3.5569980625275717,
+      "contract_value_arr": 517000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 28,
+      "analyst_inquiry_hours": 6.5
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_430",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 40,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 51,
+      "nps": 7,
+      "csat": 3.425678586332256,
+      "contract_value_arr": 517000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 18,
+      "analyst_inquiry_hours": 5.1
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 13,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 73,
+      "nps": 7,
+      "csat": 3.1864566136872297,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 7.3
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 37,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 42,
+      "nps": 6,
+      "csat": 2.9781824092929687,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 23,
+      "analyst_inquiry_hours": 4.2
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 11,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 49,
+      "nps": 9,
+      "csat": 4.720379885628417,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 4.9
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 15,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 61,
+      "nps": 9,
+      "csat": 4.077418708129911,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 6.1
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 41,
+      "nps": 5,
+      "csat": 2.427635906951476,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 4.1
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 42,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 81,
+      "nps": 9,
+      "csat": 4.845988580946457,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 8.1
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_661",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 72,
+      "nps": 7,
+      "csat": 3.5073196084922844,
+      "contract_value_arr": 318000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 25,
+      "analyst_inquiry_hours": 7.2
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 42,
+      "nps": 3,
+      "csat": 1.0290176215092357,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 9,
+      "analyst_inquiry_hours": 4.2
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 49,
+      "nps": 3,
+      "csat": 1.701713572605768,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 22,
+      "analyst_inquiry_hours": 4.9
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 10,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 63,
+      "nps": 4,
+      "csat": 2.0105563869534895,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 6.3
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 27,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 54,
+      "nps": 4,
+      "csat": 1.5198836174003567,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 5.4
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 17,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 39,
+      "nps": 3,
+      "csat": 1.9804945567388368,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 3.9
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 7,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 39,
+      "nps": 5,
+      "csat": 2.2671602096329053,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 3.9
+    }
+  },
+  {
+    "client_id": "c_globalfin_capital_311",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 5,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 33,
+      "nps": 7,
+      "csat": 3.892738403897395,
+      "contract_value_arr": 348000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 12,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 69,
+      "nps": 6,
+      "csat": 2.7588070206024433,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 6.9
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 35,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 49,
+      "nps": 7,
+      "csat": 3.34824502568587,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 4.9
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 35,
+      "nps": 6,
+      "csat": 3.1777639330102616,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 3.5
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 24,
+      "nps": 7,
+      "csat": 3.8686517662720963,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 2.4
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 3,
+      "inquiry_utilization_pct": 46,
+      "nps": 5,
+      "csat": 2.2532698864285106,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 4.6
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 6,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 27,
+      "nps": 7,
+      "csat": 3.775193990484912,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 18,
+      "analyst_inquiry_hours": 2.7
+    }
+  },
+  {
+    "client_id": "c_federal_systems_alliance_455",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 10,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 24,
+      "nps": 7,
+      "csat": 3.075087461690008,
+      "contract_value_arr": 269000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 2.4
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 22,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 40,
+      "nps": 6,
+      "csat": 3.282026003614251,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 4.0
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 28,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 46,
+      "nps": 9,
+      "csat": 4.119798745110921,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 4.6
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 30,
+      "content_downloads": 17,
+      "inquiry_utilization_pct": 35,
+      "nps": 8,
+      "csat": 3.8298063231816974,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 27,
+      "analyst_inquiry_hours": 3.5
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 68,
+      "nps": 7,
+      "csat": 3.545571801710538,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 6.8
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 22,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 45,
+      "nps": 8,
+      "csat": 3.5726498859911437,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 4.5
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 62,
+      "nps": 5,
+      "csat": 2.5222897372395714,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 6.2
+    }
+  },
+  {
+    "client_id": "c_industrial_dynamics_corp_641",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 19,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 74,
+      "nps": 9,
+      "csat": 4.952117277702207,
+      "contract_value_arr": 134000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 7.4
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 15,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 55,
+      "nps": 10,
+      "csat": 4.70651616227421,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 5.5
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 55,
+      "nps": 7,
+      "csat": 3.446900310712207,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 5.5
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 43,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 23,
+      "nps": 7,
+      "csat": 3.612385197328256,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 2.3
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 39,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 72,
+      "nps": 8,
+      "csat": 3.897139673409272,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 7.2
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 44,
+      "nps": 7,
+      "csat": 3.9699481667316805,
+      "contract_value_arr": 114000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 4.4
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 13,
+      "content_downloads": 22,
+      "inquiry_utilization_pct": 85,
+      "nps": 9,
+      "csat": 4.364914380704974,
+      "contract_value_arr": 114000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 29,
+      "analyst_inquiry_hours": 8.5
+    }
+  },
+  {
+    "client_id": "c_aurora_cloud_solutions_125",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 15,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 100,
+      "nps": 10,
+      "csat": 4.9016277536973565,
+      "contract_value_arr": 114000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 10.0
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 74,
+      "nps": 6,
+      "csat": 2.979848084543025,
+      "contract_value_arr": 210000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 18,
+      "analyst_inquiry_hours": 7.4
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 28,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 48,
+      "nps": 10,
+      "csat": 4.574225260731469,
+      "contract_value_arr": 210000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 4.8
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 30,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 45,
+      "nps": 7,
+      "csat": 3.067859920664425,
+      "contract_value_arr": 210000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 4.5
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 33,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 64,
+      "nps": 8,
+      "csat": 4.422865476841803,
+      "contract_value_arr": 210000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 12,
+      "analyst_inquiry_hours": 6.4
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 25,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 41,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 230000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 4.1
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 48,
+      "content_downloads": 22,
+      "inquiry_utilization_pct": 37,
+      "nps": 8,
+      "csat": 4.259285983488912,
+      "contract_value_arr": 230000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 28,
+      "analyst_inquiry_hours": 3.7
+    }
+  },
+  {
+    "client_id": "c_medihealth_innovations_224",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 56,
+      "nps": 6,
+      "csat": 3.295687080561181,
+      "contract_value_arr": 230000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 5.6
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 77,
+      "nps": 9,
+      "csat": 4.178680402707594,
+      "contract_value_arr": 214000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 7.7
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 13,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 49,
+      "nps": 8,
+      "csat": 3.7375044381239837,
+      "contract_value_arr": 214000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 4.9
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 38,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 32,
+      "nps": 8,
+      "csat": 4.254257470838163,
+      "contract_value_arr": 214000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 9,
+      "analyst_inquiry_hours": 3.2
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 19,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 43,
+      "nps": 9,
+      "csat": 4.095434965904779,
+      "contract_value_arr": 214000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 24,
+      "analyst_inquiry_hours": 4.3
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 44,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 82,
+      "nps": 9,
+      "csat": 4.304555670653021,
+      "contract_value_arr": 234000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 8.2
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 40,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 37,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 234000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 3.7
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 77,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 234000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 24,
+      "analyst_inquiry_hours": 7.7
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 60,
+      "nps": 7,
+      "csat": 3.509723923442043,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 22,
+      "analyst_inquiry_hours": 6.0
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 25,
+      "nps": 7,
+      "csat": 3.0672199249024796,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 2.5
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 40,
+      "nps": 8,
+      "csat": 3.9377400276384824,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 4.0
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 18,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 34,
+      "nps": 9,
+      "csat": 4.515721589169027,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 3.4
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 33,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 79,
+      "nps": 9,
+      "csat": 4.211747109656435,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 7.9
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 62,
+      "nps": 8,
+      "csat": 4.36268784064505,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 6.2
+    }
+  },
+  {
+    "client_id": "c_national_infrastructure_authority_685",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 44,
+      "nps": 8,
+      "csat": 4.248985705559699,
+      "contract_value_arr": 94000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 4.4
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 67,
+      "nps": 8,
+      "csat": 4.47328930170908,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 6.7
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 17,
+      "inquiry_utilization_pct": 27,
+      "nps": 9,
+      "csat": 4.264796698013582,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 22,
+      "analyst_inquiry_hours": 2.7
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 40,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 55,
+      "nps": 7,
+      "csat": 3.902013067460166,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 5.5
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 48,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 58,
+      "nps": 10,
+      "csat": 4.747404472612488,
+      "contract_value_arr": 125000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 5.8
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 44,
+      "content_downloads": 24,
+      "inquiry_utilization_pct": 88,
+      "nps": 9,
+      "csat": 4.631156199776212,
+      "contract_value_arr": 145000,
+      "days_since_last_engagement": 3,
+      "research_docs_accessed": 31,
+      "analyst_inquiry_hours": 8.8
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 28,
+      "nps": 9,
+      "csat": 4.759003230676922,
+      "contract_value_arr": 145000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 2.8
+    }
+  },
+  {
+    "client_id": "c_globalprecision_industries_232",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 51,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 100,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 145000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 24,
+      "analyst_inquiry_hours": 10.0
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 25,
+      "content_downloads": 20,
+      "inquiry_utilization_pct": 66,
+      "nps": 6,
+      "csat": 3.420401117856072,
+      "contract_value_arr": 364000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 26,
+      "analyst_inquiry_hours": 6.6
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 35,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 24,
+      "nps": 10,
+      "csat": 4.6824955709940586,
+      "contract_value_arr": 364000,
+      "days_since_last_engagement": 3,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 2.4
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 68,
+      "nps": 6,
+      "csat": 3.1699091334872618,
+      "contract_value_arr": 364000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 6.8
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 27,
+      "content_downloads": 19,
+      "inquiry_utilization_pct": 33,
+      "nps": 6,
+      "csat": 2.575964277589214,
+      "contract_value_arr": 364000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 29,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 51,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 384000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 5.1
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 53,
+      "content_downloads": 25,
+      "inquiry_utilization_pct": 84,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 384000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 28,
+      "analyst_inquiry_hours": 8.4
+    }
+  },
+  {
+    "client_id": "c_nexgen_innovations_inc._256",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 56,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 93,
+      "nps": 8,
+      "csat": 4.342243394433516,
+      "contract_value_arr": 384000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 9.3
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 77,
+      "nps": 6,
+      "csat": 2.8364779374684232,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 7.7
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 32,
+      "nps": 6,
+      "csat": 3.0100195421081732,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 3.2
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 29,
+      "nps": 4,
+      "csat": 2.4567270210271586,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 2.9
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 27,
+      "nps": 5,
+      "csat": 2.9130369732226646,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 2.7
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 17,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 50,
+      "nps": 3,
+      "csat": 1.7086510053941666,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 9,
+      "analyst_inquiry_hours": 5.0
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 20,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 13,
+      "nps": 4,
+      "csat": 2.4377581670805,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 1.3
+    }
+  },
+  {
+    "client_id": "c_eurohealth_solutions_group_179",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 9,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 29,
+      "nps": 6,
+      "csat": 3.23453752854311,
+      "contract_value_arr": 197000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 2.9
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 19,
+      "inquiry_utilization_pct": 29,
+      "nps": 5,
+      "csat": 2.4201942839418913,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 25,
+      "analyst_inquiry_hours": 2.9
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 34,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 34,
+      "nps": 5,
+      "csat": 2.3570890309518515,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 16,
+      "analyst_inquiry_hours": 3.4
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 22,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 54,
+      "nps": 3,
+      "csat": 1.2776417851540176,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 5.4
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 16,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 48,
+      "nps": 4,
+      "csat": 2.3527544356976176,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 4.8
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 16,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 29,
+      "nps": 6,
+      "csat": 3.073372192029793,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 2.9
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 11,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 14,
+      "nps": 4,
+      "csat": 1.7790026739339946,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 1.4
+    }
+  },
+  {
+    "client_id": "c_global_financial_nexus_corp_604",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 5,
+      "content_downloads": 2,
+      "inquiry_utilization_pct": 20,
+      "nps": 4,
+      "csat": 1.521583811256849,
+      "contract_value_arr": 404000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 2.0
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 18,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 50,
+      "nps": 7,
+      "csat": 3.2636668696209665,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 5.0
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 20,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 41,
+      "nps": 6,
+      "csat": 3.1385443633602694,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 12,
+      "analyst_inquiry_hours": 4.1
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 32,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 57,
+      "nps": 7,
+      "csat": 3.608955229616609,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 5.7
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 25,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 38,
+      "nps": 9,
+      "csat": 4.398496104596355,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 3.8
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 34,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 31,
+      "nps": 6,
+      "csat": 2.9354882605769013,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 20,
+      "analyst_inquiry_hours": 3.1
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 19,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 24,
+      "nps": 6,
+      "csat": 2.8669147636759424,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 2.4
+    }
+  },
+  {
+    "client_id": "c_precision_manufacturing_alliance_ltd_319",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 41,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 27,
+      "nps": 6,
+      "csat": 2.656438377629488,
+      "contract_value_arr": 393000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 18,
+      "analyst_inquiry_hours": 2.7
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 32,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 74,
+      "nps": 7,
+      "csat": 3.8346022952572194,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 7.4
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 66,
+      "nps": 7,
+      "csat": 3.7989431961228433,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 6.6
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 29,
+      "content_downloads": 16,
+      "inquiry_utilization_pct": 35,
+      "nps": 9,
+      "csat": 4.268022588401552,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 3.5
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 29,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 59,
+      "nps": 9,
+      "csat": 4.941158965772305,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 5.9
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 11,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 35,
+      "nps": 8,
+      "csat": 4.30652631313027,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 3.5
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 36,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 20,
+      "nps": 7,
+      "csat": 3.0071930423692064,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 22,
+      "analyst_inquiry_hours": 2.0
+    }
+  },
+  {
+    "client_id": "c_omnichannel_retail_ventures_438",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 15,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 66,
+      "nps": 9,
+      "csat": 4.233727995278827,
+      "contract_value_arr": 70000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 6.6
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 15,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 61,
+      "nps": 10,
+      "csat": 4.8527441393072746,
+      "contract_value_arr": 291000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 6.1
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 30,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 71,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 291000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 7.1
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 45,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 56,
+      "nps": 8,
+      "csat": 4.207666621507787,
+      "contract_value_arr": 291000,
+      "days_since_last_engagement": 14,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 5.6
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 36,
+      "content_downloads": 13,
+      "inquiry_utilization_pct": 96,
+      "nps": 9,
+      "csat": 4.62009928458246,
+      "contract_value_arr": 291000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 9.6
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 34,
+      "content_downloads": 17,
+      "inquiry_utilization_pct": 79,
+      "nps": 8,
+      "csat": 4.400162671214549,
+      "contract_value_arr": 311000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 25,
+      "analyst_inquiry_hours": 7.9
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 46,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 28,
+      "nps": 9,
+      "csat": 4.049805817748838,
+      "contract_value_arr": 311000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 23,
+      "analyst_inquiry_hours": 2.8
+    }
+  },
+  {
+    "client_id": "c_technova_solutions_590",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 18,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 49,
+      "nps": 9,
+      "csat": 4.395043814377633,
+      "contract_value_arr": 311000,
+      "days_since_last_engagement": 13,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 4.9
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 39,
+      "content_downloads": 17,
+      "inquiry_utilization_pct": 56,
+      "nps": 6,
+      "csat": 2.779997852581381,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 27,
+      "analyst_inquiry_hours": 5.6
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 11,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 52,
+      "nps": 4,
+      "csat": 2.280697469542492,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 5.2
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 26,
+      "content_downloads": 15,
+      "inquiry_utilization_pct": 30,
+      "nps": 7,
+      "csat": 3.538904368629699,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 3.0
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 33,
+      "nps": 3,
+      "csat": 1.021495187175994,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 24,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 30,
+      "nps": 5,
+      "csat": 2.983540406018053,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 3.0
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 36,
+      "nps": 4,
+      "csat": 1.8720069627357874,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 3.6
+    }
+  },
+  {
+    "client_id": "c_healthfirst_systems_478",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 5,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 27,
+      "nps": 3,
+      "csat": 1.4156958119900334,
+      "contract_value_arr": 211000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 14,
+      "analyst_inquiry_hours": 2.7
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 56,
+      "nps": 9,
+      "csat": 4.222739441910287,
+      "contract_value_arr": 434000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 5.6
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 18,
+      "content_downloads": 21,
+      "inquiry_utilization_pct": 32,
+      "nps": 7,
+      "csat": 3.3093508485964955,
+      "contract_value_arr": 434000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 26,
+      "analyst_inquiry_hours": 3.2
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 62,
+      "nps": 9,
+      "csat": 4.042474877307925,
+      "contract_value_arr": 434000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 6.2
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 32,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 67,
+      "nps": 10,
+      "csat": 5,
+      "contract_value_arr": 434000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 6.7
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 20,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 65,
+      "nps": 8,
+      "csat": 3.9394264177983227,
+      "contract_value_arr": 454000,
+      "days_since_last_engagement": 10,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 6.5
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 45,
+      "content_downloads": 18,
+      "inquiry_utilization_pct": 50,
+      "nps": 7,
+      "csat": 3.6195325404225454,
+      "contract_value_arr": 454000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 26,
+      "analyst_inquiry_hours": 5.0
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 50,
+      "content_downloads": 21,
+      "inquiry_utilization_pct": 33,
+      "nps": 10,
+      "csat": 4.680600349522501,
+      "contract_value_arr": 454000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 31,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 57,
+      "nps": 3,
+      "csat": 1.1307353735088552,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 5.7
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 65,
+      "nps": 2,
+      "csat": 1,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 6.5
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 19,
+      "content_downloads": 4,
+      "inquiry_utilization_pct": 26,
+      "nps": 5,
+      "csat": 2.9062959797104995,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 6,
+      "research_docs_accessed": 7,
+      "analyst_inquiry_hours": 2.6
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 15,
+      "content_downloads": 11,
+      "inquiry_utilization_pct": 24,
+      "nps": 4,
+      "csat": 1.8805125497113373,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 8,
+      "research_docs_accessed": 17,
+      "analyst_inquiry_hours": 2.4
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 19,
+      "content_downloads": 10,
+      "inquiry_utilization_pct": 32,
+      "nps": 5,
+      "csat": 2.7785667564131318,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 3.2
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 8,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 33,
+      "nps": 4,
+      "csat": 1.5472675355563172,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 12,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 3.3
+    }
+  },
+  {
+    "client_id": "c_metro_manufacturing_corp_895",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 17,
+      "content_downloads": 6,
+      "inquiry_utilization_pct": 24,
+      "nps": 6,
+      "csat": 3.4541687751868824,
+      "contract_value_arr": 288000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 2.4
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 57,
+      "nps": 7,
+      "csat": 3.389515778411681,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 5.7
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 9,
+      "content_downloads": 12,
+      "inquiry_utilization_pct": 32,
+      "nps": 5,
+      "csat": 2.5646282077561366,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 9,
+      "research_docs_accessed": 19,
+      "analyst_inquiry_hours": 3.2
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-09",
+    "metrics": {
+      "login_frequency": 25,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 30,
+      "nps": 2,
+      "csat": 1,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 4,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 3.0
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-10",
+    "metrics": {
+      "login_frequency": 14,
+      "content_downloads": 5,
+      "inquiry_utilization_pct": 43,
+      "nps": 6,
+      "csat": 2.547089846765376,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 5,
+      "research_docs_accessed": 8,
+      "analyst_inquiry_hours": 4.3
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-11",
+    "metrics": {
+      "login_frequency": 21,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 18,
+      "nps": 5,
+      "csat": 2.4265133412669857,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 11,
+      "research_docs_accessed": 13,
+      "analyst_inquiry_hours": 1.8
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-12",
+    "metrics": {
+      "login_frequency": 6,
+      "content_downloads": 2,
+      "inquiry_utilization_pct": 46,
+      "nps": 7,
+      "csat": 3.6758822667230664,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 2,
+      "research_docs_accessed": 11,
+      "analyst_inquiry_hours": 4.6
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2026-01",
+    "metrics": {
+      "login_frequency": 8,
+      "content_downloads": 8,
+      "inquiry_utilization_pct": 15,
+      "nps": 7,
+      "csat": 3.768108841681637,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 15,
+      "analyst_inquiry_hours": 1.5
+    }
+  }
+]

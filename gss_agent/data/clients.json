@@ -1,151 +1,842 @@
 [
-    {
-        "id": "c_amz_001",
-        "name": "Amazon",
-        "industry": "High Tech",
-        "revenue": "$574.8 Billion",
-        "employees": "1,525,000",
-        "region": "Global",
-        "lifecycle_stage": "Renewal",
-        "churn_risk": "Medium",
-        "subscriptions": [
-            "Gartner for Sales Leaders",
-            "Gartner for Tech CEOs"
-        ],
-        "entitlements": [
-            "Gartner Peer Insights",
-            "Analyst Inquiries (Unlimited)",
-            "Sales Score Diagnostic"
-        ],
-        "key_contacts": [
-            {
-                "name": "Andy Jassy",
-                "role": "CEO",
-                "focus": "Efficiency & AI Integration"
-            },
-            {
-                "name": "Sales Ops VP",
-                "role": "VP Sales Operations",
-                "focus": "Quota Attainment"
-            }
-        ],
-        "last_interaction": {
-            "date": "2025-01-15",
-            "type": "Inquiry",
-            "summary": "Asked about 'Generative AI for Sales Enablement' but expressed frustration with generic advice."
-        },
-        "usage_metrics": {
-            "login_frequency_trend": -15,
-            "document_downloads_l90d": 12,
-            "inquiry_utilization": "Low"
-        }
-    },
-    {
-        "id": "c_aka_002",
-        "name": "Akamai Technologies",
-        "industry": "Software & Services",
-        "revenue": "$3.8 Billion",
-        "employees": "9,800",
-        "region": "North America",
-        "lifecycle_stage": "At Risk",
-        "churn_risk": "High",
-        "subscriptions": [
-            "Gartner for Tech CSOs"
-        ],
-        "entitlements": [
-            "Hype Cycle Access",
-            "Executive Networking Events"
-        ],
-        "key_contacts": [
-            {
-                "name": "Tom Leighton",
-                "role": "CEO",
-                "focus": "Security & Edge Computing"
-            },
-            {
-                "name": "CSO",
-                "role": "Chief Sales Officer",
-                "focus": "Market Expansion"
-            }
-        ],
-        "last_interaction": {
-            "date": "2025-02-10",
-            "type": "Renewal Discussion",
-            "summary": "Mentioned budget cuts. Competitor Forrester is offering a lower price point."
-        },
-        "usage_metrics": {
-            "login_frequency_trend": -40,
-            "document_downloads_l90d": 3,
-            "inquiry_utilization": "None"
-        }
-    },
-    {
-        "id": "c_cms_003",
-        "name": "Centers for Medicare & Medicaid Services (CMS)",
-        "industry": "Public Sector / Healthcare",
-        "revenue": "N/A (Budget: $1.4 Trillion)",
-        "employees": "6,400",
-        "region": "USA",
-        "lifecycle_stage": "Onboarding",
-        "churn_risk": "Low",
-        "subscriptions": [
-            "Gartner for CIOs"
-        ],
-        "entitlements": [
-            "IT Score",
-            "Contract Review"
-        ],
-        "key_contacts": [
-            {
-                "name": "CIO",
-                "role": "Chief Information Officer",
-                "focus": "Modernization & Compliance"
-            }
-        ],
-        "last_interaction": {
-            "date": "2025-03-01",
-            "type": "Service Kickoff",
-            "summary": "Excited about digital transformation roadmap."
-        },
-        "usage_metrics": {
-            "login_frequency_trend": 20,
-            "document_downloads_l90d": 45,
-            "inquiry_utilization": "High"
-        }
-    },
-    {
-        "id": "c_gep_004",
-        "name": "GEP Worldwide",
-        "industry": "Supply Chain Software",
-        "revenue": "$1.4 Billion",
-        "employees": "6,000",
-        "region": "Global",
-        "lifecycle_stage": "Growth",
-        "churn_risk": "Low",
-        "subscriptions": [
-            "Gartner for Supply Chain Leaders",
-            "Gartner for Marketing Leaders"
-        ],
-        "entitlements": [
-            "Magic Quadrant Reprint Rights",
-            "Analyst Briefings"
-        ],
-        "key_contacts": [
-            {
-                "name": "CMO",
-                "role": "Chief Marketing Officer",
-                "focus": "Brand Awareness"
-            }
-        ],
-        "last_interaction": {
-            "date": "2025-02-20",
-            "type": "Briefing",
-            "summary": "Briefed analysts on new AI-driven procurement platform."
-        },
-        "usage_metrics": {
-            "login_frequency_trend": 5,
-            "document_downloads_l90d": 80,
-            "inquiry_utilization": "Medium"
-        }
+  {
+    "id": "c_nexus_innovations_659",
+    "name": "Nexus Innovations",
+    "industry": "High Tech",
+    "revenue": "$5B",
+    "region": "North America",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner for Finance Leaders",
+      "Gartner for Supply Chain Leaders"
+    ],
+    "entitlements": [
+      "Magic Quadrant Access",
+      "Peer Insights",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "Dr. Evelyn Reed",
+        "role": "CIO"
+      },
+      {
+        "name": "Marcus Thorne",
+        "role": "VP of Digital Strategy"
+      }
+    ],
+    "assigned_associate": "ASSOC-002",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
     }
+  },
+  {
+    "id": "c_cedar_health_systems_671",
+    "name": "Cedar Health Systems",
+    "industry": "Healthcare",
+    "revenue": "$3B",
+    "region": "North America",
+    "lifecycle_stage": "Onboarding",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner for CIOs"
+    ],
+    "entitlements": [
+      "Technical Professional Advice",
+      "Magic Quadrant Access"
+    ],
+    "key_contacts": [
+      {
+        "name": "Dr. Benjamin Carter",
+        "role": "Chief Medical Officer"
+      },
+      {
+        "name": "Sarah Chen",
+        "role": "CIO"
+      }
+    ],
+    "assigned_associate": "ASSOC-007",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_pinnacle_capital_group_634",
+    "name": "Pinnacle Capital Group",
+    "industry": "Finance",
+    "revenue": "$10B",
+    "region": "North America",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for CIOs",
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Magic Quadrant Access",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "Isabelle Laurent",
+        "role": "CTO"
+      },
+      {
+        "name": "David Miller",
+        "role": "Head of Risk & Compliance"
+      },
+      {
+        "name": "James O'Connor",
+        "role": "Chief Data Officer"
+      }
+    ],
+    "assigned_associate": "ASSOC-004",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_metropolitan_transit_authority_541",
+    "name": "Metropolitan Transit Authority",
+    "industry": "Public Sector",
+    "revenue": "$1.2B",
+    "region": "EMEA",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner for Finance Leaders",
+      "Gartner for Supply Chain Leaders"
+    ],
+    "entitlements": [
+      "Technical Professional Advice",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Anya Petrov",
+        "role": "CIO"
+      },
+      {
+        "name": "Robert Chang",
+        "role": "Director of Operations"
+      }
+    ],
+    "assigned_associate": "ASSOC-008",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_apex_precision_manufacturing_942",
+    "name": "Apex Precision Manufacturing",
+    "industry": "Manufacturing",
+    "revenue": "$2B",
+    "region": "North America",
+    "lifecycle_stage": "Onboarding",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner Standard License (GSL)",
+      "Gartner for CIOs"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Magic Quadrant Access",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "Michael O'Donnell",
+        "role": "VP of Operations"
+      },
+      {
+        "name": "Dr. Lisa Vance",
+        "role": "CTO"
+      }
+    ],
+    "assigned_associate": "ASSOC-005",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_technova_solutions_430",
+    "name": "TechNova Solutions",
+    "industry": "High Tech",
+    "revenue": "$1.5B",
+    "region": "North America",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for Supply Chain Leaders",
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Hype Cycles"
+    ],
+    "key_contacts": [
+      {
+        "name": "Michael Chen",
+        "role": "Chief Technology Officer"
+      },
+      {
+        "name": "Sarah Johnson",
+        "role": "VP of IT Operations"
+      }
+    ],
+    "assigned_associate": "ASSOC-001",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_healthfirst_systems_661",
+    "name": "HealthFirst Systems",
+    "industry": "Healthcare",
+    "revenue": "$2.3B",
+    "region": "North America",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for Finance Leaders",
+      "Gartner for CIOs",
+      "Gartner for IT Leaders (GSSO)"
+    ],
+    "entitlements": [
+      "Technical Professional Advice",
+      "Peer Insights",
+      "Hype Cycles"
+    ],
+    "key_contacts": [
+      {
+        "name": "Dr. Emily Rodriguez",
+        "role": "Chief Medical Officer"
+      },
+      {
+        "name": "David Kim",
+        "role": "Chief Information Officer"
+      }
+    ],
+    "assigned_associate": "ASSOC-006",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_globalfin_capital_311",
+    "name": "GlobalFin Capital",
+    "industry": "Finance",
+    "revenue": "$5.8B",
+    "region": "EMEA",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "Robert Thompson",
+        "role": "Chief Risk Officer"
+      },
+      {
+        "name": "Lisa Patel",
+        "role": "Chief Digital Officer"
+      },
+      {
+        "name": "James O'Connor",
+        "role": "Head of Cybersecurity"
+      }
+    ],
+    "assigned_associate": "ASSOC-006",
+    "evaluation_metadata": {
+      "is_golden_client": true,
+      "target_retrieval_id": "GC-007"
+    }
+  },
+  {
+    "id": "c_federal_systems_alliance_455",
+    "name": "Federal Systems Alliance",
+    "industry": "Public Sector",
+    "revenue": "$3.2B",
+    "region": "North America",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner for IT Leaders (GSSO)",
+      "Gartner for Supply Chain Leaders"
+    ],
+    "entitlements": [
+      "Technical Professional Advice",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Colonel Sarah Mitchell",
+        "role": "Chief Information Officer"
+      },
+      {
+        "name": "Dr. Thomas Green",
+        "role": "Chief Data Officer"
+      }
+    ],
+    "assigned_associate": "ASSOC-008",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_industrial_dynamics_corp_641",
+    "name": "Industrial Dynamics Corp",
+    "industry": "Manufacturing",
+    "revenue": "$4.1B",
+    "region": "Asia Pacific",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for Finance Leaders",
+      "Gartner for IT Leaders (GSSO)",
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Magic Quadrant Access",
+      "Hype Cycles"
+    ],
+    "key_contacts": [
+      {
+        "name": "Mark Williams",
+        "role": "Chief Operations Officer"
+      },
+      {
+        "name": "Jennifer Lee",
+        "role": "Head of Digital Transformation"
+      }
+    ],
+    "assigned_associate": "ASSOC-005",
+    "evaluation_metadata": {
+      "is_golden_client": true,
+      "target_retrieval_id": "GC-009"
+    }
+  },
+  {
+    "id": "c_aurora_cloud_solutions_125",
+    "name": "Aurora Cloud Solutions",
+    "industry": "High Tech",
+    "revenue": "$850M",
+    "region": "North America",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner Standard License (GSL)",
+      "Gartner for Finance Leaders",
+      "Gartner for IT Leaders (GSSO)"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Technical Professional Advice",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Michael Chen",
+        "role": "CTO"
+      },
+      {
+        "name": "Sofia Patel",
+        "role": "VP of Partnerships"
+      }
+    ],
+    "assigned_associate": "ASSOC-001",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_medihealth_innovations_224",
+    "name": "MediHealth Innovations",
+    "industry": "Healthcare",
+    "revenue": "$2.1B",
+    "region": "EMEA",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner for CIOs",
+      "Gartner for Finance Leaders"
+    ],
+    "entitlements": [
+      "Hype Cycles",
+      "Magic Quadrant Access",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Dr. Laura Nguyen",
+        "role": "CIO"
+      },
+      {
+        "name": "John Smith",
+        "role": "Senior Director of Clinical Integration"
+      }
+    ],
+    "assigned_associate": "ASSOC-009",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_finedge_capital_partners_938",
+    "name": "FinEdge Capital Partners",
+    "industry": "Finance",
+    "revenue": "$3.5B",
+    "region": "APAC",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner for Finance Leaders",
+      "Gartner for CIOs",
+      "Gartner for IT Leaders (GSSO)"
+    ],
+    "entitlements": [
+      "Magic Quadrant Access",
+      "Hype Cycles",
+      "Technical Professional Advice",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Emma Johnson",
+        "role": "Head of Strategic Planning"
+      },
+      {
+        "name": "Raj Patel",
+        "role": "VP of Risk Management"
+      }
+    ],
+    "assigned_associate": "ASSOC-006",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_national_infrastructure_authority_685",
+    "name": "National Infrastructure Authority",
+    "industry": "Public Sector",
+    "revenue": "$500M",
+    "region": "North America",
+    "lifecycle_stage": "Onboarding",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for IT Leaders (GSSO)",
+      "Gartner for Finance Leaders"
+    ],
+    "entitlements": [
+      "Analyst Inquiries",
+      "Magic Quadrant Access"
+    ],
+    "key_contacts": [
+      {
+        "name": "Carlos Ramirez",
+        "role": "Chief Technology Officer"
+      },
+      {
+        "name": "Sonia Lee",
+        "role": "Deputy Commissioner"
+      }
+    ],
+    "assigned_associate": "ASSOC-007",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_globalprecision_industries_232",
+    "name": "GlobalPrecision Industries",
+    "industry": "Manufacturing",
+    "revenue": "$2.8B",
+    "region": "EMEA",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Hype Cycles",
+      "Analyst Inquiries",
+      "Magic Quadrant Access",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "David Kim",
+        "role": "Director of Digital Transformation"
+      },
+      {
+        "name": "Laura Gomez",
+        "role": "VP of Operations"
+      }
+    ],
+    "assigned_associate": "ASSOC-003",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_nexgen_innovations_inc._256",
+    "name": "NexGen Innovations Inc.",
+    "industry": "High Tech",
+    "revenue": "$8B",
+    "region": "North America",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner for CIOs",
+      "Gartner for Supply Chain Leaders",
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Hype Cycles",
+      "Peer Insights",
+      "Technical Professional Advice",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Dr. Amanda Richardson",
+        "role": "Chief Technology Officer"
+      },
+      {
+        "name": "Michael Cho",
+        "role": "VP of Digital Strategy"
+      }
+    ],
+    "assigned_associate": "ASSOC-009",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_eurohealth_solutions_group_179",
+    "name": "EuroHealth Solutions Group",
+    "industry": "Healthcare",
+    "revenue": "$3.2B",
+    "region": "EMEA",
+    "lifecycle_stage": "Renewal",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner Standard License (GSL)",
+      "Gartner for CIOs",
+      "Gartner for Supply Chain Leaders"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Magic Quadrant Access",
+      "Analyst Inquiries",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "Prof. Henrik Vogel",
+        "role": "Chief Medical Officer"
+      },
+      {
+        "name": "Isabelle Dupont",
+        "role": "VP of IT Infrastructure"
+      }
+    ],
+    "assigned_associate": "ASSOC-001",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_global_financial_nexus_corp_604",
+    "name": "Global Financial Nexus Corp",
+    "industry": "Finance",
+    "revenue": "$15B",
+    "region": "North America",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner for CIOs",
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Hype Cycles",
+      "Technical Professional Advice",
+      "Magic Quadrant Access",
+      "Peer Insights"
+    ],
+    "key_contacts": [
+      {
+        "name": "Reginald Whitmore",
+        "role": "Chief Risk Officer"
+      },
+      {
+        "name": "Deepika Patel",
+        "role": "SVP of Technology Architecture"
+      },
+      {
+        "name": "Carlos Mendoza",
+        "role": "Director of Compliance"
+      }
+    ],
+    "assigned_associate": "ASSOC-001",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_precision_manufacturing_alliance_ltd_319",
+    "name": "Precision Manufacturing Alliance Ltd",
+    "industry": "Manufacturing",
+    "revenue": "$4.5B",
+    "region": "EMEA",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Analyst Inquiries",
+      "Peer Insights",
+      "Hype Cycles"
+    ],
+    "key_contacts": [
+      {
+        "name": "Hans Weber",
+        "role": "VP of Operations"
+      },
+      {
+        "name": "Olivia Brenner",
+        "role": "Director of Supply Chain"
+      }
+    ],
+    "assigned_associate": "ASSOC-004",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_omnichannel_retail_ventures_438",
+    "name": "OmniChannel Retail Ventures",
+    "industry": "Retail",
+    "revenue": "$6.7B",
+    "region": "North America",
+    "lifecycle_stage": "Renewal",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for IT Leaders (GSSO)",
+      "Gartner for CIOs",
+      "Gartner Standard License (GSL)"
+    ],
+    "entitlements": [
+      "Peer Insights",
+      "Analyst Inquiries",
+      "Hype Cycles",
+      "Magic Quadrant Access"
+    ],
+    "key_contacts": [
+      {
+        "name": "Rachel Goldstein",
+        "role": "Chief Information Officer"
+      },
+      {
+        "name": "Tyrone Wallace",
+        "role": "VP of E-Commerce"
+      }
+    ],
+    "assigned_associate": "ASSOC-010",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_technova_solutions_590",
+    "name": "TechNova Solutions",
+    "industry": "High Tech",
+    "revenue": "$1.5B",
+    "region": "North America",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Low",
+    "subscriptions": [
+      "Gartner for Supply Chain Leaders",
+      "Gartner for IT Leaders (GSSO)",
+      "Gartner for Finance Leaders"
+    ],
+    "entitlements": [
+      "Hype Cycles",
+      "Peer Insights",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Emily Carter",
+        "role": "Chief Technology Officer"
+      },
+      {
+        "name": "David Liu",
+        "role": "Vice President of Product Development"
+      }
+    ],
+    "assigned_associate": "ASSOC-007",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_healthfirst_systems_478",
+    "name": "HealthFirst Systems",
+    "industry": "Healthcare",
+    "revenue": "$800M",
+    "region": "EMEA",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner for IT Leaders (GSSO)"
+    ],
+    "entitlements": [
+      "Analyst Inquiries",
+      "Hype Cycles"
+    ],
+    "key_contacts": [
+      {
+        "name": "Sarah Mitchell",
+        "role": "Chief Information Officer"
+      },
+      {
+        "name": "Michael Reynolds",
+        "role": "Director of Digital Health"
+      }
+    ],
+    "assigned_associate": "ASSOC-007",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_globalfin_bank_395",
+    "name": "GlobalFin Bank",
+    "industry": "Finance",
+    "revenue": "$3.2B",
+    "region": "Asia Pacific",
+    "lifecycle_stage": "Growth",
+    "churn_risk": "Medium",
+    "subscriptions": [
+      "Gartner for Supply Chain Leaders"
+    ],
+    "entitlements": [
+      "Magic Quadrant Access",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "James Parker",
+        "role": "Chief Financial Officer"
+      },
+      {
+        "name": "Lisa Wong",
+        "role": "Head of Digital Banking"
+      },
+      {
+        "name": "Robert King",
+        "role": "Chief Risk Officer"
+      }
+    ],
+    "assigned_associate": "ASSOC-001",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  },
+  {
+    "id": "c_metro_manufacturing_corp_895",
+    "name": "Metro Manufacturing Corp",
+    "industry": "Manufacturing",
+    "revenue": "$2.1B",
+    "region": "North America",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner for CIOs",
+      "Gartner Standard License (GSL)",
+      "Gartner for Finance Leaders"
+    ],
+    "entitlements": [
+      "Magic Quadrant Access",
+      "Hype Cycles",
+      "Analyst Inquiries",
+      "Technical Professional Advice"
+    ],
+    "key_contacts": [
+      {
+        "name": "Thomas Brown",
+        "role": "Chief Operations Officer"
+      },
+      {
+        "name": "Karen White",
+        "role": "Director of Supply Chain"
+      }
+    ],
+    "assigned_associate": "ASSOC-011",
+    "evaluation_metadata": {
+      "is_golden_client": true,
+      "target_retrieval_id": "GC-023"
+    }
+  },
+  {
+    "id": "c_retailconnect_inc_466",
+    "name": "RetailConnect Inc",
+    "industry": "Retail",
+    "revenue": "$1.2B",
+    "region": "North America",
+    "lifecycle_stage": "At Risk",
+    "churn_risk": "High",
+    "subscriptions": [
+      "Gartner for Finance Leaders"
+    ],
+    "entitlements": [
+      "Hype Cycles",
+      "Analyst Inquiries"
+    ],
+    "key_contacts": [
+      {
+        "name": "Olivia Martinez",
+        "role": "Chief Marketing Officer"
+      },
+      {
+        "name": "Daniel Green",
+        "role": "Head of E-commerce"
+      }
+    ],
+    "assigned_associate": "ASSOC-012",
+    "evaluation_metadata": {
+      "is_golden_client": false,
+      "target_retrieval_id": null
+    }
+  }
 ]

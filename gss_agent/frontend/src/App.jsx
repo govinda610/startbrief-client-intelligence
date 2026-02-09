@@ -41,6 +41,25 @@ const TraceLog = ({ traces }) => {
 
   if (!traces || traces.length === 0) return null;
 
+  // Helper to safely extract displayable content from Anthropic content blocks
+  const extractDisplayContent = (content) => {
+    if (typeof content === "string") return content;
+    if (Array.isArray(content)) {
+      return content
+        .map(block => {
+          if (block.type === "text" && block.text) return block.text;
+          if (block.type === "tool_use") return `[Tool: ${block.name}]`;
+          return "";
+        })
+        .filter(Boolean)
+        .join("\n");
+    }
+    if (typeof content === "object" && content !== null) {
+      return JSON.stringify(content, null, 2);
+    }
+    return String(content || "");
+  };
+
   return (
     <div className="glass-panel mt-4 overflow-hidden border-l-4 border-l-gartner-cyan">
       <button
@@ -76,7 +95,7 @@ const TraceLog = ({ traces }) => {
                     <span className="text-gartner-slate/50 text-[10px]">{trace.type}</span>
                   </div>
                   <div className="text-gartner-slate whitespace-pre-wrap leading-relaxed">
-                    {trace.content}
+                    {extractDisplayContent(trace.content)}
                   </div>
                 </div>
               ))}
@@ -123,7 +142,7 @@ function App() {
     setTraces([]); // Reset traces for new turn
 
     try {
-      const endpoint = useMock ? 'http://localhost:8001/api/mock-chat-golden' : 'http://localhost:8001/api/chat';
+      const endpoint = useMock ? 'http://localhost:8000/api/mock-chat-golden' : 'http://localhost:8000/api/chat';
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -157,11 +176,23 @@ function App() {
               const isSupervisorNode = data.node === "Supervisor" || data.node === "model";
 
               if (isSupervisorNode) {
+                // Extract text content from Anthropic content blocks
+                // Content can be a string OR an array of content blocks [{type: "text", text: "..."}, ...]
+                let textContent = "";
+                if (typeof data.content === "string") {
+                  textContent = data.content;
+                } else if (Array.isArray(data.content)) {
+                  textContent = data.content
+                    .filter(block => block.type === "text" && block.text)
+                    .map(block => block.text)
+                    .join("\n");
+                }
+
                 // Update the LAST message (which is our assistant bubble)
                 setMessages(prev => {
                   const newMsgs = [...prev];
-                  if (newMsgs.length > 0) {
-                    newMsgs[newMsgs.length - 1].content = data.content;
+                  if (newMsgs.length > 0 && textContent) {
+                    newMsgs[newMsgs.length - 1].content = textContent;
                   }
                   return newMsgs;
                 });

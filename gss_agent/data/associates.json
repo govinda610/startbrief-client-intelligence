@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ASSOC-001",
+    "name": "Sarah Jenkins",
+    "role": "Client Success Associate",
+    "region": "APAC",
+    "tenure_months": 19
+  },
+  {
+    "id": "ASSOC-002",
+    "name": "David Miller",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 24
+  },
+  {
+    "id": "ASSOC-003",
+    "name": "Elena Rodriguez",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 14
+  },
+  {
+    "id": "ASSOC-004",
+    "name": "James Wilson",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 46
+  },
+  {
+    "id": "ASSOC-005",
+    "name": "Aisha Khan",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 13
+  },
+  {
+    "id": "ASSOC-006",
+    "name": "Robert Chen",
+    "role": "Client Success Associate",
+    "region": "EMEA",
+    "tenure_months": 31
+  },
+  {
+    "id": "ASSOC-007",
+    "name": "Emily Davis",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 27
+  },
+  {
+    "id": "ASSOC-008",
+    "name": "Marcus Thorne",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 11
+  },
+  {
+    "id": "ASSOC-009",
+    "name": "Linda Wu",
+    "role": "Client Success Associate",
+    "region": "APAC",
+    "tenure_months": 45
+  },
+  {
+    "id": "ASSOC-010",
+    "name": "Thomas Gray",
+    "role": "Client Success Associate",
+    "region": "EMEA",
+    "tenure_months": 29
+  },
+  {
+    "id": "ASSOC-011",
+    "name": "Sophia Blanco",
+    "role": "Client Success Associate",
+    "region": "EMEA",
+    "tenure_months": 27
+  },
+  {
+    "id": "ASSOC-012",
+    "name": "Kevin Lee",
+    "role": "Client Success Associate",
+    "region": "APAC",
+    "tenure_months": 22
+  }
+]
