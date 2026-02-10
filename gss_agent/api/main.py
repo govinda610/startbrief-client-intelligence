@@ -30,7 +30,7 @@ class ChatRequest(BaseModel):
     client_id: str = "default_user"
     thread_id: str = "default_thread"
 
-async def event_generator(message: str, thread_id: str):
+async def event_generator(message: str, thread_id: str, mode: str = "frontline"):
     """
     Generates Server-Sent Events (SSE) from the agent stream.
     Events types:
@@ -43,8 +43,12 @@ async def event_generator(message: str, thread_id: str):
     input_state = {"messages": [HumanMessage(content=message)]}
 
     try:
+        # Get appropriate agent graph based on mode
+        from gss_agent.core.agents import get_gartner_agent
+        agent = get_gartner_agent(mode=mode)
+        
         # Stream updates from the graph
-        async for event in supervisor_agent.astream(input_state, config=config, stream_mode="updates"):
+        async for event in agent.astream(input_state, config=config, stream_mode="updates"):
             # Handle standard LangGraph events
             if isinstance(event, dict):
                 for node_name, output in event.items():
@@ -80,6 +84,41 @@ async def event_generator(message: str, thread_id: str):
                             }
                             
                             # Yield formatted SSE
+                            # Clean up content for display
+                            if isinstance(content, list):
+                                # Anthropic content blocks
+                                content_str = ""
+                                for block in content:
+                                    if isinstance(block, dict):
+                                        if block.get("type") == "text":
+                                            content_str += block.get("text", "") + "\n"
+                                        elif block.get("type") == "tool_use":
+                                            content_str += f"\n[Tool Use: {block.get('name')}]\n"
+                                content = content_str.strip()
+                            elif not isinstance(content, str):
+                                # Force string conversion for other types (like Overwrite objects)
+                                content = str(content)
+                                
+                            # Remove "Overwrite(...)" wrapper text if present
+                            if content.startswith("Overwrite(value="):
+                                # Extract the inner content
+                                # Simple heuristic: find content='...' 
+                                import re
+                                match = re.search(r"content=['\"](.*?)['\"]", content, re.DOTALL)
+                                if match:
+                                    content = match.group(1)
+                                else:
+                                    # Fallback cleanup
+                                    content = content.replace("Overwrite(value=", "").rstrip(")")
+
+                            payload = {
+                                "node": node_name,
+                                "type": msg_type,
+                                "content": content,
+                                "has_tool_calls": has_tool_calls
+                            }
+                            
+                            # Yield formatted SSE
                             json_payload = json.dumps(payload)
                             logger.info(f"SSE Payload: {json_payload}")
                             yield f"data: {json_payload}\n\n"
@@ -96,9 +135,17 @@ async def event_generator(message: str, thread_id: str):
 
 @app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
-    logger.info(f"Received chat request: {request.message[:50]}...")
+    logger.info(f"Received FRONTLINE chat request: {request.message[:50]}...")
     return StreamingResponse(
-        event_generator(request.message, request.thread_id),
+        event_generator(request.message, request.thread_id, mode="frontline"),
+        media_type="text/event-stream"
+    )
+
+@app.post("/api/executive-chat")
+async def executive_chat_endpoint(request: ChatRequest):
+    logger.info(f"Received EXECUTIVE chat request: {request.message[:50]}...")
+    return StreamingResponse(
+        event_generator(request.message, request.thread_id, mode="executive"),
         media_type="text/event-stream"
     )
 

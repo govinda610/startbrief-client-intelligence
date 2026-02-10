@@ -115,11 +115,12 @@ function App() {
   const [traces, setTraces] = useState([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [useMock, setUseMock] = useState(false);
+  const [mode, setMode] = useState("frontline"); // "frontline" or "executive"
   // Initialize thread_id ONCE per session
   const [threadId] = useState(() => "demo_session_" + Date.now());
   const messagesEndRef = useRef(null);
 
-  // Business Metrics (Mocked for Demo, usually dynamic)
+  // Business Metrics (Mocked/Static for Demo)
   const metrics_data = [
     { name: 'Risk', value: 30, color: '#EF4444' },
     { name: 'Safe', value: 70, color: '#10B981' },
@@ -142,7 +143,15 @@ function App() {
     setTraces([]); // Reset traces for new turn
 
     try {
-      const endpoint = useMock ? 'http://localhost:8000/api/mock-chat-golden' : 'http://localhost:8000/api/chat';
+      let endpoint;
+      if (useMock) {
+        endpoint = 'http://localhost:8000/api/mock-chat-golden';
+      } else {
+        endpoint = mode === 'executive'
+          ? 'http://localhost:8000/api/executive-chat'
+          : 'http://localhost:8000/api/chat';
+      }
+
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -262,14 +271,38 @@ function App() {
           <MetricCard title="Upsell" value="$45k" type="neutral" subtext="Potential ARR" />
         </div>
 
+        {/* Mode Toggle */}
+        <div className="mb-6 p-1 bg-gartner-dark rounded-lg flex items-center border border-white/5">
+          <button
+            onClick={() => setMode("frontline")}
+            className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "frontline"
+                ? "bg-gartner-cyan text-gartner-bg shadow-lg shadow-gartner-cyan/20"
+                : "text-gartner-slate hover:text-white"
+              }`}
+          >
+            <Activity size={12} />
+            Frontline
+          </button>
+          <button
+            onClick={() => setMode("executive")}
+            className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "executive"
+                ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                : "text-gartner-slate hover:text-white"
+              }`}
+          >
+            <Shield size={12} />
+            Executive
+          </button>
+        </div>
+
         <div className="glass-panel p-4 mt-4">
           <h4 className="text-xs uppercase font-bold text-gartner-cyan mb-2 flex items-center gap-2">
-            <Shield size={12} />
-            Minimax M2.1 Core
+            <Brain size={12} />
+            ZAI GLM-4.7
           </h4>
           <p className="text-[10px] leading-relaxed opacity-70">
             Running on Gartner Secure Cloud (OpenRouter).
-            Recursion Limit: 50.
+            Recursion Limit: 100.
             Context: 128k.
           </p>
         </div>

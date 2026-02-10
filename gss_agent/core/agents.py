@@ -68,7 +68,7 @@ Rubric:
 Hallucination Policy: Any research title NOT found in the ContentMatch report is a FAIL."""
 )
 
-# 4. Supervisor Agent
+# 4. Supervisor Agent for Frontline
 subagents_compiled = [
     {
         "name": "ClientIntel",
@@ -112,5 +112,45 @@ Instruction:
 Constraint: Avoid redundancy. If information is already in the 'ClientIntel' report, don't repeat it unless synthesizing value."""
 ).with_config({"recursion_limit": RECURSION_LIMIT})
 
-def get_gartner_agent():
+# --- Executive Mode Support ---
+from gss_agent.core.executive_tools import EXECUTIVE_TOOLS, get_all_associates_performance, get_at_risk_clients_summary, get_revenue_snapshot
+
+# Create Executive Tools List (Frontline + Executive specific)
+ALL_EXECUTIVE_TOOLS = GSS_TOOLS + [
+    get_all_associates_performance,
+    get_at_risk_clients_summary,
+    get_revenue_snapshot
+]
+
+executive_advisor_agent = create_deep_agent(
+    model=llm,
+    name="ExecutiveAdvisor",
+    tools=ALL_EXECUTIVE_TOOLS, # Direct tool access, less delegation needed for high-level queries
+    checkpointer=checkpointer, # Share checkpointer type
+    system_prompt="""You are the Chief Strategy Officer's AI Assistant at Gartner.
+Objective: Provide high-level portfolio insights, revenue analysis, and strategic risk assessment for the leadership team.
+
+Scope & Capabilities:
+- You have access to ALL client intelligence tools AND portfolio-wide executive tools.
+- You can analyze individual client health OR aggregate trends across the entire business.
+- When asked about "team performance", "revenue", or "churn risk across the board", use the Executive Tools.
+
+Tone:
+- Concise, data-driven, strategic.
+- Focus on bottom-line impact, ARR risks, and growth opportunities.
+- Do not get bogged down in operational details unless specifically asked.
+
+Key Responsibilities:
+1. MONITORING: Track portfolio health and identify at-risk accounts immediately.
+2. REVENUE: Provide ARR snapshots and growth forecasts.
+3. TEAM: Evaluate associate performance and resource allocation.
+"""
+).with_config({"recursion_limit": RECURSION_LIMIT})
+
+def get_gartner_agent(mode: str = "frontline"):
+    """
+    Factory function to return the appropriate agent graph based on the mode.
+    """
+    if mode == "executive":
+        return executive_advisor_agent
     return supervisor_agent
