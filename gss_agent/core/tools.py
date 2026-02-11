@@ -5,52 +5,83 @@ from gss_agent.rag.vector_store import GartnerVectorStore
 from langchain_experimental.utilities import PythonREPL
 
 # Initialize Vector Store
-v_store = GartnerVectorStore(persist_directory="/Users/govindmittal/datascience-setup/interview_prep/gartner/chroma_db")
+# Use absolute paths for robustness
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+CHROMA_DIR = os.path.join(os.path.dirname(BASE_DIR), "chroma_db")
+
+v_store = GartnerVectorStore(persist_directory=CHROMA_DIR)
 python_repl_utility = PythonREPL()
 
 class GartnerDataReader:
-    def __init__(self, data_dir="/Users/govindmittal/datascience-setup/interview_prep/gartner/gss_agent/data"):
+    def __init__(self, data_dir=DATA_DIR):
         self.data_dir = data_dir
-        self.clients = self._load("clients.json")
-        self.metrics = self._load("client_metrics_timeseries.json")
-        self.associates = self._load("associates.json")
-        self.performance = self._load("associate_performance.json")
-        self.contracts = self._load("contracts.json")
+        self.clients = self.load_robust("clients.json")
+        self.metrics = self.load_robust("client_metrics_timeseries.json")
+        self.associates = self.load_robust("associates.json")
+        self.performance = self.load_robust("associate_performance.json")
+        self.contracts = self.load_robust("contracts.json")
 
-    def _load(self, filename):
+    def load_robust(self, filename):
         path = os.path.join(self.data_dir, filename)
         if os.path.exists(path):
-            with open(path, "r") as f:
-                return json.load(f)
+            try:
+                with open(path, "r") as f:
+                    return json.load(f)
+            except Exception as e:
+                print(f"Error loading {filename}: {e}")
+                return []
         return []
 
     def get_client(self, name):
+        if not name: return None
         for c in self.clients:
-            if name.lower() in c["name"].lower():
+            if name.lower() in c.get("name", "").lower():
                 return c
         return None
+    
+    def get_all_clients_summary(self):
+        """Returns a list of dicts with basic info for all clients."""
+        return [
+            {"name": c.get("name"), "id": c.get("id"), "industry": c.get("industry")} 
+            for c in self.clients
+        ]
 
     def get_metrics(self, client_id):
-        return [m for m in self.metrics if m["client_id"] == client_id]
+        # Metrics might be a dict (by client_id) or list
+        if isinstance(self.metrics, dict):
+            return self.metrics.get(client_id, [])
+        return [m for m in self.metrics if m.get("client_id") == client_id]
 
     def get_contract(self, client_id):
         for con in self.contracts:
-            if con["client_id"] == client_id:
+            if con.get("client_id") == client_id:
                 return con
         return None
 
     def get_associate_info(self, client_id):
-        client = next((c for c in self.clients if c["id"] == client_id), None)
+        client = next((c for c in self.clients if c.get("id") == client_id), None)
         if not client: return None
         
         assoc_name = client.get("assigned_associate")
-        assoc = next((a for a in self.associates if a["name"] == assoc_name), None)
+        assoc = next((a for a in self.associates if a.get("name") == assoc_name), None)
         if not assoc: return None
         
-        perf = next((p for p in self.performance if p["associate_id"] == assoc["id"]), None)
+        perf = next((p for p in self.performance if p.get("associate_id") == assoc.get("id")), None)
         return {"profile": assoc, "performance": perf}
 
 data_reader = GartnerDataReader()
+
+@tool
+def list_all_clients() -> str:
+    """
+    Returns a list of ALL clients in the portfolio with their basic details (Name, Industry, ID).
+    Use this when asked to 'summarize for all clients' or when you need to iterate over the entire portfolio.
+    """
+    clients = data_reader.get_all_clients_summary()
+    if not clients:
+        return "No clients found in the database."
+    return json.dumps(clients, indent=2)
 
 @tool
 def lookup_client_file(client_name: str) -> str:
@@ -140,6 +171,7 @@ def analyze_data_python(code: str) -> str:
 
 # Export tools
 GSS_TOOLS = [
+    list_all_clients,
     lookup_client_file, 
     search_research_library, 
     search_interaction_history, 

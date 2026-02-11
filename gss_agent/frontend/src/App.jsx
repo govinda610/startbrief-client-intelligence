@@ -130,7 +130,7 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(scrollToBottom, [messages, traces]);
+  useEffect(scrollToBottom, [messages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -138,9 +138,14 @@ function App() {
 
     const userMsg = input;
     setInput("");
-    setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
+
+    // Add User Message
+    setMessages(prev => [
+      ...prev,
+      { role: 'user', content: userMsg }
+    ]);
+
     setIsStreaming(true);
-    setTraces([]); // Reset traces for new turn
 
     try {
       let endpoint;
@@ -161,8 +166,11 @@ function App() {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
 
-      // Add initial empty AI message
-      setMessages(prev => [...prev, { role: 'assistant', content: "" }]);
+      // Add initial empty AI message WITH empty traces array
+      setMessages(prev => [
+        ...prev,
+        { role: 'assistant', content: "", traces: [] }
+      ]);
 
       while (true) {
         const { value, done } = await reader.read();
@@ -179,42 +187,59 @@ function App() {
             try {
               const data = JSON.parse(dataStr);
 
-              // Route: Supervisor Final Output -> Main Chat Bubble
-              // DeepAgents emits "model" or "Supervisor" node names
-              // CRITICAL: We accept these even if they have tool calls, because sometimes the final answer IS a tool call (save file) OR accompanies one.
-              const isSupervisorNode = data.node === "Supervisor" || data.node === "model";
+              // Update the LAST message (which is our assistant bubble)
+              // Update the LAST message (which is our assistant bubble)
+              setMessages(prev => {
+                const newMsgs = [...prev];
+                const lastMsgIndex = newMsgs.length - 1;
+                // Create a shallow copy of the last message to avoid mutating immutable state
+                // (though here we are mutating the copy)
+                const lastMsg = { ...newMsgs[lastMsgIndex] };
 
-              if (isSupervisorNode) {
-                // Extract text content from Anthropic content blocks
-                // Content can be a string OR an array of content blocks [{type: "text", text: "..."}, ...]
-                let textContent = "";
-                if (typeof data.content === "string") {
-                  textContent = data.content;
-                } else if (Array.isArray(data.content)) {
-                  textContent = data.content
-                    .filter(block => block.type === "text" && block.text)
-                    .map(block => block.text)
-                    .join("\n");
-                }
+                // Route: Supervisor Final Output -> Main Chat Bubble content
+                const isSupervisorNode = data.node === "Supervisor" || data.node === "model";
 
-                // Update the LAST message (which is our assistant bubble)
-                setMessages(prev => {
-                  const newMsgs = [...prev];
-                  if (newMsgs.length > 0 && textContent) {
-                    newMsgs[newMsgs.length - 1].content = textContent;
+                if (isSupervisorNode) {
+                  // Extract text content
+                  let textContent = "";
+                  if (typeof data.content === "string") {
+                    textContent = data.content;
+                  } else if (Array.isArray(data.content)) {
+                    textContent = data.content
+                      .filter(block => block.type === "text" && block.text)
+                      .map(block => block.text)
+                      .join("\n");
                   }
-                  return newMsgs;
-                });
 
-                // If it ALSO has tool calls, log it to traces too so we see the action
-                if (data.has_tool_calls) {
-                  setTraces(prev => [...prev, data]);
+                  if (textContent) {
+                    lastMsg.content = textContent;
+                  }
+
+                  // If it ALSO has tool calls, log it to traces too
+                  if (data.has_tool_calls) {
+                    const currentTraces = lastMsg.traces || [];
+                    const lastTrace = currentTraces[currentTraces.length - 1];
+                    const isDuplicate = lastTrace && JSON.stringify(lastTrace) === JSON.stringify(data);
+
+                    if (!isDuplicate) {
+                      lastMsg.traces = [...currentTraces, data];
+                    }
+                  }
                 }
-              }
-              // Route: Tools/Thoughts/Critic -> Traces
-              else {
-                setTraces(prev => [...prev, data]);
-              }
+                // Route: Tools/Thoughts/Critic -> Traces
+                else {
+                  const currentTraces = lastMsg.traces || [];
+                  const lastTrace = currentTraces[currentTraces.length - 1];
+                  const isDuplicate = lastTrace && JSON.stringify(lastTrace) === JSON.stringify(data);
+
+                  if (!isDuplicate) {
+                    lastMsg.traces = [...currentTraces, data];
+                  }
+                }
+
+                newMsgs[lastMsgIndex] = lastMsg;
+                return newMsgs;
+              });
 
             } catch (e) {
               console.error("Parse error", e);
@@ -276,8 +301,8 @@ function App() {
           <button
             onClick={() => setMode("frontline")}
             className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "frontline"
-                ? "bg-gartner-cyan text-gartner-bg shadow-lg shadow-gartner-cyan/20"
-                : "text-gartner-slate hover:text-white"
+              ? "bg-gartner-cyan text-gartner-bg shadow-lg shadow-gartner-cyan/20"
+              : "text-gartner-slate hover:text-white"
               }`}
           >
             <Activity size={12} />
@@ -286,8 +311,8 @@ function App() {
           <button
             onClick={() => setMode("executive")}
             className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "executive"
-                ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
-                : "text-gartner-slate hover:text-white"
+              ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+              : "text-gartner-slate hover:text-white"
               }`}
           >
             <Shield size={12} />
@@ -341,15 +366,14 @@ function App() {
           )}
 
           {messages.map((msg, idx) => {
-            // Logic: If this is the LAST message AND it is from the assistant,
-            // we render the TRACES (if any) BEFORE the message bubble.
-            const isLastAssistantMessage = (idx === messages.length - 1) && (msg.role === 'assistant');
+            // Logic: Render traces if the message has them
+            const hasTraces = msg.role === 'assistant' && msg.traces && msg.traces.length > 0;
 
             return (
               <React.Fragment key={idx}>
-                {isLastAssistantMessage && traces.length > 0 && (
+                {hasTraces && (
                   <div className="mb-4">
-                    <TraceLog traces={traces} />
+                    <TraceLog traces={msg.traces} />
                   </div>
                 )}
 

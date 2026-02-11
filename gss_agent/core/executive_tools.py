@@ -4,15 +4,28 @@ import json
 import logging
 from typing import List, Dict, Any, Optional
 
-# Load data (using existing loaders would be better, but for simplicity we reload)
-# In production, this would be a database query.
+# Load data with absolute paths to ensure robustness
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
 try:
-    with open("gss_agent/data/associates.json", "r") as f:
+    with open(os.path.join(DATA_DIR, "associates.json"), "r") as f:
         ASSOCIATES_DB = json.load(f)
-    with open("gss_agent/data/client_metrics_timeseries.json", "r") as f:
-        METRICS_DB = json.load(f)
-    with open("gss_agent/data/clients.json", "r") as f:
+    # Handle metrics file which might be large or absent
+    metrics_path = os.path.join(DATA_DIR, "client_metrics_timeseries.json")
+    if os.path.exists(metrics_path):
+        with open(metrics_path, "r") as f:
+            METRICS_DB = json.load(f)
+    else:
+        METRICS_DB = {}
+        logging.warning("client_metrics_timeseries.json not found, using empty metrics.")
+
+    with open(os.path.join(DATA_DIR, "clients.json"), "r") as f:
         CLIENTS_DB = json.load(f)
+        
+    logging.info(f"Executive Tools Loaded: {len(CLIENTS_DB)} clients, {len(ASSOCIATES_DB)} associates.")
+    
 except Exception as e:
     logging.error(f"Failed to load data for executive tools: {e}")
     ASSOCIATES_DB = []

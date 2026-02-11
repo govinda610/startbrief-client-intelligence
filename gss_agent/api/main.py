@@ -55,6 +55,11 @@ async def event_generator(message: str, thread_id: str, mode: str = "frontline")
                     if output is None:
                         continue
                     
+                    # IGNORE internal LangGraph/LangChain nodes that are just state updates or middleware
+                    # particular "PATCHTOOLCALLSMIDDLEWARE" often replays history
+                    if "PATCHTOOLCALLSMIDDLEWARE" in node_name.upper():
+                        continue
+                    
                     # Unwrap Overwrite objects if present (handled via .value in dict access usually, 
                     # but explicit check is good for robustness)
                     # Note: In 'updates' mode, output IS the change. 
