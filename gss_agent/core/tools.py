@@ -163,10 +163,15 @@ def analyze_data_python(code: str) -> str:
     on client engagement data. The tool provides a clean sandbox.
     Use this for logic like "Calculate the MoM drop in login frequency".
     """
+    import logging
+    logger = logging.getLogger("GSS_Tools")
+    logger.info(f"Executing Python REPL code:\n{code}")
     try:
         result = python_repl_utility.run(code)
+        logger.info(f"REPL Output:\n{result}")
         return f"Output:\n{result}"
     except Exception as e:
+        logger.error(f"REPL Error: {str(e)}")
         return f"Error executing code: {str(e)}"
 
 # Export tools

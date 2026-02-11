@@ -77,15 +77,22 @@ async def event_generator(message: str, thread_id: str, mode: str = "frontline")
                             
                             # Check for tool_calls
                             has_tool_calls = False
+                            tool_call_details = []
                             if hasattr(msg, "tool_calls") and msg.tool_calls:
                                 has_tool_calls = True
+                                for tc in msg.tool_calls:
+                                    tool_call_details.append({
+                                        "tool_name": tc.get("name", ""),
+                                        "args": tc.get("args", {})
+                                    })
                             
                             # Construct payload
                             payload = {
                                 "node": node_name,
                                 "type": msg_type,
                                 "content": content,
-                                "has_tool_calls": has_tool_calls
+                                "has_tool_calls": has_tool_calls,
+                                "tool_calls": tool_call_details if tool_call_details else None
                             }
                             
                             # Yield formatted SSE
@@ -120,7 +127,8 @@ async def event_generator(message: str, thread_id: str, mode: str = "frontline")
                                 "node": node_name,
                                 "type": msg_type,
                                 "content": content,
-                                "has_tool_calls": has_tool_calls
+                                "has_tool_calls": has_tool_calls,
+                                "tool_calls": tool_call_details if tool_call_details else None
                             }
                             
                             # Yield formatted SSE

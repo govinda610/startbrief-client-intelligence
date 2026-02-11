@@ -97,6 +97,32 @@ const TraceLog = ({ traces }) => {
                   <div className="text-gartner-slate whitespace-pre-wrap leading-relaxed">
                     {extractDisplayContent(trace.content)}
                   </div>
+
+                  {/* Render Tool Call Details if present */}
+                  {trace.tool_calls && trace.tool_calls.map((tc, i) => (
+                    <div key={i} className="mt-2 bg-[#0a1a2f] border border-gartner-cyan/20 rounded-md p-2 overflow-hidden">
+                      <div className="flex items-center gap-2 mb-1 border-b border-gartner-cyan/10 pb-1">
+                        <Play size={10} className="text-gartner-cyan" />
+                        <span className="text-gartner-cyan text-[10px] font-bold uppercase tracking-wider">{tc.tool_name}</span>
+                      </div>
+
+                      {tc.args?.code && (
+                        <div className="relative group">
+                          <Terminal size={10} className="absolute right-2 top-2 text-gartner-slate/30 group-hover:text-gartner-cyan transition-colors" />
+                          <pre className="text-green-400 text-[10px] py-1 overflow-x-auto selection:bg-green-500/20">
+                            <code>{tc.args.code}</code>
+                          </pre>
+                        </div>
+                      )}
+
+                      {/* For other tools, show summarized args if not too long */}
+                      {!tc.args?.code && tc.args && Object.keys(tc.args).length > 0 && (
+                        <div className="text-gartner-slate/70 text-[9px] italic">
+                          Args: {JSON.stringify(tc.args)}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
