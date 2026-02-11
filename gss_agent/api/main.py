@@ -133,7 +133,9 @@ async def event_generator(message: str, thread_id: str, mode: str = "frontline")
                             
                             # Yield formatted SSE
                             json_payload = json.dumps(payload)
-                            logger.info(f"SSE Payload: {json_payload}")
+                            # Log to uvicorn.error for reliable console output
+                            import logging
+                            logging.getLogger("uvicorn.error").info(f"SSE Payload: {json_payload}")
                             yield f"data: {json_payload}\n\n"
             
             # Yield a heartbeat or keep-alive if needed (optional)

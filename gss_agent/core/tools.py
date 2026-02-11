@@ -164,8 +164,9 @@ def analyze_data_python(code: str) -> str:
     Use this for logic like "Calculate the MoM drop in login frequency".
     """
     import logging
-    logger = logging.getLogger("GSS_Tools")
-    logger.info(f"Executing Python REPL code:\n{code}")
+    # Use uvicorn.error logger to ensure it prints to the uvicorn console
+    logger = logging.getLogger("uvicorn.error")
+    logger.info(f"--- [PYTHON REPL START] ---\n{code}\n--- [PYTHON REPL END] ---")
     try:
         result = python_repl_utility.run(code)
         logger.info(f"REPL Output:\n{result}")
