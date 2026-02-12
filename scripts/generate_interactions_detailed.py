@@ -41,13 +41,13 @@ def generate_detailed_interaction_zai(client, interaction_type):
     word_requirement = word_counts.get(interaction_type, "500-800 words")
     
     prompt = f"""
-    Generate a realistic and detailed {interaction_type} for this Gartner client.
+    Generate a realistic and detailed {interaction_type} for this Nexus Advisory client.
     
     Client: {client['name']} ({client['industry']})
     
     Requirements:
     1. Length: {word_requirement}
-    2. Realism: Include specific business metrics, Gartner research names, and competitor mentions.
+    2. Realism: Include specific business metrics, Nexus Advisory research names, and competitor mentions.
     3. Format: Return ONLY a JSON object with keys: "type", "content", "sentiment", "key_topics", "actions_identified".
     
     Special Instructions for Format:
@@ -57,7 +57,7 @@ def generate_detailed_interaction_zai(client, interaction_type):
     Return ONLY valid JSON.
     """
     
-    system_prompt = "You are a Senior Gartner Executive Partner. Return ONLY valid JSON."
+    system_prompt = "You are a Senior Nexus Advisory Executive Partner. Return ONLY valid JSON."
     
     llm_rotator.use_zai_fallback = True
     

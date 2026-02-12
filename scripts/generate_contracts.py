@@ -7,12 +7,12 @@ CLIENTS_FILE = os.path.join(DATA_DIR, "clients.json")
 OUTPUT_FILE = os.path.join(DATA_DIR, "contracts.json")
 
 SUBSCRIPTION_VALUES = {
-    "Gartner Standard License (GSL)": 150000,
-    "Gartner for IT Leaders (GSSO)": 285000,
-    "Gartner for Finance Leaders": 120000,
+    "Nexus Advisory Standard License (GSL)": 150000,
+    "Nexus Advisory for IT Leaders (GSSO)": 285000,
+    "Nexus Advisory for Finance Leaders": 120000,
     "Executive Programs (EXP)": 450000,
-    "Gartner for Sales Leaders": 135000,
-    "Gartner for Marketing Leaders": 140000
+    "Nexus Advisory for Sales Leaders": 135000,
+    "Nexus Advisory for Marketing Leaders": 140000
 }
 
 def generate_contracts(clients):

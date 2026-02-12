@@ -50,9 +50,9 @@ def verify_vector_store():
         print(f"✅ Client Interactions Collection Count: {count_int}")
         
         # Research
-        col_res = client.get_collection("gartner_research")
+        col_res = client.get_collection("nexus_research")
         count_res = col_res.count()
-        print(f"✅ Gartner Research Collection Count: {count_res}")
+        print(f"✅ Nexus Advisory Research Collection Count: {count_res}")
         
         # Test Query
         results = col_int.query(query_texts=["renewal budget cuts"], n_results=1)

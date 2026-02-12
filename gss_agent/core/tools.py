@@ -1,7 +1,7 @@
 import json
 import os
 from langchain.tools import tool
-from gss_agent.rag.vector_store import GartnerVectorStore
+from gss_agent.rag.vector_store import NexusVectorStore
 from langchain_experimental.utilities import PythonREPL
 
 # Initialize Vector Store
@@ -10,10 +10,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 CHROMA_DIR = os.path.join(os.path.dirname(BASE_DIR), "chroma_db")
 
-v_store = GartnerVectorStore(persist_directory=CHROMA_DIR)
+v_store = NexusVectorStore(persist_directory=CHROMA_DIR)
 python_repl_utility = PythonREPL()
 
-class GartnerDataReader:
+class NexusDataReader:
     def __init__(self, data_dir=DATA_DIR):
         self.data_dir = data_dir
         self.clients = self.load_robust("clients.json")
@@ -70,7 +70,7 @@ class GartnerDataReader:
         perf = next((p for p in self.performance if p.get("associate_id") == assoc.get("id")), None)
         return {"profile": assoc, "performance": perf}
 
-data_reader = GartnerDataReader()
+data_reader = NexusDataReader()
 
 @tool
 def list_all_clients() -> str:
@@ -97,7 +97,7 @@ def lookup_client_file(client_name: str) -> str:
 @tool
 def search_research_library(query: str) -> str:
     """
-    Search the Gartner research library for relevant reports, Magic Quadrants, 
+    Search the Nexus Advisory research library for relevant reports, 
     and Hype Cycles related to a specific topic or technology.
     """
     results = v_store.search_research(query, n_results=3)

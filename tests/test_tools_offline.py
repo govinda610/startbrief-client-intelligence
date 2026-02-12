@@ -8,7 +8,7 @@ def test_tools_offline():
     # 1. Test Registry Lookup
     amazon_data = lookup_client_file.invoke("Amazon")
     assert "Amazon" in amazon_data
-    assert "GSL" in amazon_data or "Gartner" in amazon_data
+    assert "GSL" in amazon_data or "Nexus Advisory" in amazon_data
     print("✅ Client Registry Lookup: Success")
     
     # 2. Test RAG Research

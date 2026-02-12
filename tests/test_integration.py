@@ -1,4 +1,4 @@
-from gss_agent.core.agents import get_gartner_agent
+from gss_agent.core.agents import get_nexus_agent
 import os
 from dotenv import load_dotenv
 from langchain_core.messages import AIMessage, HumanMessage
@@ -6,7 +6,7 @@ from langchain_core.messages import AIMessage, HumanMessage
 load_dotenv()
 
 def test_mas_flow_streaming():
-    agent = get_gartner_agent()
+    agent = get_nexus_agent()
     
     # Complex test case: Amazon Renewal + Research
     query = "Prepare a meeting brief for Amazon. Highlight their current subscription and find relevant 2024 research. Make sure to vet the sources."

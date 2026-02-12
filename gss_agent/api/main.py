@@ -12,9 +12,9 @@ from gss_agent.core.agents import supervisor_agent
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("GartnerAPI")
+logger = logging.getLogger("NexusAPI")
 
-app = FastAPI(title="Gartner Strategic Advisor API", version="2.0")
+app = FastAPI(title="Nexus Strategic Advisor API", version="2.0")
 
 # CORS Configuration
 app.add_middleware(
@@ -44,8 +44,8 @@ async def event_generator(message: str, thread_id: str, mode: str = "frontline")
 
     try:
         # Get appropriate agent graph based on mode
-        from gss_agent.core.agents import get_gartner_agent
-        agent = get_gartner_agent(mode=mode)
+        from gss_agent.core.agents import get_nexus_agent
+        agent = get_nexus_agent(mode=mode)
         
         # Stream updates from the graph
         async for event in agent.astream(input_state, config=config, stream_mode="updates"):
@@ -166,7 +166,7 @@ async def executive_chat_endpoint(request: ChatRequest):
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "active", "system": "Gartner Strategic Advisor V2"}
+    return {"status": "active", "system": "Nexus Strategic Advisor V2"}
 
 
 async def mock_golden_generator():

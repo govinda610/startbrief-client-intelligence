@@ -26,7 +26,7 @@ PAIN_POINTS = [
     "My team doesn't know how to sell against our new competitor."
 ]
 
-GARTNER_PITCH = [
+NEXUS_PITCH = [
     "Have you seen our latest Magic Quadrant on this?",
     "I can set up an inquiry with an analyst who covers exactly that.",
     "We have a tool called the 'Sales Score' that diagnoses this issue.",
@@ -50,25 +50,25 @@ def generate_transcript(client_name, company_name, sentiment="neutral"):
     dialogue = []
     
     # Intro
-    dialogue.append(f"Gartner Associate: {random.choice(GREETINGS_ASSOCIATE).format(client_name=client_name, company=company_name)}")
+    dialogue.append(f"Nexus Advisory Associate: {random.choice(GREETINGS_ASSOCIATE).format(client_name=client_name, company=company_name)}")
     dialogue.append(f"{client_name} ({company_name}): {random.choice(GREETINGS_CLIENT)}")
     
     # Discussion
     pain = random.choice(PAIN_POINTS)
     dialogue.append(f"{client_name} ({company_name}): {pain}")
     
-    pitch = random.choice(GARTNER_PITCH)
-    dialogue.append(f"Gartner Associate: That sounds challenging. {pitch}")
+    pitch = random.choice(NEXUS_PITCH)
+    dialogue.append(f"Nexus Advisory Associate: That sounds challenging. {pitch}")
     
     if sentiment == "negative":
         objection = random.choice(OBJECTIONS)
         dialogue.append(f"{client_name} ({company_name}): To be honest, {objection}")
-        dialogue.append("Gartner Associate: I understand. Let's look at a usage plan to fix that.")
+        dialogue.append("Nexus Advisory Associate: I understand. Let's look at a usage plan to fix that.")
     else:
         dialogue.append(f"{client_name} ({company_name}): That would be helpful. Can you send me the link?")
         
     # Closing
-    dialogue.append(f"Gartner Associate: {random.choice(CLOSING)}")
+    dialogue.append(f"Nexus Advisory Associate: {random.choice(CLOSING)}")
     
     return "\n".join(dialogue)
 

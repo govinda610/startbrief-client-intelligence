@@ -34,7 +34,7 @@ class ResearchBatch(BaseModel):
 def generate_research_batch(count: int = 5):
     """Generate research items with detailed abstracts"""
     prompt = f"""
-Generate {count} realistic Gartner research reports. Return ONLY valid JSON in this exact format:
+Generate {count} realistic Nexus Advisory research reports. Return ONLY valid JSON in this exact format:
 
 {{
   "items": [
@@ -52,7 +52,7 @@ Topics: {', '.join(random.sample(TOPICS, min(5, len(TOPICS))))}
 Make each abstract 350-500 words, providing a comprehensive professional analysis including market dynamics, vendor landscape, and strategic recommendations.
 """
     
-    system_prompt = "You are a Gartner research analyst. You provide deep technical and strategic insights. Return ONLY valid JSON with no preamble."
+    system_prompt = "You are a Nexus Advisory research analyst. You provide deep technical and strategic insights. Return ONLY valid JSON with no preamble."
     
     try:
         batch = llm_rotator.generate_structured(prompt, ResearchBatch, system_prompt, max_tokens=6000)

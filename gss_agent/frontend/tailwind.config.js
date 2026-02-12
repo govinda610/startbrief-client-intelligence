@@ -7,7 +7,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                gartner: {
+                nexus: {
                     bg: "#0A192F",       // Deepest Navy
                     card: "#112240",     // Card Surface
                     hover: "#233554",    // Hover State

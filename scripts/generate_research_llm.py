@@ -17,7 +17,7 @@ FREE_MODELS = [
 ]
 
 ABSTRACT_PROMPT = ChatPromptTemplate.from_template("""
-Write a 2-sentence executive abstract for a Gartner Research report.
+Write a 2-sentence executive abstract for a Nexus Advisory Research report.
 Title: "{title}"
 Tags: {tags}
 Value: {value}
@@ -63,8 +63,8 @@ async def fix_research():
 
     # Ingest
     print("Ingesting...")
-    from gss_agent.rag.vector_store import GartnerVectorStore
-    v_store = GartnerVectorStore(persist_directory=os.path.join(base_dir, "chroma_db"))
+    from gss_agent.rag.vector_store import NexusVectorStore
+    v_store = NexusVectorStore(persist_directory=os.path.join(base_dir, "chroma_db"))
     v_store.ingest_research(content_path)
     print("Done.")
 

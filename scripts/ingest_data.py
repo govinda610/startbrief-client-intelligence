@@ -1,12 +1,12 @@
 import os
 import sys
-from gss_agent.rag.vector_store import GartnerVectorStore
+from gss_agent.rag.vector_store import NexusVectorStore
 
 def main():
-    print("🚀 Starting Data Ingestion into Gartner Vector Store...")
+    print("🚀 Starting Data Ingestion into Nexus Advisory Vector Store...")
     
     # Initialize vector store
-    v_store = GartnerVectorStore(persist_directory="./chroma_db")
+    v_store = NexusVectorStore(persist_directory="./chroma_db")
     
     base_dir = "/Users/govindmittal/datascience-setup/interview_prep/gartner/gss_agent/data"
     

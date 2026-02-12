@@ -5,7 +5,7 @@ import os
 
 fake = Faker()
 
-# Real Gartner Context Data
+# Real Nexus Advisory Context Data
 REAL_CLIENTS = [
     {"name": "Amazon", "industry": "Technology/E-commerce", "revenue": "$570B", "region": "Global"},
     {"name": "Centers for Medicare & Medicaid Services (CMS)", "industry": "Government/Healthcare", "revenue": "N/A", "region": "North America"},
@@ -17,15 +17,15 @@ REAL_CLIENTS = [
     {"name": "Databricks", "industry": "Data/AI", "revenue": "$1.5B+", "region": "Global"}
 ]
 
-GARTNER_ENTITLEMENTS = [
-    "Gartner for Sales Leaders (GSL)",
-    "Gartner for Technology CSOs",
-    "Gartner for Marketing Leaders",
-    "Gartner Global Sales Strategy & Operations (GSSO) Advisory",
+NEXUS_ENTITLEMENTS = [
+    "Nexus Advisory for Sales Leaders (GSL)",
+    "Nexus Advisory for Technology CSOs",
+    "Nexus Advisory for Marketing Leaders",
+    "Nexus Advisory Global Sales Strategy & Operations (GSSO) Advisory",
     "Sales Score Diagnostic",
     "Comparative Seller Performance Diagnostic",
-    "Gartner BuySmart",
-    "Gartner Digital Markets"
+    "Nexus Advisory BuySmart",
+    "Nexus Advisory Digital Markets"
 ]
 
 RESEARCH_TITLES = [
@@ -72,7 +72,7 @@ def generate_clients(n=20):
             "revenue": base["revenue"],
             "region": base["region"],
             "subscription_tier": random.choice(["Enterprise", "Global", "Professional"]),
-            "entitlements": random.sample(GARTNER_ENTITLEMENTS, k=random.randint(1, 3)),
+            "entitlements": random.sample(NEXUS_ENTITLEMENTS, k=random.randint(1, 3)),
             "retention_risk": random.choice(["Low", "Medium", "High"]),
             "churn_signals": random.sample([
                 "Low login frequency (last 30 days)",

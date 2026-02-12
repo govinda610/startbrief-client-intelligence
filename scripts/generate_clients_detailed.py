@@ -17,11 +17,11 @@ LIFECYCLE_STAGES = ["Onboarding", "Growth", "Renewal", "At Risk"]
 CHURN_RISKS = ["Low", "Medium", "High"]
 
 SUBSCRIPTION_TYPES = [
-    "Gartner Standard License (GSL)",
-    "Gartner for IT Leaders (GSSO)",
-    "Gartner for CIOs",
-    "Gartner for Finance Leaders",
-    "Gartner for Supply Chain Leaders"
+    "Nexus Advisory Standard License (GSL)",
+    "Nexus Advisory for IT Leaders (GSSO)",
+    "Nexus Advisory for CIOs",
+    "Nexus Advisory for Finance Leaders",
+    "Nexus Advisory for Supply Chain Leaders"
 ]
 
 ENTITLEMENTS = [
@@ -51,7 +51,7 @@ class ClientBatch(BaseModel):
 def generate_client_batch(count: int = 5):
     """Generate a batch of clients using LLM with Pydantic validation"""
     prompt = f"""
-    Generate {count} realistic enterprise client profiles for a Gartner Strategic Advisor system.
+    Generate {count} realistic enterprise client profiles for a Nexus Advisory Strategic Advisor system.
     Industries must be from: {INDUSTRIES}.
     Each client needs 2-3 key contacts.
     """

@@ -23,13 +23,13 @@ FREE_MODELS = [
 RATE_LIMIT_DELAY = 10.0 
 
 TRANSCRIPT_PROMPT = ChatPromptTemplate.from_template("""
-You are generating a realistic call transcript for a Gartner simulation.
+You are generating a realistic call transcript for a Nexus Advisory simulation.
 
 Client: {client_name} ({company_name})
 Industry: {industry}
 Context: {scenario}
 
-Output a dialogue between "Gartner Associate" and "{client_name}".
+Output a dialogue between "Nexus Advisory Associate" and "{client_name}".
 - The dialogue must be realistic, including complaints about budget or competitors.
 - The client should be skeptical. 
 - The Associate should be professional.
@@ -115,8 +115,8 @@ async def main():
     # Ingest
     if results:
         print("Ingesting into ChromaDB...")
-        from gss_agent.rag.vector_store import GartnerVectorStore
-        v_store = GartnerVectorStore(persist_directory=os.path.join(base_dir, "chroma_db"))
+        from gss_agent.rag.vector_store import NexusVectorStore
+        v_store = NexusVectorStore(persist_directory=os.path.join(base_dir, "chroma_db"))
         v_store.ingest_interactions(output_path)
         print("Ingestion Complete.")
 

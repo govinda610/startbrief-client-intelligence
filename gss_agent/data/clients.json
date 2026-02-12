@@ -8,8 +8,8 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner for Finance Leaders",
-      "Gartner for Supply Chain Leaders"
+      "Nexus Advisory for Finance Leaders",
+      "Nexus Advisory for Supply Chain Leaders"
     ],
     "entitlements": [
       "Magic Quadrant Access",
@@ -41,7 +41,7 @@
     "lifecycle_stage": "Onboarding",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner for CIOs"
+      "Nexus Advisory for CIOs"
     ],
     "entitlements": [
       "Technical Professional Advice",
@@ -72,8 +72,8 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for CIOs",
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Magic Quadrant Access",
@@ -108,8 +108,8 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner for Finance Leaders",
-      "Gartner for Supply Chain Leaders"
+      "Nexus Advisory for Finance Leaders",
+      "Nexus Advisory for Supply Chain Leaders"
     ],
     "entitlements": [
       "Technical Professional Advice",
@@ -140,8 +140,8 @@
     "lifecycle_stage": "Onboarding",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner Standard License (GSL)",
-      "Gartner for CIOs"
+      "Nexus Advisory Standard License (GSL)",
+      "Nexus Advisory for CIOs"
     ],
     "entitlements": [
       "Peer Insights",
@@ -173,8 +173,8 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for Supply Chain Leaders",
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory for Supply Chain Leaders",
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Peer Insights",
@@ -205,9 +205,9 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for Finance Leaders",
-      "Gartner for CIOs",
-      "Gartner for IT Leaders (GSSO)"
+      "Nexus Advisory for Finance Leaders",
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory for IT Leaders (GSSO)"
     ],
     "entitlements": [
       "Technical Professional Advice",
@@ -239,7 +239,7 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Peer Insights",
@@ -274,8 +274,8 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner for IT Leaders (GSSO)",
-      "Gartner for Supply Chain Leaders"
+      "Nexus Advisory for IT Leaders (GSSO)",
+      "Nexus Advisory for Supply Chain Leaders"
     ],
     "entitlements": [
       "Technical Professional Advice",
@@ -306,9 +306,9 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for Finance Leaders",
-      "Gartner for IT Leaders (GSSO)",
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory for Finance Leaders",
+      "Nexus Advisory for IT Leaders (GSSO)",
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Peer Insights",
@@ -340,9 +340,9 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner Standard License (GSL)",
-      "Gartner for Finance Leaders",
-      "Gartner for IT Leaders (GSSO)"
+      "Nexus Advisory Standard License (GSL)",
+      "Nexus Advisory for Finance Leaders",
+      "Nexus Advisory for IT Leaders (GSSO)"
     ],
     "entitlements": [
       "Peer Insights",
@@ -374,8 +374,8 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner for CIOs",
-      "Gartner for Finance Leaders"
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory for Finance Leaders"
     ],
     "entitlements": [
       "Hype Cycles",
@@ -407,9 +407,9 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner for Finance Leaders",
-      "Gartner for CIOs",
-      "Gartner for IT Leaders (GSSO)"
+      "Nexus Advisory for Finance Leaders",
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory for IT Leaders (GSSO)"
     ],
     "entitlements": [
       "Magic Quadrant Access",
@@ -442,8 +442,8 @@
     "lifecycle_stage": "Onboarding",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for IT Leaders (GSSO)",
-      "Gartner for Finance Leaders"
+      "Nexus Advisory for IT Leaders (GSSO)",
+      "Nexus Advisory for Finance Leaders"
     ],
     "entitlements": [
       "Analyst Inquiries",
@@ -474,7 +474,7 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Hype Cycles",
@@ -507,9 +507,9 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner for CIOs",
-      "Gartner for Supply Chain Leaders",
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory for Supply Chain Leaders",
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Hype Cycles",
@@ -542,9 +542,9 @@
     "lifecycle_stage": "Renewal",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner Standard License (GSL)",
-      "Gartner for CIOs",
-      "Gartner for Supply Chain Leaders"
+      "Nexus Advisory Standard License (GSL)",
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory for Supply Chain Leaders"
     ],
     "entitlements": [
       "Peer Insights",
@@ -577,8 +577,8 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner for CIOs",
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Hype Cycles",
@@ -615,7 +615,7 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Analyst Inquiries",
@@ -647,9 +647,9 @@
     "lifecycle_stage": "Renewal",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for IT Leaders (GSSO)",
-      "Gartner for CIOs",
-      "Gartner Standard License (GSL)"
+      "Nexus Advisory for IT Leaders (GSSO)",
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory Standard License (GSL)"
     ],
     "entitlements": [
       "Peer Insights",
@@ -682,9 +682,9 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Low",
     "subscriptions": [
-      "Gartner for Supply Chain Leaders",
-      "Gartner for IT Leaders (GSSO)",
-      "Gartner for Finance Leaders"
+      "Nexus Advisory for Supply Chain Leaders",
+      "Nexus Advisory for IT Leaders (GSSO)",
+      "Nexus Advisory for Finance Leaders"
     ],
     "entitlements": [
       "Hype Cycles",
@@ -716,7 +716,7 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner for IT Leaders (GSSO)"
+      "Nexus Advisory for IT Leaders (GSSO)"
     ],
     "entitlements": [
       "Analyst Inquiries",
@@ -747,7 +747,7 @@
     "lifecycle_stage": "Growth",
     "churn_risk": "Medium",
     "subscriptions": [
-      "Gartner for Supply Chain Leaders"
+      "Nexus Advisory for Supply Chain Leaders"
     ],
     "entitlements": [
       "Magic Quadrant Access",
@@ -782,9 +782,9 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner for CIOs",
-      "Gartner Standard License (GSL)",
-      "Gartner for Finance Leaders"
+      "Nexus Advisory for CIOs",
+      "Nexus Advisory Standard License (GSL)",
+      "Nexus Advisory for Finance Leaders"
     ],
     "entitlements": [
       "Magic Quadrant Access",
@@ -817,7 +817,7 @@
     "lifecycle_stage": "At Risk",
     "churn_risk": "High",
     "subscriptions": [
-      "Gartner for Finance Leaders"
+      "Nexus Advisory for Finance Leaders"
     ],
     "entitlements": [
       "Hype Cycles",

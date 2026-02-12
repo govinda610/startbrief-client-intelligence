@@ -6,14 +6,14 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 // --- SVGs & Icons ---
-const GartnerLogo = () => (
+const NexusLogo = () => (
   <div className="flex items-center gap-2 mb-8">
-    <div className="w-8 h-8 bg-gartner-cyan rounded-sm flex items-center justify-center">
-      <span className="text-gartner-bg font-bold text-xl">G</span>
+    <div className="w-8 h-8 bg-nexus-cyan rounded-sm flex items-center justify-center">
+      <span className="text-nexus-bg font-bold text-xl">N</span>
     </div>
     <div className="flex flex-col">
-      <span className="text-gartner-light font-bold text-lg tracking-tight">Gartner</span>
-      <span className="text-gartner-slate text-xs uppercase tracking-widest">Strategic Advisor</span>
+      <span className="text-nexus-light font-bold text-lg tracking-tight">Nexus</span>
+      <span className="text-nexus-slate text-xs uppercase tracking-widest">Strategic Advisor</span>
     </div>
   </div>
 );
@@ -22,10 +22,10 @@ const GartnerLogo = () => (
 
 const MetricCard = ({ title, value, subtext, type = "neutral" }) => (
   <div className="glass-panel p-4 flex flex-col items-center justify-center relative overflow-hidden group">
-    <div className={`absolute top-0 left-0 w-full h-1 ${type === 'good' ? 'bg-gartner-cyan' : type === 'risk' ? 'bg-red-500' : 'bg-gartner-blue'}`} />
-    <span className="text-gartner-slate text-xs uppercase font-semibold mb-1">{title}</span>
+    <div className={`absolute top-0 left-0 w-full h-1 ${type === 'good' ? 'bg-nexus-cyan' : type === 'risk' ? 'bg-red-500' : 'bg-nexus-blue'}`} />
+    <span className="text-nexus-slate text-xs uppercase font-semibold mb-1">{title}</span>
     <span className="text-3xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">{value}</span>
-    <span className="text-[10px] text-gartner-slate/70">{subtext}</span>
+    <span className="text-[10px] text-nexus-slate/70">{subtext}</span>
   </div>
 );
 
@@ -61,15 +61,15 @@ const TraceLog = ({ traces }) => {
   };
 
   return (
-    <div className="glass-panel mt-4 overflow-hidden border-l-4 border-l-gartner-cyan">
+    <div className="glass-panel mt-4 overflow-hidden border-l-4 border-l-nexus-cyan">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-3 bg-gartner-card hover:bg-gartner-hover transition-colors"
+        className="w-full flex items-center justify-between p-3 bg-nexus-card hover:bg-nexus-hover transition-colors"
       >
-        <div className="flex items-center gap-2 text-gartner-cyan text-sm font-medium">
+        <div className="flex items-center gap-2 text-nexus-cyan text-sm font-medium">
           <Terminal size={14} />
           <span>Agent Reasoning Stream</span>
-          <span className="bg-gartner-cyan/10 px-2 py-0.5 rounded text-[10px] animate-pulse">LIVE</span>
+          <span className="bg-nexus-cyan/10 px-2 py-0.5 rounded text-[10px] animate-pulse">LIVE</span>
         </div>
         {expanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
       </button>
@@ -92,23 +92,23 @@ const TraceLog = ({ traces }) => {
                       }`}>
                       {trace.node}
                     </span>
-                    <span className="text-gartner-slate/50 text-[10px]">{trace.type}</span>
+                    <span className="text-nexus-slate/50 text-[10px]">{trace.type}</span>
                   </div>
-                  <div className="text-gartner-slate whitespace-pre-wrap leading-relaxed">
+                  <div className="text-nexus-slate whitespace-pre-wrap leading-relaxed">
                     {extractDisplayContent(trace.content)}
                   </div>
 
                   {/* Render Tool Call Details if present */}
                   {trace.tool_calls && trace.tool_calls.map((tc, i) => (
-                    <div key={i} className="mt-2 bg-[#0a1a2f] border border-gartner-cyan/20 rounded-md p-2 overflow-hidden">
-                      <div className="flex items-center gap-2 mb-1 border-b border-gartner-cyan/10 pb-1">
-                        <Play size={10} className="text-gartner-cyan" />
-                        <span className="text-gartner-cyan text-[10px] font-bold uppercase tracking-wider">{tc.tool_name}</span>
+                    <div key={i} className="mt-2 bg-[#0a1a2f] border border-nexus-cyan/20 rounded-md p-2 overflow-hidden">
+                      <div className="flex items-center gap-2 mb-1 border-b border-nexus-cyan/10 pb-1">
+                        <Play size={10} className="text-nexus-cyan" />
+                        <span className="text-nexus-cyan text-[10px] font-bold uppercase tracking-wider">{tc.tool_name}</span>
                       </div>
 
                       {tc.args?.code && (
                         <div className="relative group">
-                          <Terminal size={10} className="absolute right-2 top-2 text-gartner-slate/30 group-hover:text-gartner-cyan transition-colors" />
+                          <Terminal size={10} className="absolute right-2 top-2 text-nexus-slate/30 group-hover:text-nexus-cyan transition-colors" />
                           <pre className="text-green-400 text-[10px] py-1 overflow-x-auto selection:bg-green-500/20">
                             <code>{tc.args.code}</code>
                           </pre>
@@ -117,7 +117,7 @@ const TraceLog = ({ traces }) => {
 
                       {/* For other tools, show summarized args if not too long */}
                       {!tc.args?.code && tc.args && Object.keys(tc.args).length > 0 && (
-                        <div className="text-gartner-slate/70 text-[9px] italic">
+                        <div className="text-nexus-slate/70 text-[9px] italic">
                           Args: {JSON.stringify(tc.args)}
                         </div>
                       )}
@@ -275,22 +275,22 @@ function App() {
       }
     } catch (error) {
       console.error("Stream failed", error);
-      setMessages(prev => [...prev, { role: 'system', content: "Error: Connection to Gartner Brain failed." }]);
+      setMessages(prev => [...prev, { role: 'system', content: "Error: Connection to Nexus Brain failed." }]);
     } finally {
       setIsStreaming(false);
     }
   };
 
   return (
-    <div className="flex h-screen bg-gartner-bg text-gartner-slate selection:bg-gartner-cyan selection:text-gartner-bg">
+    <div className="flex h-screen bg-nexus-bg text-nexus-slate selection:bg-nexus-cyan selection:text-nexus-bg">
 
       {/* Sidebar / Business Intelligence */}
-      <div className="w-80 bg-gartner-card/50 border-r border-gartner-border/30 p-6 flex flex-col hidden md:flex">
-        <GartnerLogo />
+      <div className="w-80 bg-nexus-card/50 border-r border-nexus-border/30 p-6 flex flex-col hidden md:flex">
+        <NexusLogo />
 
         <div className="mb-8">
-          <h3 className="text-gartner-light text-sm font-semibold mb-4 flex items-center gap-2">
-            <Activity size={16} className="text-gartner-cyan" />
+          <h3 className="text-nexus-light text-sm font-semibold mb-4 flex items-center gap-2">
+            <Activity size={16} className="text-nexus-cyan" />
             Engagement Health
           </h3>
           <div className="h-40 w-full glass-panel flex items-center justify-center">
@@ -323,12 +323,12 @@ function App() {
         </div>
 
         {/* Mode Toggle */}
-        <div className="mb-6 p-1 bg-gartner-dark rounded-lg flex items-center border border-white/5">
+        <div className="mb-6 p-1 bg-nexus-dark rounded-lg flex items-center border border-white/5">
           <button
             onClick={() => setMode("frontline")}
             className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "frontline"
-              ? "bg-gartner-cyan text-gartner-bg shadow-lg shadow-gartner-cyan/20"
-              : "text-gartner-slate hover:text-white"
+              ? "bg-nexus-cyan text-nexus-bg shadow-lg shadow-nexus-cyan/20"
+              : "text-nexus-slate hover:text-white"
               }`}
           >
             <Activity size={12} />
@@ -338,7 +338,7 @@ function App() {
             onClick={() => setMode("executive")}
             className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "executive"
               ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
-              : "text-gartner-slate hover:text-white"
+              : "text-nexus-slate hover:text-white"
               }`}
           >
             <Shield size={12} />
@@ -347,12 +347,12 @@ function App() {
         </div>
 
         <div className="glass-panel p-4 mt-4">
-          <h4 className="text-xs uppercase font-bold text-gartner-cyan mb-2 flex items-center gap-2">
+          <h4 className="text-xs uppercase font-bold text-nexus-cyan mb-2 flex items-center gap-2">
             <Brain size={12} />
             ZAI GLM-4.7
           </h4>
           <p className="text-[10px] leading-relaxed opacity-70">
-            Running on Gartner Secure Cloud (OpenRouter).
+            Running on Nexus Secure Cloud (OpenRouter).
             Recursion Limit: 100.
             Context: 128k.
           </p>
@@ -362,10 +362,10 @@ function App() {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col relative">
         {/* Header */}
-        <div className="h-16 border-b border-white/5 flex items-center justify-between px-6 bg-gartner-bg/80 backdrop-blur-sm z-10 sticky top-0">
+        <div className="h-16 border-b border-white/5 flex items-center justify-between px-6 bg-nexus-bg/80 backdrop-blur-sm z-10 sticky top-0">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-            <span className="text-sm font-medium text-gartner-light">Strategic Meeting Assistant</span>
+            <span className="text-sm font-medium text-nexus-light">Strategic Meeting Assistant</span>
           </div>
           <div className="flex gap-2 text-xs items-center">
             <button
@@ -386,7 +386,7 @@ function App() {
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {messages.length === 0 && (
             <div className="h-full flex flex-col items-center justify-center opacity-50">
-              <Brain size={64} className="text-gartner-cyan mb-4 opacity-50" />
+              <Brain size={64} className="text-nexus-cyan mb-4 opacity-50" />
               <p className="text-lg">Ready to analyze client portfolio.</p>
             </div>
           )}
@@ -409,7 +409,7 @@ function App() {
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div className={`max-w-[80%] rounded-2xl p-5 ${msg.role === 'user'
-                    ? 'bg-gartner-cyan text-gartner-bg font-medium rounded-tr-sm'
+                    ? 'bg-nexus-cyan text-nexus-bg font-medium rounded-tr-sm'
                     : 'glass-panel rounded-tl-sm prose prose-invert'
                     }`}>
                     <div className="prose prose-invert prose-sm max-w-none">
@@ -432,9 +432,9 @@ function App() {
                                 <pre className="bg-[#051020] p-3 rounded-lg overflow-x-auto text-xs font-mono my-2 border border-white/10" {...props}><code>{children}</code></pre>
                             },
                             table: ({ node, ...props }) => <div className="overflow-x-auto my-4"><table className="min-w-full text-left text-xs border border-white/10" {...props} /></div>,
-                            th: ({ node, ...props }) => <th className="bg-white/5 p-2 font-semibold border-b border-white/10 text-gartner-cyan" {...props} />,
+                            th: ({ node, ...props }) => <th className="bg-white/5 p-2 font-semibold border-b border-white/10 text-nexus-cyan" {...props} />,
                             td: ({ node, ...props }) => <td className="p-2 border-b border-white/5" {...props} />,
-                            blockquote: ({ node, ...props }) => <blockquote className="border-l-2 border-gartner-cyan pl-4 italic text-gartner-slate/80 my-2" {...props} />
+                            blockquote: ({ node, ...props }) => <blockquote className="border-l-2 border-nexus-cyan pl-4 italic text-nexus-slate/80 my-2" {...props} />
                           }}
                         >
                           {msg.content || ""}
@@ -452,26 +452,26 @@ function App() {
         </div>
 
         {/* Input Area */}
-        <div className="p-6 bg-gartner-bg border-t border-white/5">
+        <div className="p-6 bg-nexus-bg border-t border-white/5">
           <form onSubmit={handleSubmit} className="relative max-w-4xl mx-auto">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about a client..."
-              className="w-full bg-gartner-card border border-gartner-border/50 text-gartner-light rounded-xl pl-6 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-gartner-cyan/50 focus:border-gartner-cyan transition-all shadow-lg placeholder:text-gartner-slate/30"
+              className="w-full bg-nexus-card border border-nexus-border/50 text-nexus-light rounded-xl pl-6 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-nexus-cyan/50 focus:border-nexus-cyan transition-all shadow-lg placeholder:text-nexus-slate/30"
               disabled={isStreaming}
             />
             <button
               type="submit"
               disabled={isStreaming || !input.trim()}
-              className="absolute right-3 top-3 p-2 bg-gartner-cyan text-gartner-bg rounded-lg hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-3 top-3 p-2 bg-nexus-cyan text-nexus-bg rounded-lg hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send size={18} />
             </button>
           </form>
           <div className="text-center mt-3">
-            <span className="text-[10px] text-gartner-slate/40 flex items-center justify-center gap-1">
+            <span className="text-[10px] text-nexus-slate/40 flex items-center justify-center gap-1">
               <Shield size={8} />
               Confidential. For Internal Use Only.
             </span>

@@ -3,14 +3,14 @@ from chromadb.utils import embedding_functions
 import json
 import os
 
-class GartnerVectorStore:
+class NexusVectorStore:
     def __init__(self, persist_directory="./chroma_db"):
         self.client = chromadb.PersistentClient(path=persist_directory)
         self.embedding_fn = embedding_functions.DefaultEmbeddingFunction()
         
         # Collections
         self.research_collection = self.client.get_or_create_collection(
-            name="gartner_research",
+            name="nexus_research",
             embedding_function=self.embedding_fn
         )
         self.interaction_collection = self.client.get_or_create_collection(
@@ -65,7 +65,7 @@ class GartnerVectorStore:
         return results
 
 if __name__ == "__main__":
-    v_store = GartnerVectorStore()
+    v_store = NexusVectorStore()
     
     # Absolute paths for data files
     base_dir = "/Users/govindmittal/datascience-setup/interview_prep/gartner/gss_agent/data"

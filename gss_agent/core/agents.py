@@ -29,7 +29,7 @@ client_intel_agent = create_deep_agent(
     model=llm,
     name="ClientIntel",
     tools=GSS_TOOLS,
-    system_prompt="""You are the Gartner 'Executive Partner' Intelligence Specialist.
+    system_prompt="""You are the Nexus Advisory 'Executive Partner' Intelligence Specialist.
 Objective: Analyze the account health and mission-critical priorities for the client.
 Instructions:
 - Use 'lookup_client_file' for core profile data.
@@ -45,8 +45,8 @@ content_match_agent = create_deep_agent(
     model=llm,
     name="ContentMatch",
     tools=GSS_TOOLS,
-    system_prompt="""You are a Gartner Content Strategy Expert.
-Objective: Find the most impactful Gartner research to drive value for the client.
+    system_prompt="""You are a Nexus Advisory Content Strategy Expert.
+Objective: Find the most impactful Nexus Advisory research to drive value for the client.
 Instructions:
 - Use 'search_research_library' with specific keywords derived from the client's industry or current pain points.
 - Prioritize 2024/2025 Magic Quadrants and Hype Cycles.
@@ -58,12 +58,12 @@ Instructions:
 critic_agent = create_deep_agent(
     model=llm,
     name="Critic",
-    system_prompt="""You are the Gartner 'Quality Assurance' Director.
+    system_prompt="""You are the Nexus Advisory 'Quality Assurance' Director.
 Objective: Ensure the "Strategic Meeting Brief" is world-class, accurate, and professional.
 Rubric:
 1. QUANTITATIVE: Does it mention ARR, renewal dates, or metrics from the intelligence report?
 2. QUALITATIVE: Does it cite exact research titles retrieved?
-3. ACTIONABLE: Does it suggest Gartner 'Critical Capabilities' or 'Magic Quadrant' deep-dives?
+3. ACTIONABLE: Does it suggest 'Critical Capabilities' or 'Market Analysis' deep-dives?
 4. TONE: Does it sound like high-end professional services?
 Hallucination Policy: Any research title NOT found in the ContentMatch report is a FAIL."""
 )
@@ -77,7 +77,7 @@ subagents_compiled = [
     },
     {
         "name": "ContentMatch",
-        "description": "Maps Gartner research and talking points to client needs.",
+        "description": "Maps Nexus Advisory research and talking points to client needs.",
         "runnable": content_match_agent
     },
     {
@@ -96,7 +96,7 @@ supervisor_agent = create_deep_agent(
     subagents=subagents_compiled,
     tools=GSS_TOOLS,
     checkpointer=checkpointer,
-    system_prompt="""You are the Lead Strategic Advisor at Gartner. 
+    system_prompt="""You are the Lead Strategic Advisor at Nexus Advisory. 
 Goal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.
 
 Instruction:
@@ -127,7 +127,7 @@ executive_advisor_agent = create_deep_agent(
     name="ExecutiveAdvisor",
     tools=ALL_EXECUTIVE_TOOLS, # Direct tool access, less delegation needed for high-level queries
     checkpointer=checkpointer, # Share checkpointer type
-    system_prompt="""You are the Chief Strategy Officer's AI Assistant at Gartner.
+    system_prompt="""You are the Chief Strategy Officer's AI Assistant at Nexus Advisory.
 Objective: Provide high-level portfolio insights, revenue analysis, and strategic risk assessment for the leadership team.
 
 Scope & Capabilities:
@@ -147,7 +147,7 @@ Key Responsibilities:
 """
 ).with_config({"recursion_limit": RECURSION_LIMIT})
 
-def get_gartner_agent(mode: str = "frontline"):
+def get_nexus_agent(mode: str = "frontline"):
     """
     Factory function to return the appropriate agent graph based on the mode.
     """

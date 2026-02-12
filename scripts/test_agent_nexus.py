@@ -1,15 +1,15 @@
 import os
 import sys
-from gss_agent.core.agents import get_gartner_agent
+from gss_agent.core.agents import get_nexus_agent
 from dotenv import load_dotenv
 
 load_dotenv()
 
 def test_agent_run():
-    print("🤖 Starting Gartner Strategic Advisor (Nexus Innovations Test)...")
+    print("🤖 Starting Nexus Advisory Strategic Advisor (Nexus Innovations Test)...")
     print("🚀 Model: ZAI GLM-4.7 (Anthropic Method)")
     
-    agent = get_gartner_agent()
+    agent = get_nexus_agent()
     
     query = "Prepare a Strategic Meeting Brief for Nexus Innovations. Focus on their GenAI priorities and software engagement trends."
     

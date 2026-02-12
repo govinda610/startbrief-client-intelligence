@@ -1,13 +1,13 @@
 import gradio as gr
 import os
 import json
-from gss_agent.core.agents import get_gartner_agent
+from gss_agent.core.agents import get_nexus_agent
 import time
 from langchain_core.messages import HumanMessage, ToolMessage, AIMessage
 import plotly.graph_objects as go
 
-# Custom Gartner Theme Class
-class GartnerTheme(gr.themes.Base):
+# Custom Nexus Theme Class
+class NexusTheme(gr.themes.Base):
     def __init__(self):
         super().__init__(
             primary_hue="blue",
@@ -22,7 +22,7 @@ class GartnerTheme(gr.themes.Base):
             body_text_color="#E0E6ED",
             background_fill_primary="#112240",
             background_fill_secondary="#0A192F",
-            border_color_primary="#1E3A8A", # Gartner accents
+            border_color_primary="#1E3A8A", # Nexus accents
             border_color_accent="#002856",
             color_accent_soft="#1E3A8A",
             block_background_fill="#112240",
@@ -41,7 +41,7 @@ with open(data_path, "r") as f:
     clients_data = json.load(f)
     CLIENT_NAMES = [c["name"] for c in clients_data]
 
-agent = get_gartner_agent()
+agent = get_nexus_agent()
 
 def create_metrics_plot():
     # Create 3 indicators: Relevancy, Risk, Utilization
@@ -162,10 +162,10 @@ hr { border-color: rgba(255, 255, 255, 0.1); }
 .message-wrap { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); border-radius: 12px; }
 """
 
-with gr.Blocks(theme=GartnerTheme(), css=custom_css, title="Gartner Strategic Advisor") as demo:
+with gr.Blocks(theme=NexusTheme(), css=custom_css, title="Nexus Strategic Advisor") as demo:
     gr.HTML("""
     <div style='text-align: center; padding: 20px; margin-bottom: 20px;'>
-        <h1 style='color: white; font-size: 2.5rem; font-weight: 700; margin: 0;'>💎 Gartner Strategic Advisor</h1>
+        <h1 style='color: white; font-size: 2.5rem; font-weight: 700; margin: 0;'>💎 Nexus Strategic Advisor</h1>
         <p style='color: #94A3B8; font-size: 1.1rem;'>AI-Powered Sales Readiness & Value Realization</p>
     </div>
     """)
@@ -220,7 +220,7 @@ with gr.Blocks(theme=GartnerTheme(), css=custom_css, title="Gartner Strategic Ad
                     <span style='width: 8px; height: 8px; background: #4ADE80; border-radius: 50%; box-shadow: 0 0 10px #4ADE80;'></span> GLM-4.7 Flash (Low Latency)
                 </div>
                 <div style='display: flex; gap: 10px; align-items: center; color: #94A3B8; margin-top: 5px;'>
-                    <span style='width: 8px; height: 8px; background: #4ADE80; border-radius: 50%; box-shadow: 0 0 10px #4ADE80;'></span> Gartner Knowledge Base
+                    <span style='width: 8px; height: 8px; background: #4ADE80; border-radius: 50%; box-shadow: 0 0 10px #4ADE80;'></span> Nexus Knowledge Base
                 </div>
                 <div style='display: flex; gap: 10px; align-items: center; color: #94A3B8; margin-top: 5px;'>
                     <span style='width: 8px; height: 8px; background: #60A5FA; border-radius: 50%; box-shadow: 0 0 10px #60A5FA;'></span> Synthesis-Critic Loop
