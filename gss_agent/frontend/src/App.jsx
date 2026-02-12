@@ -7,13 +7,13 @@ import remarkGfm from 'remark-gfm';
 
 // --- SVGs & Icons ---
 const NexusLogo = () => (
-  <div className="flex items-center gap-2 mb-8">
-    <div className="w-8 h-8 bg-nexus-cyan rounded-sm flex items-center justify-center">
-      <span className="text-nexus-bg font-bold text-xl">N</span>
+  <div className="flex items-center gap-3 mb-8 px-2">
+    <div className="w-10 h-10 bg-nexus-cyan rounded-md flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+      <span className="text-nexus-bg font-extrabold text-2xl">N</span>
     </div>
     <div className="flex flex-col">
-      <span className="text-nexus-light font-bold text-lg tracking-tight">Nexus</span>
-      <span className="text-nexus-slate text-xs uppercase tracking-widest">Strategic Advisor</span>
+      <span className="text-white font-bold text-xl tracking-tight">Nexus</span>
+      <span className="text-nexus-cyan text-xs font-bold uppercase tracking-widest">Strategic Advisor</span>
     </div>
   </div>
 );
@@ -21,11 +21,11 @@ const NexusLogo = () => (
 // --- Components ---
 
 const MetricCard = ({ title, value, subtext, type = "neutral" }) => (
-  <div className="glass-panel p-4 flex flex-col items-center justify-center relative overflow-hidden group">
-    <div className={`absolute top-0 left-0 w-full h-1 ${type === 'good' ? 'bg-nexus-cyan' : type === 'risk' ? 'bg-red-500' : 'bg-nexus-blue'}`} />
-    <span className="text-nexus-slate text-xs uppercase font-semibold mb-1">{title}</span>
-    <span className="text-3xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">{value}</span>
-    <span className="text-[10px] text-nexus-slate/70">{subtext}</span>
+  <div className="bg-nexus-card/40 border border-nexus-border/50 p-4 flex flex-col items-center justify-center relative overflow-hidden group rounded-xl hover:bg-nexus-card/60 transition-all">
+    <div className={`absolute top-0 left-0 w-full h-1 ${type === 'good' ? 'bg-nexus-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]' : type === 'risk' ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]' : 'bg-nexus-blue'}`} />
+    <span className="text-nexus-slate text-xs uppercase font-bold mb-1 tracking-wider">{title}</span>
+    <span className="text-3xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300 drop-shadow-md">{value}</span>
+    <span className="text-[10px] text-white/70">{subtext}</span>
   </div>
 );
 
@@ -61,17 +61,17 @@ const TraceLog = ({ traces }) => {
   };
 
   return (
-    <div className="glass-panel mt-4 overflow-hidden border-l-4 border-l-nexus-cyan">
+    <div className="bg-[#020617] mt-4 overflow-hidden border border-nexus-cyan/30 rounded-lg shadow-[0_0_15px_rgba(34,211,238,0.1)]">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-3 bg-nexus-card hover:bg-nexus-hover transition-colors"
+        className="w-full flex items-center justify-between p-3 bg-nexus-cyan/5 hover:bg-nexus-cyan/10 transition-colors border-b border-nexus-cyan/20"
       >
-        <div className="flex items-center gap-2 text-nexus-cyan text-sm font-medium">
+        <div className="flex items-center gap-2 text-nexus-cyan text-sm font-bold">
           <Terminal size={14} />
           <span>Agent Reasoning Stream</span>
-          <span className="bg-nexus-cyan/10 px-2 py-0.5 rounded text-[10px] animate-pulse">LIVE</span>
+          <span className="bg-nexus-cyan text-nexus-bg px-2 py-0.5 rounded text-[10px] font-bold animate-pulse">LIVE</span>
         </div>
-        {expanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+        {expanded ? <ChevronDown size={14} className="text-white" /> : <ChevronRight size={14} className="text-white" />}
       </button>
 
       <AnimatePresence>
@@ -282,37 +282,41 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen bg-nexus-bg text-nexus-slate selection:bg-nexus-cyan selection:text-nexus-bg">
+    <div className="flex h-[100dvh] overflow-hidden bg-nexus-bg text-nexus-slate selection:bg-nexus-cyan selection:text-nexus-bg">
 
       {/* Sidebar / Business Intelligence */}
-      <div className="w-80 bg-nexus-card/50 border-r border-nexus-border/30 p-6 flex flex-col hidden md:flex">
+      <div className="w-80 bg-[#0F172A] border-r border-nexus-border/50 p-6 flex flex-col hidden md:flex shadow-2xl z-20">
         <NexusLogo />
 
         <div className="mb-8">
-          <h3 className="text-nexus-light text-sm font-semibold mb-4 flex items-center gap-2">
+          <h3 className="text-white text-sm font-bold mb-4 flex items-center gap-2 uppercase tracking-wider">
             <Activity size={16} className="text-nexus-cyan" />
             Engagement Health
           </h3>
-          <div className="h-40 w-full glass-panel flex items-center justify-center">
+          <div className="h-40 w-full bg-nexus-card/30 rounded-xl border border-nexus-border/30 flex items-center justify-center relative shadow-inner">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={metrics_data}
-                  innerRadius={40}
-                  outerRadius={60}
+                  innerRadius={50}
+                  outerRadius={70}
                   paddingAngle={5}
                   dataKey="value"
+                  stroke="none"
                 >
                   {metrics_data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip />
+                <Tooltip
+                  contentStyle={{ backgroundColor: '#1E293B', borderColor: '#475569', color: '#fff' }}
+                  itemStyle={{ color: '#fff' }}
+                />
               </PieChart>
             </ResponsiveContainer>
             <div className="absolute text-center">
-              <span className="text-2xl font-bold text-white">92%</span>
-              <span className="block text-[10px]">Retention</span>
+              <span className="text-3xl font-extrabold text-white drop-shadow-lg">92%</span>
+              <span className="block text-[10px] text-nexus-slate uppercase font-bold tracking-wider">Retention</span>
             </div>
           </div>
         </div>
@@ -323,36 +327,36 @@ function App() {
         </div>
 
         {/* Mode Toggle */}
-        <div className="mb-6 p-1 bg-nexus-dark rounded-lg flex items-center border border-white/5">
+        <div className="mb-6 p-1.5 bg-[#020617] rounded-xl flex items-center border border-white/10 shadow-inner">
           <button
             onClick={() => setMode("frontline")}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "frontline"
-              ? "bg-nexus-cyan text-nexus-bg shadow-lg shadow-nexus-cyan/20"
-              : "text-nexus-slate hover:text-white"
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 border ${mode === "frontline"
+              ? "bg-nexus-cyan/10 text-nexus-cyan border-nexus-cyan shadow-[0_0_15px_rgba(34,211,238,0.4)] scale-[1.02]"
+              : "border-transparent text-nexus-slate hover:text-white hover:bg-white/5"
               }`}
           >
-            <Activity size={12} />
+            <Activity size={14} className={mode === "frontline" ? "stroke-[3px] drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" : ""} />
             Frontline
           </button>
           <button
             onClick={() => setMode("executive")}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-md transition-all ${mode === "executive"
-              ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
-              : "text-nexus-slate hover:text-white"
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 border ${mode === "executive"
+              ? "bg-nexus-blue/10 text-nexus-blue border-nexus-blue shadow-[0_0_15px_rgba(96,165,250,0.4)] scale-[1.02]"
+              : "border-transparent text-nexus-slate hover:text-white hover:bg-white/5"
               }`}
           >
-            <Shield size={12} />
+            <Shield size={14} className={mode === "executive" ? "stroke-[3px] drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]" : ""} />
             Executive
           </button>
         </div>
 
-        <div className="glass-panel p-4 mt-4">
-          <h4 className="text-xs uppercase font-bold text-nexus-cyan mb-2 flex items-center gap-2">
-            <Brain size={12} />
+        <div className="bg-nexus-card/40 border border-nexus-border/50 p-4 mt-4 rounded-xl">
+          <h4 className="text-xs uppercase font-extrabold text-nexus-cyan mb-2 flex items-center gap-2 tracking-wide">
+            <Brain size={14} />
             ZAI GLM-4.7
           </h4>
-          <p className="text-[10px] leading-relaxed opacity-70">
-            Running on Nexus Secure Cloud (OpenRouter).
+          <p className="text-[10px] leading-relaxed text-nexus-slate/80 font-medium">
+            Running on Nexus Secure Cloud.
             Recursion Limit: 100.
             Context: 128k.
           </p>
@@ -360,25 +364,26 @@ function App() {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col relative">
+      <div className="flex-1 flex flex-col relative min-h-0">
         {/* Header */}
-        <div className="h-16 border-b border-white/5 flex items-center justify-between px-6 bg-nexus-bg/80 backdrop-blur-sm z-10 sticky top-0">
+        {/* Header */}
+        <div className="h-16 border-b border-nexus-border/50 flex items-center justify-between px-6 bg-nexus-bg/95 backdrop-blur-md z-10 sticky top-0 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-            <span className="text-sm font-medium text-nexus-light">Strategic Meeting Assistant</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>
+            <span className="text-sm font-bold text-white tracking-wide">Strategic Meeting Assistant</span>
           </div>
           <div className="flex gap-2 text-xs items-center">
             <button
               onClick={() => setUseMock(!useMock)}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${useMock
-                ? 'bg-amber-500/10 border-amber-500/50 text-amber-500'
-                : 'bg-green-500/10 border-green-500/50 text-green-500'
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all font-semibold ${useMock
+                ? 'bg-amber-500/10 border-amber-500/50 text-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.2)]'
+                : 'bg-emerald-500/10 border-emerald-500/50 text-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.2)]'
                 }`}
             >
               {useMock ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
               {useMock ? 'Mock Mode' : 'Live Mode'}
             </button>
-            <button className="px-3 py-1.5 glass-panel hover:bg-white/5 transition">Reset Session</button>
+            <button className="px-3 py-1.5 border border-white/10 rounded-lg hover:bg-white/5 hover:border-white/30 text-nexus-slate hover:text-white transition-all font-medium">Reset Session</button>
           </div>
         </div>
 
@@ -408,39 +413,39 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div className={`max-w-[80%] rounded-2xl p-5 ${msg.role === 'user'
-                    ? 'bg-nexus-cyan text-nexus-bg font-medium rounded-tr-sm'
-                    : 'glass-panel rounded-tl-sm prose prose-invert'
+                  <div className={`max-w-[85%] rounded-2xl p-6 shadow-lg backdrop-blur-sm ${msg.role === 'user'
+                    ? 'bg-nexus-cyan/10 border border-nexus-cyan/50 text-white rounded-tr-sm shadow-[0_0_15px_rgba(34,211,238,0.1)]'
+                    : 'bg-nexus-cyan/5 border border-nexus-cyan/40 text-white rounded-tl-sm shadow-[0_0_10px_rgba(34,211,238,0.05)]'
                     }`}>
-                    <div className="prose prose-invert prose-sm max-w-none">
+                    <div className="prose prose-sm max-w-none text-white">
                       {msg.role === 'user' ? (
-                        <p className="whitespace-pre-wrap mb-0">{msg.content}</p>
+                        <p className="whitespace-pre-wrap mb-0 text-base font-medium leading-relaxed">{msg.content}</p>
                       ) : (
                         <ReactMarkdown
                           remarkPlugins={[remarkGfm]}
                           components={{
-                            p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
-                            ul: ({ node, ...props }) => <ul className="list-disc ml-4 mb-2" {...props} />,
-                            ol: ({ node, ...props }) => <ol className="list-decimal ml-4 mb-2" {...props} />,
-                            li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-                            h1: ({ node, ...props }) => <h1 className="text-lg font-bold mb-2 text-white" {...props} />,
-                            h2: ({ node, ...props }) => <h2 className="text-base font-bold mb-2 text-white" {...props} />,
-                            h3: ({ node, ...props }) => <h3 className="text-sm font-bold mb-1 text-white" {...props} />,
+                            p: ({ node, ...props }) => <p className="mb-3 last:mb-0 leading-relaxed text-nexus-slate/90 text-[13px]" {...props} />,
+                            ul: ({ node, ...props }) => <ul className="list-disc ml-4 mb-3 text-nexus-slate/90" {...props} />,
+                            ol: ({ node, ...props }) => <ol className="list-decimal ml-4 mb-3 text-nexus-slate/90" {...props} />,
+                            li: ({ node, ...props }) => <li className="mb-1.5 pl-1" {...props} />,
+                            h1: ({ node, ...props }) => <h1 className="text-lg font-extrabold mb-3 text-white border-b border-white/10 pb-2 mt-4 first:mt-0" {...props} />,
+                            h2: ({ node, ...props }) => <h2 className="text-base font-bold mb-2 text-white mt-4 flex items-center gap-2" {...props} />,
+                            h3: ({ node, ...props }) => <h3 className="text-sm font-bold mb-2 text-nexus-cyan mt-3 uppercase tracking-wide" {...props} />,
                             code: ({ node, inline, className, children, ...props }) => {
                               return inline ?
-                                <code className="bg-white/10 px-1 py-0.5 rounded text-xs font-mono" {...props}>{children}</code> :
-                                <pre className="bg-[#051020] p-3 rounded-lg overflow-x-auto text-xs font-mono my-2 border border-white/10" {...props}><code>{children}</code></pre>
+                                <code className="bg-white/5 px-1.5 py-0.5 rounded text-xs font-mono text-nexus-cyan border border-white/5" {...props}>{children}</code> :
+                                <pre className="bg-[#020617] p-4 rounded-xl overflow-x-auto text-xs font-mono my-3 border border-nexus-border/50 shadow-inner" {...props}><code className="text-emerald-400">{children}</code></pre>
                             },
-                            table: ({ node, ...props }) => <div className="overflow-x-auto my-4"><table className="min-w-full text-left text-xs border border-white/10" {...props} /></div>,
-                            th: ({ node, ...props }) => <th className="bg-white/5 p-2 font-semibold border-b border-white/10 text-nexus-cyan" {...props} />,
-                            td: ({ node, ...props }) => <td className="p-2 border-b border-white/5" {...props} />,
-                            blockquote: ({ node, ...props }) => <blockquote className="border-l-2 border-nexus-cyan pl-4 italic text-nexus-slate/80 my-2" {...props} />
+                            table: ({ node, ...props }) => <div className="overflow-x-auto my-4 rounded-lg border border-nexus-border/50 shadow-sm"><table className="min-w-full text-left text-xs bg-[#0F172A]" {...props} /></div>,
+                            th: ({ node, ...props }) => <th className="bg-nexus-card p-3 font-bold border-b border-nexus-border text-nexus-cyan uppercase tracking-wider text-[10px]" {...props} />,
+                            td: ({ node, ...props }) => <td className="p-3 border-b border-nexus-border/30 text-nexus-slate" {...props} />,
+                            blockquote: ({ node, ...props }) => <blockquote className="border-l-4 border-nexus-cyan/50 pl-4 italic text-white/70 my-4 bg-white/5 p-3 rounded-r-lg" {...props} />
                           }}
                         >
                           {msg.content || ""}
                         </ReactMarkdown>
                       )}
-                      {!msg.content && <span className="animate-pulse">...</span>}
+                      {!msg.content && <div className="flex gap-1 items-center h-6"><span className="w-1.5 h-1.5 bg-nexus-cyan rounded-full animate-bounce"></span><span className="w-1.5 h-1.5 bg-nexus-cyan rounded-full animate-bounce delay-75"></span><span className="w-1.5 h-1.5 bg-nexus-cyan rounded-full animate-bounce delay-150"></span></div>}
                     </div>
                   </div>
                 </motion.div>
@@ -452,27 +457,27 @@ function App() {
         </div>
 
         {/* Input Area */}
-        <div className="p-6 bg-nexus-bg border-t border-white/5">
-          <form onSubmit={handleSubmit} className="relative max-w-4xl mx-auto">
+        <div className="p-6 bg-nexus-bg border-t border-nexus-border">
+          <form onSubmit={handleSubmit} className="relative max-w-4xl mx-auto group">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about a client..."
-              className="w-full bg-nexus-card border border-nexus-border/50 text-nexus-light rounded-xl pl-6 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-nexus-cyan/50 focus:border-nexus-cyan transition-all shadow-lg placeholder:text-nexus-slate/30"
+              className="w-full bg-[#0F172A] border border-nexus-border text-white rounded-2xl pl-6 pr-14 py-4 focus:outline-none focus:ring-2 focus:ring-nexus-cyan/50 focus:border-nexus-cyan transition-all shadow-xl placeholder:text-nexus-slate/50 font-medium"
               disabled={isStreaming}
             />
             <button
               type="submit"
               disabled={isStreaming || !input.trim()}
-              className="absolute right-3 top-3 p-2 bg-nexus-cyan text-nexus-bg rounded-lg hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-2 top-2 p-2.5 bg-nexus-cyan text-[#0F172A] rounded-xl hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(34,211,238,0.4)] hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]"
             >
-              <Send size={18} />
+              <Send size={20} className="stroke-[2.5px]" />
             </button>
           </form>
           <div className="text-center mt-3">
-            <span className="text-[10px] text-nexus-slate/40 flex items-center justify-center gap-1">
-              <Shield size={8} />
+            <span className="text-[10px] text-nexus-slate/40 flex items-center justify-center gap-1 font-semibold uppercase tracking-wider">
+              <Shield size={10} />
               Confidential. For Internal Use Only.
             </span>
           </div>

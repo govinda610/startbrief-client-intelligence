@@ -8,14 +8,15 @@ export default {
         extend: {
             colors: {
                 nexus: {
-                    bg: "#0A192F",       // Deepest Navy
-                    card: "#112240",     // Card Surface
-                    hover: "#233554",    // Hover State
-                    border: "#1E3A8A",   // Subtle Blue Border
-                    cyan: "#64FFDA",     // Primary Neon
-                    blue: "#00E0FF",     // Secondary Neon
-                    slate: "#8892B0",    // Muted Text
-                    light: "#E6F1FF",    // Heading Text
+                    bg: "#0F172A",       // Slate 900 (Deep Blue/Black)
+                    dark: "#020617",     // Slate 950 (Darkest Container)
+                    card: "#334155",     // Slate 700 (Lighter Card Surface for distinction)
+                    hover: "#475569",    // Slate 600 (Hover State)
+                    border: "#475569",   // Slate 600 (Visible Border)
+                    cyan: "#22D3EE",     // Cyan 400 (Brighter Neon)
+                    blue: "#60A5FA",     // Blue 400 (Brighter Neon)
+                    slate: "#CBD5E1",    // Slate 300 (High Contrast Body Text)
+                    light: "#FFFFFF",    // Pure White (Headings)
                 }
             },
             fontFamily: {
