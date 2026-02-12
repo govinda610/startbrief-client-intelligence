@@ -470,7 +470,7 @@ function App() {
             <button
               type="submit"
               disabled={isStreaming || !input.trim()}
-              className="absolute right-2 top-2 p-2.5 bg-nexus-cyan text-[#0F172A] rounded-xl hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(34,211,238,0.4)] hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]"
+              className="absolute right-2 top-2 p-2.5 bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan rounded-xl hover:bg-nexus-cyan/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(34,211,238,0.4)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
             >
               <Send size={20} className="stroke-[2.5px]" />
             </button>
