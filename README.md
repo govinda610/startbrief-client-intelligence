@@ -42,7 +42,11 @@ StartBrief is an intelligent multi-agent system that transforms raw client data 
 
 ## User Interface
 
-![StartBrief User Interface](ui.png)
+<div style="display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px;">
+  <img src="ui_image1.png" alt="Nexus UI Dashboard" style="height: 400px; object-fit: contain; border-radius: 8px; border: 1px solid #334155;">
+  <img src="ui_image2.png" alt="Nexus UI Chat" style="height: 400px; object-fit: contain; border-radius: 8px; border: 1px solid #334155;">
+  <img src="ui_image3.png" alt="Nexus UI Analysis" style="height: 400px; object-fit: contain; border-radius: 8px; border: 1px solid #334155;">
+</div>
 
 ## Agent Workflow
 
