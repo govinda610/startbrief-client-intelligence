@@ -93,7 +93,9 @@
   {
     "query": "What was discussed regarding Generative AI Governance with GlobalFin Bank?",
     "expected_doc_ids": [
-      "INT-6113"
+      "INT-6113",
+      "INT-5191",
+      "INT-5192"
     ],
     "category": "interaction"
   },

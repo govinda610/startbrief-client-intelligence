@@ -66,6 +66,46 @@ StartBrief is an intelligent multi-agent system that transforms raw client data 
 | **Vector DB** | ChromaDB with persistent storage |
 | **Data** | JSON-based mock data generation |
 
+## 📊 Evaluation Framework
+
+The Nexus Strategic Advisor includes a sophisticated evaluation system for continuous improvement and quality assurance.
+
+### Core Metrics
+
+We measure 15+ metrics across four primary dimensions:
+
+| Dimension | Metrics | Methodology | Threshold |
+|:---|:---|:---|:---|
+| **Response Quality** | Accuracy, Tone, Completeness | LLM-as-Judge (1-5) | Avg ≥ 3.5 |
+| **Groundedness** | Faithfulness, Hallucination Check | claim grounding (RAGAS-style) | Score ≥ 0.8 |
+| **Operational** | E2E Latency, TTFT, Cost | Middleware Instrumentation | E2E ≤ 30s |
+| **Technical** | Context Precision, Tool Usage | Trajectory Matching | Precision ≥ 0.5 |
+
+### RAGAS-Style Evaluation
+We implement the **RAGAS (Retrieval-Augmented Generation Evaluation)** methodology via custom LLM-as-Judge prompts to ensure transparency and cost-efficiency:
+- **Faithfulness**: Verifies that every claim in the response is grounded in the retrieved documents.
+- **Answer Relevancy**: Measures how directly the response addresses the user's specific query.
+- **Context Precision**: Evaluates the usefulness of individual retrieved chunks.
+
+### User Feedback Loop
+The UI includes a **Thumb Up/Down** feedback system.
+- Negative feedback triggers a comment box to capture qualitative data.
+- Feedback is stored in `gss_agent/data/feedback.jsonl` and can be analyzed via the `/api/feedback/summary` endpoint.
+
+### Running Evaluations
+```bash
+# Run the full suite and generate a report
+python evaluations/run_all.py
+```
+Reports are saved in `evaluations/results/` as rich HTML dashboards and machine-readable JSON files.
+
+---
+
+## 🛠️ Performance & Safety
+- **Code Sandbox**: The `analyze_data_python` tool includes regex-based pattern blocking for dangerous operations (e.g., `os.system`, `subprocess`, `requests`).
+- **Memory Safety**: Designed to run on Apple Silicon with optimized model loading.
+- **Token Rotation**: Automated free-model rotation to maintain system availability.
+
 ## Quick Start
 
 ### Prerequisites
@@ -80,7 +120,7 @@ Node.js 18+
 1. Clone the repository:
 ```bash
 git clone <repo-url>
-cd gartner
+cd nexus
 ```
 
 2. Set up Python environment:

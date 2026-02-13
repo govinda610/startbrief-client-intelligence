@@ -1,0 +1,388 @@
+{
+  "run_id": "20260213_210319",
+  "generated_at": "2026-02-13T21:03:25.090401",
+  "summary": {
+    "total_cases": 21,
+    "passed": 20,
+    "failed": 1,
+    "avg_latency_ms": 274.87603780381113,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "retrieval": {
+        "count": 20,
+        "passed": 19,
+        "failed": 1,
+        "pass_rate": 0.95,
+        "avg_latency": 157.70254384406144
+      },
+      "retrieval_aggregate": {
+        "count": 1,
+        "passed": 1,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 2618.3459169988055
+      }
+    },
+    "test_suites_run": 2
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-13T21:03:19.519471",
+      "test_name": "retrieval",
+      "case_id": "ret_-6690843689861842701",
+      "query": "Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI",
+      "agent_response": "Retrieved IDs: RES-2000, RES-2005, RES-2007, RES-2045, RES-2076",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['RES-2000']. Top 3: ['RES-2000', 'RES-2005', 'RES-2007']",
+      "latency_ms": 270.1779580092989,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:19.658057",
+      "test_name": "retrieval",
+      "case_id": "ret_6718534657957977133",
+      "query": "Find information about Hype Cycle for Revenue and Sales Technology 2024",
+      "agent_response": "Retrieved IDs: RES-2001, RES-2086, RES-2000, RES-2012, RES-2036",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['RES-2001']. Top 3: ['RES-2001', 'RES-2086', 'RES-2000']",
+      "latency_ms": 137.57224997971207,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:19.797365",
+      "test_name": "retrieval",
+      "case_id": "ret_-513289499660793117",
+      "query": "Find information about Quick Answer: How to Use GenAI for Territory Planning",
+      "agent_response": "Retrieved IDs: RES-2002, RES-2008, RES-2049, RES-2070, RES-2076",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['RES-2002']. Top 3: ['RES-2002', 'RES-2008', 'RES-2049']",
+      "latency_ms": 138.36683399858885,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:19.944270",
+      "test_name": "retrieval",
+      "case_id": "ret_1999573564604011639",
+      "query": "Find information about Magic Quadrant for Customer Data Platforms (CDPs) 2024",
+      "agent_response": "Retrieved IDs: RES-2010, RES-2003, RES-2098, RES-2088, RES-2075",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['RES-2003']. Top 3: ['RES-2010', 'RES-2003', 'RES-2098']",
+      "latency_ms": 145.97970797331072,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:20.086111",
+      "test_name": "retrieval",
+      "case_id": "ret_5448295092330305044",
+      "query": "Find information about Emotion AI in B2B Sales: The Next Frontier",
+      "agent_response": "Retrieved IDs: RES-2009, RES-2004, RES-2011, RES-2087, RES-2095",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['RES-2004']. Top 3: ['RES-2009', 'RES-2004', 'RES-2011']",
+      "latency_ms": 140.68325000698678,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:20.242994",
+      "test_name": "retrieval",
+      "case_id": "ret_-6690843689861842701",
+      "query": "Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI",
+      "agent_response": "Retrieved IDs: RES-2000, RES-2005, RES-2007, RES-2045, RES-2076",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['RES-2005']. Top 3: ['RES-2000', 'RES-2005', 'RES-2007']",
+      "latency_ms": 155.94958298606798,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:20.385161",
+      "test_name": "retrieval",
+      "case_id": "ret_430401350714882429",
+      "query": "Find information about Critical Capabilities for Sales Force Automation 2024",
+      "agent_response": "Retrieved IDs: RES-2006, RES-2092, RES-2078, RES-2084, RES-2062",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['RES-2006']. Top 3: ['RES-2006', 'RES-2092', 'RES-2078']",
+      "latency_ms": 140.92012497712858,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:20.544460",
+      "test_name": "retrieval",
+      "case_id": "ret_-6690843689861842701",
+      "query": "Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI",
+      "agent_response": "Retrieved IDs: RES-2000, RES-2005, RES-2007, RES-2045, RES-2076",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "reasoning": "Expected: ['RES-2007']. Top 3: ['RES-2000', 'RES-2005', 'RES-2007']",
+      "latency_ms": 158.37820898741484,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:20.680208",
+      "test_name": "retrieval",
+      "case_id": "ret_-513289499660793117",
+      "query": "Find information about Quick Answer: How to Use GenAI for Territory Planning",
+      "agent_response": "Retrieved IDs: RES-2002, RES-2008, RES-2049, RES-2070, RES-2076",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['RES-2008']. Top 3: ['RES-2002', 'RES-2008', 'RES-2049']",
+      "latency_ms": 134.5215420005843,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:20.893010",
+      "test_name": "retrieval",
+      "case_id": "ret_5448295092330305044",
+      "query": "Find information about Emotion AI in B2B Sales: The Next Frontier",
+      "agent_response": "Retrieved IDs: RES-2009, RES-2004, RES-2011, RES-2087, RES-2095",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['RES-2009']. Top 3: ['RES-2009', 'RES-2004', 'RES-2011']",
+      "latency_ms": 211.84070798335597,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:21.142885",
+      "test_name": "retrieval",
+      "case_id": "ret_5430084191718661096",
+      "query": "What was discussed regarding Supply Chain Management (SCM) with HealthFirst Systems?",
+      "agent_response": "Retrieved IDs: INT-6110, INT-6108, INT-6048, INT-5108, INT-5126",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['INT-6110']. Top 3: ['INT-6110', 'INT-6108', 'INT-6048']",
+      "latency_ms": 246.4742500160355,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:21.295430",
+      "test_name": "retrieval",
+      "case_id": "ret_2380504130869631389",
+      "query": "What was discussed regarding Generative AI in Healthcare with HealthFirst Systems?",
+      "agent_response": "Retrieved IDs: INT-6111, INT-6109, INT-6049, INT-6071, INT-5189",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['INT-6111']. Top 3: ['INT-6111', 'INT-6109', 'INT-6049']",
+      "latency_ms": 151.29512498970143,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:21.434416",
+      "test_name": "retrieval",
+      "case_id": "ret_3535423396590048717",
+      "query": "What was discussed regarding Core Banking Modernization with GlobalFin Bank?",
+      "agent_response": "Retrieved IDs: INT-5190, INT-6112, INT-5133, INT-5193, INT-5132",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['INT-6112']. Top 3: ['INT-5190', 'INT-6112', 'INT-5133']",
+      "latency_ms": 138.0859169876203,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:21.582549",
+      "test_name": "retrieval",
+      "case_id": "ret_8703539682348013811",
+      "query": "What was discussed regarding Generative AI Governance with GlobalFin Bank?",
+      "agent_response": "Retrieved IDs: INT-6073, INT-5192, INT-5191, INT-5131, INT-6115",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 0.0,
+        "mrr": 0.14285714285714285
+      },
+      "reasoning": "Expected: ['INT-6113']. Top 3: ['INT-6073', 'INT-5192', 'INT-5191']",
+      "latency_ms": 147.23695800057612,
+      "tokens_used": {},
+      "passed": false,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:21.770384",
+      "test_name": "retrieval",
+      "case_id": "ret_4563823790909228079",
+      "query": "What was discussed regarding Mobile Banking & Digital Experience with GlobalFin Bank?",
+      "agent_response": "Retrieved IDs: INT-6112, INT-6114, INT-5190, INT-5133, INT-5132",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['INT-6114']. Top 3: ['INT-6112', 'INT-6114', 'INT-5190']",
+      "latency_ms": 141.67066698428243,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:21.910129",
+      "test_name": "retrieval",
+      "case_id": "ret_2701719786935581298",
+      "query": "What was discussed regarding Strategic Budgeting & CAPEX Prioritization with GlobalFin Bank?",
+      "agent_response": "Retrieved IDs: INT-6115, INT-5190, INT-5193, INT-6112, INT-5130",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['INT-6115']. Top 3: ['INT-6115', 'INT-5190', 'INT-5193']",
+      "latency_ms": 138.83016700856388,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:22.041981",
+      "test_name": "retrieval",
+      "case_id": "ret_9217242631316830978",
+      "query": "What was discussed regarding Cloud Migration with Metro Manufacturing Corp?",
+      "agent_response": "Retrieved IDs: INT-6116, INT-5158, INT-6100, INT-5197, INT-6118",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['INT-6116']. Top 3: ['INT-6116', 'INT-5158', 'INT-6100']",
+      "latency_ms": 130.75812501483597,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:22.178414",
+      "test_name": "retrieval",
+      "case_id": "ret_7890795568757542370",
+      "query": "What was discussed regarding HTTP 502 Bad Gateway with Metro Manufacturing Corp?",
+      "agent_response": "Retrieved IDs: INT-6117, INT-6116, INT-6119, INT-6015, INT-5138",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['INT-6117']. Top 3: ['INT-6117', 'INT-6116', 'INT-6119']",
+      "latency_ms": 135.54516699514352,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:22.332169",
+      "test_name": "retrieval",
+      "case_id": "ret_-4058721206214635193",
+      "query": "What was discussed regarding Additive Manufacturing with Metro Manufacturing Corp?",
+      "agent_response": "Retrieved IDs: INT-6019, INT-6118, INT-6116, INT-6097, INT-5197",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 0.5
+      },
+      "reasoning": "Expected: ['INT-6118']. Top 3: ['INT-6019', 'INT-6118', 'INT-6116']",
+      "latency_ms": 152.89516700431705,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:22.470050",
+      "test_name": "retrieval",
+      "case_id": "ret_-468856856947152379",
+      "query": "What was discussed regarding Supply Chain Risk Management with Metro Manufacturing Corp?",
+      "agent_response": "Retrieved IDs: INT-6119, INT-6118, INT-5160, INT-5194, INT-5195",
+      "retrieved_context": "N/A (Individual Case)",
+      "scores": {
+        "recall@5": 1.0,
+        "mrr": 1.0
+      },
+      "reasoning": "Expected: ['INT-6119']. Top 3: ['INT-6119', 'INT-6118', 'INT-5160']",
+      "latency_ms": 136.86916697770357,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T21:03:25.089440",
+      "test_name": "retrieval_aggregate",
+      "case_id": "ret_agg",
+      "query": "Aggregate retrieval metrics across 20 queries",
+      "agent_response": "Avg Recall@5: 0.95\nAvg MRR: 0.75\nPer-case Recall: ['1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '0.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00']\nPer-case MRR: ['1.00', '1.00', '1.00', '0.50', '0.50', '0.50', '1.00', '0.33', '0.50', '1.00', '1.00', '1.00', '0.50', '0.14', '0.50', '1.00', '1.00', '1.00', '0.50', '1.00']",
+      "retrieved_context": "N/A (Aggregate)",
+      "scores": {
+        "avg_recall@5": "0.95",
+        "avg_mrr": "0.75",
+        "cases": 20
+      },
+      "reasoning": "Retrieval quality meets both thresholds.",
+      "latency_ms": 2618.3459169988055,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    }
+  ]
+}

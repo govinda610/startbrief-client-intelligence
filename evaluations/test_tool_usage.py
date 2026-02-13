@@ -1,7 +1,10 @@
 import pytest
 import json
-from gss_agent.core.agents import supervisor_agent
+from gss_agent.core.agents import get_nexus_agent
 from evaluations.conftest import load_test_cases
+from gss_agent.core.tools import GSS_TOOLS
+from gss_agent.core.executive_tools import EXECUTIVE_TOOLS
+from evaluations.conftest_patches import patch_tool_execution
 
 @pytest.mark.parametrize("case", load_test_cases("tool_usage_cases.json"))
 def test_agent_tool_usage_trajectory(case, report_engine):
@@ -13,17 +16,26 @@ def test_agent_tool_usage_trajectory(case, report_engine):
     start_time = time.perf_counter()
     
     # Run the agent and capture state/history
+    # Determine mode based on query keywords
+    mode = "executive" if "revenue" in query.lower() or "portfolio" in query.lower() else "frontline"
+    agent = get_nexus_agent(mode=mode)
+    
+    # We strip any whitespace
+    expected_tools = [t.strip() for t in expected_tools]
+    
+    # Tools to track
+    all_tools = GSS_TOOLS + EXECUTIVE_TOOLS
     tool_calls_found = []
+    
     config = {"configurable": {"thread_id": f"traject_{hash(query)}"}}
     
-    # We use stream to capture events and identify tool calls
-    for event in supervisor_agent.stream({"messages": [("user", query)]}, config=config, stream_mode="values"):
-        if "messages" in event:
-            last_message = event["messages"][-1]
-            # Check for AI message with tool calls
-            if hasattr(last_message, "tool_calls") and last_message.tool_calls:
-                for tool_call in last_message.tool_calls:
-                    tool_calls_found.append(tool_call["name"])
+    with patch_tool_execution(all_tools) as tracker:
+        # Run agent
+        for event in agent.stream({"messages": [("user", query)]}, config=config, stream_mode="values"):
+            pass
+            
+        # Inspect tracker
+        tool_calls_found = [call["name"] for call in tracker.tool_calls]
     
     latency_ms = (time.perf_counter() - start_time) * 1000
     passed = all(tool in tool_calls_found for tool in expected_tools)
@@ -55,19 +67,25 @@ def test_tool_usage_accuracy(report_engine):
     per_case = []
     start = time.perf_counter()
     
+    all_tools_objects = GSS_TOOLS + EXECUTIVE_TOOLS
+    
     for case in cases:
         query = case["query"]
         expected_tools = set(case["expected_tools"])
         
-        tool_calls_found = set()
-        config = {"configurable": {"thread_id": f"eval_{hash(query)}"}}
+        # Determine mode
+        mode = "executive" if "revenue" in query.lower() or "portfolio" in query.lower() else "frontline"
+        agent = get_nexus_agent(mode=mode)
         
-        for event in supervisor_agent.stream({"messages": [("user", query)]}, config=config, stream_mode="values"):
-            if "messages" in event:
-                msg = event["messages"][-1]
-                if hasattr(msg, "tool_calls") and msg.tool_calls:
-                    for tc in msg.tool_calls:
-                        tool_calls_found.add(tc["name"])
+        tool_calls_found = set()
+        
+        with patch_tool_execution(all_tools_objects) as tracker:
+            config = {"configurable": {"thread_id": f"eval_{hash(query)}"}}
+            for _ in agent.stream({"messages": [("user", query)]}, config=config, stream_mode="values"):
+                pass
+            
+            for call in tracker.tool_calls:
+                tool_calls_found.add(call["name"])
         
         ok = expected_tools.issubset(tool_calls_found)
         if ok: correct_count += 1
