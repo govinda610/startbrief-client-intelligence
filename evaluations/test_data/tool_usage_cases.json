@@ -1,0 +1,23 @@
+[
+  {
+    "query": "Give me a full health check for Nexus Innovations",
+    "expected_tools": [
+      "lookup_client_file",
+      "get_client_engagement_metrics",
+      "search_interaction_history"
+    ]
+  },
+  {
+    "query": "Find recent research on Agentic AI for Pinnacle Capital",
+    "expected_tools": [
+      "search_research_library"
+    ]
+  },
+  {
+    "query": "What is the total revenue risk for my portfolio?",
+    "expected_tools": [
+      "get_at_risk_clients_summary",
+      "get_revenue_snapshot"
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "query": "Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI",
+    "expected_doc_ids": [
+      "RES-2000"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Hype Cycle for Revenue and Sales Technology 2024",
+    "expected_doc_ids": [
+      "RES-2001"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Quick Answer: How to Use GenAI for Territory Planning",
+    "expected_doc_ids": [
+      "RES-2002"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Magic Quadrant for Customer Data Platforms (CDPs) 2024",
+    "expected_doc_ids": [
+      "RES-2003"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Emotion AI in B2B Sales: The Next Frontier",
+    "expected_doc_ids": [
+      "RES-2004"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI",
+    "expected_doc_ids": [
+      "RES-2005"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Critical Capabilities for Sales Force Automation 2024",
+    "expected_doc_ids": [
+      "RES-2006"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI",
+    "expected_doc_ids": [
+      "RES-2007"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Quick Answer: How to Use GenAI for Territory Planning",
+    "expected_doc_ids": [
+      "RES-2008"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "Find information about Emotion AI in B2B Sales: The Next Frontier",
+    "expected_doc_ids": [
+      "RES-2009"
+    ],
+    "category": "research"
+  },
+  {
+    "query": "What was discussed regarding Supply Chain Management (SCM) with HealthFirst Systems?",
+    "expected_doc_ids": [
+      "INT-6110"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Generative AI in Healthcare with HealthFirst Systems?",
+    "expected_doc_ids": [
+      "INT-6111"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Core Banking Modernization with GlobalFin Bank?",
+    "expected_doc_ids": [
+      "INT-6112"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Generative AI Governance with GlobalFin Bank?",
+    "expected_doc_ids": [
+      "INT-6113"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Mobile Banking & Digital Experience with GlobalFin Bank?",
+    "expected_doc_ids": [
+      "INT-6114"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Strategic Budgeting & CAPEX Prioritization with GlobalFin Bank?",
+    "expected_doc_ids": [
+      "INT-6115"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Cloud Migration with Metro Manufacturing Corp?",
+    "expected_doc_ids": [
+      "INT-6116"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding HTTP 502 Bad Gateway with Metro Manufacturing Corp?",
+    "expected_doc_ids": [
+      "INT-6117"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Additive Manufacturing with Metro Manufacturing Corp?",
+    "expected_doc_ids": [
+      "INT-6118"
+    ],
+    "category": "interaction"
+  },
+  {
+    "query": "What was discussed regarding Supply Chain Risk Management with Metro Manufacturing Corp?",
+    "expected_doc_ids": [
+      "INT-6119"
+    ],
+    "category": "interaction"
+  }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "rule": "interaction_content_non_empty",
+        "threshold": 1.0
+    },
+    {
+        "rule": "minimum_interaction_count",
+        "threshold": 300
+    },
+    {
+        "rule": "sentiment_label_coverage",
+        "threshold": 50
+    }
+]

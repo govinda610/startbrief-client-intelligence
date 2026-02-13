@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260213_165324</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260213_165324</small><br>
+            <small>Generated: 2026-02-13 16:55:49</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value good">3/3 (100.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">3</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">1</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value warn">48362ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">ANSWER RELEVANCY</div>
+                <div class="suite-card-rate" style="color:#4ade80;">100%</div>
+                <div class="suite-card-detail">3/3 passed</div>
+                <div class="suite-card-detail">Avg: 48362ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>✅ **All tests passed!** No immediate improvements needed. Consider adding more edge-case test queries to strengthen coverage.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>✅ ANSWER RELEVANCY</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">3 passed</span>
+                        <span class="stat-fail">0 failed</span>
+                        <span class="stat-total">3 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What is the strategic priority for TechNova Solutions based on recent research?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my analysis, here's the strategic priority for TechNova Solutions:
+
+---
+
+## **🎯 Strategic Priority: AI Readiness Through Data Governance & Architectural Flexibility**
+
+### **The Core Challenge**
+
+TechNova Solutions is at a critical inflection point. As a **$1.5B growth-stage high-tech company** with declining satisfaction metrics (CSAT down 19%, NPS down 17%), they need immediate, high-impact guidance. The research reveals that their success over the next 12-18 months hinges on three interconnected pillars:
+
+1. **Data Context** (70% of AI failures stem from poor data context—not model size)
+2. **Architectural Flexibility** (80% of enterprises will abandon single-provider AI strategies by 2027)
+3. **Governance Frameworks** (AI projects without proper guardrails face authorization challenges)
+
+---
+
+### **Top Strategic Recommendation: RAG Implementation for Proprietary Knowledge**
+
+**Priority #1:** **Retrieval-Augmented Generation (RAG) as the AI Foundation**
+
+Based on the **2025 Hype Cycle for Generative AI**, TechNova should prioritize RAG implementation over raw model investments. Here's why:
+
+- **Immediate ROI:** 30% development acceleration through AI coding assistants (already mainstream)
+- **Risk Mitigation:** Grounds LLMs in TechNova's proprietary tech knowledge base, avoiding the "hallucination trap" causing 70% of AI project failures
+- **Competitive Moat:** The governance frameworks established now will protect TechNova's IP while enabling AI capabilities
+
+**Executive Talking Point for Michael Chen (CTO):**
+&gt; *"Your growth-stage trajectory positions TechNova to leverage AI coding assistants for immediate 30% development acceleration. However, I recommend prioritizing RAG implementation over raw model investments—this allows you to ground AI in your proprietary tech knowledge base while avoiding the hallucination trap that's causing 70% of AI project failures. The governance frameworks you establish now will be your competitive moat as we move toward agentic AI in 2026-2027."*
+
+---
+
+### **Priority #2: Architectural Optionality to Avoid Lock-in**
+
+Based on the **2025 Magic Quadrant for Cloud AI Developer Services**:
+
+- **Risk:** Single-provider AI commitments create 40% technical debt penalty
+- **Trend:** 80% of enterprises will move to multi-model strategies by 2027
+- **Action:** Evaluate vendor-agnostic orchestration platforms now
+
+**Executive Talking Point:**
+&gt; *"Your $1.5B scale gives you leverage—you don't need to bet on a single hyperscaler ecosystem. The data shows 80% of enterprises will move to multi-model strategies by 2027. I recommend evaluating platforms that offer vendor-agnostic orchestration now, rather than locking into a proprietary stack. This flexibility will prevent the 40% technical debt penalty we're seeing from single-provider commitments."*
+
+---
+
+### **Priority #3: Hybrid Cloud Data Optimization**
+
+For **Sarah Johnson (VP IT Operations)**, based on **"Optimizing Hybrid Cloud Data Strategies for AI Readiness"**:
+
+- **Opportunity:** 25% infrastructure cost reduction through hot/cold data tiering
+- **Strategic Shift:** From "data lake" to "data mesh" with intelligent tiering
+- **AI Readiness:** Inference-ready data on high-performance vector storage
+
+**Executive Talking Point:**
+&gt; *"Your hybrid environment is actually an advantage for AI readiness, but only if we shift from 'data lake' thinking to 'data mesh' with intelligent tiering. I recommend implementing a hot/cold data tiering strategy where inference-ready data sits on high-performance vector storage. This approach reduces infrastructure costs by 25% while ensuring your AI models have the high-quality data context that determines success."*
+
+---
+
+## **Summary: The Strategic Through-Line**
+
+**All research points to the same strategic imperative for TechNova:**
+
+&gt; **"Don't just adopt AI—architect for AI with governance, flexibility, and data context as your foundation."**
+
+| Priority Area | 2025 Research Insight | Business Impact |
+|---------------|----------------------|-----------------|
+| **RAG Implementation** | Climbing Slope of Enlightenment | 30% dev acceleration + IP protection |
+| **Multi-Model Strategy** | 80% will abandon single-provider by 2027 | Avoid 40% technical debt |
+| **Data Mesh Architecture** | Critical for AI readiness | 25% cost reduction + faster inference |
+
+This three-pronged approach addresses TechNova's immediate challenges (declining satisfaction) while positioning them for sustained growth in the AI era.</div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">relevancy: 5</span>
+                        <div class="meta-info">
+                            Latency: 57501ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 1128 output_tokens: 99 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The response directly and comprehensively answers the user's query by clearly identifying 'AI Readiness Through Data Governance & Architectural Flexibility' as the strategic priority. It supports this conclusion with specific data points, actionable recommendations (RAG implementation, multi-model strategies, hybrid cloud optimization), and targeted executive talking points, demonstrating high relevance and professional focus.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">How is the associate for Cedar Health Systems performing?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Here's the performance profile for **Emily Davis** (ASSOC-007), the Client Success Associate assigned to **Cedar Health Systems**:
+
+## Associate Overview
+- **Name:** Emily Davis
+- **Role:** Client Success Associate
+- **Region:** North America
+- **Tenure:** 27 months (over 2 years)
+
+## Key Performance Metrics
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| **Retention Rate** | 85% | Strong - keeping most clients |
+| **Avg CSAT** | 4.2/5.0 | Very good client satisfaction |
+| **Cross-sell Rate** | 29% | Strong expansion performance |
+| **Upsell Rate** | 8% | Moderate upsell success |
+| **Renewals Secured** | 7 | Solid track record |
+| **Revenue Managed** | $1.94M | Significant portfolio responsibility |
+| **Avg Interaction Time** | 37 min | Efficient client engagement |
+
+## Summary
+Emily is a **strong-performing associate** with excellent retention (85%) and client satisfaction (4.2/5.0). Her 29% cross-sell rate demonstrates good consultative skills, and she's managing nearly $2M in revenue. With 27 months of tenure, she has solid experience and has secured 7 renewals, indicating reliable performance in client relationships. Her interaction time of 37 minutes suggests she balances thoroughness with efficiency.</div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">relevancy: 5</span>
+                        <div class="meta-info">
+                            Latency: 5945ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 469 output_tokens: 108 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The response directly and comprehensively answers the user's query by identifying the specific associate (Emily Davis) assigned to Cedar Health Systems and providing a detailed performance overview. It includes key metrics (Retention, CSAT, Cross-sell), provides context for each metric, and offers a clear summary of her tenure and revenue impact. The tone is professional and the structure is highly focused on the question.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Summarize the churn risks for our high-revenue clients.</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text"># High-Revenue Client Churn Risk Summary
+
+## Executive Overview
+
+**Portfolio Scope:** 16 high-revenue clients (ARR ≥ $200K or Company Revenue ≥ $3B)  
+**Total ARR at Risk:** $3.22M across High and Medium churn risk categories  
+**Critical Finding:** 62% of high-revenue clients (10/16) show elevated churn risk
+
+---
+
+## 🔴 Critical Churn Risk (Immediate Action Required)
+
+### 1. **Global Financial Nexus Corp** — $250K ARR
+**Risk Score: 100/100** | Finance | $15B Revenue
+- **Severe engagement collapse:** Login frequency down 82% (27 → 5/month)
+- **CSAT crisis:** Dropped to 1.52 (critical failure threshold)
+- **NPS deterioration:** Fell to 4
+- **Status:** At Risk lifecycle despite high renewal likelihood
+
+### 2. **EuroHealth Solutions Group** — $350K ARR
+**Risk Score: 80/100** | Healthcare | $3.2B Revenue
+- **Renewal alert:** Contract expires March 2026 with declining engagement
+- **Login collapse:** Down 51% (18 → 9/month)
+- **Utilization halved:** Inquiry use dropped from 54.5% to 29%
+- **Status:** In Renewal stage with high churn risk
+
+### 3. **Federal Systems Alliance** — $385K ARR
+**Risk Score: 75/100** | Public Sector | $3.2B Revenue
+- **Engagement collapse:** Login frequency down 59% (25 → 10/month)
+- **Utilization crisis:** Down 60% (59% → 24%)
+- **Status:** At Risk with critical engagement levels
+
+### 4. **GlobalFin Capital** — $150K ARR
+**Risk Score: 75/100** | Finance | $5.8B Revenue
+- **Most severe login collapse:** Down 82% (28 → 5/month)
+- **Concern:** Despite CSAT improvement, engagement has collapsed
+- **Status:** Silver tier with high revenue exposure
+
+### 5. **Metropolitan Transit Authority** — $220K ARR
+**Risk Score: 75/100** | Public Sector | $1.2B Revenue
+- **Login collapse:** Down 78% (23 → 5/month)
+- **Poor satisfaction:** CSAT at 2.39 (below acceptable)
+- **Status:** At Risk with multiple failure indicators
+
+---
+
+## 🟡 Medium Churn Risk (Monitor Closely)
+
+### 6. **Precision Manufacturing Alliance Ltd** — $150K ARR ⚠️ **CONTRACT EXPIRED**
+**Risk Score: 80/100** | Manufacturing | $4.5B Revenue
+- **URGENT:** Contract expired January 15, 2026
+- **Paradox:** Logins up 116% but CSAT declined to 2.66
+- **Status:** Immediate intervention required
+
+### 7. **Industrial Dynamics Corp** — $555K ARR
+**Risk Score: 65/100** | Manufacturing | $4.1B Revenue
+- **Largest contract:** $555K ARR (Platinum tier)
+- **Engagement declining:** Down 24% despite excellent CSAT (4.95)
+- **Status:** Medium renewal likelihood on largest account
+
+### 8. **Pinnacle Capital Group** — $250K ARR
+**Risk Score: 50/100** | Finance | $10B Revenue
+- **NPS decline:** Dropped from 7 to 6
+- **Status:** $10B client with medium renewal confidence
+
+### 9. **HealthFirst Systems** — $505K ARR
+**Risk Score: 50/100** | Healthcare | $2.3B Revenue
+- **Second largest Platinum:** $505K ARR
+- **Engagement improving but not translating:** Medium renewal likelihood
+- **Status:** At Risk despite engagement gains
+
+### 10. **National Infrastructure Authority** — $405K ARR
+**Risk Score: 38/100** | Public Sector | $500M Revenue
+- **New client concern:** In onboarding phase with login decline
+- **Status:** Medium renewal likelihood during critical period
+
+---
+
+## 🟢 Low Risk (Healthy Accounts)
+
+6 clients showing strong health indicators, including:
+- **FinEdge Capital Partners** ($505K ARR) — Perfect 5.00 CSAT, 108% login increase
+- **Aurora Cloud Solutions** ($555K ARR) — NPS 10, excellent engagement
+- **NexGen Innovations Inc.** ($350K ARR) — 87% login increase, strong metrics
+
+---
+
+## 🚨 Key Risk Patterns Across Portfolio
+
+**Engagement Crisis:**
+- 13/16 clients showing login frequency decline
+- 5 clients with critical login levels (&lt;15/month)
+- 4 clients with 50%+ login collapse
+
+**Satisfaction Concerns:**
+- 5 clients with CSAT below 3.0 threshold
+- 9 clients showing NPS regression or stagnation
+
+**Contract Risk:**
+- 1 contract expired (Precision Manufacturing Alliance)
+- 1 client in renewal window with declining metrics (EuroHealth)
+
+**Revenue Exposure:**
+- **$1.36M ARR** in Critical Risk tier
+- **$1.86M ARR** in Medium Risk tier
+- Total **$3.22M ARR** requiring intervention
+
+---
+
+## Recommended Actions
+
+**Immediate (Next 7 Days):**
+1. **Precision Manufacturing Alliance** — Execute expired contract renewal
+2. **Global Financial Nexus Corp** — Emergency intervention for CSAT crisis
+3. **EuroHealth Solutions Group** — Renewal preparation with value reinforcement
+
+**Short-Term (Next 30 Days):**
+4. **Federal Systems Alliance & GlobalFin Capital** — Root cause analysis on login collapse
+5. **Metropolitan Transit Authority** — CSAT improvement plan
+6. **Industrial Dynamics Corp** — Protect $555K ARR with executive engagement</div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">relevancy: 5</span>
+                        <div class="meta-info">
+                            Latency: 81640ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 1452 output_tokens: 126 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The response is highly relevant and directly answers the user's request to summarize churn risks for high-revenue clients. It defines the portfolio scope, quantifies the total revenue at risk, and provides a structured breakdown of clients by risk tier (Critical, Medium, Low). It includes specific data points (login declines, CSAT scores, contract status) for each client, summarizes key risk patterns across the group, and offers actionable next steps. The formatting is professional and easy to digest.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

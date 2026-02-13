@@ -1,0 +1,14 @@
+[
+    {
+        "text": "The implementation has been a disaster. We are seeing constant downtime and the support team is unresponsive.",
+        "true_sentiment": "Negative"
+    },
+    {
+        "text": "Nexus Advisory has truly transformed our sales operations. The Agentic AI insights are top-notch.",
+        "true_sentiment": "Positive"
+    },
+    {
+        "text": "The meeting was productive. We covered the roadmap and identified a few areas for next quarter.",
+        "true_sentiment": "Neutral"
+    }
+]

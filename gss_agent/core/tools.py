@@ -64,7 +64,7 @@ class NexusDataReader:
         if not client: return None
         
         assoc_name = client.get("assigned_associate")
-        assoc = next((a for a in self.associates if a.get("name") == assoc_name), None)
+        assoc = next((a for a in self.associates if a.get("id") == assoc_name), None)
         if not assoc: return None
         
         perf = next((p for p in self.performance if p.get("associate_id") == assoc.get("id")), None)
@@ -164,10 +164,24 @@ def analyze_data_python(code: str) -> str:
     Use this for logic like "Calculate the MoM drop in login frequency".
     """
     import logging
-    # Use uvicorn.error logger to ensure it prints to the uvicorn console
+    import re
     logger = logging.getLogger("uvicorn.error")
+    
+    # SAFETY CHECK: Block dangerous imports and patterns
+    dangerous_patterns = [
+        r"os\.", r"subprocess", r"shutil", r"requests", r"socket", 
+        r"open\(", r"write\(", r"eval\(", r"exec\(", r"__import__"
+    ]
+    
+    for pattern in dangerous_patterns:
+        if re.search(pattern, code):
+            logger.warning(f"BLOCKED dangerous pattern '{pattern}' in code.")
+            return f"Error: The use of '{pattern}' is blocked for security reasons."
+
     logger.info(f"--- [PYTHON REPL START] ---\n{code}\n--- [PYTHON REPL END] ---")
     try:
+        # Note: In a real-world prod sys, we would use a Dockerized executor
+        # or a signal-based timeout. Here we use basic exception wrapping.
         result = python_repl_utility.run(code)
         logger.info(f"REPL Output:\n{result}")
         return f"Output:\n{result}"

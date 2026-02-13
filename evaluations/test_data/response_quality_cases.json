@@ -1,0 +1,33 @@
+[
+    {
+        "query": "What is the strategic priority for TechNova Solutions based on recent research?",
+        "expected_topics": [
+            "Agentic AI",
+            "Revenue Technology"
+        ],
+        "expected_tools": [
+            "lookup_client_file",
+            "search_research_library"
+        ]
+    },
+    {
+        "query": "How is the associate for Cedar Health Systems performing?",
+        "expected_topics": [
+            "Associate Performance",
+            "KPIs"
+        ],
+        "expected_tools": [
+            "get_associate_performance_context"
+        ]
+    },
+    {
+        "query": "Summarize the churn risks for our high-revenue clients.",
+        "expected_topics": [
+            "Churn Risk",
+            "Retention"
+        ],
+        "expected_tools": [
+            "get_at_risk_clients_summary"
+        ]
+    }
+]

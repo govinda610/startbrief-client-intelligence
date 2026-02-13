@@ -158,6 +158,29 @@ function App() {
 
   useEffect(scrollToBottom, [messages]);
 
+  const submitFeedback = async (messageIndex, rating, comment = "") => {
+    try {
+      await fetch('http://localhost:8000/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          thread_id: threadId,
+          message_index: messageIndex,
+          rating,
+          comment
+        })
+      });
+
+      setMessages(prev => {
+        const newMsgs = [...prev];
+        newMsgs[messageIndex].feedback = rating;
+        return newMsgs;
+      });
+    } catch (error) {
+      console.error("Failed to submit feedback", error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim() || isStreaming) return;
@@ -446,6 +469,36 @@ function App() {
                         </ReactMarkdown>
                       )}
                       {!msg.content && <div className="flex gap-1 items-center h-6"><span className="w-1.5 h-1.5 bg-nexus-cyan rounded-full animate-bounce"></span><span className="w-1.5 h-1.5 bg-nexus-cyan rounded-full animate-bounce delay-75"></span><span className="w-1.5 h-1.5 bg-nexus-cyan rounded-full animate-bounce delay-150"></span></div>}
+
+                      {msg.role === 'assistant' && msg.content && (
+                        <div className="flex items-center gap-4 mt-6 pt-4 border-t border-white/10">
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => submitFeedback(idx, "up")}
+                              className={`p-1.5 rounded-lg transition-all ${msg.feedback === 'up' ? 'bg-nexus-cyan/20 text-nexus-cyan shadow-[0_0_10px_rgba(34,211,238,0.3)]' : 'text-nexus-slate hover:text-white hover:bg-white/5'}`}
+                            >
+                              <ToggleLeft className={msg.feedback === 'up' ? "rotate-90" : ""} size={16} />
+                            </button>
+                            <button
+                              onClick={() => submitFeedback(idx, "down")}
+                              className={`p-1.5 rounded-lg transition-all ${msg.feedback === 'down' ? 'bg-red-500/20 text-red-400 shadow-[0_0_10px_rgba(239,68,68,0.3)]' : 'text-nexus-slate hover:text-red-400 hover:bg-white/5'}`}
+                            >
+                              <ToggleRight className={msg.feedback === 'down' ? "rotate-90" : ""} size={16} />
+                            </button>
+                          </div>
+                          {msg.feedback === 'down' && (
+                            <motion.input
+                              initial={{ width: 0, opacity: 0 }}
+                              animate={{ width: "200px", opacity: 1 }}
+                              placeholder="What can we improve?"
+                              className="bg-white/5 border border-white/10 rounded-lg px-3 py-1 text-[10px] focus:outline-none focus:border-nexus-cyan/50 text-white"
+                              onBlur={(e) => submitFeedback(idx, "down", e.target.value)}
+                              onKeyDown={(e) => e.key === 'Enter' && submitFeedback(idx, "down", e.target.value)}
+                            />
+                          )}
+                          {msg.feedback && <span className="text-[10px] text-nexus-cyan font-bold animate-pulse">Feedback Received</span>}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </motion.div>

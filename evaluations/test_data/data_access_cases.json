@@ -1,0 +1,10 @@
+[
+    {
+        "tool": "lookup_client_file",
+        "input": {
+            "client_name": "Nexus Innovations"
+        },
+        "expected_key": "name",
+        "expected_value": "Nexus Innovations"
+    }
+]

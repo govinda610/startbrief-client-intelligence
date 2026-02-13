@@ -1,0 +1,49 @@
+{
+  "run_id": "20260213_174306",
+  "generated_at": "2026-02-13T17:43:48.109579",
+  "summary": {
+    "total_cases": 1,
+    "passed": 0,
+    "failed": 1,
+    "avg_latency_ms": 41310.77770900447,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "faithfulness": {
+        "count": 1,
+        "passed": 0,
+        "failed": 1,
+        "pass_rate": 0.0,
+        "avg_latency": 41310.77770900447
+      }
+    },
+    "test_suites_run": 1
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-13T17:43:48.041348",
+      "test_name": "faithfulness",
+      "case_id": "f_2167863500442943025",
+      "query": "What is the strategic priority for TechNova Solutions based on recent research?",
+      "agent_response": "Based on the comprehensive analysis I've conducted, here is the strategic priority for TechNova Solutions:\n\n## \ud83c\udfaf **Strategic Priority: Arrest CSAT Decline Before Renewal Window**\n\n### **The Critical Issue**\nTechNova Solutions is experiencing an alarming **31.4% CSAT regression** (5.0 \u2192 3.43) over just 3 months, alongside a **30% NPS drop** (10 \u2192 7). This is occurring despite strong inquiry utilization growth (109% increase) and an ARR uplift to $517K.\n\n### **Why This Is The #1 Priority**\n1. **Renewal Risk**: Contract expires **June 15, 2026** (5 months away) with current \"Medium Renewal Likelihood\"\n2. **Churn Signal**: Client profile shows \"Medium churn risk\" \u2014 this CSAT slide is a leading indicator\n3. **Paradox**: High engagement (40 logins in January, 6.5 inquiry hours/month) suggests they're **struggling with implementation**, not disengaging\n\n### **Strategic Implications from Research**\nThe 2025 Digital Transformation Market Guide reveals that **65% of XaaS transformations fail due to change management gaps** \u2014 exactly what TechNova is experiencing as they pivot to their \"Everything-as-a-Service\" model.\n\n### **Recommended Actions**\n1. **Immediate**: Conduct CSAT root cause analysis this week\n2. **Within 2 weeks**: Schedule executive QBR with Michael Chen (CTO) and Sarah Johnson (VP IT Operations)\n3. **Strategic positioning**: Leverage the **GenAI Hype Cycle 2025** research to help them build a governance-first RAG implementation roadmap\n4. **Infrastructure support**: Use the **Enterprise Networking for AI** research to address their GenAI sustainability concerns\n\n### **The Opportunity**\nTheir strong inquiry growth and CSA Sarah Jenkins' 89% retention rate suggest this account can be saved with rapid intervention. The research-backed guidance on RAG patterns, Decision Intelligence platforms, and Application-Aware Infrastructure provides immediate value to reverse the satisfaction trend.\n\n**Bottom Line**: Fix the CSAT decline now or face significant churn risk before their June 2026 renewal. The high inquiry utilization proves they need help \u2014 not a reason to ignore them.",
+      "retrieved_context": "Top 10 Strategic Technology Trends for 2025: Agentic AI\n\n\n\nStrategic Value: Increases sales productivity by 15%\n---\nCompatible solution-oriented frame Report 2025\n\nSomebody population hotel onto. Into mention thought own where head ball. Mr everyone direction. Improve as follow skin unit. Society entire six. Physical pick reduce arrive strategy.\n\nStrategic Value: Identifies key AI vendors for 2025\n---\nQuality-focused asymmetric middleware Report 2025\n\nDetermine each main rise. Medical various mind tree message food could door. Now scientist know week building Democrat. Heavy woman each. Suggest choose trip area way price important. Arm question how sit it without fire.\n\nStrategic Value: Increases sales productivity by 15%",
+      "scores": {
+        "faithfulness": 0.25
+      },
+      "reasoning": "The response contains numerous specific factual claims regarding a fictional company ('TechNova'), its employees, its CSAT scores, contract details, and statistics regarding XaaS transformations. None of these details appear in the provided context. The context only contains two fragmented 'Strategic Value' statements about sales productivity and AI vendors, surrounded by nonsensical text. The only 'supported' claims are the repeated Strategic Value headers, although the response misinterprets or hallucinates the context of these values.",
+      "latency_ms": 41310.77770900447,
+      "tokens_used": {
+        "cache_creation": null,
+        "cache_creation_input_tokens": null,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 788,
+        "output_tokens": 442,
+        "server_tool_use": {
+          "web_search_requests": 0
+        },
+        "service_tier": "standard"
+      },
+      "passed": false,
+      "metadata": {}
+    }
+  ]
+}

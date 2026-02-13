@@ -168,6 +168,56 @@ async def executive_chat_endpoint(request: ChatRequest):
 async def health_check():
     return {"status": "active", "system": "Nexus Strategic Advisor V2"}
 
+# --- Feedback System ---
+
+class FeedbackRequest(BaseModel):
+    thread_id: str
+    message_index: int
+    rating: str  # "up" or "down"
+    comment: str = ""
+
+@app.post("/api/feedback")
+async def submit_feedback(request: FeedbackRequest):
+    """Store user feedback as JSON lines for analysis."""
+    feedback_file = os.path.join(os.path.dirname(__file__), "../data/feedback.jsonl")
+    data = request.dict()
+    data["timestamp"] = datetime.now().isoformat()
+    
+    try:
+        with open(feedback_file, "a") as f:
+            f.write(json.dumps(data) + "\n")
+        logger.info(f"Feedback received for thread {request.thread_id}")
+        return {"status": "success"}
+    except Exception as e:
+        logger.error(f"Failed to save feedback: {e}")
+        raise HTTPException(status_code=500, detail="Failed to save feedback")
+
+@app.get("/api/feedback/summary")
+async def get_feedback_summary():
+    """Return aggregated feedback statistics."""
+    feedback_file = os.path.join(os.path.dirname(__file__), "../data/feedback.jsonl")
+    if not os.path.exists(feedback_file):
+        return {"total": 0, "up": 0, "down": 0, "recent_comments": []}
+        
+    up = 0
+    down = 0
+    comments = []
+    
+    with open(feedback_file, "r") as f:
+        for line in f:
+            data = json.loads(line)
+            if data["rating"] == "up": up += 1
+            else: down += 1
+            if data["comment"]:
+                comments.append({"msg": data["comment"], "ts": data["timestamp"]})
+                
+    return {
+        "total": up + down,
+        "up": up,
+        "down": down,
+        "recent_comments": sorted(comments, key=lambda x: x["ts"], reverse=True)[:5]
+    }
+
 
 async def mock_golden_generator():
     """Streams the captured golden trace for deterministic UI testing."""

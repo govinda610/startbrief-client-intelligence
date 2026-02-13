@@ -1,0 +1,16 @@
+[
+    {
+        "query": "total revenue",
+        "expected_aggregation": "ARR",
+        "expected_tools": [
+            "get_revenue_snapshot"
+        ]
+    },
+    {
+        "query": "at risk clients",
+        "expected_aggregation": "Churn Risk Summary",
+        "expected_tools": [
+            "get_at_risk_clients_summary"
+        ]
+    }
+]

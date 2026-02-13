@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gartner-bg: #0A192F;
-  --color-gartner-card: #112240;
-  --color-gartner-hover: #233554;
-  --color-gartner-border: #1E3A8A;
-  --color-gartner-cyan: #64FFDA;
-  --color-gartner-blue: #00E0FF;
-  --color-gartner-slate: #8892B0;
-  --color-gartner-light: #E6F1FF;
+  --color-nexus-bg: #0A192F;
+  --color-nexus-card: #112240;
+  --color-nexus-hover: #233554;
+  --color-nexus-border: #1E3A8A;
+  --color-nexus-cyan: #64FFDA;
+  --color-nexus-blue: #00E0FF;
+  --color-nexus-slate: #8892B0;
+  --color-nexus-light: #E6F1FF;
 
   --font-sans: Inter, system-ui, sans-serif;
 
@@ -44,7 +44,7 @@
 
 @layer base {
   body {
-    @apply bg-gartner-bg text-gartner-slate font-sans antialiased overflow-hidden;
+    @apply bg-nexus-bg text-nexus-slate font-sans antialiased overflow-hidden;
   }
 }
 
@@ -58,7 +58,7 @@
   }
 
   .neon-text {
-    color: var(--color-gartner-cyan);
+    color: var(--color-nexus-cyan);
     filter: drop-shadow(0 0 2px rgba(100, 255, 218, 0.5));
   }
 
@@ -78,13 +78,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gartner-bg;
+  @apply bg-nexus-bg;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gartner-card rounded-full border border-gartner-bg;
+  @apply bg-nexus-card rounded-full border border-nexus-bg;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gartner-hover;
+  @apply bg-nexus-hover;
 }

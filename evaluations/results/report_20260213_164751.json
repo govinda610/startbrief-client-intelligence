@@ -1,0 +1,282 @@
+{
+  "run_id": "20260213_164751",
+  "generated_at": "2026-02-13T16:47:51.139539",
+  "summary": {
+    "total_cases": 14,
+    "passed": 14,
+    "failed": 0,
+    "avg_latency_ms": 0.33762500243028626,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "data_quality": {
+        "count": 6,
+        "passed": 6,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0
+      },
+      "data_access": {
+        "count": 5,
+        "passed": 5,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0.3912665997631848
+      },
+      "executive_tools": {
+        "count": 3,
+        "passed": 3,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0.24822234020878872
+      }
+    },
+    "test_suites_run": 3
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-13T16:47:51.123439",
+      "test_name": "data_quality",
+      "case_id": "dq_count",
+      "query": "Total interaction count >= 200?",
+      "agent_response": "Found 220 interactions in the dataset.",
+      "retrieved_context": "N/A",
+      "scores": {
+        "count": 220
+      },
+      "reasoning": "Sufficient data volume. Target: 200, Actual: 220.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.123962",
+      "test_name": "data_quality",
+      "case_id": "dq_empty",
+      "query": "Are there any interactions with empty content?",
+      "agent_response": "No empty interactions found.",
+      "retrieved_context": "N/A",
+      "scores": {
+        "empty_count": 0
+      },
+      "reasoning": "All interactions have substantive content.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.129851",
+      "test_name": "data_quality",
+      "case_id": "dq_words",
+      "query": "Do all interaction types meet minimum word count thresholds?",
+      "agent_response": "Phone Call Transcript: avg=832 (threshold=800) \u2705\nAnalyst Inquiry Call: avg=758 (threshold=700) \u2705\nEmail Thread: avg=667 (threshold=500) \u2705\nMeeting Note: avg=465 (threshold=400) \u2705\nSupport Ticket: avg=384 (threshold=250) \u2705",
+      "retrieved_context": "N/A",
+      "scores": {
+        "Phone Call Transcript": "832",
+        "Analyst Inquiry Call": "758",
+        "Email Thread": "667",
+        "Meeting Note": "465",
+        "Support Ticket": "384"
+      },
+      "reasoning": "All types meet thresholds.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.130420",
+      "test_name": "data_quality",
+      "case_id": "dq_sentiment",
+      "query": "Are there >= 50 true_sentiment labels for NLP eval?",
+      "agent_response": "Found 60 labeled interactions out of 220 total.",
+      "retrieved_context": "N/A",
+      "scores": {
+        "labeled": 60,
+        "total": 220,
+        "pct": "27.3%"
+      },
+      "reasoning": "Sufficient labels for sentiment model evaluation.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.131138",
+      "test_name": "data_quality",
+      "case_id": "dq_client_ref",
+      "query": "Do all interactions reference valid client IDs?",
+      "agent_response": "All {len(interactions_data)} interactions map to valid clients.",
+      "retrieved_context": "Client IDs in dataset: 25",
+      "scores": {
+        "orphaned": 0,
+        "total_interactions": 220
+      },
+      "reasoning": "Cross-reference integrity is intact.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.132939",
+      "test_name": "data_quality",
+      "case_id": "dq_fields",
+      "query": "Do all records have required fields?",
+      "agent_response": "All records have required fields.",
+      "retrieved_context": "Checked: 25 clients, 220 interactions, 100 content items",
+      "scores": {
+        "missing_count": 0
+      },
+      "reasoning": "Schema integrity verified across all data files.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.134357",
+      "test_name": "data_access",
+      "case_id": "da_lookup",
+      "query": "Can lookup_client_file find 'Nexus Innovations'?",
+      "agent_response": "{\n  \"id\": \"c_nexus_innovations_659\",\n  \"name\": \"Nexus Innovations\",\n  \"industry\": \"High Tech\",\n  \"revenue\": \"$5B\",\n  \"region\": \"North America\",\n  \"lifecycle_stage\": \"Growth\",\n  \"churn_risk\": \"Low\",\n  \"subscriptions\": [\n    \"Nexus Advisory for Finance Leaders\",\n    \"Nexus Advisory for Supply Chain Leaders\"\n  ],\n  \"entitlements\": [\n    \"Magic Quadrant Access\",\n    \"Peer Insights\",\n    \"Technical Professional Advice\"\n  ],\n  \"key_contacts\": [\n    {\n      \"name\": \"Dr. Evelyn Reed\",\n      \"role\": \"CIO",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "found": true,
+        "name_match": true
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.8712910057511181,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.135128",
+      "test_name": "data_access",
+      "case_id": "da_metrics",
+      "query": "Can get_client_engagement_metrics retrieve data for 'Nexus Innovations'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_nexus_innovations_659\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 25,\n      \"content_downloads\": 16,\n      \"inquiry_utilization_pct\": 77,\n      \"nps\": 9,\n      \"csat\": 4.935503489500377,\n      \"contract_value_arr\": 125000,\n      \"days_since_last_engagement\": 12,\n      \"research_docs_accessed\": 22,\n      \"analyst_inquiry_hours\": 7.7\n    }\n  },\n  {\n    \"client_id\": \"c_nexus_innovations_659\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_fre",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "found": true,
+        "is_list": true
+      },
+      "reasoning": "Engagement metrics returned successfully as list.",
+      "latency_ms": 0.33562499447725713,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.135676",
+      "test_name": "data_access",
+      "case_id": "da_contract",
+      "query": "Can lookup_contract_details find contract for 'Nexus Innovations'?",
+      "agent_response": "{\n  \"id\": \"CON-659\",\n  \"client_id\": \"c_nexus_innovations_659\",\n  \"start_date\": \"2025-06-28\",\n  \"end_date\": \"2026-06-28\",\n  \"total_value\": 220000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"High\",\n  \"service_level\": \"Gold\"\n}",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.21512500825338066,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.136459",
+      "test_name": "data_access",
+      "case_id": "da_assoc",
+      "query": "Can get_associate_performance_context find associate for 'Nexus Innovations'?",
+      "agent_response": "{\n  \"profile\": {\n    \"id\": \"ASSOC-002\",\n    \"name\": \"David Miller\",\n    \"role\": \"Client Success Associate\",\n    \"region\": \"North America\",\n    \"tenure_months\": 24\n  },\n  \"performance\": {\n    \"associate_id\": \"ASSOC-002\",\n    \"metrics\": {\n      \"cross_sell_rate\": 0.15,\n      \"upsell_rate\": 0.16,\n      \"avg_csat\": 4.0,\n      \"retention_rate\": 0.89,\n      \"avg_interaction_time_mins\": 44,\n      \"renewals_secured\": 10,\n      \"revenue_managed\": 3842000\n    }\n  }\n}",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "has_profile": true,
+        "has_performance": true
+      },
+      "reasoning": "Associate context retrieved with profile and performance data.",
+      "latency_ms": 0.23249999503605068,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.137089",
+      "test_name": "data_access",
+      "case_id": "da_list",
+      "query": "Does list_all_clients return a valid client list?",
+      "agent_response": "Returned 25 clients. First: Nexus Innovations",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "count": 25,
+        "has_name_field": true
+      },
+      "reasoning": "Client listing works correctly.",
+      "latency_ms": 0.3017919952981174,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.137613",
+      "test_name": "executive_tools",
+      "case_id": "ex_revenue",
+      "query": "Does get_revenue_snapshot return complete portfolio health data?",
+      "agent_response": "{\n  \"total_estimated_arr\": \"$2,600,000\",\n  \"total_clients\": 25,\n  \"high_value_accounts\": 9,\n  \"average_deal_size\": \"$104,000\"\n}",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "has_arr": true,
+        "has_clients": true,
+        "has_high_value": true,
+        "total_arr": "$2,600,000",
+        "total_clients": 25
+      },
+      "reasoning": "Revenue snapshot complete with ARR, client count, and high-value accounts.",
+      "latency_ms": 0.1674999948590994,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.138148",
+      "test_name": "executive_tools",
+      "case_id": "ex_risk",
+      "query": "Does get_at_risk_clients_summary correctly aggregate churn risks?",
+      "agent_response": "Found 17 at-risk clients.\n[\n  {\n    \"client_name\": \"Pinnacle Capital Group\",\n    \"industry\": \"Finance\",\n    \"revenue\": \"$10B\",\n    \"risk_level\": \"Medium\",\n    \"assigned_associate\": \"ASSOC-004\"\n  },\n  {\n    \"client_name\": \"Metropolitan Transit Authority\",\n    \"industry\": \"Public Sector\",\n    \"revenue\": \"$1.2B\",\n    \"risk_level\": \"High\",\n    \"assigned_associate\": \"ASSOC-008\"\n  },\n  {\n    \"client_name\": \"TechNova Solutions\",\n    \"industry\": \"High Tech\",\n    \"revenue\": \"$1.5B\",\n    \"risk_level\": \"Medium\",\n    \"assigned_associate\": \"ASSOC-001\"\n  }\n]",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "at_risk_count": 17,
+        "has_client_name": true,
+        "has_risk_level": true
+      },
+      "reasoning": "At-risk client aggregation working correctly.",
+      "latency_ms": 0.20900001982226968,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:47:51.139055",
+      "test_name": "executive_tools",
+      "case_id": "ex_assoc",
+      "query": "Does get_all_associates_performance return valid associate summaries?",
+      "agent_response": "Found 12 associates.\nFirst: {\n  \"name\": \"Sarah Jenkins\",\n  \"role\": \"Client Success Associate\",\n  \"focus_area\": null,\n  \"client_count\": 0,\n  \"status\": \"Active\"\n}",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "associate_count": 12,
+        "has_name": true,
+        "has_role": true,
+        "has_client_count": true
+      },
+      "reasoning": "Associate performance aggregation working correctly.",
+      "latency_ms": 0.36816700594499707,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    }
+  ]
+}

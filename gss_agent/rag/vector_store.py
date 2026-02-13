@@ -67,11 +67,12 @@ class NexusVectorStore:
 if __name__ == "__main__":
     v_store = NexusVectorStore()
     
-    # Absolute paths for data files
-    base_dir = "/Users/govindmittal/datascience-setup/interview_prep/gartner/gss_agent/data"
+    # Relative paths for data files
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    DATA_DIR = os.path.join(BASE_DIR, "data")
     
-    v_store.ingest_research(os.path.join(base_dir, "content.json"))
-    v_store.ingest_interactions(os.path.join(base_dir, "interactions.json"))
+    v_store.ingest_research(os.path.join(DATA_DIR, "content.json"))
+    v_store.ingest_interactions(os.path.join(DATA_DIR, "interactions.json"))
     
     # Test query
     test_results = v_store.search_research("Agentic AI trends 2025")

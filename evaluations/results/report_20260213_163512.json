@@ -1,0 +1,51 @@
+{
+  "run_id": "20260213_163512",
+  "summary": {
+    "total_cases": 2,
+    "passed": 2,
+    "failed": 0,
+    "avg_latency_ms": 0.0,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "data_quality": {
+        "count": 2,
+        "pass_rate": 1.0,
+        "avg_latency": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-13T16:35:12.778247",
+      "test_name": "data_quality",
+      "case_id": "dq_count",
+      "query": "Total Interactions",
+      "agent_response": "Count: 220",
+      "retrieved_context": "N/A",
+      "scores": {
+        "count": 220
+      },
+      "reasoning": "",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2026-02-13T16:35:12.778914",
+      "test_name": "data_quality",
+      "case_id": "dq_empty",
+      "query": "Empty Content Check",
+      "agent_response": "Empty IDs: []",
+      "retrieved_context": "N/A",
+      "scores": {
+        "empty_count": 0
+      },
+      "reasoning": "",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {}
+    }
+  ]
+}
