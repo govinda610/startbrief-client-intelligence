@@ -26,7 +26,7 @@ Return ONLY a JSON object:
 """
 
 @pytest.mark.parametrize("case", load_test_cases("response_quality_cases.json"))
-def test_answer_relevancy_metric(case, report_engine):
+def test_answer_relevancy_metric(case, report_engine, llm_trace):
     query = case["query"]
     print(f"\n🎯 [Relevancy] Starting evaluation for: '{query[:50]}...'")
     
@@ -65,7 +65,8 @@ def test_answer_relevancy_metric(case, report_engine):
             latency_ms=latency_ms,
             tokens_used=usage,
             passed=passed,
-            metadata={"missing_aspects": eval_data.get("missing_aspects", [])}
+            metadata={"missing_aspects": eval_data.get("missing_aspects", [])},
+            trace=llm_trace.traces
         )
         
         assert passed, f"Relevancy score {eval_data['relevancy_score']} below 4. Reasoning: {eval_data['reasoning']}"

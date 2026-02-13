@@ -1,6 +1,7 @@
 import pytest
 import json
 import time
+import random
 from gss_agent.core.tools import (
     lookup_client_file, 
     get_client_engagement_metrics,
@@ -10,65 +11,72 @@ from gss_agent.core.tools import (
 )
 
 def test_lookup_client_file(clients_data, report_engine):
-    """Verify tool can find a client by name"""
-    client = clients_data[0]
-    start = time.perf_counter()
-    result_str = lookup_client_file.invoke({"client_name": client["name"]})
-    latency = (time.perf_counter() - start) * 1000
+    """Verify tool can find various clients by name"""
+    # Test a sample of 3 clients to ensure it's not just working for one 'lucky' case
+    test_sample = random.sample(clients_data, min(3, len(clients_data)))
     
-    passed = "not found" not in result_str.lower()
-    if passed:
-        result = json.loads(result_str)
-        passed = result["name"] == client["name"]
-    
-    report_engine.log_case("data_access", "da_lookup", f"Can lookup_client_file find '{client['name']}'?",
-        result_str[:500],
-        f"Input: client_name='{client['name']}'",
-        {"found": passed, "name_match": passed},
-        f"{'Tool correctly retrieved client profile.' if passed else 'Tool FAILED to find client — check data reader path or client name format.'}",
-        latency, {}, passed)
-    assert passed
+    for client in test_sample:
+        start = time.perf_counter()
+        result_str = lookup_client_file.invoke({"client_name": client["name"]})
+        latency = (time.perf_counter() - start) * 1000
+        
+        passed = "not found" not in result_str.lower()
+        if passed:
+            result = json.loads(result_str)
+            passed = result["name"] == client["name"]
+        
+        report_engine.log_case("data_access", f"da_lookup_{client['id']}", f"Can lookup_client_file find '{client['name']}'?",
+            result_str[:500],
+            f"Input: client_name='{client['name']}'",
+            {"found": passed, "name_match": passed, "client_id": client["id"]},
+            f"{'Tool correctly retrieved client profile.' if passed else 'Tool FAILED to find client.'}",
+            latency, {}, passed)
+        assert passed
 
 def test_get_client_engagement_metrics(clients_data, report_engine):
-    """Verify engagement metrics retrieval"""
-    client = clients_data[0]
-    start = time.perf_counter()
-    result_str = get_client_engagement_metrics.invoke({"client_name": client["name"]})
-    latency = (time.perf_counter() - start) * 1000
+    """Verify engagement metrics retrieval for various clients"""
+    test_sample = random.sample(clients_data, min(3, len(clients_data)))
     
-    passed = "not found" not in result_str.lower()
-    if passed:
-        result = json.loads(result_str)
-        passed = isinstance(result, list)
-    
-    report_engine.log_case("data_access", "da_metrics", f"Can get_client_engagement_metrics retrieve data for '{client['name']}'?",
-        result_str[:500],
-        f"Input: client_name='{client['name']}'",
-        {"found": passed, "is_list": passed},
-        f"{'Engagement metrics returned successfully as list.' if passed else 'FAILED to retrieve metrics — check interactions data linkage.'}",
-        latency, {}, passed)
-    assert passed
+    for client in test_sample:
+        start = time.perf_counter()
+        result_str = get_client_engagement_metrics.invoke({"client_name": client["name"]})
+        latency = (time.perf_counter() - start) * 1000
+        
+        passed = "not found" not in result_str.lower()
+        if passed:
+            result = json.loads(result_str)
+            passed = isinstance(result, list)
+        
+        report_engine.log_case("data_access", f"da_metrics_{client['id']}", f"Can get_client_engagement_metrics retrieve data for '{client['name']}'?",
+            result_str[:500],
+            f"Input: client_name='{client['name']}'",
+            {"found": passed, "is_list": passed, "client_id": client["id"]},
+            f"{'Engagement metrics returned successfully.' if passed else 'FAILED to retrieve metrics.'}",
+            latency, {}, passed)
+        assert passed
 
 def test_lookup_contract_details(clients_data, report_engine):
-    """Verify contract details retrieval"""
-    client = clients_data[0]
-    start = time.perf_counter()
-    result_str = lookup_contract_details.invoke({"client_name": client["name"]})
-    latency = (time.perf_counter() - start) * 1000
+    """Verify contract details retrieval for various clients"""
+    test_sample = random.sample(clients_data, min(3, len(clients_data)))
     
-    passed = "not found" not in result_str.lower()
-    result = {}
-    if passed:
-        result = json.loads(result_str)
-        passed = "total_value" in result and result.get("status") in ["Active", "Expired"]
-    
-    report_engine.log_case("data_access", "da_contract", f"Can lookup_contract_details find contract for '{client['name']}'?",
-        result_str[:500],
-        f"Input: client_name='{client['name']}'",
-        {"has_total_value": "total_value" in result, "valid_status": result.get("status", "N/A")},
-        f"{'Contract details retrieved with valid status.' if passed else 'FAILED — check contracts.json linkage to clients.'}",
-        latency, {}, passed)
-    assert passed
+    for client in test_sample:
+        start = time.perf_counter()
+        result_str = lookup_contract_details.invoke({"client_name": client["name"]})
+        latency = (time.perf_counter() - start) * 1000
+        
+        passed = "not found" not in result_str.lower()
+        result = {}
+        if passed:
+            result = json.loads(result_str)
+            passed = "total_value" in result and result.get("status") in ["Active", "Expired"]
+        
+        report_engine.log_case("data_access", f"da_contract_{client['id']}", f"Can lookup_contract_details find contract for '{client['name']}'?",
+            result_str[:500],
+            f"Input: client_name='{client['name']}'",
+            {"has_total_value": "total_value" in result, "valid_status": result.get("status", "N/A"), "client_id": client["id"]},
+            f"{'Contract details retrieved with valid status.' if passed else 'FAILED to retrieve contract.'}",
+            latency, {}, passed)
+        assert passed
 
 def test_get_associate_performance_context(clients_data, report_engine):
     """Verify associate performance context retrieval"""

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260213_213135</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260213_213135</small><br>
+            <small>Generated: 2026-02-13 21:31:44</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value good">2/2 (100.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">2</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">1</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value good">0ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">NLP ACCURACY</div>
+                <div class="suite-card-rate" style="color:#4ade80;">100%</div>
+                <div class="suite-card-detail">2/2 passed</div>
+                
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>✅ **All tests passed!** No immediate improvements needed. Consider adding more edge-case test queries to strengthen coverage.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>✅ NLP ACCURACY</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">2 passed</span>
+                        <span class="stat-fail">0 failed</span>
+                        <span class="stat-total">2 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">DistilBERT Sentiment Accuracy (N=33)</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Accuracy: 0.79 (26/33)
+
+Mismatches:
+  - INT-6000: true=POSITIVE, pred=NEGATIVE (conf:0.94) → "Nexus Advisory Client Success Team - Transcript Recording
+Date: October 12, 2023..."
+  - INT-6014: true=POSITIVE, pred=NEGATIVE (conf:0.60) → "NEXUS ADVISORY CLIENT MEETING NOTES
+
+**Meeting Details:**
+Date: October 12, 2023..."
+  - INT-6018: true=NEGATIVE, pred=POSITIVE (conf:1.00) → "MEETING NOTES
+Nexus Advisory - Apex Precision Executive Briefing
+
+Date: November..."
+  - INT-6027: true=POSITIVE, pred=NEGATIVE (conf:0.84) → "From: Marcus Thorne &lt;m.thorne@nexus-advisory.com&gt;
+To: Sarah Chen &lt;s.chen@nexus-i..."
+  - INT-6034: true=POSITIVE, pred=NEGATIVE (conf:0.52) → "**NEXUS ADVISORY CLIENT MEETING SUMMARY**
+
+**Date:** November 15, 2023
+**Time:**..."</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">accuracy: 0.79</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">correct: 26</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total: 33</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Model performance meets production thresholds.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Is sentiment distribution balanced? (each class &gt;= 5%)</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Positive: 44 (20.0%) ✅
+Negative: 29 (13.2%) ✅
+Neutral: 48 (21.8%) ✅</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious / Strategic / Time-Sensitive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Positive but Pressured: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Constructive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Constructive, Slightly Anxious, Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral to Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic | Inquisitive | Urgent: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic but Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Constructive but Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic and Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent, Analytical, Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative but Concerned: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative, Strategic, Time-Constrained: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic | Inquisitive | Time-Constrained: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Professional, Urgent, Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Mixed (Concerned but Action-Oriented): 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent, Strategic Concern: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Anxious but Solution-Oriented: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative, Strategic, Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent, Inquisitive, Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Apprehensive but seeking direction: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic / Constructively Critical: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Urgent, Inquisitive: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic | Action-Oriented: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral / Inquisitive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Cautiously Optimistic: 11</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic and Apprehensive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral: 48</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Concerned, Strategic, Collaborative: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent / Inquisitive / Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Negative (initial issue), Positive (resolution): 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Inquisitive, Time-Sensitive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Mixed (Anxious regarding budget/competitors, Reassured regarding strategic direction): 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious but Decisive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious but Action-Oriented: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative and Strategic: 6</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Negative: 29</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Mixed (Urgency/Concern leading to Strategic Optimism): 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">High-Stakes / Anxious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative but Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Positive/Anxious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral to Urgent (Moving to Collaborative): 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Positive, Collaborative, Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Inquisitive, Time-Constrained: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral to Cautiously Optimistic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Tense, Inquisitive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">High Pressure / Anxious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral / Constructive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic | Constructive | Forward-Looking: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral to Cautious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Negative / Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious but Determined: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Concerned to Strategic/Reassured: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Negative to Neutral: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Inquisitive, Urgent: 3</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Positive and Collaborative: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">High-Stakes / Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Proactive but Concerned: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic / Inquisitive: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Professional, Inquisitive, Solution-Oriented: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Professional, Inquisitive, Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">High Anxiety / Time-Constrained: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic / Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic, Cautious, Action-Oriented: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Neutral/Critical: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent / Stressed: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Positive: 44</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Tense, Strategic, Reassuring: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious / Urgent: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent / Strategically Anxious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent and Anxious: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Urgent / Anxious: 3</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Anxious, Urgent, Strategic: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative and Strategic (Tense initially regarding budget, moves to solution-oriented): 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Strategic and Collaborative: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">Collaborative to Strategic: 1</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Healthy sentiment distribution across all classes.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+            <div class="recs" style="border-left: 4px solid #4ade80;">
+                <h3>🎉 Improvement Analysis — No Failures Detected</h3>
+                <p style="color:#94a3b8;font-size:13px;">All evaluation tests passed. The system is performing within expected thresholds across all metrics. 
+                Consider adding edge-case queries, adversarial prompts, or more complex multi-turn interactions to further stress-test the system.</p>
+            </div>
+            
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

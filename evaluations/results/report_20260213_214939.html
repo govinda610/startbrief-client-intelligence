@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260213_214939</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260213_214939</small><br>
+            <small>Generated: 2026-02-13 21:51:39</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value bad">3/5 (60.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">5</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">2</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value warn">23908ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">LATENCY E2E</div>
+                <div class="suite-card-rate" style="color:#ef4444;">33%</div>
+                <div class="suite-card-detail">1/3 passed</div>
+                <div class="suite-card-detail">Avg: 39845ms</div>
+            </div>
+
+            <div class="suite-card">
+                <div class="suite-card-name">LATENCY TTFT</div>
+                <div class="suite-card-rate" style="color:#4ade80;">100%</div>
+                <div class="suite-card-detail">2/2 passed</div>
+                <div class="suite-card-detail">Avg: 1ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>🟡 **latency_e2e** (67% failures): 2 test cases failed. Review the detailed results below for specific issues.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>❌ LATENCY E2E</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">1 passed</span>
+                        <span class="stat-fail">2 failed</span>
+                        <span class="stat-total">3 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Summarize health for Nexus Innovations</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text"># Nexus Innovations - Client Health Summary
+
+## Executive Health Status: ⚠️ ATTENTION NEEDED
+**Churn Risk: Low | Renewal Likelihood: High | Overall Trend: Declining**
+
+---
+
+## Key Health Indicators
+
+### 📊 Engagement Profile
+| Metric | Current Status | Trend |
+|--------|---------------|-------|
+| **Login Frequency** | 28 (Jan 2026) | 📉 **Declining** (-44% from peak of 45) |
+| **Content Downloads** | 26 (Jan 2026) | ✅ **Strong** (consistent 25-26) |
+| **NPS Score** | 8 | ✅ **Excellent** (maintaine</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">latency_ms: 81730</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">threshold_ms: 30000</span>
+                        <div class="meta-info">
+                            Latency: 81730ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Total E2E: 81730ms. ❌ EXCEEDS 30s threshold by 51730ms. Consider optimizing retrieval or reducing tool chains.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Is TechNova Solutions at risk of churn? Analyze their 6 month metrics and recent inquiries.</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text"># TechNova Solutions - Churn Risk Analysis
+
+## Executive Summary
+
+**Churn Risk Level: 🟢 LOW (Score: 15.5/100)**
+
+Despite some CSAT volatility, TechNova Solutions demonstrates **healthy engagement** with a **Medium** risk designation and **Medium** renewal likelihood. The client shows strong adoption of high-value services (analyst inquiries up 74% in recent months), suggesting deep engagement that typically correlates with retention.
+
+---
+
+## Client Profile Overview
+
+| Attribute | Value |
+|-----</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">latency_ms: 32588</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">threshold_ms: 30000</span>
+                        <div class="meta-info">
+                            Latency: 32588ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Total E2E: 32588ms. ❌ EXCEEDS 30s threshold by 2588ms. Consider optimizing retrieval or reducing tool chains.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Who are the top 3 associates by upsell volume?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">I apologize, but after searching through the available data and tools, I cannot find information about associate upsell volume or performance metrics in the current system.
+
+The tools I have access to allow me to:
+- Look up individual client profiles and contracts
+- Search interaction history and research library
+- Get associate performance context for specific clients
+- Retrieve client engagement metrics
+
+However, there doesn't appear to be a tool or dataset available that provides comparative </div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">latency_ms: 5219</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">threshold_ms: 30000</span>
+                        <div class="meta-info">
+                            Latency: 5219ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Total E2E: 5219ms. ✅ Within 30s threshold.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>✅ LATENCY TTFT</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">2 passed</span>
+                        <span class="stat-fail">0 failed</span>
+                        <span class="stat-total">2 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Summarize health for Nexus Innovations</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">[TTFT Measurement]</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">ttft_ms: 1</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">threshold_ms: 5000</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">First token in 1ms. ✅ Within 5s threshold.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Is TechNova Solutions at risk of churn? Analyze their 6 month metrics and recent inquiries.</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">[TTFT Measurement]</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">ttft_ms: 1</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">threshold_ms: 5000</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">First token in 1ms. ✅ Within 5s threshold.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+        <h2 class="section-title">🔬 Improvement Analysis — Deep Dive</h2>
+        
+        <div class="recs" style="border-left: 4px solid #ef4444;">
+            <h3>📊 Priority Fix Matrix</h3>
+            <p style="color:#94a3b8;font-size:12px;margin-bottom:12px;">2 failures out of 5 total test cases. Ordered by severity.</p>
+            
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1f2937;">
+                <span style="background:#22d3ee20;color:#22d3ee;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid #22d3ee40;min-width:70px;text-align:center;">LOW</span>
+                <div style="flex:1;">
+                    <div style="color:#f8fafc;font-size:13px;font-weight:600;">Latency/Performance (2 failures)</div>
+                    <div style="color:#64748b;font-size:11px;margin-top:2px;">Sample: Summarize health for Nexus Innovations...</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="suite-section">
+            <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                <h3>🔍 Failed Case Deep-Dives (click to expand)</h3>
+                <div class="suite-stats">
+                    <span class="stat-fail">2 failures</span>
+                </div>
+            </div>
+            <div class="suite-body">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>Suite</th>
+                            <th>Query / Input</th>
+                            <th>Scores</th>
+                            <th>Agent Response</th>
+                            <th>Judge Reasoning / Analysis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">latency_e2e</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">Summarize health for Nexus Innovations</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>latency_ms: 81730</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>threshold_ms: 30000</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;"># Nexus Innovations - Client Health Summary
+
+## Executive Health Status: ⚠️ ATTENTION NEEDED
+**Churn Risk: Low | Renewal Likelihood: High | Overall Trend: Declining**
+
+---
+
+## Key Health Indicators
+
+### 📊 Engagement Profile
+| Metric | Current Status | Trend |
+|--------|---------------|-------|
+| **L</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Total E2E: 81730ms. ❌ EXCEEDS 30s threshold by 51730ms. Consider optimizing retrieval or reducing tool chains.</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">latency_e2e</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">Is TechNova Solutions at risk of churn? Analyze their 6 month metrics and recent inquiries.</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>latency_ms: 32588</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>threshold_ms: 30000</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;"># TechNova Solutions - Churn Risk Analysis
+
+## Executive Summary
+
+**Churn Risk Level: 🟢 LOW (Score: 15.5/100)**
+
+Despite some CSAT volatility, TechNova Solutions demonstrates **healthy engagement** with a **Medium** risk designation and **Medium** renewal likelihood. The client shows strong adoption</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Total E2E: 32588ms. ❌ EXCEEDS 30s threshold by 2588ms. Consider optimizing retrieval or reducing tool chains.</td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

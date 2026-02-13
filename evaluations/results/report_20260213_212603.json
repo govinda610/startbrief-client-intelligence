@@ -1,0 +1,132 @@
+{
+  "run_id": "20260213_212603",
+  "generated_at": "2026-02-13T21:26:03.879269",
+  "summary": {
+    "total_cases": 6,
+    "passed": 6,
+    "failed": 0,
+    "avg_latency_ms": 0,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "data_quality": {
+        "count": 6,
+        "passed": 6,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0
+      }
+    },
+    "test_suites_run": 1
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-13T21:26:03.871561",
+      "test_name": "data_quality",
+      "case_id": "dq_count",
+      "query": "Total interaction count >= 200?",
+      "agent_response": "Found 220 interactions in the dataset.",
+      "retrieved_context": "N/A",
+      "scores": {
+        "count": 220
+      },
+      "reasoning": "Sufficient data volume. Target: 200, Actual: 220.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:03.872102",
+      "test_name": "data_quality",
+      "case_id": "dq_empty",
+      "query": "Are there any interactions with empty content?",
+      "agent_response": "No empty interactions found.",
+      "retrieved_context": "N/A",
+      "scores": {
+        "empty_count": 0
+      },
+      "reasoning": "All interactions have substantive content.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:03.876653",
+      "test_name": "data_quality",
+      "case_id": "dq_words",
+      "query": "Do all interaction types meet minimum word count thresholds?",
+      "agent_response": "Phone Call Transcript: avg=832 (threshold=800) \u2705\nAnalyst Inquiry Call: avg=758 (threshold=700) \u2705\nEmail Thread: avg=667 (threshold=500) \u2705\nMeeting Note: avg=465 (threshold=400) \u2705\nSupport Ticket: avg=384 (threshold=250) \u2705",
+      "retrieved_context": "N/A",
+      "scores": {
+        "Phone Call Transcript": "832",
+        "Analyst Inquiry Call": "758",
+        "Email Thread": "667",
+        "Meeting Note": "465",
+        "Support Ticket": "384"
+      },
+      "reasoning": "All types meet thresholds.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:03.877227",
+      "test_name": "data_quality",
+      "case_id": "dq_sentiment",
+      "query": "Are there >= 50 true_sentiment labels for NLP eval?",
+      "agent_response": "Found 60 labeled interactions out of 220 total.",
+      "retrieved_context": "N/A",
+      "scores": {
+        "labeled": 60,
+        "total": 220,
+        "pct": "27.3%"
+      },
+      "reasoning": "Sufficient labels for sentiment model evaluation.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:03.877711",
+      "test_name": "data_quality",
+      "case_id": "dq_client_ref",
+      "query": "Do all interactions reference valid client IDs?",
+      "agent_response": "All {len(interactions_data)} interactions map to valid clients.",
+      "retrieved_context": "Client IDs in dataset: 25",
+      "scores": {
+        "orphaned": 0,
+        "total_interactions": 220
+      },
+      "reasoning": "Cross-reference integrity is intact.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:03.878949",
+      "test_name": "data_quality",
+      "case_id": "dq_fields",
+      "query": "Do all records have required fields?",
+      "agent_response": "All records have required fields.",
+      "retrieved_context": "Checked: 25 clients, 220 interactions, 100 content items",
+      "scores": {
+        "missing_count": 0
+      },
+      "reasoning": "Schema integrity verified across all data files.",
+      "latency_ms": 0,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    }
+  ]
+}

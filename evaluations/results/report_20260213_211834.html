@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260213_211834</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260213_211834</small><br>
+            <small>Generated: 2026-02-13 21:20:04</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value good">3/3 (100.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">3</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">1</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value warn">30152ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">TOOL USAGE</div>
+                <div class="suite-card-rate" style="color:#4ade80;">100%</div>
+                <div class="suite-card-detail">3/3 passed</div>
+                <div class="suite-card-detail">Avg: 30152ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>✅ **All tests passed!** No immediate improvements needed. Consider adding more edge-case test queries to strengthen coverage.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>✅ TOOL USAGE</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">3 passed</span>
+                        <span class="stat-fail">0 failed</span>
+                        <span class="stat-total">3 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Give me a full health check for Nexus Innovations</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Tools called: lookup_client_file, get_client_engagement_metrics, lookup_contract_details, search_interaction_history, get_associate_performance_context, analyze_data_python</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (6 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["I'll conduct a comprehensive health check for Nexus Innovations. Let me delegate the analysis and gather all the necessary information."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [["I'll perform a comprehensive account health check for Nexus Innovations. Let me gather all the relevant data systematically."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['---\n\n# 🔍 COMPREHENSIVE ACCOUNT HEALTH CHECK\n## **Nexus Innovations**\n\n**Report Date:** June 18, 2025  \n**Client ID:** c_nexus_innovations_659\n\n---\n\n## 🎯 EXECUTIVE SUMMARY\n\n### **Account Health Status: 🟡 YELLOW**\n\n**Overall Assessment:** Nexus Innovations is a **moderate-risk** account showing mixed signals. While satisfaction scores have improved and content engagement is strong, there is a concerning **Login Frequency Regression** (-31.7% over 6 months, -20% in last 3 months) t</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["# 🔍 NEXUS INNOVATIONS - COMPREHENSIVE ACCOUNT HEALTH CHECK\n\n**Report Date:** June 18, 2025 | **Client ID:** c_nexus_innovations_659\n\n---\n\n## 🎯 EXECUTIVE SUMMARY\n\n### **Account Health Status: 🟡 YELLOW (7.35/10)**\n\n**Overall Assessment:** Nexus Innovations is a **moderate-risk, high-value account** showing mixed signals. While satisfaction scores have recovered significantly and content engagement is exceptional (+188.9%), there is a concerning **Login Frequency Regression of -31.7%**</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">tools_coverage: 1.0</span>
+                        <div class="meta-info">
+                            Latency: 60038ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Expected: ['lookup_client_file', 'get_client_engagement_metrics', 'search_interaction_history']. Actual: ['lookup_client_file', 'get_client_engagement_metrics', 'lookup_contract_details', 'search_interaction_history', 'get_associate_performance_context', 'analyze_data_python']</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find recent research on Agentic AI for Pinnacle Capital</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Tools called: search_research_library</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (2 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["I'll search the Nexus Advisory research library for recent research on Agentic AI for your meeting with Pinnacle Capital."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["## Recent Research on Agentic AI for Pinnacle Capital\n\nI found relevant research from Nexus Advisory's 2025 publications. Here are the key findings:\n\n---\n\n### **Top 10 Strategic Technology Trends for 2025: Agentic AI**\n\n**Strategic Value:**\n- Increases sales productivity by **15%**\n- Improves customer retention by up to **25%** through hyper-personalized experiences\n\n**Key Insight:** Agentic AI is positioned as a catalyst for integrating cloud-based CRM and data ecosystems to deli</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">tools_coverage: 1.0</span>
+                        <div class="meta-info">
+                            Latency: 4668ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Expected: ['search_research_library']. Actual: ['search_research_library']</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What is the total revenue risk for my portfolio?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Tools called: get_at_risk_clients_summary, get_revenue_snapshot, get_at_risk_clients_summary, get_revenue_snapshot, analyze_data_python, analyze_data_python</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (8 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Chief Strategy Officer\'s AI Assistant at Nexus Advisory.\nObjective: Provide high-level portfolio insights, revenue analysis, and strategic risk assessment fo<br><span style="color:#4ade80;">Out:</span> [["I'll analyze the total revenue risk across your portfolio by examining at-risk clients and their associated ARR."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Chief Strategy Officer\'s AI Assistant at Nexus Advisory.\nObjective: Provide high-level portfolio insights, revenue analysis, and strategic risk assessment fo<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'In order to complete the objective that the user asks of you, you have access to a number of standard tools.'}, {'type': 'text', 'text': "\n\n## `write_todos`\n\nYou have <br><span style="color:#4ade80;">Out:</span> [["I'll analyze the at-risk clients data to calculate total revenue risk and provide a strategic summary. Let me start by gathering the necessary data."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'In order to complete the objective that the user asks of you, you have access to a number of standard tools.'}, {'type': 'text', 'text': "\n\n## `write_todos`\n\nYou have <br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'In order to complete the objective that the user asks of you, you have access to a number of standard tools.'}, {'type': 'text', 'text': "\n\n## `write_todos`\n\nYou have <br><span style="color:#4ade80;">Out:</span> [['&lt;tool_call>&lt;tool_call>glob']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'In order to complete the objective that the user asks of you, you have access to a number of standard tools.'}, {'type': 'text', 'text': "\n\n## `write_todos`\n\nYou have <br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'In order to complete the objective that the user asks of you, you have access to a number of standard tools.'}, {'type': 'text', 'text': "\n\n## `write_todos`\n\nYou have <br><span style="color:#4ade80;">Out:</span> [['# 🚨 EXECUTIVE SUMMARY: REVENUE RISK ANALYSIS\n\n## REVENUE AT RISK BY RISK TIER\n| Risk Level | Clients | Revenue at Risk | % of At-Risk Pool |\n|------------|---------|-----------------|------------------|\n| **High Risk** | 8 | **$32.5B** | 47.7% |\n| **Medium Risk** | 9 | **$35.6B** | 52.3% |\n| **TOTAL** | **17** | **$68.1B** | 100% |\n\n---\n\n## PORTFOLIO IMPACT\n- **Total Portfolio ARR**: $2.6M\n- **At-Risk Clients**: 17 of 25 (68% of portfolio by client count)\n- **Note**: Revenue fig</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Chief Strategy Officer\'s AI Assistant at Nexus Advisory.\nObjective: Provide high-level portfolio insights, revenue analysis, and strategic risk assessment fo<br><span style="color:#4ade80;">Out:</span> [["Based on my analysis of your portfolio, here's the **revenue risk assessment**:\n\n---\n\n## **TOTAL REVENUE AT RISK: $68.1B**\n\n### Risk Breakdown:\n- **High Risk**: $32.5B (8 clients) - 47.7% of at-risk pool\n- **Medium Risk**: $35.6B (9 clients) - 52.3% of at-risk pool\n\n---\n\n### **Critical Metrics:**\n- **68% of your portfolio** (17 of 25 clients) are currently at-risk\n- **8 accounts** require immediate intervention\n- **Finance sector** represents 50% of all at-risk revenue\n\n---\n</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">tools_coverage: 1.0</span>
+                        <div class="meta-info">
+                            Latency: 25748ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Expected: ['get_at_risk_clients_summary', 'get_revenue_snapshot']. Actual: ['get_at_risk_clients_summary', 'get_revenue_snapshot', 'get_at_risk_clients_summary', 'get_revenue_snapshot', 'analyze_data_python', 'analyze_data_python']</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+            <div class="recs" style="border-left: 4px solid #4ade80;">
+                <h3>🎉 Improvement Analysis — No Failures Detected</h3>
+                <p style="color:#94a3b8;font-size:13px;">All evaluation tests passed. The system is performing within expected thresholds across all metrics. 
+                Consider adding edge-case queries, adversarial prompts, or more complex multi-turn interactions to further stress-test the system.</p>
+            </div>
+            
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

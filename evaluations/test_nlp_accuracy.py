@@ -10,63 +10,69 @@ from evaluations.conftest import load_test_cases
 
 def test_distilbert_accuracy(interactions_data, report_engine):
     """
-    Evaluate DistilBERT sentiment accuracy simulation.
-    On Apple Silicon, we use heuristic-based evaluation instead of full model loading.
-    In production CI/CD, replace this with the real transformers pipeline test.
+    Evaluate real DistilBERT sentiment accuracy.
+    Using explicit loader to bypass Bus Errors on Mac.
     """
-    labeled_data = [i for i in interactions_data if "true_sentiment" in i]
+    import os
+    import torch
+    from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
+    
+    os.environ["TOKENIZERS_PARALLELISM"] = "false"
+    torch.set_num_threads(1)
+    
+    labeled_data = [i for i in interactions_data if i.get("true_sentiment") in ["Positive", "Negative"]]
     if not labeled_data:
-        report_engine.log_case("nlp_accuracy", "nlp_distilbert", "DistilBERT Sentiment Accuracy",
-            "SKIPPED: No true_sentiment labels found in data.",
-            "N/A", {"accuracy": "N/A"}, "No labeled data available for evaluation.", 0, {}, True)
-        pytest.skip("No true_sentiment labels found in data.")
+        pytest.skip("No labeled data (Positive/Negative) found.")
     
-    # Heuristic sentiment analysis (keyword-based proxy for DistilBERT)
-    positive_keywords = {"excellent", "great", "impressive", "satisfied", "appreciate", "pleased", "strong", "growth", "opportunity", "thank"}
-    negative_keywords = {"concerned", "disappointed", "frustrated", "declined", "risk", "churn", "issue", "problem", "delay", "cancel"}
+    model_name = "distilbert-base-uncased-finetuned-sst-2-english"
+    print(f"   - [NLP] Explicitly loading {model_name}...")
     
-    y_true = []
+    # Load model and tokenizer explicitly to control resource usage
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSequenceClassification.from_pretrained(
+        model_name,
+        low_cpu_mem_usage=False, # Crucial: avoid mmap which causes SIGBUS on some Macs
+        device_map=None # Force CPU
+    )
+    
+    classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
+    
+    y_true = [item["true_sentiment"].upper() for item in labeled_data]
     y_pred = []
     mismatches = []
     
-    for item in labeled_data:
-        true_label = item["true_sentiment"]
-        if true_label == "Neutral":
-            continue
-            
-        y_true.append(true_label.upper())
-        
-        content_lower = item["content"][:512].lower()
-        pos_count = sum(1 for w in positive_keywords if w in content_lower)
-        neg_count = sum(1 for w in negative_keywords if w in content_lower)
-        
-        pred = "POSITIVE" if pos_count >= neg_count else "NEGATIVE"
+    for i, item in enumerate(labeled_data):
+        content = item["content"][:512]
+        result = classifier(content)[0]
+        pred = result["label"].upper() # 'POSITIVE' or 'NEGATIVE'
         y_pred.append(pred)
         
-        if pred != true_label.upper():
-            mismatches.append({"id": item["id"], "true": true_label, "pred": pred, "snippet": item["content"][:100]})
+        if pred != y_true[i]:
+            mismatches.append({
+                "id": item["id"], 
+                "true": y_true[i], 
+                "pred": pred, 
+                "score": f"{result['score']:.2f}",
+                "snippet": content[:80]
+            })
     
-    if not y_true:
-        report_engine.log_case("nlp_accuracy", "nlp_distilbert", "DistilBERT Sentiment Accuracy",
-            "SKIPPED: No non-neutral labeled data.",
-            "N/A", {"accuracy": "N/A"}, "Only neutral labels found — cannot evaluate binary classifier.", 0, {}, True)
-        pytest.skip("No non-neutral labeled data for sentiment evaluation")
+    accuracy = sum(1 for t, p in zip(y_true, y_pred) if t == p) / len(y_true)
+    passed = accuracy >= 0.75  # Higher threshold for real model
     
-    correct = sum(1 for t, p in zip(y_true, y_pred) if t == p)
-    accuracy = correct / len(y_true)
-    passed = accuracy >= 0.60  # Lower threshold for heuristic proxy
-    
-    mismatch_detail = "\n".join([f"  - {m['id']}: true={m['true']}, pred={m['pred']} → \"{m['snippet']}...\"" for m in mismatches[:5]])
+    mismatch_detail = "\n".join([
+        f"  - {m['id']}: true={m['true']}, pred={m['pred']} (conf:{m['score']}) → \"{m['snippet']}...\"" 
+        for m in mismatches[:5]
+    ])
     
     report_engine.log_case("nlp_accuracy", "nlp_distilbert",
-        f"Sentiment accuracy >= 60%? (Heuristic proxy, {len(y_true)} samples)",
-        f"Accuracy: {accuracy:.2f} ({correct}/{len(y_true)})\n\nMismatches (top 5):\n{mismatch_detail}" if mismatches else f"Accuracy: {accuracy:.2f} ({correct}/{len(y_true)}) — Perfect!",
-        f"Labels used: {len(y_true)} (Neutral excluded)",
-        {"accuracy": f"{accuracy:.2f}", "correct": correct, "total": len(y_true), "mismatches": len(mismatches)},
-        f"{'Heuristic sentiment analysis meets threshold.' if passed else f'Accuracy {accuracy:.2f} below 0.60. Consider: (1) Using DistilBERT in CI/CD, (2) Reviewing mismatch patterns, (3) Improving keyword dictionary.'}",
+        f"DistilBERT Sentiment Accuracy (N={len(y_true)})",
+        f"Accuracy: {accuracy:.2f} ({sum(1 for t, p in zip(y_true, y_pred) if t == p)}/{len(y_true)})\n\nMismatches:\n{mismatch_detail}",
+        "DistilBERT (distilbert-base-uncased-finetuned-sst-2-english)",
+        {"accuracy": f"{accuracy:.2f}", "correct": sum(1 for t, p in zip(y_true, y_pred) if t == p), "total": len(y_true)},
+        f"{'Model performance meets production thresholds.' if passed else 'Model accuracy below 0.75. Review data quality or consider fine-tuning.'}",
         0, {}, passed)
     
-    assert passed, f"Sentiment accuracy {accuracy:.2f} is below target 0.60"
+    assert passed, f"DistilBERT accuracy {accuracy:.2f} is below target 0.75"
 
 def test_sentiment_distribution(interactions_data, report_engine):
     """Ensure data has a healthy mix of sentiments for robust evaluation"""

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260213_212618</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260213_212618</small><br>
+            <small>Generated: 2026-02-13 21:30:27</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value bad">1/3 (33.3%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">3</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">1</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value warn">83020ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">FAITHFULNESS</div>
+                <div class="suite-card-rate" style="color:#ef4444;">33%</div>
+                <div class="suite-card-detail">1/3 passed</div>
+                <div class="suite-card-detail">Avg: 83020ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>🔴 **Faithfulness** (67% failures): Agent is making claims not grounded in retrieved context. Consider: (1) Strengthening the system prompt to only use retrieved evidence, (2) Increasing retrieval K to provide more context, (3) Adding a verification step in the agent workflow.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>❌ FAITHFULNESS</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">1 passed</span>
+                        <span class="stat-fail">2 failed</span>
+                        <span class="stat-total">3 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What is the strategic priority for TechNova Solutions based on recent research?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my analysis of TechNova Solutions' account profile and relevant 2024-2025 research, here's the **strategic priority** for TechNova:
+
+---
+
+## 🎯 **Strategic Priority: AI-Enabled XaaS Transformation with Governance Excellence**
+
+### **Primary Focus:** Accelerate "Everything-as-a-Service" (XaaS) business model pivot while establishing enterprise-grade GenAI governance to satisfy board-level scrutiny.
+
+---
+
+## **Why This Priority?**
+
+**1. Business Context Alignment**
+- TechNova is actively pivoting to XaaS business model (confirmed from interaction history)
+- **$1.5B High-Tech company** in **Growth stage** needs scalable platform capabilities
+- Board is demanding ROI validation on GenAI investments (Q3 board meeting)
+
+**2. Critical Risk Factors**
+- **NPS declined 30%** (10→7) and **CSAT dropped to 3.43** — indicating execution pressure
+- **Medium churn risk** with renewal in 12 months — need to demonstrate strategic value
+- GenAI initiatives lack governance framework, creating board-level concern
+
+**3. Market Opportunity**
+- 2024-2025 research shows **GenAI market maturing rapidly** — organizations with governance frameworks achieving **25% better effectiveness**
+- **XaaS transformation market** valued at **$1.5T globally** — TechNova positioned to capture share
+- **65% of DT initiatives fail** due to change management — TechNova can differentiate with strong execution
+
+---
+
+## **Recommended Strategic Actions (Next 90 Days)**
+
+### **1. Immediate (Next 30 Days): GenAI Governance Foundation**
+- **Action:** Use entitled **"Hype Cycle for Generative AI, 2025"** research to build governance framework
+- **Outcome:** Prepare Q3 board narrative on GenAI sustainability and ROI
+- **Impact:** Addresses board scrutiny, demonstrates disciplined approach
+
+### **2. Short-Term (30-60 Days): AI Infrastructure Decisions**
+- **Action:** Leverage **"Magic Quadrant for Cloud AI Developer Services"** for vendor selection
+- **Outcome:** Avoid platform lock-in, build vendor-agnostic inference layer
+- **Impact:** 40% reduction in technical debt, enables XaaS scaling
+
+### **3. Medium-Term (60-90 Days): XaaS Platform Architecture**
+- **Action:** Apply **"Market Guide for Digital Transformation Services"** insights to platform roadmap
+- **Outcome:** Inform partner-channel vs. direct sales model decision
+- **Impact:** 25% improvement in time-to-market
+
+---
+
+## **Expected Business Impact**
+
+| Metric | Current | Target (90 Days) | Strategic Value |
+|--------|---------|------------------|-----------------|
+| **NPS** | 7 | ≥9 | Sentiment recovery |
+| **GenAI Governance** | Ad-hoc | Framework-defined | Board confidence |
+| **XaaS Platform Readiness** | Early | Architecture-locked | Scale-ready |
+| **Churn Risk** | Medium | Low | Renewal secured |
+
+---
+
+This priority directly addresses TechNova's **strategic transformation (XaaS)** while solving their **immediate risk (sentiment decline/board pressure)** — positioning them for both renewal success and market leadership.
+
+Would you like me to prepare a detailed meeting brief or schedule analyst inquiries to dive deeper into any of these research areas?</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (11 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["I'll help you identify the strategic priority for TechNova Solutions. Let me gather the necessary information through research and client intelligence analysis."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\nInstructions:\n- Use 'search_<br><span style="color:#4ade80;">Out:</span> [["I'll search for relevant Nexus Advisory research for TechNova Solutions. Let me start by looking up their client profile to understand their industry and challenges, then search for targeted research."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [["I'll conduct a comprehensive analysis of TechNova Solutions. Let me gather all the relevant information about their profile, engagement metrics, contract details, and interaction history."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\nInstructions:\n- Use 'search_<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\nInstructions:\n- Use 'search_<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['---\n\n# 🔍 TechNova Solutions — Comprehensive Account Health Analysis\n\n**Report Date:** June 18, 2025  \n**Client ID:** c_technova_solutions_430  \n**Contract ID:** CON-430\n\n---\n\n## 1. Client Profile & Firmographics\n\n| Attribute | Value |\n|-----------|-------|\n| **Name** | TechNova Solutions |\n| **Industry** | High Tech |\n| **Revenue** | $1.5B |\n| **Region** | North America |\n| **Lifecycle Stage** | Growth |\n| **Service Level** | Gold |\n| **Assigned CSA** | Sarah Jenkins (ASSO</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\nInstructions:\n- Use 'search_<br><span style="color:#4ade80;">Out:</span> [['# Nexus Advisory Research Intelligence Report\n**Client:** TechNova Solutions  \n**Prepared For:** Michael Chen (CTO), Sarah Johnson (VP of IT Operations)  \n**Focus:** 2024-2025 Strategic Research & High-Impact Recommendations\n\n---\n\n## Executive Summary\n\nBased on TechNova Solutions\' **High Tech industry context**, **$1.5B revenue**, **Growth lifecycle stage**, and strategic initiatives toward **"Everything-as-a-Service" (XaaS)** transformation, I\'ve identified **6 high-impact researc</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['# 🔍 TechNova Solutions — Comprehensive Account Health Analysis\n\n**Report Date:** June 18, 2025  \n**Client ID:** c_technova_solutions_430 | **Contract ID:** CON-430\n\n---\n\n## 1. CLIENT PROFILE & FIRMAGRAPHICS\n\n| Attribute | Value |\n|-----------|-------|\n| **Company** | TechNova Solutions |\n| **Industry** | High Tech |\n| **Revenue** | $1.5B |\n| **Region** | North America |\n| **Lifecycle Stage** | Growth |\n| **Service Level** | **Gold** |\n| **Assigned CSA** | Sarah Jenkins (ASSOC</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [['Based on my analysis of TechNova Solutions\' account profile and relevant 2024-2025 research, here\'s the **strategic priority** for TechNova:\n\n---\n\n## 🎯 **Strategic Priority: AI-Enabled XaaS Transformation with Governance Excellence**\n\n### **Primary Focus:** Accelerate "Everything-as-a-Service" (XaaS) business model pivot while establishing enterprise-grade GenAI governance to satisfy board-level scrutiny.\n\n---\n\n## **Why This Priority?**\n\n**1. Business Context Alignment**\n- Tech</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [['You are an expert fact-checker.\nYour task is to evaluate the FAITHFULNESS of an AI response to a provided context.\n\nContext (data the agent retrieved via its tools):\n# 🔍 TechNova Solutions — Co<br><span style="color:#4ade80;">Out:</span> [['```json\n{\n  "claims": [\n    {\n      "claim": "TechNova is actively pivoting to XaaS business model",\n      "supported": true,\n      "evidence": "Section 5 (Interaction History) mentions \'Everything-as-a-Service\' (XaaS) transformation as a key focus area and Section 10 (Executive Summary) Context identifies \'Pivoting to XaaS business model\'."\n    },\n    {\n      "claim": "TechNova is a $1.5B High-Tech company in Growth stage",\n      "supported": true,\n      "evidence": "Section 1</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">faithfulness: 1.0</span>
+                        <div class="meta-info">
+                            Latency: 78561ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 7205 output_tokens: 926 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">All core factual claims regarding the client's profile (TechNova, $1.5B, Growth, High Tech, XaaS pivot), their current health metrics (NPS 10-&gt;7, CSAT 3.43, Medium churn risk), and the specific research data points cited from the Research Intelligence Report (Governance impact 25%, $1.5T market size, 65% failure rate) are directly supported by the provided context documents. The response accurately synthesizes the interaction history and the research report without contradiction.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">How is the associate for Cedar Health Systems performing?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Here's the performance overview for **Emily Davis**, the Client Success Associate assigned to Cedar Health Systems:
+
+---
+
+## Associate Profile
+- **Name:** Emily Davis  
+- **ID:** ASSOC-007  
+- **Role:** Client Success Associate  
+- **Region:** North America  
+- **Tenure:** 27 months  
+
+---
+
+## Performance Metrics
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| **Retention Rate** | 85% | Strong — most associates target 80%+ |
+| **Avg CSAT** | 4.2 / 5.0 | Very good client satisfaction |
+| **Cross-Sell Rate** | 29% | Above average — effective at identifying expansion opportunities |
+| **Upsell Rate** | 8% | Room for improvement — could focus on higher-value upgrades |
+| **Renewals Secured** | 7 | Solid track record |
+| **Revenue Managed** | $1.94M | Significant book of business |
+| **Avg Interaction Time** | 37 min | Efficient — suggests good preparation and focus |
+
+---
+
+## Summary
+Emily is performing **well overall**. Her retention and CSAT scores are strong, indicating solid client relationships. Her cross-sell rate is a notable strength, though there's upside potential in driving higher-value upsells. With 27 months of tenure, she has good experience and manages nearly $2M in revenue effectively.
+
+Would you like me to prepare a full **Strategic Meeting Brief** for the Cedar Health Systems account, or dive deeper into any specific aspect of Emily's performance?</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (3 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["I'll look up the performance context for the associate assigned to Cedar Health Systems."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["Here's the performance overview for **Emily Davis**, the Client Success Associate assigned to Cedar Health Systems:\n\n---\n\n## Associate Profile\n- **Name:** Emily Davis  \n- **ID:** ASSOC-007  \n- **Role:** Client Success Associate  \n- **Region:** North America  \n- **Tenure:** 27 months  \n\n---\n\n## Performance Metrics\n\n| Metric | Value | Context |\n|--------|-------|---------|\n| **Retention Rate** | 85% | Strong — most associates target 80%+ |\n| **Avg CSAT** | 4.2 / 5.0 | Very goo</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [['You are an expert fact-checker.\nYour task is to evaluate the FAITHFULNESS of an AI response to a provided context.\n\nContext (data the agent retrieved via its tools):\n{\n  "profile": {\n    "id"<br><span style="color:#4ade80;">Out:</span> [['```json\n{\n  "claims": [\n    {\n      "claim": "Emily Davis is a Client Success Associate in North America with ID ASSOC-007.",\n      "supported": true,\n      "evidence": "Profile object matches id, name, role, and region."\n    },\n    {\n      "claim": "Emily\'s tenure is 27 months.",\n      "supported": true,\n      "evidence": "profile.tenure_months is 27."\n    },\n    {\n      "claim": "Retention Rate is 85%.",\n      "supported": true,\n      "evidence": "performance.metrics.retent</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">faithfulness: 0.75</span>
+                        <div class="meta-info">
+                            Latency: 7930ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 663 output_tokens: 614 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The faithfulness score is 0.75 (9 out of 12 core claims supported). The response accurately lists all factual metrics and profile details provided in the context. However, it includes several subjective assessments and specific details ('Strong', 'Above average', 'Cedar Health Systems') that are not found in the source data.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Summarize the churn risks for our high-revenue clients.</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text"># High-Revenue Client Churn Risk Summary
+
+## Executive Summary
+
+I've analyzed your entire client portfolio to identify high-revenue clients (Platinum/Gold tiers) and assessed their churn risks. **Critical finding: 37.6% of your high-revenue portfolio ($1.31M ARR) is at HIGH RISK of churn.**
+
+**Portfolio Overview:**
+- **8 High-Revenue Clients** (Platinum/Gold tiers, $370K-$555K ARR each)
+- **Total ARR:** $3,815,000
+- **3 Clients at HIGH Risk** = $1,310,000 ARR
+- **2 Clients at MEDIUM Risk** = $940,000 ARR
+
+---
+
+## 🚨 CRITICAL RISK CLIENTS (Immediate Action Required)
+
+### 1. Metro Manufacturing Corp - **RISK SCORE: 85/100**
+**$370,000 ARR | Manufacturing | Gold Tier**
+
+**Why They're At Risk:**
+- **CATASTROPHIC CSAT:** 1.55/5.0 (worst in portfolio)
+- **SEVERE Engagement Collapse:** 62% drop in logins (now only 8/month)
+- **Service Delivery Failure:** Multiple unresolved technical tickets (NX-8842-XL)
+- **Technology Issues:** Network encryption, legacy terminal compatibility, firewall problems disrupting operations
+- **Board-Level Pressure:** CIO and VP Supply Chain questioning ROI and implementation timeline
+
+**Key Issue:** Despite "High" renewal likelihood flag, this account is in **CRITICAL condition**. Users have abandoned the platform due to ongoing technical failures.
+
+**Recommended Actions:**
+- IMMEDIATE executive briefing with CIO Sarah Jenkins and COO Mark Williams
+- Urgent resolution of all outstanding technical tickets
+- Account transition strategy with senior dedicated success manager
+- Service recovery plan with defined SLAs
+
+---
+
+### 2. Industrial Dynamics Corp - **RISK SCORE: 68/100**
+**$555,000 ARR | Manufacturing | Platinum Tier | HIGHEST ARR At-Risk**
+
+**Why They're At Risk:**
+- **NPS REGRESSION:** Score dropped from 9→5 (-16.7%)
+- **CSAT DETERIORATION:** 23.2% decline to 2.52/5.0
+- **Research Methodology Challenges:** CTO Elena Rostova publicly questioning inclusion criteria
+- **Exclusion Concerns:** Left out of "Hype Cycle for Smart Manufacturing"
+- **Competitive Evaluation:** Actively exploring alternative advisory services
+
+**Key Issue:** Your **highest-ARR at-risk client**. Recent methodology challenges and exclusion from key research indicate they're actively evaluating competitors. This is a **Golden Client** experiencing strategic misalignment.
+
+**Recommended Actions:**
+- IMMEDIATE executive briefing with CTO Elena Rostova
+- Urgent methodology review session with research analysts
+- Custom research engagement addressing "Project Aether" IIoT initiative
+- Partner-level sponsorship required
+
+---
+
+### 3. Federal Systems Alliance - **RISK SCORE: 50/100**
+**$385,000 ARR | Public Sector | Gold Tier**
+
+**Why They're At Risk:**
+- **SEVERE Login Collapse:** 57% drop to only 6/month
+- **Access Barriers:** Support ticket NX-7724 shows licensing/access issues
+- **Methodology Questions:** Chief Architect Eleanor Vance challenging Magic Quadrant accuracy
+- **Underutilization:** Federal teams not finding value despite high renewal likelihood
+
+**Key Issue:** Federal clients have unique switching costs, but the engagement collapse indicates they're not deriving value from current subscriptions.
+
+**Recommended Actions:**
+- Resolve all access and licensing issues immediately
+- Federal sector methodology deep-dive with analysts
+- Dedicated Public Sector Practice lead assignment
+- Custom NIST compliance workshop
+
+---
+
+## ⚠️ MEDIUM RISK CLIENTS (Monitor Closely)
+
+### 4. OmniChannel Retail Ventures - **RISK SCORE: 36/100**
+**$535,000 ARR | Retail | Platinum Tier**
+
+**Concern:** Despite **excellent satisfaction** (NPS: 9, CSAT: 4.23), there's a **53% login drop** during **renewal stage**. This may indicate vendor consolidation evaluation despite satisfaction.
+
+### 5. HealthFirst Systems - **RISK SCORE: 23/100**
+**$505,000 ARR | Healthcare | Platinum Tier**
+
+**Status:** Actually showing **strong recovery** with 223% login surge and 52% CSAT improvement. The "At Risk" flag may be outdated. Consider this a **turnaround success** with expansion potential.
+
+---
+
+## 🎯 Strategic Recommendations
+
+### Immediate Priority (Next 30 Days)
+
+1. **CRITICAL: Metro Manufacturing Corp** - Service recovery intervention required
+   - Executive escalation and technical debt resolution
+   - **Risk:** $370K ARR loss within 90 days
+
+2. **HIGH PRIORITY: Industrial Dynamics Corp** - Address methodology concerns
+   - CTO-level engagement and custom research
+   - **Risk:** $555K ARR loss at renewal (highest single account)
+
+3. **PROACTIVE: Federal Systems Alliance** - Remove access barriers
+   - Resolve licensing issues and demonstrate federal expertise
+   - **Risk:** $385K ARR + government reference impact
+
+### Portfolio-Wide Initiatives
+
+**Golden Client Protection:** Both Metro Mfg and Industrial Dynamics are Golden Clients, indicating systemic challenges in serving highest-tier customers. Requires Partner-level sponsorship.
+
+**Early Warning System:** Implement automated alerts for:
+- NPS Regression (&gt;20% drop)
+- CSAT Deterioration (&gt;15% drop)
+- Login Collapse (&gt;30% drop)
+- Support ticket volume spikes
+
+---
+
+## Revenue Impact Summary
+
+| Risk Category | Clients | ARR at Risk | % of Portfolio |
+|---------------|---------|-------------|----------------|
+| **HIGH RISK** | 3 | **$1,310,000** | **34.3%** |
+| **MEDIUM RISK** | 2 | $940,000 | 24.6% |
+| **LOW RISK** | 3 | $1,565,000 | 41.0% |
+| **TOTAL** | 8 | **$3,815,000** | **100%** |
+
+**Bottom Line:** You need to act immediately on Metro Manufacturing and Industrial Dynamics to prevent $925K in potential ARR losses. Both accounts require executive-level intervention and service recovery strategies.</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (18 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [["I'll help you summarize churn risks for your high-revenue clients. Let me gather this information by first getting the full client portfolio and then analyzing each high-revenue account."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [["I'll analyze the entire portfolio to identify high-revenue clients and their churn risk. Let me start by gathering data on all clients."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['Now let me lookup contract details for all clients to identify high-revenue ones:']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [["Excellent! Now let me gather detailed information for each high-revenue client. I'll get their client files and engagement metrics:"]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['Now let me analyze the data for trends and calculate risk scores using Python:']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['Let me fix the function definition order:']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['Let me create a simpler version:']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['Now let me search for interaction history on the highest-risk clients to identify specific retention challenges:']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\nInstructions:\n- Use 'lookup_client_file' to understand t<br><span style="color:#4ade80;">Out:</span> [['# HIGH-REVENUE CLIENT PORTFOLIO ANALYSIS\n## Comprehensive Churn Risk Assessment & Ranking\n\n---\n\n## EXECUTIVE SUMMARY\n\n**Portfolio Overview:**\n- **Total High-Revenue Clients Analyzed:** 8 clients (Platinum/Gold tier with $370K-$555K ARR)\n- **Total ARR at Risk:** $3,815,000\n- **High-Churn Risk Clients:** 3 clients representing **$1,310,000** in ARR\n- **Medium-Churn Risk Clients:** 2 clients representing **$940,000** in ARR\n- **Low-Churn Risk Clients:** 3 clients representing **$1,56</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce a "Strategic Meeting Brief" that wows both the associate and the client.\n\nInstruction:\n1. DATA GAT<br><span style="color:#4ade80;">Out:</span> [['# High-Revenue Client Churn Risk Summary\n\n## Executive Summary\n\nI\'ve analyzed your entire client portfolio to identify high-revenue clients (Platinum/Gold tiers) and assessed their churn risks. **Critical finding: 37.6% of your high-revenue portfolio ($1.31M ARR) is at HIGH RISK of churn.**\n\n**Portfolio Overview:**\n- **8 High-Revenue Clients** (Platinum/Gold tiers, $370K-$555K ARR each)\n- **Total ARR:** $3,815,000\n- **3 Clients at HIGH Risk** = $1,310,000 ARR\n- **2 Clients at MEDIU</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [['You are an expert fact-checker.\nYour task is to evaluate the FAITHFULNESS of an AI response to a provided context.\n\nContext (data the agent retrieved via its tools):\n[\n  {\n    "name": "Nexus <br><span style="color:#4ade80;">Out:</span> [['```json\n{\n  "claims": [\n    {\n      "claim": "Portfolio Overview: 8 High-Revenue Clients",\n      "supported": false,\n      "evidence": "none"\n    },\n    {\n      "claim": "Total ARR: $3,815,000",\n      "supported": false,\n      "evidence": "none"\n    },\n    {\n      "claim": "3 Clients at HIGH Risk = $1,310,000 ARR",\n      "supported": false,\n      "evidence": "none"\n    },\n    {\n      "claim": "Metro Manufacturing Corp is a client",\n      "supported": true,\n      "evidence</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">faithfulness: 0.57</span>
+                        <div class="meta-info">
+                            Latency: 162570ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 5583 output_tokens: 671 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The agent response hallucinates a comprehensive risk analysis, including financial data (ARR, churn risk scores), metrics (CSAT, NPS), and specific business situations (support tickets, executive names). The provided context only contains a list of client names and industries (Industry column). Out of 14 distinct factual claims analyzed, 8 were not supported by the context. Specifically, the agent hallucinates the existence of 'Aurora Cloud Solutions' and 'FinEdge Capital Partners' as clients in the list, and invents all financial and risk metrics.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+        <h2 class="section-title">🔬 Improvement Analysis — Deep Dive</h2>
+        
+        <div class="recs" style="border-left: 4px solid #ef4444;">
+            <h3>📊 Priority Fix Matrix</h3>
+            <p style="color:#94a3b8;font-size:12px;margin-bottom:12px;">2 failures out of 3 total test cases. Ordered by severity.</p>
+            
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1f2937;">
+                <span style="background:#f9731620;color:#f97316;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid #f9731640;min-width:70px;text-align:center;">HIGH</span>
+                <div style="flex:1;">
+                    <div style="color:#f8fafc;font-size:13px;font-weight:600;">Hallucination/Faithfulness (2 failures)</div>
+                    <div style="color:#64748b;font-size:11px;margin-top:2px;">Sample: How is the associate for Cedar Health Systems performing?...</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="suite-section">
+            <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                <h3>🔍 Failed Case Deep-Dives (click to expand)</h3>
+                <div class="suite-stats">
+                    <span class="stat-fail">2 failures</span>
+                </div>
+            </div>
+            <div class="suite-body">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>Suite</th>
+                            <th>Query / Input</th>
+                            <th>Scores</th>
+                            <th>Agent Response</th>
+                            <th>Judge Reasoning / Analysis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">faithfulness</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">How is the associate for Cedar Health Systems performing?</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>faithfulness: 0.75</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Here's the performance overview for **Emily Davis**, the Client Success Associate assigned to Cedar Health Systems:
+
+---
+
+## Associate Profile
+- **Name:** Emily Davis  
+- **ID:** ASSOC-007  
+- **Role:** Client Success Associate  
+- **Region:** North America  
+- **Tenure:** 27 months  
+
+---
+
+## Perfo</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">The faithfulness score is 0.75 (9 out of 12 core claims supported). The response accurately lists all factual metrics and profile details provided in the context. However, it includes several subjective assessments and specific details ('Strong', 'Above average', 'Cedar Health Systems') that are not found in the source data.</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">faithfulness</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">Summarize the churn risks for our high-revenue clients.</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>faithfulness: 0.57</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;"># High-Revenue Client Churn Risk Summary
+
+## Executive Summary
+
+I've analyzed your entire client portfolio to identify high-revenue clients (Platinum/Gold tiers) and assessed their churn risks. **Critical finding: 37.6% of your high-revenue portfolio ($1.31M ARR) is at HIGH RISK of churn.**
+
+**Portf</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">The agent response hallucinates a comprehensive risk analysis, including financial data (ARR, churn risk scores), metrics (CSAT, NPS), and specific business situations (support tickets, executive names). The provided context only contains a list of client names and industries (Industry column). Out of 14 distinct factual claims analyzed, 8 were not supported by the context. Specifically, the agent</td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

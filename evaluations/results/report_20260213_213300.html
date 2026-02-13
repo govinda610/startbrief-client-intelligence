@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260213_213300</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260213_213300</small><br>
+            <small>Generated: 2026-02-13 21:36:47</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value warn">14/20 (70.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">20</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">1</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value warn">11366ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">CONTEXT PRECISION</div>
+                <div class="suite-card-rate" style="color:#f97316;">70%</div>
+                <div class="suite-card-detail">14/20 passed</div>
+                <div class="suite-card-detail">Avg: 11366ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>🔴 **Context Precision** (30% failures): Retrieved chunks are not useful for answering queries. Consider: (1) Re-chunking documents with better overlap, (2) Tuning ChromaDB embedding model, (3) Adding metadata filters to narrow retrieval.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>❌ CONTEXT PRECISION</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">14 passed</span>
+                        <span class="stat-fail">6 failed</span>
+                        <span class="stat-total">20 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the Nexus Advisory research library, here's what I found about **Agentic AI** as one of the Top 10 Strategic Technology Trends for 2025:
+
+## Top 10 Strategic Technology Trends for 2025: Agentic AI
+
+### Overview
+The 2025 strategic technology trends report highlights **Agentic AI** as a transformative force across CRM, cloud, and data ecosystems, positioning autonomous decision-making as a catalyst for scalable innovation.
+
+### Key Strategic Values
+
+1. **Sales Productivity Enhancement**
+   - Increases sales productivity by **15%**
+   - Enables autonomous decision-making capabilities
+
+2. **Cloud Migration Cost Optimization**
+   - Delivers measurable reductions in cloud migration expenditures
+   - Optimizes resource allocation and automates workload orchestration
+   - Helps achieve significant cost savings through intelligent automation
+
+3. **Customer Retention Improvement**
+   - Integrates cloud-based CRM and data ecosystems
+   - Delivers hyper-personalized customer experiences
+   - Projected to lift customer retention rates by **up to 25%**
+   - Uses context-aware, proactive engagement models
+
+### Strategic Impact
+Agentic AI is positioned as a critical technology for 2025, offering tangible business value across three key areas:
+- Revenue growth through sales productivity
+- Cost reduction through cloud optimization  
+- Customer lifetime value through retention improvements
+
+Would you like me to search for more detailed information about any specific aspect of Agentic AI, or do you need additional context on how this trend might apply to a particular client or industry?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 1.0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 3</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 9349ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk contains the exact statistic ('Increases sales productivity by 15%') used in the response. Although the chunk is brief, it provides verifiable support for the first key strategic value listed in the 'Sales Productivity Enhancement' section.; Chunk 2: useful - The context chunk provides core information that was explicitly utilized in the response. Specifically, the response's section on 'Cloud Migration Cost Optimization' and its specific details (optimizing resource allocation, automating workload orchestration) are directly derived from the text in the chunk. Additionally, the introductory description of Agentic AI's impact across CRM, cloud, and data ecosystems mirrors the chunk's opening sentence. Therefore, the chunk served as a valid source for a portion of the provided answer.; Chunk 3: useful - The context chunk directly supports the 'Customer Retention Improvement' section and the 'Strategic Impact' point regarding customer lifetime value in the response. It specifically provides the metrics (up to 25% retention increase) and the methodology (hyper-personalized customer experiences, context-aware, proactive engagement) mentioned in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Hype Cycle for Revenue and Sales Technology 2024</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the search results, I found information about the **Hype Cycle for Revenue and Sales Technology 2024**. Here's what the research library contains:
+
+## Hype Cycle for Revenue and Sales Technology 2024
+
+**Strategic Value:** Improves customer retention via personalization
+
+The search retrieved this specific Hype Cycle report, though the detailed narrative sections that appear for other reports aren't showing for this particular document. 
+
+### Key Strategic Implications:
+- **Primary Benefit:** Focus on improving customer retention through personalization technologies
+- **Technology Focus Areas:** Based on the broader context and the strategic value proposition, this Hype Cycle likely covers technologies that enable personalized customer engagement, sales automation, and revenue optimization
+
+### Related Research Context:
+The search also surfaced related research including:
+- **Hype Cycle for Supply Chain Management Technologies, 2025** - which shows the broader trend toward AI-driven autonomy and intelligent decision-making
+- **Top 10 Strategic Technology Trends for 2025: Agentic AI** - with strategic value in increasing sales productivity by 15%
+
+Would you like me to:
+1. **Search for more specific details** about particular technologies mentioned in the Revenue and Sales Technology Hype Cycle?
+2. **Look for related research** on personalization technologies or customer retention strategies?
+3. **Explore how this Hype Cycle intersects** with other trends like Agentic AI or sales productivity tools?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">context_precision: 0.3333333333333333</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 9144ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk directly verifies the core details presented in the response. It confirms the document title ('Hype Cycle for Revenue and Sales Technology 2024') and the specific strategic value statement ('Improves customer retention via personalization') that the model used to construct the 'Strategic Value' and 'Key Strategic Implications' sections of the answer.; Chunk 2: not useful - The retrieved context describes the 'Hype Cycle for Supply Chain Management Technologies, 2025', whereas the user query specifically asks for information about the 'Hype Cycle for Revenue and Sales Technology 2024'. The context does not contain relevant details regarding sales technology, revenue technology, or the specific 2024 report requested. The response correctly identifies the context as related research rather than the primary source material for the user's question, but as the auditor, I must determine that the chunk itself is not useful for answering the specific query posed.; Chunk 3: not useful - The user query specifically asks for information regarding the 'Hype Cycle for Revenue and Sales Technology 2024'. The provided context chunk is for 'Top 10 Strategic Technology Trends for 2025: Agentic AI'. Although the response attempts to link the two topics as 'related research', the chunk itself does not contain information about the specific report or technologies requested in the query.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Quick Answer: How to Use GenAI for Territory Planning</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">I found information in the Nexus Advisory research library about using GenAI for Territory Planning. Here's what I found:
+
+## Quick Answer: How to Use GenAI for Territory Planning
+
+**Strategic Value:** Increases sales productivity by 15%
+
+This appears to be a concise guide focused on leveraging Generative AI specifically for territory planning optimization. The research indicates that implementing GenAI in territory planning can lead to a significant 15% increase in sales productivity.
+
+The guide also references compatible solution-oriented frameworks for 2025 and appears to include vendor identification for AI implementation.
+
+Would you like me to:
+1. Search for more detailed information about specific GenAI applications in territory planning?
+2. Look for case studies or implementation examples?
+3. Find information about the recommended AI vendors mentioned in the report?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 1.0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 3</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 10403ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The provided context chunk is the exact source material for the response. The response directly quotes the title 'Quick Answer: How to Use GenAI for Territory Planning' and the metric 'Strategic Value: Increases sales productivity by 15%' found within the chunk. The additional information in the response regarding frameworks and vendors appears to be either hallucinated or retrieved from a source not provided in this specific context, but the core data points present in the response were successfully extracted from the chunk.; Chunk 2: useful - The retrieved context chunk contains the exact title and key metric ('Strategic Value: Increases sales productivity by 15%') presented in the response. It provides the core factual basis for the claims made regarding sales productivity and the subject matter of the guide.; Chunk 3: useful - The context chunk contains the specific data points ('Strategic Value: Identifies key AI vendors for 2025' and 'Compatible solution-oriented frame Report 2025') used in the response to describe the research focus and vendor identification aspects of the guide.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Magic Quadrant for Customer Data Platforms (CDPs) 2024</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">I found information about the Magic Quadrant for Customer Data Platforms (CDPs) 2024 in our research library. Here's what I discovered:
+
+## Magic Quadrant for Customer Data Platforms (CDPs) 2024
+
+### Key Highlights:
+
+**Strategic Value:**
+- Increases sales productivity by **15%**
+- Improves customer retention through personalization
+
+### Related Research - Critical Capabilities for Customer Data Platforms, 2025
+
+This complementary report provides deeper insights into the CDP landscape:
+
+**Key Findings:**
+- **12 core vendors** evaluated across **15 critical capabilities** (scored on 10-point scale)
+- **3 primary use cases analyzed:**
+  - B2C Marketing
+  - B2B Sales/Marketing
+  - Data Compliance/Governance
+
+**2025 Capability Shifts:**
+- Highest-weighted capabilities now favor **'Real-Time Identity Resolution'** and **'AI-Driven Segmentation'** over static data ingestion
+- **'Decisioning' capability** (real-time next-best-action) emerged as primary differentiator
+
+**Vendor Performance Insights:**
+- **Pure-play CDPs:** Excel in B2C speed and omni-channel orchestration
+- **CRM-vendor-owned CDPs:** Dominate B2B scenarios due to superior ABM integration
+- **'Integration Fabric' capability:** API-first architectures essential for martech stack connectivity
+- **Composable architectures** outperforming monolithic suites in flexibility
+
+**Critical Gaps:**
+- Many vendors struggle with **'Governance, Risk, and Compliance'** features, particularly **'right to be forgotten'** across fragmented data silos
+
+**Business Impact:**
+- Enhances marketing campaign conversion rates by **18%** through precise real-time audience segmentation and suppression
+
+---
+
+Would you like me to gather more specific information about any particular aspect of the CDP Magic Quadrant, such as:
+- Specific vendor positioning
+- Detailed capability breakdowns
+- Implementation guidance for clients</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 9463ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk contains specific quantitative data ('Increases sales productivity by 15%') that is explicitly quoted in the response's 'Key Highlights' section. Even though the chunk includes irrelevant filler text, it provided the necessary factual evidence required to support part of the answer.; Chunk 2: not useful - While the provided context chunk shares the same title as the user's query, it only contains a single point regarding 'Strategic Value'. The response contains significantly more information, specifically detailed sections on 'Related Research', '2025 Capability Shifts', 'Vendor Performance Insights', and 'Business Impact' metrics that are not present in the context chunk. Therefore, the provided chunk is insufficient to generate the detailed response on its own.; Chunk 3: useful - The context chunk directly supports the majority of the information presented in the response, specifically the section titled 'Related Research - Critical Capabilities for Customer Data Platforms, 2025'. It validates key metrics such as the evaluation of '12 core vendors' across '15 critical capabilities', the capability shifts toward 'Real-Time Identity Resolution' and 'AI-Driven Segmentation', the distinction between pure-play and CRM-vendor-owned CDPs, the gap in 'Governance, Risk, and Compliance', and the 18% increase in conversion rates.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Emotion AI in B2B Sales: The Next Frontier</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">I found information on "Emotion AI in B2B Sales: The Next Frontier." Here's what the research library contains:
+
+## **Emotion AI in B2B Sales: The Next Frontier**
+
+**Overview:**
+This report examines the strategic implications of Emotion AI in B2B sales contexts.
+
+**Key Strategic Value Points:**
+- **Vendor Identification**: Identifies key AI vendors for 2025
+- **Customer Retention**: Improves customer retention through personalization strategies
+
+**Summary:**
+This research focuses on how Emotion AI technology is transforming B2B sales by enabling more personalized customer interactions and improving retention outcomes. The report provides strategic guidance on AI vendor selection for 2025 and highlights the technology's potential to enhance customer relationship management through emotional intelligence capabilities.
+
+---
+
+Would you like me to:
+1. Search for more specific information about this topic?
+2. Look up related research on AI in sales or customer experience?
+3. Find additional context about Emotion AI applications in business contexts?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 7046ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk contains the exact title of the report and explicitly mentions 'Identifies key AI vendors for 2025', which appears verbatim in the 'Key Strategic Value Points' section of the response. This confirms the content was used to formulate the answer.; Chunk 2: not useful - While the context chunk is relevant to the general topic of 'Emotion AI in B2B Sales', it is insufficient to fully substantiate the detailed response provided. The response claims the report 'examines strategic implications,' identifies specific 'key AI vendors for 2025,' and mentions 'customer relationship management,' none of which are explicitly present in the provided context chunk. The chunk only contains a basic title and a single bullet point on 'Strategic Value' regarding retention and personalization. Therefore, the context lacks the specific evidence required to support the broader claims made in the response.; Chunk 3: useful - The context chunk contains the exact title of the report requested by the query ('Emotion AI in B2B Sales: The Next Frontier') and explicitly states the specific strategic value point ('Identifies key AI vendors for 2025') that was included in the summary provided in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my comprehensive search of the Nexus Advisory research library, here's the consolidated information about **Agentic AI** from the Top 10 Strategic Technology Trends for 2025:
+
+## Top 10 Strategic Technology Trends for 2025: Agentic AI
+
+### Definition and Scope
+Agentic AI represents the next evolution of artificial intelligence, characterized by **autonomous decision-making capabilities** that enable systems to act independently across multiple technology ecosystems.
+
+### Core Impact Areas
+
+**1. CRM and Customer Engagement**
+- Integrates cloud-based CRM and data ecosystems
+- Delivers hyper-personalized customer experiences
+- Implements context-aware, proactive engagement models
+- **Strategic Value:** Increases sales productivity by 15%
+
+**2. Cloud and Infrastructure**
+- Optimizes cloud resource allocation
+- Automates workload orchestration
+- Reduces cloud migration expenditures through intelligent optimization
+- **Strategic Value:** Helps in cloud migration cost-saving
+
+**3. Customer Retention**
+- Enables proactive, context-aware customer interactions
+- Provides personalized engagement at scale
+- **Strategic Value:** Improves customer retention via personalization (up to 25% increase)
+
+### Strategic Business Value
+
+The research positions Agentic AI as a **catalyst for scalable innovation** in 2025, with three primary value propositions:
+
+1. **Revenue Growth:** 15% increase in sales productivity
+2. **Cost Optimization:** Significant reductions in cloud migration and operational costs
+3. **Customer Lifetime Value:** Up to 25% improvement in customer retention rates
+
+### Implementation Focus
+- **Autonomous Decision-Making:** Systems that can act independently with minimal human intervention
+- **Ecosystem Integration:** Seamless operation across CRM, cloud, and data platforms
+- **Scalability:** Designed to grow and adapt with business needs
+
+Would you like me to search for more specific implementation case studies, vendor information, or how this trend might impact particular industries?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 1.0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 3</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 7676ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk directly validates a specific quantitative claim (15% increase in sales productivity) found within the broader response regarding the Strategic Business Value of Agentic AI.; Chunk 2: useful - The context chunk directly validates the 'Cloud and Infrastructure' section of the response, specifically confirming the 'Strategic Value: Helps in cloud migration cost-saving' and the mechanism of 'optimizing resource allocation and automating workload orchestration'. Additionally, it supports the overarching definition of Agentic AI as a driver of 'autonomous decision-making'.; Chunk 3: useful - The retrieved context chunk directly supports the 'Customer Retention' and 'Strategic Business Value' sections of the response. Specifically, it validates the key statistics mentioned, such as the 25% improvement in customer retention rates and the strategic focus on hyper-personalized customer experiences through Agentic AI. While the response includes additional areas not covered in this specific chunk (like CRM and Cloud Infrastructure), the provided context was highly relevant for the subset of information it addressed.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Critical Capabilities for Sales Force Automation 2024</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">I found information about Critical Capabilities for Sales Force Automation from the Nexus Advisory research library. Here's what I discovered:
+
+## Critical Capabilities for Sales Force Automation, 2025
+
+### Overview
+This research evaluates **15 vendors** across multiple high-priority use cases, including:
+- Direct Sales Force
+- Channel/Partner Management
+- B2B Commerce Integration
+- Relationship Management
+- Deal Management
+- Remote Selling
+- Sales Coaching
+- Revenue Intelligence
+
+### Key Insights
+
+**🎯 Dominant Differentiator: Revenue Intelligence**
+- **AI-driven capabilities** are the key differentiator in 2025
+- Capturing, transcribing, and analyzing customer interactions
+- Providing deal coaching and predicting win probabilities with high accuracy
+- Vendors with tightly integrated CRM and communication platforms significantly outperform those with siloed systems
+
+**📊 Guided Selling vs. Static Dashboards**
+- **Guided selling** is now essential for enterprise adoption
+- Uses prescriptive analytics to tell reps exactly *what* to do next
+- Which prospect to call, which content to send
+- Growing gap between vendors offering proactive tools vs. passive reporting
+
+**⚡ CPQ Integration Impact**
+- Native CPQ (Configure, Price, Quote) integration shows **30% faster quote turnaround** vs. third-party connectors
+- Critical for accelerating deal cycles
+- Directly within SFA workflow is becoming standard expectation
+
+**📱 Mobile Capabilities Gap**
+- While most vendors offer mobile apps, fewer than **20% provide full offline functionality**
+- Complex workflow management for field sales teams is lacking
+- Creates significant satisfaction gap among remote workers
+
+### Strategic Value
+- **Increases sales productivity by 15%**
+- **Increases win rates for complex B2B deals by 20%** through AI-driven opportunity scoring
+- **Improves win rates on complex deals by 10%** through automated next-best-action recommendations
+
+### Strategic Recommendations
+- **Prioritize vendors with composable architectures** - allows adoption of high-value AI features without massive system replacement
+- **Avoid "bloatware"** - high functionality in enterprise suites often comes at the cost of user adoption
+- **Focus on data cleanliness** - remains the single largest inhibitor to effective territory management and RevOps
+- **Match specific feature sets** to your organization's specific selling motions
+
+Would you like me to dive deeper into any specific aspect of this research or help you apply these insights to a particular client situation?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 10105ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: not useful - The retrieved context chunk is extremely sparse, containing only the title of the report and a single statistical point regarding a 15% increase in sales productivity. The response, however, provides a comprehensive overview covering specific vendor counts, use cases, key differentiators (Revenue Intelligence, Guided Selling, CPQ), specific statistics about offline functionality (20%), and other strategic benefits (20% increase in win rates). The retrieved context does not contain the majority of the detailed information presented in the response.; Chunk 2: useful - The retrieved context chunk is a direct source for the information presented in the response. The response accurately extracts and restructures the key findings from the 2025 report found in the chunk, including the evaluation of 15 vendors, the high-priority use cases (Direct Sales, Channel/Partner Management, B2B Commerce), and the specific insights on Revenue Intelligence, Guided Selling, CPQ integration, and mobile capabilities. It also correctly reflects the strategic value regarding win rates and the strategic recommendations concerning composable architectures and bloatware. While the response adds a 2024 date to the query match, the content provided is substantively derived from the '2025' context chunk.; Chunk 3: useful - The context chunk provided the core substance and specific metrics found in the response. It explicitly confirmed the research title ('2025'), the number of vendors (15), and the list of high-priority use cases (Relationship Management, Deal Management, Remote Selling, Sales Coaching, Revenue Intelligence). Additionally, the chunk supplied the critical quantitative data regarding CPQ integration (30% faster quote turnaround) and strategic value (10% improvement in win rates via next-best-action), which served as the factual basis for the response's insights. While the response elaborated on these points with additional structure (like the 2024/2025 distinction in the prompt vs text and the mobile capabilities gap likely inferred or sourced from elsewhere), the chunk was highly useful as the primary source of truth for the detailed analysis presented.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Top 10 Strategic Technology Trends for 2025: Agentic AI</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Excellent! I've found much more comprehensive information about Agentic AI from multiple Nexus Advisory reports. Here's the complete analysis:
+
+# Top 10 Strategic Technology Trends for 2025: Agentic AI
+
+## Comprehensive Overview
+
+### Market Position
+The **2025 Hype Cycle for Generative AI and Enterprise Automation** places **Autonomous Agents** at the **peak of innovation**, representing the market's shift from text-generating AI to systems capable of reasoning and executing complex workflows autonomously.
+
+## Core Technology Characteristics
+
+### What is Agentic AI?
+- **Autonomous Decision-Making:** Systems that can reason and execute complex workflows independently
+- **Beyond Text Generation:** Moves beyond simple chatbot functionality to true workflow automation
+- **Integration-First:** Designed to bridge gaps between engagement and intelligence systems
+- **System-of-Intelligence:** Evolving from traditional system-of-record platforms to intelligent hubs
+
+## Strategic Business Impact
+
+### 1. Sales & Revenue Operations
+- **15% increase in sales productivity** through AI-driven automation
+- **20% acceleration of sales cycles** via AI-driven opportunity scoring and automated next-step recommendations
+- **60% of B2B sales organizations** will rely on AI-driven pipeline generation by 2026
+- Traditional prospecting methods becoming obsolete
+
+### 2. Software Development & Operations
+- **45% acceleration of software development cycles**
+- **Reduces administrative overhead** through autonomous agent orchestration
+- Strong adoption in back-office automation (code generation, data summarization)
+
+### 3. Customer Experience
+- **Up to 25% improvement in customer retention** rates through hyper-personalization
+- **40% of enterprise customer interactions** will be handled by Agentic AI systems by 2028
+- Context-aware, proactive engagement models
+
+### 4. Cloud & Infrastructure
+- **Significant reductions in cloud migration expenditures**
+- Optimizes resource allocation through intelligent automation
+- Automates workload orchestration
+
+## Market Evolution & Trends
+
+### Current Market Dynamics
+- **Shift from Hype to Pragmatism:** Market moving from 'Peak of Inflated Expectations' to 'Trough of Disillusionment'
+- **Focus on High-Value Use Cases:** Emphasis on pragmatic, ROI-driven implementations
+- **Back-Office First:** Most successful deployments currently in internal operations vs. customer-facing
+
+### Technology Convergence
+- **RAG Architectures:** Retrieval-Augmented Generation becoming critical for enterprise deployment
+- **Small Language Models (SLMs):** Growing trend toward edge-specific AI for latency, privacy, and cost efficiency
+- **AI Firewalls:** Emerging governance layers between LLMs and enterprise data
+
+## Implementation Considerations
+
+### Risk Factors
+- **AI Hallucinations:** Require strict governance frameworks
+- **Data Privacy:** 40% increase in buyer inquiries regarding AI ethics in CRM contexts
+- **Brand Liability:** Error rates in customer interactions remain a concern
+
+### Success Requirements
+- **Proprietary Data Integration:** Competitive advantage shifting from model access to data architectures
+- **Human-in-the-Loop Protocols:** Need for re-evaluation of oversight mechanisms
+- **Ethical Oversight Committees:** Essential for enterprise deployment
+
+## Vendor Landscape
+
+### Market Leaders
+- **Salesforce and Microsoft** remain dominant in AI-first CRM platforms
+- **15 vendors evaluated** in Cloud CRM space
+- **Vertical Specialists:** Niche players gaining ground with industry-specific AI agents
+
+### Future Predictions
+- **By 2026:** 60% of B2B sales organizations will use AI-driven pipeline generation
+- **By 2027:** 30% of incumbent vendors will be acquired or absorbed
+- **By 2028:** 40% of enterprise customer interactions handled by Agentic AI
+
+## Strategic Implementation Guidance
+
+### High-Priority Use Cases
+1. **Back-office automation** (code generation, data summarization)
+2. **Sales pipeline generation** and opportunity scoring
+3. **Cloud resource optimization** and workload orchestration
+4. **Customer retention** through hyper-personalization
+
+### Implementation Best Practices
+- Start with internal operations before customer-facing applications
+- Invest in RAG architectures and proprietary data integration
+- Establish strong governance frameworks and AI ethics protocols
+- Focus on vertical-specific solutions for specialized industries
+
+This comprehensive analysis shows Agentic AI as a transformative trend with proven ROI metrics and clear implementation pathways across multiple business functions.</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 1.0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 3</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 12578ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk directly supports the quantitative claims made in the 'Strategic Business Impact' section of the response, specifically the statistic regarding a '15% increase in sales productivity'.; Chunk 2: useful - The context chunk explicitly mentions 'Top 10 Strategic Technology Trends for 2025: Agentic AI' and directly supports the 'Cloud & Infrastructure' and 'Strategic Business Impact' sections of the response by confirming Agentic AI's role in reducing cloud migration expenditures through workload orchestration.; Chunk 3: useful - The context chunk directly supports specific quantitative claims found in the response, specifically the statistic that Agentic AI can 'lift customer retention rates by up to 25%' and its role in 'hyper-personalized customer experiences'. This validates the 'Customer Experience' and 'Strategic Business Impact' sections of the generated response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Quick Answer: How to Use GenAI for Territory Planning</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my search through the Nexus Advisory research library and interaction history, here's the information about **Quick Answer: How to Use GenAI for Territory Planning**:
+
+## Quick Answer: How to Use GenAI for Territory Planning
+
+**Strategic Value:** Increases sales productivity by 15%
+
+### Key Findings:
+
+**Primary Benefit:**
+- **15% increase in sales productivity** when GenAI is properly implemented for territory planning
+
+**Related Research Context:**
+From the broader GenAI sales research, successful implementation focuses on:
+- **Deal Risk Scoring** - Realizing ROI within 6 months
+- **Dynamic Persona Adaptation** - Improving customer engagement quality
+- **Workflow integration** rather than generic content generation
+
+**Implementation Framework:**
+The research recommends a **"Hub-and-Spoke" model**:
+- **Hub:** Start with centralized pilot focused on high-value accounts
+- **Spoke:** Roll out broad-access copilots after pilot success
+
+**ROI Measurement Pillars:**
+1. **Pipeline Velocity** - Time reduction in administrative tasks
+2. **Pipeline Quality** - Improved lead qualification  
+3. **Deal Size** - Better cross-selling/upselling identification
+
+**Important Considerations:**
+- Hidden costs (data sanitization, prompt engineering) can cause **40% budget overruns**
+- Focus on **Native sales models** trained on proprietary data vs. generic LLM "Wrapper" solutions
+
+Would you like me to search for more specific implementation details or case studies related to territory planning?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 7673ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk provides the specific 'Quick Answer' title and the primary quantitative claim ('Increases sales productivity by 15%') that anchors the response. While the context chunk provided in the prompt is truncated and contains only a subset of the information presented in the final response, it serves as the foundational source for the core value proposition cited in the answer.; Chunk 2: useful - The context chunk contains the exact title and the primary quantitative metric ('15% increase in sales productivity') featured at the very beginning of the response. While the response expands on related research and implementation frameworks that are not present in this specific short snippet, the retrieved chunk provides the foundational definition and core value proposition necessary to validate and initiate the answer.; Chunk 3: not useful - The context chunk provided contains incoherent text and irrelevant phrases that do not match the substantive information presented in the response. The response includes specific metrics, implementation frameworks (Hub-and-Spoke), and ROI pillars related to GenAI for territory planning, none of which are present in the context chunk.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Find information about Emotion AI in B2B Sales: The Next Frontier</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">I already searched the Nexus Advisory research library for "Emotion AI in B2B Sales: The Next Frontier" in my previous response. Here are the results again:
+
+## **Emotion AI in B2B Sales: The Next Frontier**
+
+**Overview:**
+This report examines the strategic implications of Emotion AI in B2B sales contexts.
+
+**Key Strategic Value Points:**
+- **Vendor Identification**: Identifies key AI vendors for 2025
+- **Customer Retention**: Improves customer retention through personalization strategies
+
+**Summary:**
+This research focuses on how Emotion AI technology is transforming B2B sales by enabling more personalized customer interactions and improving retention outcomes. The report provides strategic guidance on AI vendor selection for 2025 and highlights the technology's potential to enhance customer relationship management through emotional intelligence capabilities.
+
+---
+
+Is there a specific aspect of this research you'd like me to explore further, such as:
+- Vendor recommendations
+- Implementation strategies
+- ROI metrics
+- Use cases and applications</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">context_precision: 0.0</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">useful_chunks: 0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 5994ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: not useful - The context chunk is a truncated fragment that lacks the depth and detail required to generate the specific claims and structured summary presented in the response. While the chunk shares the same title and mentions 'Strategic Value: Identifies key AI vendors for 2025', it does not contain the information regarding 'Customer Retention', 'personalization strategies', or the 'Summary' text. The response hallucinates or retrieves information from outside the provided chunk.; Chunk 2: not useful - The retrieved context chunk is a mere fragment that duplicates the section 'Key Strategic Value Points' from the Response. While it verifies that specific line, the Response hallucinates additional details (such as Vendor Identification for 2025 and a distinct Overview section) that are not present in the provided text chunk. Therefore, the context was not sufficient to generate the full response.; Chunk 3: not useful - The retrieved context chunk contains largely nonsensical or irrelevant text ('Mrs if skill occur imagine his...') that does not match the coherent summary provided in the response. While the context does correctly include the specific phrase 'Strategic Value: Identifies key AI vendors for 2025', the surrounding text is garbled and does not support the detailed claims made in the response about customer retention, personalization, or relationship management. The response appears to be hallucinating details not supported by the provided text.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Supply Chain Management (SCM) with HealthFirst Systems?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my search through the interaction history, I could not locate any records of specific discussions about Supply Chain Management (SCM) with **HealthFirst Systems**.
+
+The HealthFirst Systems interactions in the database focus on healthcare-specific topics such as:
+
+- **Clinical Decision Support Systems**
+- **Healthcare Provider Digital Front Door Strategies** 
+- **EHR ecosystem modernization**
+- **Healthcare IoT Security**
+- **Healthcare Data Aggregation Platforms**
+- **Cloud migration for healthcare workloads**
+
+However, I did find that **Supply Chain Management** has been discussed with other clients in the portfolio:
+
+1. **Nexus Innovations** - Had a support ticket regarding data inconsistency in the 'Supply Chain Logic' Market Guide reference
+2. **Metro Manufacturing Corp** - Discussed Supply Chain Risk Assessment for the APAC region
+3. **OmniChannel Retail Ventures** - Covered fulfillment-aware merchandising and 'Store-as-a-Hub' logistics models
+
+Would you like me to:
+- Search for more specific terms related to SCM discussions with HealthFirst Systems?
+- Provide details on the SCM discussions with these other clients?
+- Look up HealthFirst Systems' client profile to better understand their business focus?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 11891ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The retrieved context chunk explicitly lists an action item to 'Draft AI Pilot Program Brief for Supply Chain' and includes 'Linda Vo (VP Supply Ch...)' as a client attendee. This directly contradicts the response's assertion that no SCM discussions were found with HealthFirst Systems. The chunk is highly useful because it provides the specific evidence required to correct the negative response and answer the user's query affirmatively.; Chunk 2: not useful - The retrieved context confirms an interaction between 'Nexus Advisory' and 'HealthFirst Systems' regarding EHR migration, but it does not contain any information regarding 'Supply Chain Management'. The response correctly identifies that specific SCM discussions were not found and lists other healthcare topics (like EHR ecosystem modernization) instead. Therefore, the chunk did not provide the evidence to support the specific claim that SCM was discussed, nor did it provide the alternative topics listed in the response.; Chunk 3: useful - The context chunk provides direct evidence that supports the negative findings stated in the response. It confirms that an interaction with HealthFirst Systems exists but relates specifically to 'Clinical Decision Support Systems' rather than Supply Chain Management. This validates the response's explanation that the records for HealthFirst Systems focus on healthcare-specific topics and lack the requested SCM information.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Generative AI in Healthcare with HealthFirst Systems?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the interaction history, here's what was discussed regarding **Generative AI in Healthcare** with HealthFirst Systems:
+
+## Key Discussion Points
+
+### 1. **Research Material Sharing**
+During an **Executive Sponsor Meeting** (October 24, 2023), Nexus Advisory committed to sending Sofia Chen (VP Digital Health) two key research documents:
+- **"Hype Cycle for Healthcare Data, 2023"**
+- **"Generative AI in Healthcare Provider Industries"**
+
+These materials were intended to support a **governance framework proposal** that HealthFirst was developing.
+
+### 2. **Strategic Planning Context**
+The discussions around Generative AI occurred within the context of HealthFirst's broader AI strategy initiatives, including:
+- Understanding where their AI initiatives fit within the Nexus Advisory Hype Cycle
+- Developing a governance framework for AI implementation
+- Evaluating vendor selection for AI platforms
+- Board-level planning for AI talent sourcing
+
+### 3. **Related AI/Analytics Initiatives**
+The conversations also covered:
+- Trade-offs between proprietary EHR (Electronic Health Record) analytics vs. best-of-breed cloud data platforms
+- Analysis of cloud infrastructure for healthcare workloads
+- Healthcare data aggregation platforms for AI vendor evaluation
+- Medical device segmentation and IoT security
+
+### 4. **Key Stakeholders Involved**
+- **Marcus Thorne** (CIO, HealthFirst)
+- **Sofia Chen** (VP Digital Health)
+- **Nexus Advisory Executive Partner**
+
+The Generative AI discussions appear to be part of HealthFirst's broader digital transformation strategy, with specific focus on governance frameworks and understanding technology maturity through the Hype Cycle methodology.
+
+Would you like me to search for more specific details about any particular aspect of these discussions?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">context_precision: 0.0</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">useful_chunks: 0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 9619ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: not useful - The provided context chunk describes a meeting held on December 05, 2023, attended by Dr. Elena Jensen and Angela Rostova, focusing on ACI in Cardiology and the 'Future of the Clinician Experience'. The response, however, details events from an October 24, 2023, meeting attended by Marcus Thorne and Sofia Chen regarding the sharing of specific research documents ('Hype Cycle') and a governance framework proposal. The chunk does not contain the specific events, attendees, or documents mentioned in the generated response.; Chunk 2: not useful - The retrieved context chunk discusses a 'Telehealth Platform Refresh' and 'Semantic AI', whereas the user query specifically asks about 'Generative AI'. Additionally, the response mentions Executive Sponsor Meetings in October and interactions with stakeholders Sofia Chen and Marcus Thorne, while the context chunk is an email thread regarding a procurement decision with Sarah Connors dated October 12.; Chunk 3: not useful - The context chunk presents a conversation where 'Marcus' represents Nexus Advisory and 'Sofia' represents HealthFirst Systems. This directly contradicts the response, which identifies Marcus Thorne as the CIO of HealthFirst Systems. Additionally, the chunk describes a brief inquiry call about the 'Hype Cycle for Artificial Intelligence' without mentioning the specific commitment to send research documents or the development of a governance framework, whereas the response details an 'Executive Sponsor Meeting' with specific outcomes regarding 'Generative AI'. The chunk does not contain the information required to verify or support the claims made in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Core Banking Modernization with GlobalFin Bank?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the interaction history, here's what was discussed regarding **Core Banking Modernization** with GlobalFin Bank:
+
+## Key Discussions
+
+### 1. **Project Titan - Critical CAPEX Challenge** (Support Ticket)
+- The Board is pushing back on a **$120M CAPEX increase** for the next fiscal year
+- This is part of their broader digital transformation initiative
+- The modernization layer is facing significant resistance despite being critical
+- Nexus Advisory is providing research materials to build a stronger business case
+
+### 2. **Composable Banking Architecture** (Analyst Inquiry Call)
+- Discussion around **"Composable Banking"** benefits to address the CTO's migration stability concerns
+- Focus on modular approaches vs. monolithic legacy systems
+- Payment hub vendor selection and **modular payment engine decoupling** from legacy core
+- Emphasis on **Zero Trust Network Access** implementation before new API rollout
+
+### 3. **Migration Progress & Strategy** (Phone Call - Oct 2023)
+- Review of quarterly migration metrics, specifically **credit card platform migration numbers**
+- Focus on demonstrable progress to maintain Board confidence
+
+## Research & Support Provided
+
+Nexus Advisory has been asked to provide:
+- **Hype Cycle for Digital Banking Transformation**
+- **Magic Quadrant for Banking Platform Solutions**
+- **Legacy Tax cost comparison** from the "Future of Core Banking" research
+- Data on **Fintech scalability issues** to counter Monzo/Revolut comparisons
+- **Composable Banking benefits** summary
+- Peer benchmarking on EU banks' approaches
+
+## Key Stakeholders
+- **Sofia Rodriguez** - CTO, GlobalFin Bank (primary contact)
+- **David Park** - Chief Data Officer
+- **Marcus Chen** - Nexus Advisory Executive Partner
+
+The discussions center on overcoming Board resistance to modernization investments while demonstrating the strategic value of moving away from legacy systems toward composable, modular banking architectures.</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 10265ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk provides the primary source material for the most critical and recent event discussed in the response: 'Project Titan' and the $120M CAPEX challenge. It directly validates the interaction details mentioned under 'Key Discussions' (specifically section 1) and substantiates the 'Research & Support Provided' list. While the chunk does not explicitly contain details about the 'Analyst Inquiry Call' or the specific 'Oct 2023' call, it provides the foundational facts required to answer the core of the user's query about what was discussed.; Chunk 2: useful - The context chunk provides the specific participants (Sofia Rodriguez, David Park, Marcus Chen) and the meeting type (Analyst Inquiry Call) that correspond directly to the 'Stakeholders' and specific discussion points ('Composable Banking Architecture') listed in the Response. It explicitly validates the actions regarding 'modular payment engine decoupling' and 'Zero Trust Network Access' mentioned in the response, confirming the chunk is the source record for those interaction details.; Chunk 3: not useful - The retrieved context chunk is not useful for validating the response because it contains conflicting entity information. The context describes an email thread between **Marcus Thorne (CTO) and Sofia Chen (Executive Partner)** at **GlobalFin Capital**, whereas the response provides a summary for **GlobalFin Bank** involving stakeholders **Sofia Rodriguez (CTO)** and **Marcus Chen (Executive Partner)**. Despite the context referencing a 'Q3 Digital Banking Review' which broadly aligns with the modernization topic, the specific company names, stakeholder names, and roles do not match between the query's response and the provided context.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Generative AI Governance with GlobalFin Bank?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the interaction history, here's what was discussed regarding **Generative AI Governance** with GlobalFin Bank:
+
+---
+
+## Key Discussion Points
+
+### 1. **Emergency Strategy Session Request (October 24, 2023)**
+- **Context:** Marcus Thorne (CTO) requested an urgent consultation regarding their Generative AI rollout in response to the "Horizon City Initiative"
+- **Trigger:** Q3 earnings call highlighted AI initiatives
+- **Requested Resources:**
+  - Nexus Advisory Magic Quadrant for Cloud AI Developer Services (2023)
+  - Composite AI case studies for banking sector
+  - Data on GenAI regulatory fines in EU Banking Union
+  - Comparative analysis of Mercury/Chime vs. traditional bank onboarding flows
+
+### 2. **Formal AI Governance & Risk Consultation (November 2, 2023)**
+- **Participants:** Elena Ross (CRO), Kenji Sato (Head of Model Risk Management), Nexus Advisory
+- **Critical Actions Agreed Upon:**
+  - ⚠️ **Pause "Wild West" AI deployments immediately**
+  - **Mandate RAG (Retrieval-Augmented Generation) architecture** for all GenAI pilots
+  - **Implement triage system** for AI use cases by risk profile (High/Medium/Low)
+  - **Establish Data Steward role** for AI knowledge base maintenance
+  - Review Nexus Case Study on LLM Customer Support automation
+
+### 3. **Earlier Advisory Discussion (October 14, 2023)**
+- Discussed during credit card platform migration review
+- **Resources Provided:**
+  - "Generative AI for Banking and Investment Services" guide
+  - "Emerging Technologies: AI Governance" framework
+  - Peer benchmarking on EU banks' AI model validation practices
+
+---
+
+## Summary of Concerns
+
+GlobalFin Bank is moving quickly on GenAI adoption but recognizes governance gaps. Key themes:
+- **Regulatory compliance** (EU Banking Union focus)
+- **Risk management** for AI models
+- **Architecture standards** (RAG requirement)
+- **Use case prioritization** by risk profile
+- **Talent/skills gaps** in AI governance capabilities
+
+Would you like me to retrieve more detailed information about any specific aspect of these discussions?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 9611ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: not useful - The retrieved context chunk refers to an email thread regarding 'FinEdge Capital Partners' and addresses 'Marcus Thorne' (who is associated with Nexus Advisory in the correct context, but is the CTO of GlobalFin Bank in the query/response). The chunk discusses a generic 'AI Governance Draft' for a different client (FinEdge) and does not contain specific details regarding GlobalFin Bank's 'Emergency Strategy Session', 'Formal AI Governance & Risk Consultation', or specific actions like 'Pausing Wild West deployments'. The entities and specific discussion points do not align.; Chunk 2: useful - The context chunk directly validates the first section of the response ('Emergency Strategy Session Request'). It provides specific details including the client name, sender, date, subject line regarding 'Generative AI Governance', and the specific requested actions (reports, case studies, data) which match the summary provided in the response.; Chunk 3: useful - The context chunk provides direct evidence supporting the 'Earlier Advisory Discussion' section of the response. Specifically, the Actions listed in the transcript confirm the sending of the 'Generative AI for Banking and Investment Services' guide and the 'Emerging Technologies: AI Governance' framework, as well as the mention of EU bank peer benchmarking. The participants (Sofia Rodriguez, CTO) and date (October 14, 2023) also align with the summarized history, despite the name discrepancy in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Mobile Banking & Digital Experience with GlobalFin Bank?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my search of the interaction history, I found information about discussions with **GlobalFin Bank** related to Mobile Banking & Digital Experience:
+
+## Digital Customer Engagement Discussion (November 15, 2023)
+
+**Participants:**
+- Marcus Chen (Nexus Advisory Executive Partner)
+- Sarah Jenkins (EVP of Retail Banking, GlobalFin Bank)
+- Robert 'Rob' Miller (Digital Channels Director)
+
+### Key Topics Discussed:
+
+**Digital Customer Engagement Strategy**
+- Focus on improving digital customer engagement capabilities
+- Discussion of real-time data ingestion and Customer Data Platform (CDP) solutions
+- Evaluation of "TechGiant" RFP with consideration of "Best of Breed" approach
+
+**Strategic Initiatives:**
+- **Intelligent Engagement Hub** overlay project - developing business case for enhanced customer engagement capabilities
+- **Embedded Finance** - researching capabilities for potential partnership models
+- **Buy vs. Build Decision Framework** - reviewing Nexus Decision Framework for technology decisions
+
+### Action Items from Discussion:
+1. Review Nexus Decision Framework for Buy vs. Build decisions
+2. Evaluate CDP vendors for real-time data ingestion capabilities
+3. Re-evaluate the 'TechGiant' RFP based on 'Best of Breed' recommendations
+4. Develop business case for 'Intelligent Engagement Hub' overlay project
+5. Research embedded finance capabilities for potential partnership models
+
+---
+
+## Strategic Architecture Review Discussion
+
+**Participants:**
+- Marcus Chen (Nexus Advisory Executive Partner)
+- Sofia Rodriguez (CTO, GlobalFin Bank)
+- David Park (Chief Data Officer)
+
+### Digital Experience Related Topics:
+- Review of composable banking trends for Board presentation
+- API rollout considerations with Zero Trust Network Access implementation
+- Modular payment engine decoupling from legacy core systems
+- Digital banking platform vendor evaluation
+
+The discussions indicate GlobalFin Bank is focusing on transforming their digital banking capabilities through modern customer engagement platforms, real-time data processing, and a move toward more modular, composable banking architecture.</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 37070ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The retrieved context chunk validates the 'Strategic Architecture Review Discussion' section of the response. It confirms the participants (Marcus Chen, Sofia Rodriguez, David Park) and provides specific details for the Digital Experience topics mentioned, such as the API rollout with Zero Trust Network Access and the decoupling of the modular payment engine.; Chunk 2: useful - The provided context chunk directly validates the 'Digital Customer Engagement Discussion' section of the response. It confirms the specific participants (Marcus Chen, Sarah Jenkins, Rob Miller), the date (November 15, 2023), and explicitly lists the exact action items (Review Nexus Decision Framework, Evaluate CDP vendors, Re-evaluate 'TechGiant' RFP, etc.) mentioned in the answer.; Chunk 3: not useful - The context chunk pertains to a 'Project Titan' support ticket involving a Board pushback on a $120M CAPEX increase and a request for specific reports (Magic Quadrant, Hype Cycle, etc.). It does not contain the discussion details, participant names, specific action items, or strategic initiatives (Intelligent Engagement Hub, Embedded Finance) summarized in the response regarding the Mobile Banking & Digital Experience discussions.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Strategic Budgeting & CAPEX Prioritization with GlobalFin Bank?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the interaction history I found, here's what was discussed regarding **Strategic Budgeting & CAPEX Prioritization** with GlobalFin Bank:
+
+## Key Discussion Points
+
+### 1. **Project Titan Digital Transformation - CAPEX Challenge**
+- **Issue**: The Board is pushing back hard on a proposed **$120M CAPEX increase** for the next fiscal year
+- **Context**: This relates to the core modernization layer of their digital transformation initiative
+- **Urgency**: This was described as a "critical blocker" requiring immediate attention
+
+### 2. **Payment Hub CAPEX Approval**
+- **Status**: Arguments needed to be finalized for Payment Hub CAPEX approval
+- **Action Item**: This was listed as a key follow-up action from discussions
+
+### 3. **AI Governance Budget Constraints**
+- **Challenge**: Need to evaluate 'Lite' AI Governance options to fit budget constraints
+- **Context**: Related to broader budget prioritization decisions
+
+### 4. **Legacy Tax Cost Analysis**
+- **Discussion Point**: Cost comparison charts from the 'Future of Core Banking' research were requested to support the business case
+- **Purpose**: To justify CAPEX investments by showing the cost of maintaining legacy systems
+
+### 5. **CAPEX Deferral Strategies**
+- **Action**: Connect with a mainframe modernization expert to discuss **CAPEX deferral options**
+- **Goal**: Find alternative approaches to manage the significant budget requirements
+
+## Key Actions Taken
+- Executive Briefing scheduled for the Board to present a refined business case
+- Research materials requested (Magic Quadrant for Banking Platform Solutions, Hype Cycle for Digital Banking Transformation)
+- Cost comparison analysis to justify the investments
+- Exploration of alternative implementation approaches to manage budget constraints
+
+The discussions indicate GlobalFin Bank is struggling with significant digital transformation investments while facing Board resistance to large CAPEX increases, particularly around their Project Titan core modernization efforts.</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 11803ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The context chunk confirms specific actions and topics relevant to the query. It validates the discussion points regarding 'Payment Hub CAPEX approval' and 'Evaluate 'Lite' AI Governance options to fit budget constraints', which are explicitly mentioned in the response. While the chunk does not contain the full detail (like the $120M figure or Project Titan), it provides corroborative evidence for the summary of activities.; Chunk 2: useful - The context chunk directly validates the core information provided in the response. It confirms the specific 'Strategic Budgeting & CAPEX Prioritization' issues mentioned, such as the Board pushing back on the $120M CAPEX increase for the Project Titan core modernization and the request for the 'Legacy Tax' cost comparison chart. Additionally, it aligns with the reported actions taken, such as retrieving specific research materials (Magic Quadrant) and scheduling the Executive Briefing.; Chunk 3: not useful - The retrieved context chunk provides a meeting summary and a list of high-level action items. While it validates specific minor details mentioned in the response (such as the date, attendees, and the action to 'Connect Marcus with a ... expert ... to discuss CAPEX deferral options'), it lacks the substantive narrative content found in the response. The response details specific financial figures ($120M CAPEX increase), project names (Project Titan, Payment Hub), and specific challenges (AI Governance Budget Constraints, Legacy Tax Cost Analysis) that are completely absent from the provided text. Therefore, while the chunk confirms a single action item, it is insufficient as the primary source for the detailed discussion points presented in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Cloud Migration with Metro Manufacturing Corp?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the interaction history with Metro Manufacturing Corp, here's what was discussed regarding Cloud Migration:
+
+## Key Discussion Points
+
+### 1. **NextShore Implementation Challenges** (Analyst Inquiry Call)
+The client's CIO, Marcus, expressed significant concerns about their cloud migration progress, stating they're "at a bit of a crossroads" with the NextShore implementation. Specific issues included:
+- Adapter performance problems
+- SLA adherence concerns with NextShore support
+- Need to pressure NextShore support on adapter performance issues
+
+### 2. **AI Integration Hurdle** (Email Thread - October 24, 2023)
+In correspondence between Suresh Iyer (Chief Digital Officer) and Arthur Vance (Executive Partner), cloud migration was identified as a foundational challenge:
+- Cloud migration and ERP modernization are prerequisites for AI integration
+- The client needs to prioritize "Data Readiness" for their Board Meeting
+- Nexus Advisory's "Magic Quadrant for Cloud ERP" was recommended to validate their cloud strategy
+
+### 3. **Q3 Strategy Review** (Meeting Note - October 24, 2023)
+While the meeting focused on Digital Twin implementation, cloud migration challenges were part of the broader digital transformation context, with actions including:
+- Compliance gap analysis
+- Digital Twin acceleration proposal
+
+## Action Items Related to Cloud Migration
+- **Evaluate Axon Stream** specifically for edge-layer latency reduction (Proof of Concept)
+- **Prepare "Plan B" presentation** for CEO by next Tuesday (suggesting contingency planning for cloud strategy)
+- **Schedule strategy call** to address the AI integration hurdle
+- **Leverage Nexus Advisory research** to validate cloud ERP approach
+
+The discussions indicate Metro Manufacturing Corp is experiencing significant challenges with their cloud migration journey, particularly around vendor performance (NextShore) and the need to establish a solid cloud foundation before advancing to AI and Digital Twin initiatives.</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">context_precision: 0.0</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">useful_chunks: 0</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 10107ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: not useful - The retrieved context chunk does not contain information regarding Cloud Migration, NextShore implementation challenges, or AI integration hurdles. It is a meeting note summary regarding Q3 Strategy and Digital Twin Implementation with specific unrelated action items such as 'Review Edge Computing Gateways' and 'Analyze Firewall Packet Logs'.; Chunk 2: not useful - The retrieved context describes a support ticket from 'GlobalPrecision Industries' (CTO Marcus Chen) concerning 'Smart Factory Rollout' and 'Manufacturing Execution Systems'. The user query specifically asks about 'Cloud Migration' with 'Metro Manufacturing Corp' (CIO Marcus). The client name, specific subject matter (Smart Factory vs Cloud Migration), and context type differ significantly from the details required to answer the query.; Chunk 3: not useful - The retrieved context chunk pertains to a client named 'OmniChannel Retail Ventures' and involves a conversation between Marcus Chen and Sofia Rossi regarding cloud infrastructure and AI integration. This is completely unrelated to the user's query, which specifically asks about 'Cloud Migration with Metro Manufacturing Corp'. The context contains no information about Metro Manufacturing Corp, the 'NextShore' implementation, or the specific challenges mentioned in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding HTTP 502 Bad Gateway with Metro Manufacturing Corp?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my search, **I did not find any specific discussions about HTTP 502 Bad Gateway errors** with Metro Manufacturing Corp.
+
+The search results show several interactions with this client, including:
+
+1. **Support Ticket NX-8842-XL** - A high-priority, business-critical issue submitted by David Miller regarding night shift issues, but the details don't mention HTTP 502 errors (the summary shows actions related to terminal IPs, AES-256 encryption, and legacy terminals in Detroit).
+
+2. **Q3 Strategy Review Meeting** (October 24, 2023) - Covered Digital Twin Implementation, with actions including "Review Edge Computing Gateways" and "Analyze Firewall Packet Logs"
+
+3. **Analyst Inquiry Call** (November 12, 2023) - Focused on supply chain strategy and systems integration
+
+4. **Email communications** regarding supply chain risk assessment
+
+The closest items might be:
+- The support ticket (NX-8842-XL) which involved gateway/infrastructure issues
+- The Q3 strategy meeting which mentioned "Edge Computing Gateways"
+
+However, none of these explicitly reference HTTP 502 Bad Gateway errors. Would you like me to:
+1. Search more broadly for "gateway" issues with this client?
+2. Look into the specific support ticket NX-8842-XL for more details?
+3. Search for error-related incidents more generally?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">context_precision: 0.6666666666666666</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 2</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 10217ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The chunk provides the specific details for Support Ticket NX-8842-XL referenced in the response. It confirms the client identity (Metro Manufacturing Corp), the ticket ID, and—crucially for the auditor's evaluation of the response—the specific details regarding 'gateways' and 'legacy terminals' which align with the response's assessment that while infrastructure/gateway issues were discussed, specific HTTP 502 errors were not mentioned.; Chunk 2: useful - This context chunk directly supports the 'Q3 Strategy Review Meeting' section of the response. It validates the meeting details (date, attendees like David Miller, subject matter), and specifically provides the exact text for the action items mentioned ('Review Edge Computing Gateways', 'Analyze Firewall Packet Logs'), which the response used as context to rule out the presence of HTTP 502 errors.; Chunk 3: not useful - The user query specifically asks about 'HTTP 502 Bad Gateway' errors. The retrieved context chunk discusses a 'Supply Chain Risk Assessment' for the APAC Region and lists actions related to 'China Plus One' and TCO reports. There is no mention of HTTP errors, gateways in a technical sense, or system connectivity issues that align with the user's question.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Additive Manufacturing with Metro Manufacturing Corp?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the search results from the interaction history, I found information about discussions regarding **Additive Manufacturing** with Metro Manufacturing Corp:
+
+## Key Discussion Points:
+
+### November 12, 2023 - Analyst Inquiry Call
+**Participants:** Dr. Aris Thorne (Nexus Advisory Senior Research Director, Supply Chain) and Sarah Jenkins (CIO, Metro Manufacturing)
+
+**Main Topics Discussed:**
+
+1. **Binder Jetting Technology Evaluation**
+   - The client was advised to evaluate binder jetting technology
+   - This was identified as an action item for the client to assess
+
+2. **Air-Gapped Systems Research**
+   - Discussed draft research on 'Air-Gapped' systems
+   - Relevant to additive manufacturing in secure environments
+
+3. **Gearbox ROI Data**
+   - Nexus Advisory agreed to include gearbox ROI data in their Market Guide
+   - This relates to additive manufacturing applications for gearbox production
+
+### Action Items from the Discussion:
+- **Nexus Advisory**: Send draft of 'Air-Gapped' paper to the client
+- **Nexus Advisory**: Include Gearbox ROI Data in Market Guide  
+- **Metro Manufacturing**: Evaluate Binder Jetting Technology
+
+The discussion focused heavily on the practical implementation and ROI considerations of additive manufacturing technologies, particularly binder jetting, and how these technologies could be integrated into Metro Manufacturing's operations while maintaining security through air-gapped systems.
+
+Would you like me to search for more specific details about any particular aspect of these additive manufacturing discussions?</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">context_precision: 0.3333333333333333</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 17022ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: not useful - The retrieved context chunk discusses an 'Analyst Inquiry Call' with 'Apex Precision Manufacturing' and CFO 'Elena Vance' held on November 22, 2023. The response, however, claims to detail a discussion with 'Metro Manufacturing Corp' and 'Sarah Jenkins' that occurred on November 12, 2023. The entities, participants, and dates in the context do not match the information provided in the response.; Chunk 2: useful - The context chunk provides the foundational metadata (participants, date, client name) and specific action items (Evaluate Binder Jetting Technology, Send 'Air-Gapped' paper, Include Gearbox ROI Data) that directly support the key points and summary lists in the generated response. While the response expands slightly on the implications of these action items (e.g., defining the relevance of air-gapped systems), all core facts presented are explicitly verified by the retrieved text.; Chunk 3: not useful - The provided response details a discussion held on November 12, 2023, regarding specific additive manufacturing topics such as binder jetting, air-gapped systems, and gearbox ROI data. The retrieved context chunk, however, summarizes a meeting held on October 24, 2023, regarding 'Q3 Strategy Review & Digital Twin Implementation.' The dates, topics, and action items in the context do not match the information presented in the response.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What was discussed regarding Supply Chain Risk Management with Metro Manufacturing Corp?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on the interaction history with Metro Manufacturing Corp, here's what was discussed regarding Supply Chain Risk Management:
+
+## Key Discussion Points
+
+### 1. **Urgent Supply Chain Risk Assessment - APAC Region** (November 5, 2023)
+- **Context**: Following an executive briefing, Marcus Thorne from Nexus Advisory initiated an urgent discussion about supply chain risks
+- **Focus**: Risk assessment specifically for the APAC (Asia-Pacific) region
+- **Recipients**: Sarah Jenkins and David Miller at Metro Manufacturing Corp
+
+### 2. **Strategic Actions Identified**
+The email thread outlined several critical next steps:
+- **Schedule Strategy Call** (Thursday) - Immediate follow-up planned
+- **Generate TCO Breakdown Report** - Total Cost of Ownership analysis needed
+- **Review Geopolitical Risk Methodology** - Assessing political and geographic vulnerabilities
+- **Evaluate 'China Plus One' Approach** - Diversification strategy to reduce dependency on single-region suppliers
+
+### 3. **Related Supply Chain Strategy Context** (October 24, 2023)
+- **Suresh Iyer (Chief Digital Officer)** referenced the **"Nexus Advisory Hype Cycle for Supply Chain Strategy"** in a separate Q3 strategy discussion
+- This was part of broader conversations about digital transformation priorities
+- The Hype Cycle report was to be attached to support board-level presentations
+
+### 4. **Integration with Broader Modernization Efforts**
+The supply chain risk discussions appear to be occurring alongside Metro Manufacturing's large-scale ERP modernization, as mentioned in inquiry calls with their CIO Marcus.
+
+**Current Status**: The discussions indicate active engagement on supply chain risk management, with particular emphasis on APAC region vulnerabilities and diversification strategies like "China Plus One."</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">context_precision: 0.3333333333333333</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">useful_chunks: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">total_chunks: 3</span>
+                        <div class="meta-info">
+                            Latency: 10290ms<br>
+                            Tokens: note: aggregated chunks 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Chunk 1: useful - The provided context chunk is highly useful as it directly verifies the core information presented in the response. Specifically, it confirms the email from Marcus Thorne regarding the 'Urgent: Supply Chain Risk Assessment - APAC Region', the recipients (Sarah Jenkins, David Miller), and the exact list of strategic actions identified (Schedule Strategy Call, Generate TCO Breakdown, Review Geopolitical Risk, Evaluate 'China Plus One'). Points 3 and 4 of the response are likely inferred or retrieved from separate context chunks, but this chunk validates the primary discussion points regarding Metro Manufacturing Corp's supply chain risk management.; Chunk 2: not useful - The response summarizes a specific email thread regarding 'Urgent Supply Chain Risk Assessment' with Marcus Thorne from November 5, 2023. The provided context chunk is a transcript of an Analyst Inquiry Call between Dr. Aris Thorne and Sarah Jenkins dated November 12, 2023, which discusses drafting an 'Air-Gapped' paper and ROI data for Gearbox/Binder Jetting. The context chunk does not contain information about the APAC region risk assessment, the 'China Plus One' strategy, or the specific November 5th email interaction detailed in the response.; Chunk 3: not useful - The retrieved context refers to 'GlobalPrecision Industries' as the client, while the user query specifically asks about interactions with 'Metro Manufacturing Corp'. The context, although thematically related (Supply Chain Risk Management), describes a different client engagement, making it factually irrelevant and unsupportive of the specific details (e.g., communications with Sarah Jenkins, dates in November, or mentions of Metro's CIO) presented in the response.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+        <h2 class="section-title">🔬 Improvement Analysis — Deep Dive</h2>
+        
+        <div class="recs" style="border-left: 4px solid #ef4444;">
+            <h3>📊 Priority Fix Matrix</h3>
+            <p style="color:#94a3b8;font-size:12px;margin-bottom:12px;">6 failures out of 20 total test cases. Ordered by severity.</p>
+            
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1f2937;">
+                <span style="background:#f9731620;color:#f97316;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid #f9731640;min-width:70px;text-align:center;">HIGH</span>
+                <div style="flex:1;">
+                    <div style="color:#f8fafc;font-size:13px;font-weight:600;">Retrieval Issues (6 failures)</div>
+                    <div style="color:#64748b;font-size:11px;margin-top:2px;">Sample: Find information about Hype Cycle for Revenue and Sales Tech...</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="suite-section">
+            <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                <h3>🔍 Failed Case Deep-Dives (click to expand)</h3>
+                <div class="suite-stats">
+                    <span class="stat-fail">6 failures</span>
+                </div>
+            </div>
+            <div class="suite-body">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>Suite</th>
+                            <th>Query / Input</th>
+                            <th>Scores</th>
+                            <th>Agent Response</th>
+                            <th>Judge Reasoning / Analysis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">context_precision</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">Find information about Hype Cycle for Revenue and Sales Technology 2024</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>context_precision: 0.3333333333333333</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>useful_chunks: 1</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>total_chunks: 3</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Based on the search results, I found information about the **Hype Cycle for Revenue and Sales Technology 2024**. Here's what the research library contains:
+
+## Hype Cycle for Revenue and Sales Technology 2024
+
+**Strategic Value:** Improves customer retention via personalization
+
+The search retrieved</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Chunk 1: useful - The context chunk directly verifies the core details presented in the response. It confirms the document title ('Hype Cycle for Revenue and Sales Technology 2024') and the specific strategic value statement ('Improves customer retention via personalization') that the model used to construct the 'Strategic Value' and 'Key Strategic Implications' sections of the answer.; Chunk 2: n</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">context_precision</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">Find information about Emotion AI in B2B Sales: The Next Frontier</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>context_precision: 0.0</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>useful_chunks: 0</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>total_chunks: 3</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">I already searched the Nexus Advisory research library for "Emotion AI in B2B Sales: The Next Frontier" in my previous response. Here are the results again:
+
+## **Emotion AI in B2B Sales: The Next Frontier**
+
+**Overview:**
+This report examines the strategic implications of Emotion AI in B2B sales co</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Chunk 1: not useful - The context chunk is a truncated fragment that lacks the depth and detail required to generate the specific claims and structured summary presented in the response. While the chunk shares the same title and mentions 'Strategic Value: Identifies key AI vendors for 2025', it does not contain the information regarding 'Customer Retention', 'personalization strategies', or the 'S</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">context_precision</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">What was discussed regarding Generative AI in Healthcare with HealthFirst Systems?</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>context_precision: 0.0</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>useful_chunks: 0</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>total_chunks: 3</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Based on the interaction history, here's what was discussed regarding **Generative AI in Healthcare** with HealthFirst Systems:
+
+## Key Discussion Points
+
+### 1. **Research Material Sharing**
+During an **Executive Sponsor Meeting** (October 24, 2023), Nexus Advisory committed to sending Sofia Chen (</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Chunk 1: not useful - The provided context chunk describes a meeting held on December 05, 2023, attended by Dr. Elena Jensen and Angela Rostova, focusing on ACI in Cardiology and the 'Future of the Clinician Experience'. The response, however, details events from an October 24, 2023, meeting attended by Marcus Thorne and Sofia Chen regarding the sharing of specific research documents ('Hype Cycle'</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">context_precision</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">What was discussed regarding Cloud Migration with Metro Manufacturing Corp?</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>context_precision: 0.0</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>useful_chunks: 0</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>total_chunks: 3</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Based on the interaction history with Metro Manufacturing Corp, here's what was discussed regarding Cloud Migration:
+
+## Key Discussion Points
+
+### 1. **NextShore Implementation Challenges** (Analyst Inquiry Call)
+The client's CIO, Marcus, expressed significant concerns about their cloud migration p</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Chunk 1: not useful - The retrieved context chunk does not contain information regarding Cloud Migration, NextShore implementation challenges, or AI integration hurdles. It is a meeting note summary regarding Q3 Strategy and Digital Twin Implementation with specific unrelated action items such as 'Review Edge Computing Gateways' and 'Analyze Firewall Packet Logs'.; Chunk 2: not useful - The retrie</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">context_precision</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">What was discussed regarding Additive Manufacturing with Metro Manufacturing Corp?</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>context_precision: 0.3333333333333333</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>useful_chunks: 1</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>total_chunks: 3</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Based on the search results from the interaction history, I found information about discussions regarding **Additive Manufacturing** with Metro Manufacturing Corp:
+
+## Key Discussion Points:
+
+### November 12, 2023 - Analyst Inquiry Call
+**Participants:** Dr. Aris Thorne (Nexus Advisory Senior Resear</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Chunk 1: not useful - The retrieved context chunk discusses an 'Analyst Inquiry Call' with 'Apex Precision Manufacturing' and CFO 'Elena Vance' held on November 22, 2023. The response, however, claims to detail a discussion with 'Metro Manufacturing Corp' and 'Sarah Jenkins' that occurred on November 12, 2023. The entities, participants, and dates in the context do not match the information provid</td>
+            </tr>
+            
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">context_precision</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">What was discussed regarding Supply Chain Risk Management with Metro Manufacturing Corp?</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>context_precision: 0.3333333333333333</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>useful_chunks: 1</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>total_chunks: 3</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Based on the interaction history with Metro Manufacturing Corp, here's what was discussed regarding Supply Chain Risk Management:
+
+## Key Discussion Points
+
+### 1. **Urgent Supply Chain Risk Assessment - APAC Region** (November 5, 2023)
+- **Context**: Following an executive briefing, Marcus Thorne f</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">Chunk 1: useful - The provided context chunk is highly useful as it directly verifies the core information presented in the response. Specifically, it confirms the email from Marcus Thorne regarding the 'Urgent: Supply Chain Risk Assessment - APAC Region', the recipients (Sarah Jenkins, David Miller), and the exact list of strategic actions identified (Schedule Strategy Call, Generate TCO Breakdow</td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

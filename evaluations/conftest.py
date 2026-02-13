@@ -41,13 +41,19 @@ def report_engine():
     from evaluations.eval_report import EvalReportEngine
     return EvalReportEngine()
 
+@pytest.fixture(autouse=True)
+def llm_trace():
+    """Function-scoped trace capture for all tests."""
+    from evaluations.conftest_patches import patch_llm_generation
+    with patch_llm_generation() as tracker:
+        yield tracker
+
 @pytest.fixture(scope="session", autouse=True)
 def auto_report_generation(report_engine):
     """Yields to run tests, then generates reports on cleanup."""
     yield
     print("\n--- Generating Evaluation Reports ---")
-    json_path = report_engine.generate_json_report()
-    html_path = report_engine.generate_html_report()
+    json_path, html_path = report_engine.generate_report()
     print(f"JSON Report: {json_path}")
     print(f"HTML Dashboard: {html_path}")
 

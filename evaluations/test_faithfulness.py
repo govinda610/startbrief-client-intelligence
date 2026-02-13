@@ -34,7 +34,7 @@ Return ONLY a JSON object:
 """
 
 @pytest.mark.parametrize("case", load_test_cases("response_quality_cases.json"))
-def test_faithfulness_metric(case, report_engine):
+def test_faithfulness_metric(case, report_engine, llm_trace):
     query = case["query"]
     print(f"\n🔍 [Faithfulness] Starting evaluation for: '{query[:50]}...'")
     
@@ -86,7 +86,8 @@ def test_faithfulness_metric(case, report_engine):
             latency_ms=latency_ms,
             tokens_used=usage,
             passed=passed,
-            metadata={"claims": eval_data.get("claims", []), "num_tool_outputs": len(tool_outputs)}
+            metadata={"claims": eval_data.get("claims", []), "num_tool_outputs": len(tool_outputs)},
+            trace=llm_trace.traces
         )
         
         assert passed, f"Faithfulness score {eval_data['faithfulness_score']} below 0.8. Reasoning: {eval_data['reasoning']}"

@@ -29,7 +29,7 @@ Return ONLY a JSON object:
 """
 
 @pytest.mark.parametrize("case", load_test_cases("response_quality_cases.json"))
-def test_response_quality_llm_judge(case, report_engine):
+def test_response_quality_llm_judge(case, report_engine, llm_trace):
     query = case["query"]
     print(f"\n⚖️ [Quality Judge] Starting evaluation for: '{query[:50]}...'")
     
@@ -73,7 +73,8 @@ def test_response_quality_llm_judge(case, report_engine):
             reasoning=scores.get("reasoning", ""),
             latency_ms=latency_ms,
             tokens_used=usage,
-            passed=passed
+            passed=passed,
+            trace=llm_trace.traces
         )
         
         assert scores["hallucination"] == "No", f"Hallucination detected for query: {query}. Reasoning: {scores.get('reasoning')}"

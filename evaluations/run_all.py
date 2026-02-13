@@ -23,16 +23,16 @@ def main():
     
     total_start = time.perf_counter()
 
-    # 1. Refresh Data
-    print("Step 1: Refreshing data and test cases...")
-    subprocess.run("python3 evaluations/generate_test_cases.py", shell=True)
+    # 1. Refresh Data (SKIPPED BY USER REQUEST to preserve curated cases)
+    # print("Step 1: Refreshing data and test cases...")
+    # subprocess.run("python3 evaluations/generate_test_cases.py", shell=True)
 
     # 2. Define Suites
     suites = [
         ("Data Quality (Offline)", ".venv/bin/python3 -m pytest evaluations/test_data_quality.py -v -s"),
         ("Data Access (Offline)", ".venv/bin/python3 -m pytest evaluations/test_data_access.py -v -s"),
         ("Executive Tools (Offline)", ".venv/bin/python3 -m pytest evaluations/test_executive.py -v -s"),
-        ("NLP Accuracy (Simulated)", ".venv/bin/python3 -m pytest evaluations/test_nlp_accuracy.py -v -s"),
+        ("NLP Accuracy (DistilBERT)", ".venv/bin/python3 -m pytest evaluations/test_nlp_accuracy.py -v -s"),
         ("RAGAS: Faithfulness (LLM)", ".venv/bin/python3 -m pytest evaluations/test_faithfulness.py -v -s"),
         ("RAGAS: Answer Relevancy (LLM)", ".venv/bin/python3 -m pytest evaluations/test_answer_relevancy.py -v -s"),
         ("RAGAS: Context Precision (LLM)", ".venv/bin/python3 -m pytest evaluations/test_context_precision.py -v -s"),

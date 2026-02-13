@@ -4,10 +4,10 @@ from gss_agent.core.agents import get_nexus_agent
 from evaluations.conftest import load_test_cases
 from gss_agent.core.tools import GSS_TOOLS
 from gss_agent.core.executive_tools import EXECUTIVE_TOOLS
-from evaluations.conftest_patches import patch_tool_execution
+from evaluations.conftest_patches import patch_tool_execution, patch_llm_generation
 
 @pytest.mark.parametrize("case", load_test_cases("tool_usage_cases.json"))
-def test_agent_tool_usage_trajectory(case, report_engine):
+def test_agent_tool_usage_trajectory(case, report_engine, llm_trace):
     query = case["query"]
     expected_tools = case["expected_tools"]
     print(f"\n⚒️ [Tool Usage] Starting evaluation for: '{query[:50]}...'")
@@ -36,6 +36,7 @@ def test_agent_tool_usage_trajectory(case, report_engine):
             
         # Inspect tracker
         tool_calls_found = [call["name"] for call in tracker.tool_calls]
+        trace_data = llm_trace.traces
     
     latency_ms = (time.perf_counter() - start_time) * 1000
     passed = all(tool in tool_calls_found for tool in expected_tools)
@@ -50,7 +51,8 @@ def test_agent_tool_usage_trajectory(case, report_engine):
         reasoning=f"Expected: {expected_tools}. Actual: {tool_calls_found}",
         latency_ms=latency_ms,
         tokens_used={},
-        passed=passed
+        passed=passed,
+        trace=trace_data
     )
     
     for tool in expected_tools:

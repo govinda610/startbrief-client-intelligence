@@ -1,0 +1,113 @@
+{
+  "run_id": "20260213_212607",
+  "generated_at": "2026-02-13T21:26:07.309163",
+  "summary": {
+    "total_cases": 5,
+    "passed": 5,
+    "failed": 0,
+    "avg_latency_ms": 0.4084915912244469,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "data_access": {
+        "count": 5,
+        "passed": 5,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0.4084915912244469
+      }
+    },
+    "test_suites_run": 1
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-13T21:26:07.305929",
+      "test_name": "data_access",
+      "case_id": "da_lookup",
+      "query": "Can lookup_client_file find 'Nexus Innovations'?",
+      "agent_response": "{\n  \"id\": \"c_nexus_innovations_659\",\n  \"name\": \"Nexus Innovations\",\n  \"industry\": \"High Tech\",\n  \"revenue\": \"$5B\",\n  \"region\": \"North America\",\n  \"lifecycle_stage\": \"Growth\",\n  \"churn_risk\": \"Low\",\n  \"subscriptions\": [\n    \"Nexus Advisory for Finance Leaders\",\n    \"Nexus Advisory for Supply Chain Leaders\"\n  ],\n  \"entitlements\": [\n    \"Magic Quadrant Access\",\n    \"Peer Insights\",\n    \"Technical Professional Advice\"\n  ],\n  \"key_contacts\": [\n    {\n      \"name\": \"Dr. Evelyn Reed\",\n      \"role\": \"CIO",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "found": true,
+        "name_match": true
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.8964159933384508,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:07.306901",
+      "test_name": "data_access",
+      "case_id": "da_metrics",
+      "query": "Can get_client_engagement_metrics retrieve data for 'Nexus Innovations'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_nexus_innovations_659\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 25,\n      \"content_downloads\": 16,\n      \"inquiry_utilization_pct\": 77,\n      \"nps\": 9,\n      \"csat\": 4.935503489500377,\n      \"contract_value_arr\": 125000,\n      \"days_since_last_engagement\": 12,\n      \"research_docs_accessed\": 22,\n      \"analyst_inquiry_hours\": 7.7\n    }\n  },\n  {\n    \"client_id\": \"c_nexus_innovations_659\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_fre",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "found": true,
+        "is_list": true
+      },
+      "reasoning": "Engagement metrics returned successfully as list.",
+      "latency_ms": 0.30008298926986754,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:07.307489",
+      "test_name": "data_access",
+      "case_id": "da_contract",
+      "query": "Can lookup_contract_details find contract for 'Nexus Innovations'?",
+      "agent_response": "{\n  \"id\": \"CON-659\",\n  \"client_id\": \"c_nexus_innovations_659\",\n  \"start_date\": \"2025-06-28\",\n  \"end_date\": \"2026-06-28\",\n  \"total_value\": 220000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"High\",\n  \"service_level\": \"Gold\"\n}",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.2125839819200337,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:07.308266",
+      "test_name": "data_access",
+      "case_id": "da_assoc",
+      "query": "Can get_associate_performance_context find associate for 'Nexus Innovations'?",
+      "agent_response": "{\n  \"profile\": {\n    \"id\": \"ASSOC-002\",\n    \"name\": \"David Miller\",\n    \"role\": \"Client Success Associate\",\n    \"region\": \"North America\",\n    \"tenure_months\": 24\n  },\n  \"performance\": {\n    \"associate_id\": \"ASSOC-002\",\n    \"metrics\": {\n      \"cross_sell_rate\": 0.15,\n      \"upsell_rate\": 0.16,\n      \"avg_csat\": 4.0,\n      \"retention_rate\": 0.89,\n      \"avg_interaction_time_mins\": 44,\n      \"renewals_secured\": 10,\n      \"revenue_managed\": 3842000\n    }\n  }\n}",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "has_profile": true,
+        "has_performance": true
+      },
+      "reasoning": "Associate context retrieved with profile and performance data.",
+      "latency_ms": 0.4202499985694885,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-13T21:26:07.308864",
+      "test_name": "data_access",
+      "case_id": "da_list",
+      "query": "Does list_all_clients return a valid client list?",
+      "agent_response": "Returned 25 clients. First: Nexus Innovations",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "count": 25,
+        "has_name_field": true
+      },
+      "reasoning": "Client listing works correctly.",
+      "latency_ms": 0.21312499302439392,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    }
+  ]
+}

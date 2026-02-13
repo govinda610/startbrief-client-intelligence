@@ -15,7 +15,7 @@ class EvalReportEngine:
         
     def log_case(self, test_name, case_id, query, agent_response,
                  retrieved_context, scores, reasoning, 
-                 latency_ms, tokens_used, passed, metadata=None):
+                 latency_ms, tokens_used, passed, metadata=None, trace=None):
         """Append a single test case result to the session results."""
         result = {
             "timestamp": datetime.now().isoformat(),
@@ -29,7 +29,8 @@ class EvalReportEngine:
             "latency_ms": latency_ms,
             "tokens_used": tokens_used if isinstance(tokens_used, dict) else {},
             "passed": passed,
-            "metadata": metadata or {}
+            "metadata": metadata or {},
+            "trace": trace or []
         }
         self.results.append(result)
         
@@ -41,6 +42,12 @@ class EvalReportEngine:
         
         print(f"{status_icon} [{test_name}] {query[:60]}... ({latency_ms:.0f}ms) {score_sum}")
         
+    def generate_report(self):
+        """Generate both JSON and HTML reports."""
+        json_path = self.generate_json_report()
+        html_path = self.generate_html_report()
+        return json_path, html_path
+
     def generate_json_report(self):
         """Write all results to a JSON file."""
         filename = f"report_{self.run_id}.json"
@@ -320,9 +327,21 @@ class EvalReportEngine:
                 # Format response (show full, scrollable)
                 resp = str(r["agent_response"]).replace("<", "&lt;").replace(">", "&gt;")
                 query_display = str(r["query"]).replace("<", "&lt;").replace(">", "&gt;")
-                context_display = str(r.get("retrieved_context", "N/A")).replace("<", "&lt;").replace(">", "&gt;")
                 reasoning_display = str(r["reasoning"]).replace("<", "&lt;").replace(">", "&gt;")
                 
+                # Trace formatting
+                trace_html = ""
+                trace_button = ""
+                if r.get("trace"):
+                    trace_html = '<div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;">'
+                    for step in r["trace"]:
+                         inputs = str(step.get("inputs", ""))[:200].replace("<", "&lt;")
+                         outputs = str(step.get("outputs", ""))[:500].replace("<", "&lt;")
+                         model = step.get("model", "unknown")
+                         trace_html += f'<div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">{model}</strong><br><span style="color:#94a3b8;">In:</span> {inputs}<br><span style="color:#4ade80;">Out:</span> {outputs}</div>'
+                    trace_html += '</div>'
+                    trace_button = f'<div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === \'none\' ? \'block\' : \'none\'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace ({len(r["trace"])} steps)</button>{trace_html}</div>'
+
                 # Token info
                 token_info = ""
                 if isinstance(r["tokens_used"], dict) and r["tokens_used"]:
@@ -337,6 +356,7 @@ class EvalReportEngine:
                     </td>
                     <td style="min-width:300px;">
                         <div class="resp-text">{resp}</div>
+                        {trace_button}
                     </td>
                     <td style="min-width:180px;">
                         {scores_html}
