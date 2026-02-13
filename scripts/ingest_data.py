@@ -8,10 +8,12 @@ def main():
     # Initialize vector store
     v_store = NexusVectorStore(persist_directory="./chroma_db")
     
-    base_dir = "/Users/govindmittal/datascience-setup/interview_prep/gartner/gss_agent/data"
+    # Relative paths for data files
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    DATA_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "gss_agent", "data")
     
     # Ingest Research Content (Phase 1.3)
-    content_path = os.path.join(base_dir, "content.json")
+    content_path = os.path.join(DATA_DIR, "content.json")
     if os.path.exists(content_path):
         print(f"Ingesting research from {content_path}...")
         v_store.ingest_research(content_path)
@@ -20,7 +22,7 @@ def main():
 
     # Ingest Interactions (Phase 1.4)
     # Note: This will ingest what's currently generated. We can re-run later for full dataset.
-    interactions_path = os.path.join(base_dir, "interactions.json")
+    interactions_path = os.path.join(DATA_DIR, "interactions.json")
     if os.path.exists(interactions_path):
         print(f"Ingesting interactions from {interactions_path}...")
         v_store.ingest_interactions(interactions_path)
