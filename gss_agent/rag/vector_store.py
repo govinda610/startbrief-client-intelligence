@@ -55,20 +55,33 @@ class NexusVectorStore:
         )
         return results
 
-    def search_interactions(self, query, client_id=None, n_results=5):
-        where = {"client_id": client_id} if client_id else None
+    def search_interactions(self, query, client_id=None, client_name=None, n_results=5):
+        where = {}
+        if client_id:
+            where["client_id"] = client_id
+        if client_name:
+            where["client_name"] = client_name
+        
+        # If multiple filters, use $and (ChromaDB syntax)
+        if len(where) > 1:
+            where_clause = {"$and": [{k: v} for k, v in where.items()]}
+        elif len(where) == 1:
+            where_clause = where
+        else:
+            where_clause = None
+
         results = self.interaction_collection.query(
             query_texts=[query],
             n_results=n_results,
-            where=where
+            where=where_clause
         )
         return results
 
 if __name__ == "__main__":
     v_store = NexusVectorStore()
     
-    # Relative paths for data files
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # Path for data files
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     DATA_DIR = os.path.join(BASE_DIR, "data")
     
     v_store.ingest_research(os.path.join(DATA_DIR, "content.json"))

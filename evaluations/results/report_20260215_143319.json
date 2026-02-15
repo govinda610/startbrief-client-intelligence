@@ -1,0 +1,230 @@
+{
+  "run_id": "20260215_143319",
+  "generated_at": "2026-02-15T14:33:19.015125",
+  "summary": {
+    "total_cases": 11,
+    "passed": 11,
+    "failed": 0,
+    "avg_latency_ms": 0.2886591828428209,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "data_access": {
+        "count": 11,
+        "passed": 11,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0.2886591828428209
+      }
+    },
+    "test_suites_run": 1
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-15T14:33:19.009765",
+      "test_name": "data_access",
+      "case_id": "da_lookup_c_industrial_dynamics_corp_641",
+      "query": "Can lookup_client_file find 'Industrial Dynamics Corp'?",
+      "agent_response": "{\n  \"id\": \"c_industrial_dynamics_corp_641\",\n  \"name\": \"Industrial Dynamics Corp\",\n  \"industry\": \"Manufacturing\",\n  \"revenue\": \"$4.1B\",\n  \"region\": \"Asia Pacific\",\n  \"lifecycle_stage\": \"At Risk\",\n  \"churn_risk\": \"Medium\",\n  \"subscriptions\": [\n    \"Nexus Advisory for Finance Leaders\",\n    \"Nexus Advisory for IT Leaders (GSSO)\",\n    \"Nexus Advisory Standard License (GSL)\"\n  ],\n  \"entitlements\": [\n    \"Peer Insights\",\n    \"Magic Quadrant Access\",\n    \"Hype Cycles\"\n  ],\n  \"key_contacts\": [\n    {\n    ",
+      "retrieved_context": "Input: client_name='Industrial Dynamics Corp'",
+      "scores": {
+        "found": true,
+        "name_match": true,
+        "client_id": "c_industrial_dynamics_corp_641"
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.6799999973736703,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.009998",
+      "test_name": "data_access",
+      "case_id": "da_lookup_c_technova_solutions_590",
+      "query": "Can lookup_client_file find 'TechNova Solutions'?",
+      "agent_response": "{\n  \"id\": \"c_technova_solutions_430\",\n  \"name\": \"TechNova Solutions\",\n  \"industry\": \"High Tech\",\n  \"revenue\": \"$1.5B\",\n  \"region\": \"North America\",\n  \"lifecycle_stage\": \"Growth\",\n  \"churn_risk\": \"Medium\",\n  \"subscriptions\": [\n    \"Nexus Advisory for Supply Chain Leaders\",\n    \"Nexus Advisory Standard License (GSL)\"\n  ],\n  \"entitlements\": [\n    \"Peer Insights\",\n    \"Hype Cycles\"\n  ],\n  \"key_contacts\": [\n    {\n      \"name\": \"Michael Chen\",\n      \"role\": \"Chief Technology Officer\"\n    },\n    {\n    ",
+      "retrieved_context": "Input: client_name='TechNova Solutions'",
+      "scores": {
+        "found": true,
+        "name_match": true,
+        "client_id": "c_technova_solutions_590"
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.19333299132995307,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.010188",
+      "test_name": "data_access",
+      "case_id": "da_lookup_c_omnichannel_retail_ventures_438",
+      "query": "Can lookup_client_file find 'OmniChannel Retail Ventures'?",
+      "agent_response": "{\n  \"id\": \"c_omnichannel_retail_ventures_438\",\n  \"name\": \"OmniChannel Retail Ventures\",\n  \"industry\": \"Retail\",\n  \"revenue\": \"$6.7B\",\n  \"region\": \"North America\",\n  \"lifecycle_stage\": \"Renewal\",\n  \"churn_risk\": \"Medium\",\n  \"subscriptions\": [\n    \"Nexus Advisory for IT Leaders (GSSO)\",\n    \"Nexus Advisory for CIOs\",\n    \"Nexus Advisory Standard License (GSL)\"\n  ],\n  \"entitlements\": [\n    \"Peer Insights\",\n    \"Analyst Inquiries\",\n    \"Hype Cycles\",\n    \"Magic Quadrant Access\"\n  ],\n  \"key_contacts\"",
+      "retrieved_context": "Input: client_name='OmniChannel Retail Ventures'",
+      "scores": {
+        "found": true,
+        "name_match": true,
+        "client_id": "c_omnichannel_retail_ventures_438"
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.16712499200366437,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.011406",
+      "test_name": "data_access",
+      "case_id": "da_metrics_c_technova_solutions_430",
+      "query": "Can get_client_engagement_metrics retrieve data for 'TechNova Solutions'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_technova_solutions_430\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 40,\n      \"content_downloads\": 12,\n      \"inquiry_utilization_pct\": 31,\n      \"nps\": 10,\n      \"csat\": 5,\n      \"contract_value_arr\": 497000,\n      \"days_since_last_engagement\": 4,\n      \"research_docs_accessed\": 19,\n      \"analyst_inquiry_hours\": 3.1\n    }\n  },\n  {\n    \"client_id\": \"c_technova_solutions_430\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 16,\n ",
+      "retrieved_context": "Input: client_name='TechNova Solutions'",
+      "scores": {
+        "found": true,
+        "is_list": true,
+        "client_id": "c_technova_solutions_430"
+      },
+      "reasoning": "Engagement metrics returned successfully.",
+      "latency_ms": 0.4363750049378723,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.011725",
+      "test_name": "data_access",
+      "case_id": "da_metrics_c_globalprecision_industries_232",
+      "query": "Can get_client_engagement_metrics retrieve data for 'GlobalPrecision Industries'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_globalprecision_industries_232\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 14,\n      \"content_downloads\": 10,\n      \"inquiry_utilization_pct\": 67,\n      \"nps\": 8,\n      \"csat\": 4.47328930170908,\n      \"contract_value_arr\": 125000,\n      \"days_since_last_engagement\": 13,\n      \"research_docs_accessed\": 20,\n      \"analyst_inquiry_hours\": 6.7\n    }\n  },\n  {\n    \"client_id\": \"c_globalprecision_industries_232\",\n    \"month\": \"2025-08\",\n    \"metrics\": {",
+      "retrieved_context": "Input: client_name='GlobalPrecision Industries'",
+      "scores": {
+        "found": true,
+        "is_list": true,
+        "client_id": "c_globalprecision_industries_232"
+      },
+      "reasoning": "Engagement metrics returned successfully.",
+      "latency_ms": 0.27099999715574086,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.012003",
+      "test_name": "data_access",
+      "case_id": "da_metrics_c_national_infrastructure_authority_685",
+      "query": "Can get_client_engagement_metrics retrieve data for 'National Infrastructure Authority'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_national_infrastructure_authority_685\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 14,\n      \"content_downloads\": 12,\n      \"inquiry_utilization_pct\": 60,\n      \"nps\": 7,\n      \"csat\": 3.509723923442043,\n      \"contract_value_arr\": 94000,\n      \"days_since_last_engagement\": 11,\n      \"research_docs_accessed\": 22,\n      \"analyst_inquiry_hours\": 6.0\n    }\n  },\n  {\n    \"client_id\": \"c_national_infrastructure_authority_685\",\n    \"month\": \"2025-08\",\n  ",
+      "retrieved_context": "Input: client_name='National Infrastructure Authority'",
+      "scores": {
+        "found": true,
+        "is_list": true,
+        "client_id": "c_national_infrastructure_authority_685"
+      },
+      "reasoning": "Engagement metrics returned successfully.",
+      "latency_ms": 0.23900001542642713,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.012878",
+      "test_name": "data_access",
+      "case_id": "da_contract_c_healthfirst_systems_478",
+      "query": "Can lookup_contract_details find contract for 'HealthFirst Systems'?",
+      "agent_response": "{\n  \"id\": \"CON-661\",\n  \"client_id\": \"c_healthfirst_systems_661\",\n  \"start_date\": \"2025-07-01\",\n  \"end_date\": \"2026-07-01\",\n  \"total_value\": 505000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"Medium\",\n  \"service_level\": \"Platinum\"\n}",
+      "retrieved_context": "Input: client_name='HealthFirst Systems'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active",
+        "client_id": "c_healthfirst_systems_478"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.2168749924749136,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.013233",
+      "test_name": "data_access",
+      "case_id": "da_contract_c_national_infrastructure_authority_685",
+      "query": "Can lookup_contract_details find contract for 'National Infrastructure Authority'?",
+      "agent_response": "{\n  \"id\": \"CON-685\",\n  \"client_id\": \"c_national_infrastructure_authority_685\",\n  \"start_date\": \"2025-09-18\",\n  \"end_date\": \"2026-09-18\",\n  \"total_value\": 405000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"Medium\",\n  \"service_level\": \"Platinum\"\n}",
+      "retrieved_context": "Input: client_name='National Infrastructure Authority'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active",
+        "client_id": "c_national_infrastructure_authority_685"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.3299169766250998,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.013456",
+      "test_name": "data_access",
+      "case_id": "da_contract_c_nexgen_innovations_inc._256",
+      "query": "Can lookup_contract_details find contract for 'NexGen Innovations Inc.'?",
+      "agent_response": "{\n  \"id\": \"CON-256\",\n  \"client_id\": \"c_nexgen_innovations_inc._256\",\n  \"start_date\": \"2025-04-20\",\n  \"end_date\": \"2026-04-20\",\n  \"total_value\": 350000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"High\",\n  \"service_level\": \"Gold\"\n}",
+      "retrieved_context": "Input: client_name='NexGen Innovations Inc.'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active",
+        "client_id": "c_nexgen_innovations_inc._256"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.19429202075116336,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.014210",
+      "test_name": "data_access",
+      "case_id": "da_assoc",
+      "query": "Can get_associate_performance_context find associate for 'Nexus Innovations'?",
+      "agent_response": "{\n  \"profile\": {\n    \"id\": \"ASSOC-002\",\n    \"name\": \"David Miller\",\n    \"role\": \"Client Success Associate\",\n    \"region\": \"North America\",\n    \"tenure_months\": 24\n  },\n  \"performance\": {\n    \"associate_id\": \"ASSOC-002\",\n    \"metrics\": {\n      \"cross_sell_rate\": 0.15,\n      \"upsell_rate\": 0.16,\n      \"avg_csat\": 4.0,\n      \"retention_rate\": 0.89,\n      \"avg_interaction_time_mins\": 44,\n      \"renewals_secured\": 10,\n      \"revenue_managed\": 3842000\n    }\n  }\n}",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "has_profile": true,
+        "has_performance": true
+      },
+      "reasoning": "Associate context retrieved with profile and performance data.",
+      "latency_ms": 0.22045901278033853,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-15T14:33:19.014851",
+      "test_name": "data_access",
+      "case_id": "da_list",
+      "query": "Does list_all_clients return a valid client list?",
+      "agent_response": "Returned 25 clients. First: Nexus Innovations",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "count": 25,
+        "has_name_field": true
+      },
+      "reasoning": "Client listing works correctly.",
+      "latency_ms": 0.22687501041218638,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    }
+  ]
+}

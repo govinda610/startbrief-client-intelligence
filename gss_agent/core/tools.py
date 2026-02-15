@@ -35,8 +35,19 @@ class NexusDataReader:
 
     def get_client(self, name):
         if not name: return None
+        name_lower = name.lower()
+        # 1. Exact match
         for c in self.clients:
-            if name.lower() in c.get("name", "").lower():
+            if name_lower == c.get("name", "").lower():
+                return c
+        # 2. Starts with (more precise than 'in')
+        for c in self.clients:
+            if c.get("name", "").lower().startswith(name_lower):
+                return c
+        # 3. Fallback to 'in' but only if it matches a word boundary
+        import re
+        for c in self.clients:
+            if re.search(rf"\b{re.escape(name_lower)}\b", c.get("name", "").lower()):
                 return c
         return None
     
@@ -108,17 +119,30 @@ def search_research_library(query: str) -> str:
 def search_interaction_history(query: str, client_name: str = None) -> str:
     """
     Search past meeting notes, emails, and support tickets for a specific client 
-    or topic to understand context and history.
+    or topic to understand context and history. 
+    ALWAYS provide a client_name if the query is specific to an account.
     """
     client_id = None
+    target_client_name = None
+    
     if client_name:
         client = data_reader.get_client(client_name)
         if client:
             client_id = client["id"]
+            target_client_name = client["name"]
+        else:
+            return f"Error: Client '{client_name}' was not found. Please verify the name using list_all_clients."
     
-    results = v_store.search_interactions(query, client_id=client_id, n_results=3)
+    # Enforce filtering if a client name was provided to avoid cross-contamination
+    results = v_store.search_interactions(query, client_id=client_id, client_name=target_client_name, n_results=3)
     docs = results.get("documents", [[]])[0]
-    return "\n\n---\n\n".join(docs) if docs else "No relevant history found."
+    
+    if not docs:
+        if client_name:
+            return f"No relevant history found specifically for {client_name}."
+        return "No relevant history found."
+        
+    return "\n\n---\n\n".join(docs)
 
 @tool
 def get_client_engagement_metrics(client_name: str) -> str:
@@ -165,12 +189,14 @@ def analyze_data_python(code: str) -> str:
     """
     import logging
     import re
+    import concurrent.futures
     logger = logging.getLogger("uvicorn.error")
     
     # SAFETY CHECK: Block dangerous imports and patterns
     dangerous_patterns = [
         r"os\.", r"subprocess", r"shutil", r"requests", r"socket", 
-        r"open\(", r"write\(", r"eval\(", r"exec\(", r"__import__"
+        r"open\(", r"write\(", r"eval\(", r"exec\(", r"__import__",
+        r"getattr", r"setattr", r"delattr", r"threading", r"multiprocessing"
     ]
     
     for pattern in dangerous_patterns:
@@ -178,13 +204,21 @@ def analyze_data_python(code: str) -> str:
             logger.warning(f"BLOCKED dangerous pattern '{pattern}' in code.")
             return f"Error: The use of '{pattern}' is blocked for security reasons."
 
-    logger.info(f"--- [PYTHON REPL START] ---\n{code}\n--- [PYTHON REPL END] ---")
+    # HARDENING: Logic for execution timeout
+    timeout_seconds = 10
+    
+    logger.info(f"--- [PYTHON REPL START] (Timeout: {timeout_seconds}s) ---\n{code}\n--- [PYTHON REPL END] ---")
+    
     try:
-        # Note: In a real-world prod sys, we would use a Dockerized executor
-        # or a signal-based timeout. Here we use basic exception wrapping.
-        result = python_repl_utility.run(code)
-        logger.info(f"REPL Output:\n{result}")
-        return f"Output:\n{result}"
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(python_repl_utility.run, code)
+            try:
+                result = future.result(timeout=timeout_seconds)
+                logger.info(f"REPL Output:\n{result}")
+                return f"Output:\n{result}"
+            except concurrent.futures.TimeoutError:
+                logger.error("REPL Execution timed out.")
+                return f"Error: Execution timed out after {timeout_seconds} seconds. Please optimize your code."
     except Exception as e:
         logger.error(f"REPL Error: {str(e)}")
         return f"Error executing code: {str(e)}"
