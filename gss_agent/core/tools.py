@@ -1,5 +1,11 @@
 import json
 import os
+import resource
+import multiprocessing
+import traceback
+import re
+import math
+from datetime import datetime
 from langchain.tools import tool
 from gss_agent.rag.vector_store import NexusVectorStore
 from langchain_experimental.utilities import PythonREPL
@@ -11,7 +17,6 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 CHROMA_DIR = os.path.join(os.path.dirname(BASE_DIR), "chroma_db")
 
 v_store = NexusVectorStore(persist_directory=CHROMA_DIR)
-python_repl_utility = PythonREPL()
 
 class NexusDataReader:
     def __init__(self, data_dir=DATA_DIR):
@@ -180,6 +185,39 @@ def get_associate_performance_context(client_name: str) -> str:
     info = data_reader.get_associate_info(client['id'])
     return json.dumps(info, indent=2)
 
+def _safe_exec_worker(code, result_queue, memory_limit_mb=256):
+    """
+    Worker function to execute code in a separate process with resource limits.
+    """
+    try:
+        # 1. Set Memory Limit (RSS/Address Space)
+        ram_bytes = memory_limit_mb * 1024 * 1024
+        
+        # On macOS, many RLIMITs are complex. We try AS, RSS, and DATA.
+        for limit_type in [resource.RLIMIT_AS, resource.RLIMIT_DATA, resource.RLIMIT_RSS]:
+            try:
+                resource.setrlimit(limit_type, (ram_bytes, ram_bytes))
+            except (ValueError, OSError, AttributeError):
+                continue
+            
+        # 2. Add Auto-Imports
+        # We inject standard data science libs so simple scripts don't fail
+        preamble = "import pandas as pd\nimport numpy as np\nimport math\nfrom datetime import datetime\n"
+        full_code = preamble + code
+        
+        # 3. Execute
+        repl = PythonREPL()
+        output = repl.run(full_code)
+        
+        # Check if output is empty because of a stealthy crash or just no prints
+        if not output and "print(" in code:
+             result_queue.put({"success": False, "error": "Execution resulted in no output. Possible memory limit reached if print was expected."})
+        else:
+            result_queue.put({"success": True, "output": output})
+        
+    except Exception as e:
+        result_queue.put({"success": False, "error": f"{type(e).__name__}: {str(e)}"})
+
 @tool
 def analyze_data_python(code: str) -> str:
     """
@@ -189,7 +227,6 @@ def analyze_data_python(code: str) -> str:
     """
     import logging
     import re
-    import concurrent.futures
     logger = logging.getLogger("uvicorn.error")
     
     # SAFETY CHECK: Block dangerous imports and patterns
@@ -204,24 +241,45 @@ def analyze_data_python(code: str) -> str:
             logger.warning(f"BLOCKED dangerous pattern '{pattern}' in code.")
             return f"Error: The use of '{pattern}' is blocked for security reasons."
 
-    # HARDENING: Logic for execution timeout
+    # HARDENING: Logic for execution timeout AND memory limits
     timeout_seconds = 10
     
     logger.info(f"--- [PYTHON REPL START] (Timeout: {timeout_seconds}s) ---\n{code}\n--- [PYTHON REPL END] ---")
     
+    # Use multiprocessing for stronger isolation and resource limits
+    result_queue = multiprocessing.Queue()
+    process = multiprocessing.Process(
+        target=_safe_exec_worker, 
+        args=(code, result_queue, 256) # 256MB limit
+    )
+    
     try:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            future = executor.submit(python_repl_utility.run, code)
-            try:
-                result = future.result(timeout=timeout_seconds)
-                logger.info(f"REPL Output:\n{result}")
-                return f"Output:\n{result}"
-            except concurrent.futures.TimeoutError:
-                logger.error("REPL Execution timed out.")
-                return f"Error: Execution timed out after {timeout_seconds} seconds. Please optimize your code."
+        process.start()
+        process.join(timeout=timeout_seconds)
+        
+        if process.is_alive():
+            logger.error(f"REPL Execution timed out ({timeout_seconds}s). Killing process.")
+            process.terminate()
+            process.join(timeout=1)
+            if process.is_alive():
+                process.kill()
+            return f"Error: Execution timed out after {timeout_seconds} seconds. Please optimize your code."
+            
+        if not result_queue.empty():
+            result = result_queue.get_nowait()
+            if result["success"]:
+                logger.info(f"REPL Output:\n{result['output']}")
+                return f"Output:\n{result['output']}"
+            else:
+                logger.error(f"REPL Error: {result['error']}")
+                return f"Error executing code: {result['error']}"
+        else:
+            # Process died without output (e.g., segfault/OOM)
+            return "Error: Code execution failed abruptly (possible memory limit exceeded)."
+            
     except Exception as e:
-        logger.error(f"REPL Error: {str(e)}")
-        return f"Error executing code: {str(e)}"
+        logger.error(f"REPL System Error: {str(e)}")
+        return f"System Error executing code: {str(e)}"
 
 # Export tools
 GSS_TOOLS = [

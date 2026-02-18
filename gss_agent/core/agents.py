@@ -24,6 +24,11 @@ llm = ChatAnthropic(
     max_tokens=MAX_TOKENS
 )
 
+# HARNESS: Configure model profile to trigger built-in SummarizationMiddleware at 100k tokens.
+# The internal trigger is 85% of max_input_tokens.
+# 100,000 / 0.85 = 117,647
+llm.profile = {"max_input_tokens": 117647}
+
 # 1. Client Intel Agent
 client_intel_agent = create_deep_agent(
     model=llm,
@@ -31,25 +36,17 @@ client_intel_agent = create_deep_agent(
     tools=GSS_TOOLS,
     system_prompt="""You are the Nexus Advisory account health expert.
 Objective: Analyze client health, engagement, and churn risk.
+
+SMART QUERYING: If you expect a large volume of data (e.g. searching all interactions), 
+be highly specific with your queries. If results are still large, the system's 
+SummarizationMiddleware will condense them, but your primary goal is to fetch 
+precise, high-density data.
+
 Instructions:
 - Use 'lookup_client_file' to understand their history.
 - Use 'get_client_engagement_metrics' to see activity trends.
 - Use 'lookup_contract_details' for renewal urgency.
-- Output: A quantitative and qualitative health check. Use the term 'NPS Regression' or 'Churn Risk' where appropriate.
-
-NLP & Advanced Analytics Capabilities:
-- You have access to 'analyze_data_python' which lets you run ANY Python code.
-- For SENTIMENT ANALYSIS: Use the HuggingFace Transformers library with DistilBERT:
-    from transformers import pipeline
-    sentiment_pipe = pipeline('sentiment-analysis', model='distilbert-base-uncased-finetuned-sst-2-english', device=-1)
-    result = sentiment_pipe(text[:512])
-    # Returns: [{'label': 'POSITIVE'/'NEGATIVE', 'score': 0.99}]
-- For CHURN PREDICTION: Load client metrics data and train a model dynamically:
-    import json, pandas as pd
-    from sklearn.ensemble import RandomForestClassifier  # or xgboost.XGBClassifier
-    # Load data, engineer features, train, predict
-- Always set os.environ['TOKENIZERS_PARALLELISM'] = 'false' before importing transformers.
-- These models run locally - zero API cost."""
+- Output: A quantitative and qualitative health check. Use the term 'NPS Regression' or 'Churn Risk' where appropriate."""
 )
 
 # 2. Content Match Agent
@@ -59,6 +56,10 @@ content_match_agent = create_deep_agent(
     tools=GSS_TOOLS,
     system_prompt="""You are a Nexus Advisory Content Strategy Expert.
 Objective: Find the most impactful Nexus Advisory research to drive value for the client.
+
+SMART QUERYING: Focus your research searches on high-impact keywords. 
+Avoid broad queries that return irrelevant volume.
+
 Instructions:
 - Use 'search_research_library' with specific keywords derived from the client's industry or current pain points.
 - Prioritize 2024/2025 Magic Quadrants and Hype Cycles.
@@ -112,6 +113,10 @@ supervisor_agent = create_deep_agent(
     system_prompt="""You are the Lead Strategic Advisor at Nexus Advisory. 
 Goal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".
 
+SMART QUERYING: When delegating or using tools for large datasets, 
+instruct subagents to be specific. Do not ingest thousands of lines of raw data if 
+a summary or specific metric lookup is possible.
+
 Instruction:
 1. DATA GATHERING: Delegate to 'ClientIntel' for account context.
 2. RECOMMENDATION: Delegate to 'ContentMatch' for research.
@@ -119,7 +124,8 @@ Instruction:
    Structure: 'Executive Summary', 'Client Health', 'Strategic Recommendations', 'Talking Points'.
 4. VALIDATION: Pass your draft to 'Critic'. 
 5. ITERATION: You have ONLY ONE (1) iteration to address Critic feedback.
-   - After one fix, provide the final response. No further delegation.
+   - MANDATORY: After the first round of Critic feedback, you MUST produce the final response immediately. 
+   - No second revisions or repeat delegations.
 
 Constraint: STRICT FAITHFULNESS. Do not hallucinate research titles or revenue figures."""
 ).with_config({"recursion_limit": RECURSION_LIMIT})
@@ -144,6 +150,11 @@ executive_advisor_agent = create_deep_agent(
     checkpointer=checkpointer,
     system_prompt="""You are the Chief Strategy Officer's AI Assistant at Nexus Advisory.
 Objective: Provide portfolio-wide insights and revenue analysis.
+
+SMART QUERYING: You often deal with all clients or large metrics files. 
+Always use executive tools to summarize or filter data before processing. 
+If data is still huge, the system's middleware will handle truncation/summarization, 
+but efficient queries are your responsibility.
 
 Instructions:
 1. ANALYZE: Use executive tools to gather high-level data.
