@@ -42,6 +42,9 @@ class EvalReportEngine:
         
         print(f"{status_icon} [{test_name}] {query[:60]}... ({latency_ms:.0f}ms) {score_sum}")
         
+        # Rate Limiting: 2s throttle between cases to respect ZAI burst limits
+        time.sleep(2)
+        
     def generate_report(self):
         """Generate both JSON and HTML reports."""
         json_path = self.generate_json_report()

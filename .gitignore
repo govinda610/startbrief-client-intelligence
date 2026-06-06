@@ -54,3 +54,11 @@ Govind_Mittal_Resume_09Jan2026.pdf
 
 # Interview Guides (not part of project)
 guides/
+
+# AI-assistant / planning / log noise (keep local)
+.claude/
+conversation_history/
+IMPLEMENTATION_PLAN.md
+TASKS.md
+eval_log.txt
+logs/

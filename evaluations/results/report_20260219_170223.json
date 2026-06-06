@@ -1,0 +1,230 @@
+{
+  "run_id": "20260219_170223",
+  "generated_at": "2026-02-19T17:02:45.608215",
+  "summary": {
+    "total_cases": 11,
+    "passed": 11,
+    "failed": 0,
+    "avg_latency_ms": 0.5905378255358135,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "data_access": {
+        "count": 11,
+        "passed": 11,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0.5905378255358135
+      }
+    },
+    "test_suites_run": 1
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-19T17:02:23.560403",
+      "test_name": "data_access",
+      "case_id": "da_lookup_c_metropolitan_transit_authority_541",
+      "query": "Can lookup_client_file find 'Metropolitan Transit Authority'?",
+      "agent_response": "{\n  \"id\": \"c_metropolitan_transit_authority_541\",\n  \"name\": \"Metropolitan Transit Authority\",\n  \"industry\": \"Public Sector\",\n  \"revenue\": \"$1.2B\",\n  \"region\": \"EMEA\",\n  \"lifecycle_stage\": \"At Risk\",\n  \"churn_risk\": \"High\",\n  \"subscriptions\": [\n    \"Nexus Advisory for Finance Leaders\",\n    \"Nexus Advisory for Supply Chain Leaders\"\n  ],\n  \"entitlements\": [\n    \"Technical Professional Advice\",\n    \"Analyst Inquiries\"\n  ],\n  \"key_contacts\": [\n    {\n      \"name\": \"Anya Petrov\",\n      \"role\": \"CIO\"\n  ",
+      "retrieved_context": "Input: client_name='Metropolitan Transit Authority'",
+      "scores": {
+        "found": true,
+        "name_match": true,
+        "client_id": "c_metropolitan_transit_authority_541"
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.820250017568469,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:25.565014",
+      "test_name": "data_access",
+      "case_id": "da_lookup_c_globalprecision_industries_232",
+      "query": "Can lookup_client_file find 'GlobalPrecision Industries'?",
+      "agent_response": "{\n  \"id\": \"c_globalprecision_industries_232\",\n  \"name\": \"GlobalPrecision Industries\",\n  \"industry\": \"Manufacturing\",\n  \"revenue\": \"$2.8B\",\n  \"region\": \"EMEA\",\n  \"lifecycle_stage\": \"Growth\",\n  \"churn_risk\": \"Medium\",\n  \"subscriptions\": [\n    \"Nexus Advisory Standard License (GSL)\"\n  ],\n  \"entitlements\": [\n    \"Hype Cycles\",\n    \"Analyst Inquiries\",\n    \"Magic Quadrant Access\",\n    \"Technical Professional Advice\"\n  ],\n  \"key_contacts\": [\n    {\n      \"name\": \"David Kim\",\n      \"role\": \"Director of ",
+      "retrieved_context": "Input: client_name='GlobalPrecision Industries'",
+      "scores": {
+        "found": true,
+        "name_match": true,
+        "client_id": "c_globalprecision_industries_232"
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.520500005222857,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:27.569413",
+      "test_name": "data_access",
+      "case_id": "da_lookup_c_global_financial_nexus_corp_604",
+      "query": "Can lookup_client_file find 'Global Financial Nexus Corp'?",
+      "agent_response": "{\n  \"id\": \"c_global_financial_nexus_corp_604\",\n  \"name\": \"Global Financial Nexus Corp\",\n  \"industry\": \"Finance\",\n  \"revenue\": \"$15B\",\n  \"region\": \"North America\",\n  \"lifecycle_stage\": \"At Risk\",\n  \"churn_risk\": \"High\",\n  \"subscriptions\": [\n    \"Nexus Advisory for CIOs\",\n    \"Nexus Advisory Standard License (GSL)\"\n  ],\n  \"entitlements\": [\n    \"Hype Cycles\",\n    \"Technical Professional Advice\",\n    \"Magic Quadrant Access\",\n    \"Peer Insights\"\n  ],\n  \"key_contacts\": [\n    {\n      \"name\": \"Reginald ",
+      "retrieved_context": "Input: client_name='Global Financial Nexus Corp'",
+      "scores": {
+        "found": true,
+        "name_match": true,
+        "client_id": "c_global_financial_nexus_corp_604"
+      },
+      "reasoning": "Tool correctly retrieved client profile.",
+      "latency_ms": 0.40004198672249913,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:29.573698",
+      "test_name": "data_access",
+      "case_id": "da_metrics_c_finedge_capital_partners_938",
+      "query": "Can get_client_engagement_metrics retrieve data for 'FinEdge Capital Partners'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_finedge_capital_partners_938\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 12,\n      \"content_downloads\": 9,\n      \"inquiry_utilization_pct\": 77,\n      \"nps\": 9,\n      \"csat\": 4.178680402707594,\n      \"contract_value_arr\": 214000,\n      \"days_since_last_engagement\": 1,\n      \"research_docs_accessed\": 10,\n      \"analyst_inquiry_hours\": 7.7\n    }\n  },\n  {\n    \"client_id\": \"c_finedge_capital_partners_938\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n    ",
+      "retrieved_context": "Input: client_name='FinEdge Capital Partners'",
+      "scores": {
+        "found": true,
+        "is_list": true,
+        "client_id": "c_finedge_capital_partners_938"
+      },
+      "reasoning": "Engagement metrics returned successfully.",
+      "latency_ms": 0.6250830192584544,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:31.576246",
+      "test_name": "data_access",
+      "case_id": "da_metrics_c_retailconnect_inc_466",
+      "query": "Can get_client_engagement_metrics retrieve data for 'RetailConnect Inc'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_retailconnect_inc_466\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 31,\n      \"content_downloads\": 14,\n      \"inquiry_utilization_pct\": 57,\n      \"nps\": 7,\n      \"csat\": 3.389515778411681,\n      \"contract_value_arr\": 429000,\n      \"days_since_last_engagement\": 7,\n      \"research_docs_accessed\": 21,\n      \"analyst_inquiry_hours\": 5.7\n    }\n  },\n  {\n    \"client_id\": \"c_retailconnect_inc_466\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_freq",
+      "retrieved_context": "Input: client_name='RetailConnect Inc'",
+      "scores": {
+        "found": true,
+        "is_list": true,
+        "client_id": "c_retailconnect_inc_466"
+      },
+      "reasoning": "Engagement metrics returned successfully.",
+      "latency_ms": 0.45987500925548375,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:33.582698",
+      "test_name": "data_access",
+      "case_id": "da_metrics_c_globalfin_bank_395",
+      "query": "Can get_client_engagement_metrics retrieve data for 'GlobalFin Bank'?",
+      "agent_response": "[\n  {\n    \"client_id\": \"c_globalfin_bank_395\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\": 23,\n      \"content_downloads\": 7,\n      \"inquiry_utilization_pct\": 56,\n      \"nps\": 9,\n      \"csat\": 4.222739441910287,\n      \"contract_value_arr\": 434000,\n      \"days_since_last_engagement\": 15,\n      \"research_docs_accessed\": 10,\n      \"analyst_inquiry_hours\": 5.6\n    }\n  },\n  {\n    \"client_id\": \"c_globalfin_bank_395\",\n    \"month\": \"2025-08\",\n    \"metrics\": {\n      \"login_frequency\"",
+      "retrieved_context": "Input: client_name='GlobalFin Bank'",
+      "scores": {
+        "found": true,
+        "is_list": true,
+        "client_id": "c_globalfin_bank_395"
+      },
+      "reasoning": "Engagement metrics returned successfully.",
+      "latency_ms": 1.3037919998168945,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:35.588779",
+      "test_name": "data_access",
+      "case_id": "da_contract_c_omnichannel_retail_ventures_438",
+      "query": "Can lookup_contract_details find contract for 'OmniChannel Retail Ventures'?",
+      "agent_response": "{\n  \"id\": \"CON-438\",\n  \"client_id\": \"c_omnichannel_retail_ventures_438\",\n  \"start_date\": \"2025-07-08\",\n  \"end_date\": \"2026-07-08\",\n  \"total_value\": 535000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"Medium\",\n  \"service_level\": \"Platinum\"\n}",
+      "retrieved_context": "Input: client_name='OmniChannel Retail Ventures'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active",
+        "client_id": "c_omnichannel_retail_ventures_438"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.4895000020042062,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:37.590067",
+      "test_name": "data_access",
+      "case_id": "da_contract_c_globalfin_capital_311",
+      "query": "Can lookup_contract_details find contract for 'GlobalFin Capital'?",
+      "agent_response": "{\n  \"id\": \"CON-311\",\n  \"client_id\": \"c_globalfin_capital_311\",\n  \"start_date\": \"2025-06-11\",\n  \"end_date\": \"2026-06-11\",\n  \"total_value\": 150000,\n  \"currency\": \"USD\",\n  \"status\": \"Active\",\n  \"renewal_likelihood\": \"High\",\n  \"service_level\": \"Silver\"\n}",
+      "retrieved_context": "Input: client_name='GlobalFin Capital'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Active",
+        "client_id": "c_globalfin_capital_311"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.6087920046411455,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:39.592987",
+      "test_name": "data_access",
+      "case_id": "da_contract_c_precision_manufacturing_alliance_ltd_319",
+      "query": "Can lookup_contract_details find contract for 'Precision Manufacturing Alliance Ltd'?",
+      "agent_response": "{\n  \"id\": \"CON-319\",\n  \"client_id\": \"c_precision_manufacturing_alliance_ltd_319\",\n  \"start_date\": \"2025-01-15\",\n  \"end_date\": \"2026-01-15\",\n  \"total_value\": 150000,\n  \"currency\": \"USD\",\n  \"status\": \"Expired\",\n  \"renewal_likelihood\": \"Medium\",\n  \"service_level\": \"Silver\"\n}",
+      "retrieved_context": "Input: client_name='Precision Manufacturing Alliance Ltd'",
+      "scores": {
+        "has_total_value": true,
+        "valid_status": "Expired",
+        "client_id": "c_precision_manufacturing_alliance_ltd_319"
+      },
+      "reasoning": "Contract details retrieved with valid status.",
+      "latency_ms": 0.4437910101842135,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:41.599565",
+      "test_name": "data_access",
+      "case_id": "da_assoc",
+      "query": "Can get_associate_performance_context find associate for 'Nexus Innovations'?",
+      "agent_response": "{\n  \"profile\": {\n    \"id\": \"ASSOC-002\",\n    \"name\": \"David Miller\",\n    \"role\": \"Client Success Associate\",\n    \"region\": \"North America\",\n    \"tenure_months\": 24\n  },\n  \"performance\": {\n    \"associate_id\": \"ASSOC-002\",\n    \"metrics\": {\n      \"cross_sell_rate\": 0.15,\n      \"upsell_rate\": 0.16,\n      \"avg_csat\": 4.0,\n      \"retention_rate\": 0.89,\n      \"avg_interaction_time_mins\": 44,\n      \"renewals_secured\": 10,\n      \"revenue_managed\": 3842000\n    }\n  }\n}",
+      "retrieved_context": "Input: client_name='Nexus Innovations'",
+      "scores": {
+        "has_profile": true,
+        "has_performance": true
+      },
+      "reasoning": "Associate context retrieved with profile and performance data.",
+      "latency_ms": 0.4372910188976675,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:43.605501",
+      "test_name": "data_access",
+      "case_id": "da_list",
+      "query": "Does list_all_clients return a valid client list?",
+      "agent_response": "Returned 25 clients. First: Nexus Innovations",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "count": 25,
+        "has_name_field": true
+      },
+      "reasoning": "Client listing works correctly.",
+      "latency_ms": 0.3870000073220581,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    }
+  ]
+}

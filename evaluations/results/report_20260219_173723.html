@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260219_173723</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260219_173723</small><br>
+            <small>Generated: 2026-02-19 17:45:22</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value warn">3/4 (75.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">4</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">2</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value warn">117822ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">RESPONSE QUALITY</div>
+                <div class="suite-card-rate" style="color:#f97316;">67%</div>
+                <div class="suite-card-detail">2/3 passed</div>
+                <div class="suite-card-detail">Avg: 55901ms</div>
+            </div>
+
+            <div class="suite-card">
+                <div class="suite-card-name">RESPONSE QUALITY AGGREGATE</div>
+                <div class="suite-card-rate" style="color:#4ade80;">100%</div>
+                <div class="suite-card-detail">1/1 passed</div>
+                <div class="suite-card-detail">Avg: 303584ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>🔴 **Response Quality** (33% failures): LLM judge rated responses below threshold. Consider: (1) Improving sub-agent prompts, (2) Adding response formatting guidelines, (3) Testing with different LLM models.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>❌ RESPONSE QUALITY</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">2 passed</span>
+                        <span class="stat-fail">1 failed</span>
+                        <span class="stat-total">3 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">What is the strategic priority for TechNova Solutions based on recent research?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Based on my analysis of TechNova Solutions' account profile and recent Nexus Advisory research:
+
+# TechNova Solutions - Strategic Priority Brief
+
+## Executive Summary
+
+**Primary Strategic Priority:** **XaaS (Everything-as-a-Service) Transformation** - TechNova is executing a critical strategic pivot from traditional hardware/software to an Everything-as-a-Service business model. This transformation represents their top strategic priority, directly impacting revenue streams, product delivery, and competitive positioning.
+
+**Critical Insight:** While TechNova demonstrates strong engagement (inquiry utilization increased to 65%, ARR expanded to $517K), declining satisfaction metrics (CSAT down 31% to 3.43/5, NPS dropped from 10 to 7) indicate emerging friction points that require immediate attention ahead of their June 2026 renewal.
+
+---
+
+## Client Health
+
+| Metric | Status | Trend |
+|--------|--------|-------|
+| **Churn Risk** | Medium | ⚠️ Requires attention |
+| **Renewal** | June 2026 | Medium likelihood |
+| **ARR** | $517,000 | ↑ Expanded (December) |
+| **Tier** | Gold | |
+| **CSAT** | 3.43/5 | ↓ 31% decline (Nov→Jan) |
+| **NPS** | 7 | ↓ From 10 (Aug/Nov) |
+| **Engagement** | High | 65% inquiry utilization |
+
+**Positive Signals:** Strong analyst inquiry adoption (5.1+ hours), recent ARR expansion, active content consumption (24 downloads in December)
+
+**Risk Signals:** Significant satisfaction regression, weakening advocacy scores
+
+---
+
+## Strategic Recommendations
+
+### 1. **XaaS Transformation Readiness** (Highest Priority)
+
+**Supporting Research:** *Market Guide for Digital Transformation Services, 2025*
+
+**Key Finding:** 65% of digital transformation initiatives fail due to cultural resistance—not technical issues. "Product Engineering" is identified as the fastest-growing service category.
+
+**Talking Point (Michael Chen, CTO):** *"As TechNova pivots toward Everything-as-a-Service, our latest Market Guide shows Product Engineering as the fastest-growing service category—validating your platform strategy. However, research indicates 65% of DT initiatives fail due to cultural resistance. How is your change management framework addressing this challenge?"*
+
+**Action:** Deliver Market Guide for Digital Transformation Services 2025 to inform XaaS roadmap
+
+---
+
+### 2. **AI-First Infrastructure for Apex 9000**
+
+**Supporting Research:** *Magic Quadrant for Enterprise Networking and Hybrid Connectivity, 2025*
+
+**Key Finding:** 60% of network investments will be AI-inference-driven by 2027; Leaders distinguished by AIOps capabilities that reduce MTTR by 45%.
+
+**Talking Point (Michael Chen, CTO):** *"With Apex 9000 requiring API parity with major public clouds, our latest MQ shows AI-first infrastructure becoming the key differentiator. Leaders are achieving 45% MTTR reduction through AIOps. Does your networking roadmap prioritize unified SASE platforms and AI-driven assurance?"*
+
+---
+
+### 3. **Edge AI Pricing Strategy**
+
+**Supporting Research:** *Critical Capabilities for Generative AI in Digital Commerce, 2025*
+
+**Key Finding:** 200% conversion lift from multimodal input processing; composable AI modules outperform monolithic suites in flexibility.
+
+**Talking Point:** *"For your Edge AI pricing strategy work, research shows composable AI modules enable significantly more flexibility than monolithic suites. Are your product teams prioritizing modularity to maintain competitive agility in pricing models?"*
+
+---
+
+### 4. **AI-Ready Network Architecture**
+
+**Supporting Research:** *Quick Answer: Strategic Roadmap for Enterprise Networking in the Age of AI, 2025*
+
+**Key Finding:** Traditional network architectures can cause 40% performance degradation in AI applications; flattened leaf-spine topologies and Application-Aware Infrastructure recommended.
+
+**Talking Point (Sarah Johnson, VP IT Operations):** *"With your planned AI inference workloads, research shows traditional networks could cause 40% AI performance degradation. Our roadmap recommends Application-Aware Infrastructure by 2026. Are your current network upgrades prioritizing AI traffic classification?"*
+
+---
+
+## Stakeholder-Specific Talking Points
+
+| Stakeholder | Topic | Key Question |
+|-------------|-------|--------------|
+| **Michael Chen (CTO)** | XaaS Transformation | *"How does your change management framework address the cultural resistance challenges that affect 65% of DT initiatives?"* |
+| **Sarah Johnson (VP IT Ops)** | AI Networking Readiness | *"Traditional networks cause 40% AI performance degradation. Is your infrastructure prioritizing AI traffic classification?"* |
+| **Sofia Rodriguez (VP Product)** | Edge AI Monetization | *"GenAI commerce research shows 200% conversion lift from multimodal inputs. How does this inform your pricing strategy?"* |
+
+---
+
+## Immediate Action Items
+
+1. **Deliver** Market Guide for Digital Transformation Services 2025 (XaaS transformation support)
+2. **Share** Strategic Roadmap: Enterprise Networking in the Age of AI (infrastructure planning)
+3. **Provide** Critical Capabilities for Generative AI in Digital Commerce 2025 (pricing strategy input)
+4. **Monitor** CSAT and NPS trends closely given recent decline
+5. **Engage** proactively with account team to address satisfaction concerns before renewal window</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (11 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [["I'll gather the strategic priority for TechNova Solutions by analyzing their profile and relevant research."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\n\nSMART QUERYING: Focus your <br><span style="color:#4ade80;">Out:</span> [["I'll help you find relevant Nexus Advisory research for TechNova Solutions. Let me first gather some context about the client and then search the research library for high-impact content."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\n\nSMART QUERYING: Focus your <br><span style="color:#4ade80;">Out:</span> [['Now I have good context on TechNova Solutions. Let me search the Nexus Advisory research library for high-impact reports relevant to their priorities.']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\n\nSMART QUERYING: Focus your <br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['## TechNova Solutions - Account Health Analysis\n\n### 1) Company Profile\n\n| Attribute | Details |\n|-----------|---------|\n| **Industry** | High Tech |\n| **Revenue** | $1.5B |\n| **Region** | North America |\n| **Lifecycle Stage** | Growth |\n| **Service Level** | Gold |\n| **ARR** | $517,000 (current) |\n| **Subscriptions** | Nexus Advisory for Supply Chain Leaders, Standard License (GSL) |\n| **Entitlements** | Peer Insights, Hype Cycles |\n| **Key Contacts** | Michael Chen (CTO), Sara</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are a Nexus Advisory Content Strategy Expert.\nObjective: Find the most impactful Nexus Advisory research to drive value for the client.\n\nSMART QUERYING: Focus your <br><span style="color:#4ade80;">Out:</span> [['Based on my research of TechNova Solutions\' profile, interaction history, and recent strategic priorities, I\'ve identified the following high-impact Nexus Advisory research that aligns with their business needs:\n\n---\n\n## **🎯 Top Priority Research for TechNova Solutions**\n\n### **1. Market Guide for Digital Transformation Services, 2025**\n\n**Talking Point for Michael Chen (CTO):** *"As TechNova pivots toward Everything-as-a-Service (XaaS), this Market Guide reveals that 65% of DT init</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['Based on the account analysis and research, here\'s the strategic priority for TechNova Solutions:\n\n---\n\n# TechNova Solutions - Strategic Meeting Brief\n\n## Executive Summary\n\n**Strategic Priority:** **XaaS (Everything-as-a-Service) Transformation** - TechNova is executing a strategic pivot from traditional hardware/software to an Everything-as-a-Service model. This is their top strategic priority, directly impacting revenue model, product delivery, and competitive positioning.\n\n**Ke</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory 'Quality Assurance' Director.\nObjective: Ensure the agent's response is 100% faithful to the retrieved data.\nRubric:\n1. FAITHFULNESS: Every c<br><span style="color:#4ade80;">Out:</span> [["I'd be happy to review a strategic meeting brief for TechNova Solutions. However, I don't see the brief document in your message. \n\nCould you please provide the meeting brief you'd like me to review? You can either:\n1. Share the file path if it's in the filesystem\n2. Paste the content directly in your message\n3. Upload the document\n\nOnce I have access to the brief, I'll conduct a thorough review checking for:\n- **Factual accuracy** (verifying no hallucinated data)\n- **Strategic relev</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['Based on my analysis of TechNova Solutions\' account profile and recent Nexus Advisory research:\n\n# TechNova Solutions - Strategic Priority Brief\n\n## Executive Summary\n\n**Primary Strategic Priority:** **XaaS (Everything-as-a-Service) Transformation** - TechNova is executing a critical strategic pivot from traditional hardware/software to an Everything-as-a-Service business model. This transformation represents their top strategic priority, directly impacting revenue streams, product del</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [['You are an expert AI performance auditor. \nEvaluate the following interaction between a user and a Strategic Advisor Agent.\n\nUser Query: What is the strategic priority for TechNova Solutions bas<br><span style="color:#4ade80;">Out:</span> [['```json\n{\n  "relevance": 5,\n  "accuracy": 5,\n  "completeness": 5,\n  "tone": 5,\n  "hallucination": "No",\n  "reasoning": "The response provides a highly precise and actionable strategic brief tailored to the user\'s query about TechNova Solutions. It synthesizes quantitative health metrics (ARR, CSAT, NPS) with qualitative strategic themes (XaaS Transformation, AI-First Infrastructure) effectively. The inclusion of stakeholder-specific talking points and specific research citations demon</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">relevance: 5</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">accuracy: 5</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">completeness: 5</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">tone: 5</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">hallucination: No</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">reasoning: The response provides a highly precise and actionable strategic brief tailored to the user's query about TechNova Solutions. It synthesizes quantitative health metrics (ARR, CSAT, NPS) with qualitative strategic themes (XaaS Transformation, AI-First Infrastructure) effectively. The inclusion of stakeholder-specific talking points and specific research citations demonstrates high completeness. The tone is professional, consultative, and appropriately urgent given the declining health scores. No hallucinations are present; the data appears logically structured around a hypothetical or provided account profile context.</span>
+                        <div class="meta-info">
+                            Latency: 67981ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 1298 output_tokens: 158 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The response provides a highly precise and actionable strategic brief tailored to the user's query about TechNova Solutions. It synthesizes quantitative health metrics (ARR, CSAT, NPS) with qualitative strategic themes (XaaS Transformation, AI-First Infrastructure) effectively. The inclusion of stakeholder-specific talking points and specific research citations demonstrates high completeness. The tone is professional, consultative, and appropriately urgent given the declining health scores. No hallucinations are present; the data appears logically structured around a hypothetical or provided account profile context.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">How is the associate for Cedar Health Systems performing?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">## Associate Performance: Cedar Health Systems
+
+**Assigned Associate:** Emily Davis (ASSOC-007)
+- **Role:** Client Success Associate
+- **Tenure:** 27 months
+- **Region:** North America
+
+### Performance Metrics
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| **Retention Rate** | 85% | Solid |
+| **Avg CSAT** | 4.2 / 5.0 | Strong |
+| **Cross-sell Rate** | 29% | Good |
+| **Upsell Rate** | 8% | Moderate |
+| **Renewals Secured** | 7 | Healthy |
+| **Revenue Managed** | $1.94M | Substantial |
+| **Avg Interaction Time** | 37 mins | Appropriate |
+
+### Summary
+
+Emily Davis is performing well with the Cedar Health Systems account. Her retention rate of 85% and CSAT of 4.2 indicate strong client relationship management. The cross-sell rate of 29% shows effectiveness in expanding account value, though there may be room to improve the upsell rate (8%). With nearly 2.5 years of tenure, she brings solid experience to the account.</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (3 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [["I'll look up the associate performance information for Cedar Health Systems."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['## Associate Performance: Cedar Health Systems\n\n**Assigned Associate:** Emily Davis (ASSOC-007)\n- **Role:** Client Success Associate\n- **Tenure:** 27 months\n- **Region:** North America\n\n### Performance Metrics\n\n| Metric | Value | Assessment |\n|--------|-------|------------|\n| **Retention Rate** | 85% | Solid |\n| **Avg CSAT** | 4.2 / 5.0 | Strong |\n| **Cross-sell Rate** | 29% | Good |\n| **Upsell Rate** | 8% | Moderate |\n| **Renewals Secured** | 7 | Healthy |\n| **Revenue Managed</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [['You are an expert AI performance auditor. \nEvaluate the following interaction between a user and a Strategic Advisor Agent.\n\nUser Query: How is the associate for Cedar Health Systems performing?<br><span style="color:#4ade80;">Out:</span> [['```json\n{\n  "relevance": 5,\n  "accuracy": 5,\n  "completeness": 4,\n  "tone": 5,\n  "hallucination": "No",\n  "reasoning": "The agent directly answers the user\'s question about a specific associate\'s performance with high accuracy. It provides a comprehensive set of relevant business metrics (Retention, CSAT, Revenue) appropriate for a Strategic Advisor. The tone is highly professional. The score of 4 for Completeness reflects that while the metrics are strong, the \'Summary\' section co</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">relevance: 5</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">accuracy: 5</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">completeness: 4</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">tone: 5</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">hallucination: No</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">reasoning: The agent directly answers the user's question about a specific associate's performance with high accuracy. It provides a comprehensive set of relevant business metrics (Retention, CSAT, Revenue) appropriate for a Strategic Advisor. The tone is highly professional. The score of 4 for Completeness reflects that while the metrics are strong, the 'Summary' section could offer deeper strategic insight or specific next steps to maximize account value, rather than just summarizing the data points. There are no hallucinations detected.</span>
+                        <div class="meta-info">
+                            Latency: 5662ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 431 output_tokens: 151 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The agent directly answers the user's question about a specific associate's performance with high accuracy. It provides a comprehensive set of relevant business metrics (Retention, CSAT, Revenue) appropriate for a Strategic Advisor. The tone is highly professional. The score of 4 for Completeness reflects that while the metrics are strong, the 'Summary' section could offer deeper strategic insight or specific next steps to maximize account value, rather than just summarizing the data points. There are no hallucinations detected.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row case-fail">
+                    <td><span class="status-fail">❌ FAIL</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Summarize the churn risks for our high-revenue clients.</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Summary complete. The analysis reveals 62% of your high-revenue portfolio ($4.2M ARR) is at elevated or critical churn risk, with 4 clients requiring immediate executive intervention and 6 needing proactive engagement within 30 days.</div>
+                        <div style="margin-top:8px;"><button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="background:#334155; color:#e2e8f0; border:none; padding:4px 8px; border-radius:4px; font-size:10px; cursor:pointer;">🔍 View Trace (17 steps)</button><div class="trace-box" style="display:none; margin-top:10px; padding:10px; background:#0f172a; border-radius:6px; border:1px solid #334155; font-family:monospace; font-size:10px;"><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [["I'll analyze churn risks across your high-revenue clients. Let me gather the necessary data systematically."]]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['# HIGH-REVENUE CLIENT CHURN RISK ANALYSIS\n## Identifying Clients >$100k ARR or Platinum/Gold Tier with Churn Risk Indicators\n\n---\n\n## 🚨 CRITICAL RISK - HIGH CHURN PROBABILITY\n\n### 1. **EuroHealth Solutions Group** - Healthcare\n| Metric | Value |\n|--------|-------|\n| **ARR** | $350,000 |\n| **Tier** | Gold |\n| **Churn Risk** | **HIGH** |\n| **Lifecycle Stage** | Renewal (expires 2026-03-05) |\n| **Renewal Likelihood** | High |\n\n**Churn Risk Indicators:**\n- **NPS Regression**: Cat</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': "You are the Nexus Advisory account health expert.\nObjective: Analyze client health, engagement, and churn risk.\n\nSMART QUERYING: If you expect a large volume of data (e<br><span style="color:#4ade80;">Out:</span> [['I\'ve completed a comprehensive analysis of all 25 clients, identifying **17 high-revenue clients** (>$100k ARR or Platinum/Gold tier) representing **$6.83M in total ARR**.\n\n## Key Findings:\n\n### 🚨 CRITICAL RISK (4 clients, $1.46M ARR)\nThese clients require **immediate intervention**:\n\n1. **EuroHealth Solutions Group** ($350k) - Contract renewal March 2026 with catastrophic NPS/CSAT collapse\n2. **Global Financial Nexus Corp** ($250k) - 76% login decline, CSAT at 1.52 (critical)\n3. **</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['# High-Revenue Client Churn Risk Summary\n\n## Portfolio Overview\n- **High-Revenue Clients Analyzed**: 17 accounts (>$100k ARR or Platinum/Gold tier)\n- **Total ARR at Stake**: $6.83M\n- **ARR at Risk**: $4.2M (62% of high-revenue portfolio)\n\n---\n\n## 🚨 Critical Risk Clients (Immediate Intervention Required)\n\n### 1. **EuroHealth Solutions Group** - $350k ARR\n- **Risk Level**: Critical\n- **Tier**: Platinum\n- **Key Indicators**: Contract renewal March 2026, catastrophic NPS/CSAT collap</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [[[{'type': 'text', 'text': 'You are the Lead Strategic Advisor at Nexus Advisory. \nGoal: Produce highly relevant, accurate, and concise "Strategic Meeting Briefs".\n\nSMART QUERYING: When delegating<br><span style="color:#4ade80;">Out:</span> [['Summary complete. The analysis reveals 62% of your high-revenue portfolio ($4.2M ARR) is at elevated or critical churn risk, with 4 clients requiring immediate executive intervention and 6 needing proactive engagement within 30 days.']]</div><div style="margin-bottom:8px; border-bottom:1px solid #1e293b; padding-bottom:4px;"><strong style="color:#22d3ee;">unknown</strong><br><span style="color:#94a3b8;">In:</span> [['You are an expert AI performance auditor. \nEvaluate the following interaction between a user and a Strategic Advisor Agent.\n\nUser Query: Summarize the churn risks for our high-revenue clients.\n<br><span style="color:#4ade80;">Out:</span> [['```json\n{\n  "relevance": 5,\n  "accuracy": 1,\n  "completeness": 1,\n  "tone": 5,\n  "hallucination": "Yes",\n  "reasoning": "The agent is rated a 1 for Accuracy and flagged for Hallucination because the response includes specific, verifiable metrics ($4.2M ARR, 62%, 4 clients) and counts that could not have been derived from a generic system prompt or context-free query. Without a provided document or database containing these exact figures, the agent has fabricated the data. While the ton</div></div></div>
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">relevance: 5</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">accuracy: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">completeness: 1</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">tone: 5</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">hallucination: Yes</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">reasoning: The agent is rated a 1 for Accuracy and flagged for Hallucination because the response includes specific, verifiable metrics ($4.2M ARR, 62%, 4 clients) and counts that could not have been derived from a generic system prompt or context-free query. Without a provided document or database containing these exact figures, the agent has fabricated the data. While the tone is professional and the response is structurally relevant, the content constitutes a critical hallucination regarding business intelligence.</span>
+                        <div class="meta-info">
+                            Latency: 94061ms<br>
+                            Tokens: cache_creation: None cache_creation_input_tokens: None cache_read_input_tokens: 0 input_tokens: 236 output_tokens: 151 server_tool_use: {'web_search_requests': 0} service_tier: standard 
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">The agent is rated a 1 for Accuracy and flagged for Hallucination because the response includes specific, verifiable metrics ($4.2M ARR, 62%, 4 clients) and counts that could not have been derived from a generic system prompt or context-free query. Without a provided document or database containing these exact figures, the agent has fabricated the data. While the tone is professional and the response is structurally relevant, the content constitutes a critical hallucination regarding business intelligence.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>✅ RESPONSE QUALITY AGGREGATE</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">1 passed</span>
+                        <span class="stat-fail">0 failed</span>
+                        <span class="stat-total">1 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Aggregate response quality across 3 test cases</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Final Avg Score: 5.00
+Hallucination Rate: 0.00 (0/3)
+Per-case averages: ['5.0', '5.0', '5.0']</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">final_avg_score: 5.00</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">hallucination_rate: 0.00</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">cases_evaluated: 3</span>
+                        <div class="meta-info">
+                            Latency: 303584ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Quality and hallucination thresholds met.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+        <h2 class="section-title">🔬 Improvement Analysis — Deep Dive</h2>
+        
+        <div class="recs" style="border-left: 4px solid #ef4444;">
+            <h3>📊 Priority Fix Matrix</h3>
+            <p style="color:#94a3b8;font-size:12px;margin-bottom:12px;">1 failures out of 4 total test cases. Ordered by severity.</p>
+            
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1f2937;">
+                <span style="background:#eab30820;color:#eab308;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid #eab30840;min-width:70px;text-align:center;">MEDIUM</span>
+                <div style="flex:1;">
+                    <div style="color:#f8fafc;font-size:13px;font-weight:600;">Prompt/Routing Issues (1 failures)</div>
+                    <div style="color:#64748b;font-size:11px;margin-top:2px;">Sample: Summarize the churn risks for our high-revenue clients....</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="suite-section">
+            <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                <h3>🔍 Failed Case Deep-Dives (click to expand)</h3>
+                <div class="suite-stats">
+                    <span class="stat-fail">1 failures</span>
+                </div>
+            </div>
+            <div class="suite-body">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>Suite</th>
+                            <th>Query / Input</th>
+                            <th>Scores</th>
+                            <th>Agent Response</th>
+                            <th>Judge Reasoning / Analysis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr style="border-bottom:1px solid #1f2937;">
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;">response_quality</td>
+                <td style="padding:10px;font-size:11px;color:#e2e8f0;vertical-align:top;max-width:200px;">Summarize the churn risks for our high-revenue clients.</td>
+                <td style="padding:10px;vertical-align:top;"><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>relevance: 5</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>accuracy: 1</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>completeness: 1</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>tone: 5</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>hallucination: Yes</span><span style='display:inline-block;background:#ef444420;color:#ef4444;padding:2px 6px;border-radius:3px;font-size:10px;margin:1px 3px 1px 0;border:1px solid #ef444440;'>reasoning: The agent is rated a 1 for Accuracy and flagged for Hallucination because the response includes specific, verifiable metrics ($4.2M ARR, 62%, 4 clients) and counts that could not have been derived from a generic system prompt or context-free query. Without a provided document or database containing these exact figures, the agent has fabricated the data. While the tone is professional and the response is structurally relevant, the content constitutes a critical hallucination regarding business intelligence.</span></td>
+                <td style="padding:10px;font-size:11px;color:#94a3b8;vertical-align:top;max-width:250px;"><div style="max-height:120px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;">Summary complete. The analysis reveals 62% of your high-revenue portfolio ($4.2M ARR) is at elevated or critical churn risk, with 4 clients requiring immediate executive intervention and 6 needing proactive engagement within 30 days.</div></td>
+                <td style="padding:10px;font-size:11px;color:#cbd5e1;vertical-align:top;max-width:300px;">The agent is rated a 1 for Accuracy and flagged for Hallucination because the response includes specific, verifiable metrics ($4.2M ARR, 62%, 4 clients) and counts that could not have been derived from a generic system prompt or context-free query. Without a provided document or database containing these exact figures, the agent has fabricated the data. While the tone is professional and the respo</td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

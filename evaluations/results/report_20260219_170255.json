@@ -1,0 +1,83 @@
+{
+  "run_id": "20260219_170255",
+  "generated_at": "2026-02-19T17:03:01.459510",
+  "summary": {
+    "total_cases": 3,
+    "passed": 3,
+    "failed": 0,
+    "avg_latency_ms": 0.4262636648491025,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "executive_tools": {
+        "count": 3,
+        "passed": 3,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 0.4262636648491025
+      }
+    },
+    "test_suites_run": 1
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-19T17:02:55.446272",
+      "test_name": "executive_tools",
+      "case_id": "ex_revenue",
+      "query": "Does get_revenue_snapshot return complete portfolio health data?",
+      "agent_response": "{\n  \"total_estimated_arr\": \"$2,600,000\",\n  \"total_clients\": 25,\n  \"high_value_accounts\": 9,\n  \"average_deal_size\": \"$104,000\"\n}",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "has_arr": true,
+        "has_clients": true,
+        "has_high_value": true,
+        "total_arr": "$2,600,000",
+        "total_clients": 25
+      },
+      "reasoning": "Revenue snapshot complete with ARR, client count, and high-value accounts.",
+      "latency_ms": 0.4457079921849072,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:57.450528",
+      "test_name": "executive_tools",
+      "case_id": "ex_risk",
+      "query": "Does get_at_risk_clients_summary correctly aggregate churn risks?",
+      "agent_response": "Found 17 at-risk clients.\n[\n  {\n    \"client_name\": \"Pinnacle Capital Group\",\n    \"industry\": \"Finance\",\n    \"revenue\": \"$10B\",\n    \"risk_level\": \"Medium\",\n    \"assigned_associate\": \"ASSOC-004\"\n  },\n  {\n    \"client_name\": \"Metropolitan Transit Authority\",\n    \"industry\": \"Public Sector\",\n    \"revenue\": \"$1.2B\",\n    \"risk_level\": \"High\",\n    \"assigned_associate\": \"ASSOC-008\"\n  },\n  {\n    \"client_name\": \"TechNova Solutions\",\n    \"industry\": \"High Tech\",\n    \"revenue\": \"$1.5B\",\n    \"risk_level\": \"Medium\",\n    \"assigned_associate\": \"ASSOC-001\"\n  }\n]",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "at_risk_count": 17,
+        "has_client_name": true,
+        "has_risk_level": true
+      },
+      "reasoning": "At-risk client aggregation working correctly.",
+      "latency_ms": 0.5012080073356628,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:02:59.452581",
+      "test_name": "executive_tools",
+      "case_id": "ex_assoc",
+      "query": "Does get_all_associates_performance return valid associate summaries?",
+      "agent_response": "Found 12 associates.\nFirst: {\n  \"name\": \"Sarah Jenkins\",\n  \"role\": \"Client Success Associate\",\n  \"focus_area\": null,\n  \"client_count\": 0,\n  \"status\": \"Active\"\n}",
+      "retrieved_context": "Input: (no arguments)",
+      "scores": {
+        "associate_count": 12,
+        "has_name": true,
+        "has_role": true,
+        "has_client_count": true
+      },
+      "reasoning": "Associate performance aggregation working correctly.",
+      "latency_ms": 0.33187499502673745,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    }
+  ]
+}

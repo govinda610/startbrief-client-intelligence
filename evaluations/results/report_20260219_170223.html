@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Advisor — Evaluation Report 20260219_170223</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0a0f1a; color: #e2e8f0; padding: 24px; line-height: 1.6; }
+        
+        .header { border-bottom: 2px solid #22d3ee; padding-bottom: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 22px; color: #f8fafc; }
+        .header small { color: #94a3b8; font-size: 12px; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; }
+        .card-title { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .card-value { font-size: 28px; font-weight: 800; }
+        .card-value.good { color: #4ade80; }
+        .card-value.warn { color: #f97316; }
+        .card-value.bad { color: #ef4444; }
+        
+        .suite-overview { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .suite-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px 18px; min-width: 140px; text-align: center; }
+        .suite-card-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+        .suite-card-rate { font-size: 24px; font-weight: 800; }
+        .suite-card-detail { font-size: 11px; color: #64748b; }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+        
+        .recs { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+        .recs h3 { color: #f8fafc; margin-bottom: 12px; font-size: 16px; }
+        .recs ul { list-style: none; padding: 0; }
+        .recs li { padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; line-height: 1.8; }
+        .recs li:last-child { border-bottom: none; }
+        
+        .suite-section { background: #111827; border: 1px solid #1f2937; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .suite-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #1e293b; cursor: pointer; user-select: none; }
+        .suite-header:hover { background: #263243; }
+        .suite-header h3 { font-size: 14px; color: #f8fafc; }
+        .suite-stats { display: flex; gap: 12px; }
+        .stat-pass { color: #4ade80; font-size: 12px; font-weight: 600; }
+        .stat-fail { color: #ef4444; font-size: 12px; font-weight: 600; }
+        .stat-total { color: #94a3b8; font-size: 12px; }
+        
+        .suite-body { padding: 0; }
+        .suite-body.collapsed { display: none; }
+        
+        .case-table { width: 100%; border-collapse: collapse; }
+        .case-table th { background: #0f172a; text-align: left; padding: 10px 14px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; border-bottom: 1px solid #1f2937; }
+        .case-table td { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 12px; vertical-align: top; }
+        .case-row:hover { background: #1e293b40; }
+        .case-fail { background: #ef444410; }
+        .case-fail:hover { background: #ef444420; }
+        
+        .status-pass { color: #4ade80; font-weight: 700; font-size: 11px; }
+        .status-fail { color: #ef4444; font-weight: 700; font-size: 11px; }
+        
+        .query-text { font-weight: 600; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+        .resp-text { color: #94a3b8; font-size: 11px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; padding: 8px; background: #0a0f1a; border-radius: 6px; border: 1px solid #1f2937; }
+        .reasoning-text { color: #cbd5e1; font-size: 11px; line-height: 1.6; }
+        .meta-info { font-size: 10px; color: #64748b; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔬 Nexus Strategic Advisor — Evaluation Report</h1>
+        <div>
+            <small>Run ID: 20260219_170223</small><br>
+            <small>Generated: 2026-02-19 17:02:45</small>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value good">11/11 (100.0%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tests Executed</div>
+            <div class="card-value good">11</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Test Suites</div>
+            <div class="card-value good">1</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Latency</div>
+            <div class="card-value good">1ms</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Total Tokens</div>
+            <div class="card-value good">0</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📊 Per-Suite Breakdown</h2>
+    <div class="suite-overview">
+        
+            <div class="suite-card">
+                <div class="suite-card-name">DATA ACCESS</div>
+                <div class="suite-card-rate" style="color:#4ade80;">100%</div>
+                <div class="suite-card-detail">11/11 passed</div>
+                <div class="suite-card-detail">Avg: 1ms</div>
+            </div>
+
+    </div>
+
+    <div class="recs">
+        <h3>💡 Recommendations & Improvement Areas</h3>
+        <ul>
+            <li>✅ **All tests passed!** No immediate improvements needed. Consider adding more edge-case test queries to strengthen coverage.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Detailed Test Results</h2>
+    
+            <div class="suite-section">
+                <div class="suite-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                    <h3>✅ DATA ACCESS</h3>
+                    <div class="suite-stats">
+                        <span class="stat-pass">11 passed</span>
+                        <span class="stat-fail">0 failed</span>
+                        <span class="stat-total">11 total</span>
+                    </div>
+                </div>
+                <div class="suite-body">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;">Status</th>
+                                <th>Query / Test Input</th>
+                                <th>Agent Response / Output</th>
+                                <th>Metrics & Scores</th>
+                                <th>Reasoning & Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can lookup_client_file find 'Metropolitan Transit Authority'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "id": "c_metropolitan_transit_authority_541",
+  "name": "Metropolitan Transit Authority",
+  "industry": "Public Sector",
+  "revenue": "$1.2B",
+  "region": "EMEA",
+  "lifecycle_stage": "At Risk",
+  "churn_risk": "High",
+  "subscriptions": [
+    "Nexus Advisory for Finance Leaders",
+    "Nexus Advisory for Supply Chain Leaders"
+  ],
+  "entitlements": [
+    "Technical Professional Advice",
+    "Analyst Inquiries"
+  ],
+  "key_contacts": [
+    {
+      "name": "Anya Petrov",
+      "role": "CIO"
+  </div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">found: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">name_match: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_metropolitan_transit_authority_541</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Tool correctly retrieved client profile.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can lookup_client_file find 'GlobalPrecision Industries'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "id": "c_globalprecision_industries_232",
+  "name": "GlobalPrecision Industries",
+  "industry": "Manufacturing",
+  "revenue": "$2.8B",
+  "region": "EMEA",
+  "lifecycle_stage": "Growth",
+  "churn_risk": "Medium",
+  "subscriptions": [
+    "Nexus Advisory Standard License (GSL)"
+  ],
+  "entitlements": [
+    "Hype Cycles",
+    "Analyst Inquiries",
+    "Magic Quadrant Access",
+    "Technical Professional Advice"
+  ],
+  "key_contacts": [
+    {
+      "name": "David Kim",
+      "role": "Director of </div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">found: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">name_match: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_globalprecision_industries_232</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Tool correctly retrieved client profile.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can lookup_client_file find 'Global Financial Nexus Corp'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "id": "c_global_financial_nexus_corp_604",
+  "name": "Global Financial Nexus Corp",
+  "industry": "Finance",
+  "revenue": "$15B",
+  "region": "North America",
+  "lifecycle_stage": "At Risk",
+  "churn_risk": "High",
+  "subscriptions": [
+    "Nexus Advisory for CIOs",
+    "Nexus Advisory Standard License (GSL)"
+  ],
+  "entitlements": [
+    "Hype Cycles",
+    "Technical Professional Advice",
+    "Magic Quadrant Access",
+    "Peer Insights"
+  ],
+  "key_contacts": [
+    {
+      "name": "Reginald </div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">found: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">name_match: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_global_financial_nexus_corp_604</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Tool correctly retrieved client profile.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can get_client_engagement_metrics retrieve data for 'FinEdge Capital Partners'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">[
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 12,
+      "content_downloads": 9,
+      "inquiry_utilization_pct": 77,
+      "nps": 9,
+      "csat": 4.178680402707594,
+      "contract_value_arr": 214000,
+      "days_since_last_engagement": 1,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 7.7
+    }
+  },
+  {
+    "client_id": "c_finedge_capital_partners_938",
+    "month": "2025-08",
+    "metrics": {
+    </div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">found: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">is_list: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_finedge_capital_partners_938</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Engagement metrics returned successfully.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can get_client_engagement_metrics retrieve data for 'RetailConnect Inc'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">[
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 31,
+      "content_downloads": 14,
+      "inquiry_utilization_pct": 57,
+      "nps": 7,
+      "csat": 3.389515778411681,
+      "contract_value_arr": 429000,
+      "days_since_last_engagement": 7,
+      "research_docs_accessed": 21,
+      "analyst_inquiry_hours": 5.7
+    }
+  },
+  {
+    "client_id": "c_retailconnect_inc_466",
+    "month": "2025-08",
+    "metrics": {
+      "login_freq</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">found: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">is_list: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_retailconnect_inc_466</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Engagement metrics returned successfully.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can get_client_engagement_metrics retrieve data for 'GlobalFin Bank'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">[
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency": 23,
+      "content_downloads": 7,
+      "inquiry_utilization_pct": 56,
+      "nps": 9,
+      "csat": 4.222739441910287,
+      "contract_value_arr": 434000,
+      "days_since_last_engagement": 15,
+      "research_docs_accessed": 10,
+      "analyst_inquiry_hours": 5.6
+    }
+  },
+  {
+    "client_id": "c_globalfin_bank_395",
+    "month": "2025-08",
+    "metrics": {
+      "login_frequency"</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">found: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">is_list: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_globalfin_bank_395</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Engagement metrics returned successfully.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can lookup_contract_details find contract for 'OmniChannel Retail Ventures'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "id": "CON-438",
+  "client_id": "c_omnichannel_retail_ventures_438",
+  "start_date": "2025-07-08",
+  "end_date": "2026-07-08",
+  "total_value": 535000,
+  "currency": "USD",
+  "status": "Active",
+  "renewal_likelihood": "Medium",
+  "service_level": "Platinum"
+}</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">has_total_value: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">valid_status: Active</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_omnichannel_retail_ventures_438</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Contract details retrieved with valid status.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can lookup_contract_details find contract for 'GlobalFin Capital'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "id": "CON-311",
+  "client_id": "c_globalfin_capital_311",
+  "start_date": "2025-06-11",
+  "end_date": "2026-06-11",
+  "total_value": 150000,
+  "currency": "USD",
+  "status": "Active",
+  "renewal_likelihood": "High",
+  "service_level": "Silver"
+}</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">has_total_value: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">valid_status: Active</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_globalfin_capital_311</span>
+                        <div class="meta-info">
+                            Latency: 1ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Contract details retrieved with valid status.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can lookup_contract_details find contract for 'Precision Manufacturing Alliance Ltd'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "id": "CON-319",
+  "client_id": "c_precision_manufacturing_alliance_ltd_319",
+  "start_date": "2025-01-15",
+  "end_date": "2026-01-15",
+  "total_value": 150000,
+  "currency": "USD",
+  "status": "Expired",
+  "renewal_likelihood": "Medium",
+  "service_level": "Silver"
+}</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">has_total_value: True</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">valid_status: Expired</span><span style="display:inline-block;background:#f9731620;color:#f97316;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #f9731640;">client_id: c_precision_manufacturing_alliance_ltd_319</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Contract details retrieved with valid status.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Can get_associate_performance_context find associate for 'Nexus Innovations'?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">{
+  "profile": {
+    "id": "ASSOC-002",
+    "name": "David Miller",
+    "role": "Client Success Associate",
+    "region": "North America",
+    "tenure_months": 24
+  },
+  "performance": {
+    "associate_id": "ASSOC-002",
+    "metrics": {
+      "cross_sell_rate": 0.15,
+      "upsell_rate": 0.16,
+      "avg_csat": 4.0,
+      "retention_rate": 0.89,
+      "avg_interaction_time_mins": 44,
+      "renewals_secured": 10,
+      "revenue_managed": 3842000
+    }
+  }
+}</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">has_profile: True</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">has_performance: True</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Associate context retrieved with profile and performance data.</div>
+                    </td>
+                </tr>
+
+                <tr class="case-row ">
+                    <td><span class="status-pass">✅ PASS</span></td>
+                    <td style="min-width:220px;">
+                        <div class="query-text">Does list_all_clients return a valid client list?</div>
+                    </td>
+                    <td style="min-width:300px;">
+                        <div class="resp-text">Returned 25 clients. First: Nexus Innovations</div>
+                        
+                    </td>
+                    <td style="min-width:180px;">
+                        <span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">count: 25</span><span style="display:inline-block;background:#4ade8020;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px 4px 2px 0;border:1px solid #4ade8040;">has_name_field: True</span>
+                        <div class="meta-info">
+                            Latency: 0ms<br>
+                            
+                        </div>
+                    </td>
+                    <td style="min-width:250px;">
+                        <div class="reasoning-text">Client listing works correctly.</div>
+                    </td>
+                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+    
+            <div class="recs" style="border-left: 4px solid #4ade80;">
+                <h3>🎉 Improvement Analysis — No Failures Detected</h3>
+                <p style="color:#94a3b8;font-size:13px;">All evaluation tests passed. The system is performing within expected thresholds across all metrics. 
+                Consider adding edge-case queries, adversarial prompts, or more complex multi-turn interactions to further stress-test the system.</p>
+            </div>
+            
+
+    <div style="text-align:center;padding:32px;color:#475569;font-size:11px;">
+        Nexus Strategic Advisor Evaluation Framework v2.0 — Generated by EvalReportEngine
+    </div>
+</body>
+</html>

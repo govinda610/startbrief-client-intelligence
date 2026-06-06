@@ -209,6 +209,16 @@ def _safe_exec_worker(code, result_queue, memory_limit_mb=256):
         repl = PythonREPL()
         output = repl.run(full_code)
         
+        # 4. Audit Memory (macOS Enforcement Fallback)
+        usage = resource.getrusage(resource.RUSAGE_SELF)
+        # ru_maxrss is in bytes on macOS
+        if usage.ru_maxrss > ram_bytes:
+             result_queue.put({
+                 "success": False, 
+                 "error": f"Memory limit exceeded. Usage: {usage.ru_maxrss / 1024 / 1024:.1f}MB, Limit: {memory_limit_mb}MB"
+             })
+             return
+
         # Check if output is empty because of a stealthy crash or just no prints
         if not output and "print(" in code:
              result_queue.put({"success": False, "error": "Execution resulted in no output. Possible memory limit reached if print was expected."})
@@ -265,6 +275,11 @@ def analyze_data_python(code: str) -> str:
                 process.kill()
             return f"Error: Execution timed out after {timeout_seconds} seconds. Please optimize your code."
             
+        # Check if process terminated abnormally (e.g. OOM -9, Segfault -11)
+        if process.exitcode != 0:
+            logger.error(f"REPL Process crashed with exit code {process.exitcode}")
+            return f"Error: Code execution failed abruptly (Sandbox Crash/OOM). Exit code: {process.exitcode}"
+
         if not result_queue.empty():
             result = result_queue.get_nowait()
             if result["success"]:
@@ -274,8 +289,8 @@ def analyze_data_python(code: str) -> str:
                 logger.error(f"REPL Error: {result['error']}")
                 return f"Error executing code: {result['error']}"
         else:
-            # Process died without output (e.g., segfault/OOM)
-            return "Error: Code execution failed abruptly (possible memory limit exceeded)."
+            # Queue empty but exitcode was 0? Highly unlikely unless nothing was put.
+            return "Error: Code execution failed to return results."
             
     except Exception as e:
         logger.error(f"REPL System Error: {str(e)}")

@@ -1,64 +1,70 @@
 import subprocess
 import os
+import sys
 import time
-
-def run_suite(name, cmd):
-    print(f"\n{'='*60}")
-    print(f"🚀 STARTING SUITE: {name}")
-    print(f"{'='*60}")
-    start = time.perf_counter()
-    result = subprocess.run(cmd, shell=True)
-    latency = time.perf_counter() - start
-    status = "SUCCESS" if result.returncode == 0 else "FAILED (some tests failed)"
-    print(f"\n✅ COMPLETED SUITE: {name} in {latency:.1f}s | Status: {status}")
-    return result.returncode == 0
 
 def main():
     print("""
     🔬 Nexus Strategic Advisor — Full Evaluation Runner
     --------------------------------------------------
-    This script will execute all test suites and generate
-    real-time progress logging in the terminal.
+    Runs ALL test suites in a SINGLE pytest session so that
+    conftest.py creates ONE shared EvalReportEngine, producing
+    a single consolidated HTML + JSON report.
     """)
-    
+
     total_start = time.perf_counter()
 
-    # 1. Refresh Data (SKIPPED BY USER REQUEST to preserve curated cases)
-    # print("Step 1: Refreshing data and test cases...")
-    # subprocess.run("python3 evaluations/generate_test_cases.py", shell=True)
-
-    # 2. Define Suites
-    suites = [
-        ("Data Quality (Offline)", ".venv/bin/python3 -m pytest evaluations/test_data_quality.py -v -s"),
-        ("Data Access (Offline)", ".venv/bin/python3 -m pytest evaluations/test_data_access.py -v -s"),
-        ("Executive Tools (Offline)", ".venv/bin/python3 -m pytest evaluations/test_executive.py -v -s"),
-        ("NLP Accuracy (DistilBERT)", ".venv/bin/python3 -m pytest evaluations/test_nlp_accuracy.py -v -s"),
-        ("RAGAS: Faithfulness (LLM)", ".venv/bin/python3 -m pytest evaluations/test_faithfulness.py -v -s"),
-        ("RAGAS: Answer Relevancy (LLM)", ".venv/bin/python3 -m pytest evaluations/test_answer_relevancy.py -v -s"),
-        ("RAGAS: Context Precision (LLM)", ".venv/bin/python3 -m pytest evaluations/test_context_precision.py -v -s"),
-        ("Agent: Tool Usage Trajectory", ".venv/bin/python3 -m pytest evaluations/test_tool_usage.py -v -s"),
-        ("Agent: Response Quality (Judge)", ".venv/bin/python3 -m pytest evaluations/test_response_quality.py -v -s"),
-        ("System: Latency Benchmarks", ".venv/bin/python3 -m pytest evaluations/test_latency.py -v -s"),
-        ("Security: Code Safety Sandbox", ".venv/bin/python3 -m pytest evaluations/test_code_safety.py -v -s"),
+    # All test files in the order they should run.
+    # Offline / fast suites first, then LLM-heavy ones.
+    test_files = [
+        "evaluations/test_data_quality.py",
+        "evaluations/test_data_access.py",
+        "evaluations/test_executive.py",
+        "evaluations/test_nlp_accuracy.py",
+        "evaluations/test_code_safety.py",
+        "evaluations/test_retrieval.py",
+        "evaluations/test_faithfulness.py",
+        "evaluations/test_answer_relevancy.py",
+        "evaluations/test_context_precision.py",
+        "evaluations/test_tool_usage.py",
+        "evaluations/test_response_quality.py",
+        "evaluations/test_latency.py",
+        "evaluations/test_feedback_integration.py",
     ]
 
-    results = []
-    for name, cmd in suites:
-        success = run_suite(name, cmd)
-        results.append((name, success))
+    # Verify all files actually exist so we catch missing files early
+    missing = [f for f in test_files if not os.path.exists(f)]
+    if missing:
+        print(f"⚠️  WARNING: The following test files are missing and will be skipped:")
+        for m in missing:
+            print(f"   - {m}")
+        test_files = [f for f in test_files if os.path.exists(f)]
 
-    # 3. Final Summary
+    # Single pytest invocation — all files share ONE pytest session,
+    # which means conftest.py creates ONE EvalReportEngine and ONE report.
+    cmd = (
+        ".venv/bin/python3 -m pytest "
+        + " ".join(test_files)
+        + " -v -s --tb=short"
+    )
+
+    print(f"\n{'='*70}")
+    print(f"🚀 RUNNING ALL {len(test_files)} SUITES IN ONE PYTEST SESSION")
+    print(f"{'='*70}")
+    print(f"Command: {cmd}\n")
+
+    result = subprocess.run(cmd, shell=True)
+
     total_time = time.perf_counter() - total_start
-    print(f"\n{'='*60}")
-    print(f"🏁 ALL EVALUATIONS COMPLETE in {total_time/60:.1f} minutes")
-    print(f"{'='*60}")
-    
-    for name, success in results:
-        icon = "✅" if success else "❌"
-        print(f"{icon} {name}")
+    status = "SUCCESS" if result.returncode == 0 else "SOME TESTS FAILED"
 
-    print(f"\n📄 Consolidated HTML Dashboard generated in evaluations/results/")
-    print("Open the latest report_*.html to see full I/O, scores, and recommendations.")
+    print(f"\n{'='*70}")
+    print(f"🏁 ALL EVALUATIONS COMPLETE in {total_time/60:.1f} minutes | {status}")
+    print(f"{'='*70}")
+    print("\n📄 Consolidated HTML + JSON report generated in evaluations/results/")
+    print("   Open the latest report_*.html to see full I/O, scores, and recommendations.")
+
+    return result.returncode
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

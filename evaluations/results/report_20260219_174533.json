@@ -1,0 +1,120 @@
+{
+  "run_id": "20260219_174533",
+  "generated_at": "2026-02-19T17:48:07.869617",
+  "summary": {
+    "total_cases": 5,
+    "passed": 3,
+    "failed": 2,
+    "avg_latency_ms": 28759.577991405968,
+    "total_tokens": 0,
+    "per_test_metrics": {
+      "latency_e2e": {
+        "count": 3,
+        "passed": 1,
+        "failed": 2,
+        "pass_rate": 0.3333333333333333,
+        "avg_latency": 47931.58038867599
+      },
+      "latency_ttft": {
+        "count": 2,
+        "passed": 2,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "avg_latency": 1.574395500938408
+      }
+    },
+    "test_suites_run": 2
+  },
+  "results": [
+    {
+      "timestamp": "2026-02-19T17:45:58.109290",
+      "test_name": "latency_e2e",
+      "case_id": "l_e2e_-8157001146702691883",
+      "query": "Summarize health for Nexus Innovations",
+      "agent_response": "# Nexus Innovations - Health Summary\n\n## Overall Health: **STRONG** \u26a1\n\n---\n\n### Client Profile\n- **Industry:** High Tech | **Revenue:** $5B | **Region:** North America\n- **Lifecycle Stage:** Growth | **Churn Risk:** Low\n- **Service Level:** Gold ($220K ARR, expires June 2026)\n- **Renewal Likelihood:** High\n\n### Key Stakeholders\n- Dr. Evelyn Reed, CIO\n- Marcus Thorne, VP of Digital Strategy\n\n---\n\n### Engagement Trends (6-Month View)\n\n**Strengths:**\n- **Strong satisfaction trajectory:** CSAT climb",
+      "retrieved_context": "N/A",
+      "scores": {
+        "latency_ms": "24120",
+        "threshold_ms": "30000"
+      },
+      "reasoning": "Total E2E: 24120ms. \u2705 Within 30s threshold.",
+      "latency_ms": 24119.866375025595,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:47:22.753321",
+      "test_name": "latency_e2e",
+      "case_id": "l_e2e_2286157633424725188",
+      "query": "Is TechNova Solutions at risk of churn? Analyze their 6 month metrics and recent inquiries.",
+      "agent_response": "## TechNova Solutions - Churn Risk Assessment\n\n**Churn Risk Level: MEDIUM** \ud83d\udd36\n\nTechNova Solutions shows **mixed engagement signals** over the past 6 months. The client is at **moderate risk** of churn, but there are clear intervention paths available.\n\n---\n\n### Key Findings\n\n#### \ud83d\udd34 Critical Concerns\n- **CSAT scores have declined substantially**: 5.0 \u2192 3.43 (31% drop)\n- **Recent CSAT averaging 4.0** - below healthy threshold\n- **Highly volatile login patterns** (ranging from 16-40 logins/month)\n\n",
+      "retrieved_context": "N/A",
+      "scores": {
+        "latency_ms": "82640",
+        "threshold_ms": "30000"
+      },
+      "reasoning": "Total E2E: 82640ms. \u274c EXCEEDS 30s threshold by 52640ms. Consider optimizing retrieval or reducing tool chains.",
+      "latency_ms": 82639.64329098235,
+      "tokens_used": {},
+      "passed": false,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:48:01.852572",
+      "test_name": "latency_e2e",
+      "case_id": "l_e2e_-5218797116731394827",
+      "query": "Who are the top 3 associates by upsell volume?",
+      "agent_response": "Let me calculate the upsell volumes directly:\n\n**Top 3 Associates by Upsell Volume:**\n\n1. **Aisha Khan** - $749,400 (15% rate \u00d7 $4,996,000 revenue managed)\n\n2. **David Miller** - $614,720 (16% rate \u00d7 $3,842,000 revenue managed)\n\n3. **Sarah Jenkins** - $419,300 (14% rate \u00d7 $2,995,000 revenue managed)\n\n---\n\n**Full Ranking:**\n1. Aisha Khan - $749,400\n2. David Miller - $614,720\n3. Sarah Jenkins - $419,300\n4. James Wilson - $345,300\n5. Emily Davis - $155,040\n6. Robert Chen - $189,600\n7. Marcus Thorne",
+      "retrieved_context": "N/A",
+      "scores": {
+        "latency_ms": "37035",
+        "threshold_ms": "30000"
+      },
+      "reasoning": "Total E2E: 37035ms. \u274c EXCEEDS 30s threshold by 7035ms. Consider optimizing retrieval or reducing tool chains.",
+      "latency_ms": 37035.23150002002,
+      "tokens_used": {},
+      "passed": false,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:48:03.859618",
+      "test_name": "latency_ttft",
+      "case_id": "l_ttft_-8157001146702691883",
+      "query": "Summarize health for Nexus Innovations",
+      "agent_response": "[TTFT Measurement]",
+      "retrieved_context": "N/A",
+      "scores": {
+        "ttft_ms": "2",
+        "threshold_ms": "5000"
+      },
+      "reasoning": "First token in 2ms. \u2705 Within 5s threshold.",
+      "latency_ms": 1.945124997291714,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    },
+    {
+      "timestamp": "2026-02-19T17:48:05.867038",
+      "test_name": "latency_ttft",
+      "case_id": "l_ttft_2286157633424725188",
+      "query": "Is TechNova Solutions at risk of churn? Analyze their 6 month metrics and recent inquiries.",
+      "agent_response": "[TTFT Measurement]",
+      "retrieved_context": "N/A",
+      "scores": {
+        "ttft_ms": "1",
+        "threshold_ms": "5000"
+      },
+      "reasoning": "First token in 1ms. \u2705 Within 5s threshold.",
+      "latency_ms": 1.2036660045851022,
+      "tokens_used": {},
+      "passed": true,
+      "metadata": {},
+      "trace": []
+    }
+  ]
+}

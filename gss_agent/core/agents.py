@@ -21,7 +21,9 @@ llm = ChatAnthropic(
     model=MODEL_NAME,
     anthropic_api_key=ZAI_API_KEY,
     base_url=ZAI_BASE_URL,
-    max_tokens=MAX_TOKENS
+    max_tokens=MAX_TOKENS,
+    max_retries=3,
+    timeout=60
 )
 
 # HARNESS: Configure model profile to trigger built-in SummarizationMiddleware at 100k tokens.
